@@ -2,3 +2,6 @@ APIKEYS.js
 /node_modules
 npm-debug.log
 client/public/dist/bundle.js
+client/.DS_Store
+server/.DS_Store
+*.DS_Store
