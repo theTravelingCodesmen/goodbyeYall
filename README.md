@@ -1,2 +1,2 @@
 # goodbyeYall
-Helping other cheap people achieve their travel goals
+Helping people achieve their travel goals
