@@ -47,6 +47,8 @@ knex.ensureSchema = function () {
           table.integer('return_month');
           table.integer('depart_year');
           table.integer('return_year');
+          table.string('skyscanner_link', 255);
+          table.string('deep_link', 2000);
         }).then(function (table) {
           console.log('Created quotes table.');
         });
@@ -60,6 +62,21 @@ knex.ensureSchema = function () {
           table.string('name', 255);
         }).then(function (table) {
           console.log('Created packages table.');
+        });
+      }
+    }),
+
+    knex.schema.hasTable('averages').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('averages', function (table) {
+          table.increments('id').primary();
+          table.integer('avg_price');
+          table.integer('items_in_avg');
+          table.integer('month');
+          table.integer('origin');
+          table.integer('destination');
+        }).then(function (table) {
+          console.log('Created averages table.');
         });
       }
     })
@@ -76,7 +93,10 @@ knex.deleteEverything = function () {
       return knex('packages').truncate()
     })
     .then(function () {
-      console.log("Deleted destinations, quotes, and packages db tables")
+      return knex('averages').truncate()
+    })
+    .then(function () {
+      console.log("Deleted destinations, quotes, packages, and averages db tables")
     })
 }
 
