@@ -51,7 +51,7 @@ knex.ensureSchema = function () {
           console.log('Created quotes table.');
         });
       }
-    })
+    }),
 
     knex.schema.hasTable('packages').then(function (exists) {
       if (!exists) {
@@ -85,5 +85,6 @@ knex.closeDb = function () {
     console.log("Closed db connection")
   })
 }
+
 
 
