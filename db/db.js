@@ -35,69 +35,48 @@ knex.ensureSchema = ensureSchema = function () {
     knex.schema.hasTable('quotes').then(function (exists) {
       if (!exists) {
         knex.schema.createTable('quotes', function (table) {
-          table.increments('quote_id').primary();
-
-
-          table.string('trail_name', 255);
-          table.integer('max_eq_length');
-          table.integer('max_people');
-          table.integer('campground_id_fk');
-          table.integer('site_id');
-          table.string('site_name', 255);
-          table.string('site_type', 255);
-          table.string('waterfront', 255);
-          table.boolean('water');
-          table.boolean('amps');
-          table.boolean('pets');
-          table.boolean('sewer');
-          // table.timestamps();
+          table.increments('id').primary();
+          table.integer('origin_code');
+          table.integer('destination_code');
+          table.integer('price');
+          table.string('query_date_time', 255);
+          table.string('depart_full_date', 255);
+          table.string('return_full_date', 255);
+          table.integer('depart_month');
+          table.integer('return_month');
+          table.integer('depart_year');
+          table.integer('return_year');
         }).then(function (table) {
-          console.log('Created campsites table.');
+          console.log('Created quotes table.');
         });
       }
     })
+
+    knex.schema.hasTable('packages').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('packages', function (table) {
+          table.increments('id').primary();
+          table.string('name', 255);
+        }).then(function (table) {
+          console.log('Created packages table.');
+        });
+      }
+    })
+
   ])
 }
 
 knex.deleteEverything = function () {
-  return knex('campsites').truncate()
+  return knex('destinations').truncate()
     .then(function () {
-      return knex('campgrounds').truncate()
+      return knex('quotes').truncate()
     })
     .then(function () {
-      console.log("Deleted campgrounds and campsites db tables")
+      return knex('packages').truncate()
     })
-}
-
-//
-// Select all campgrounds from the campgrounds table
-//
-knex.queryCampgrounds = function() {
-  return knex('campgrounds').select();
-};
-
-//
-// Select all campsites with the given campground ID
-//
-knex.queryCampsites = function(cg_id) {
-  return knex('campsites').where({'campground_id_fk': cg_id}).select();
-}
-
-//
-// Insert all elements of a campground/campsite array into the given table name
-//
-knex.insertEverything = function(campArr, table) {
-  return Promise.all(_.map(campArr, function(camp) {
-    return knex(table).insert(camp)
-      .then(function (res) {
-        console.log("Added entry to " + table + " table: ", res);
-      })
-      .catch(function (err) {
-        console.log("Error inserting into " + table + " table: ", err);
-      })
-  })).then(function() {
-    return campArr;
-  });
+    .then(function () {
+      console.log("Deleted destinations, quotes, and packages db tables")
+    })
 }
 
 knex.closeDb = function () {
