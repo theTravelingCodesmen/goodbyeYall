@@ -14,7 +14,7 @@ let _ = require('underscore');
 
 module.exports = knex;
 
-knex.ensureSchema = ensureSchema = function () {
+knex.ensureSchema = function () {
   return Promise.all([
     knex.schema.hasTable('destinations').then(function (exists) {
       if (!exists) {
@@ -85,4 +85,5 @@ knex.closeDb = function () {
     console.log("Closed db connection")
   })
 }
+
 
