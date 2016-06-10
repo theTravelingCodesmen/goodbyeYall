@@ -12,3 +12,5 @@ knex.schema.hasTable('test').then(function(exist){
 	//close the connection to remote db
 	knex.destroy();
 })
+
+module.exports = knex;
