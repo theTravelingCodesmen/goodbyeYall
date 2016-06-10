@@ -1,15 +1,16 @@
+'use strict'
 //
 // db.js
 //
 // KNEX database library
 // plus additional database helper functions
 //
-var path = require('path');
+let path = require('path');
 
-var config = require('./knexfile')
-var env = process.env.NODE_ENV || 'development'
-var knex = require('knex')(config[env])
-var _ = require('underscore');
+let config = require('./knexfile')
+let env = process.env.NODE_ENV || 'development'
+let knex = require('knex')(config[env])
+let _ = require('underscore');
 
 module.exports = knex;
 
@@ -84,3 +85,4 @@ knex.closeDb = function () {
     console.log("Closed db connection")
   })
 }
+
