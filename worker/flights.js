@@ -63,10 +63,10 @@ function pollSession(sessionKey) {
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
 
 function searchSkyscannerByDate(departureDate){
-  let outbounddateTest = departureDate.addDays(14);
-  let inbounddateTest = departureDate.addDays(24);
+  let outboundDate = departureDate;
+  let inboundDate = departureDate.addDays(10);
 
-  getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outbounddateTest, inbounddateTest)
+  getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outboundDate, inboundDate)
     .then(function (sessionKey) {
       console.log("sessionKey:", sessionKey);
       return sessionKey;
@@ -80,8 +80,10 @@ function searchSkyscannerByDate(departureDate){
           return val.PricingOptions
           .map(function(ops){
             return  {
-                      Price: ops.Price,
-                      DeepLink: ops.DeeplinkUrl
+                      price: ops.Price,
+                      deepLink: ops.DeeplinkUrl,
+                      outboundDate: outboundDate,
+                      inboundDate: inboundDate
                     }
           })
         })
@@ -89,7 +91,7 @@ function searchSkyscannerByDate(departureDate){
           return prev.concat(current)
         }, [])
         .reduce(function(prev, current){
-          return prev.Price < current.Price ? prev : current
+          return prev.price < current.price ? prev : current
         }, [])
       )
     })
@@ -101,16 +103,18 @@ function generateFlightDates(daysOut){
   let dates = [];
   let daysAdded = daysOut;
   let count = 0
-  while(count < 50){
+  //change back to < 52
+  while(count < 2){
     dates.push(today.addDays(daysAdded));
     daysAdded += 7;
     count++;
   }
-  console.log(dates);
+  // console.log(dates);
   return dates;
 }
 
-// generateFlightDates(24)
+// let departueDates = generateFlightDates(14)
+// console.log(departueDates)
 searchSkyscannerByDate(today)
 
 
