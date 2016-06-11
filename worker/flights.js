@@ -12,8 +12,8 @@ let today = new Date;
 //adds a given number of days to a date
 
 Date.prototype.addDays = function(days){
-  let flightDate = new Date;
-  console.log(flightDate);
+  let flightDate = this;
+  console.log("addDays function call", flightDate);
   flightDate.setDate(flightDate.getDate() + days);
   return flightDate;
 }
@@ -26,6 +26,7 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
     method: 'POST',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0',
     transform: function (body, response, resolveWithFullResponse) {
+      // console.log(response.headers);
       return response.headers.location.split("/").slice(-1)[0];
     },
     headers: {
@@ -66,6 +67,8 @@ function searchSkyscannerByDate(departureDate){
   let outboundDate = departureDate;
   let inboundDate = departureDate.addDays(10);
 
+  console.log("outboundDate and inboundDate:", outboundDate, inboundDate)
+
   getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outboundDate, inboundDate)
     .then(function (sessionKey) {
       console.log("sessionKey:", sessionKey);
@@ -102,9 +105,9 @@ function searchSkyscannerByDate(departureDate){
 function generateFlightDates(daysOut){
   let dates = [];
   let daysAdded = daysOut;
-  let count = 0
+  let count = 0;
   //change back to < 52
-  while(count < 2){
+  while(count < 1){
     dates.push(today.addDays(daysAdded));
     daysAdded += 7;
     count++;
@@ -113,11 +116,25 @@ function generateFlightDates(daysOut){
   return dates;
 }
 
-// let departueDates = generateFlightDates(14)
+let departueDates = generateFlightDates(14)
 // console.log(departueDates)
-searchSkyscannerByDate(today)
 
+departueDates.forEach( function(val) {
+  return searchSkyscannerByDate(val)
+})
 
+// for (var i = 0; i < departueDates.length; i++) {
+//   searchSkyscannerByDate(departueDates[i])
+// }
+
+// let x = departueDates[0];
+// console.log("this is x", x);
+
+// searchSkyscannerByDate(x)
+
+// // searchSkyscannerByDate(departueDates[0])
+
+// // searchSkyscannerByDate(today)
 
 
 
