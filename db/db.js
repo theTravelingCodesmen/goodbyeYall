@@ -37,16 +37,17 @@ knex.ensureSchema = function () {
       if (!exists) {
         knex.schema.createTable('quotes', function (table) {
           table.increments('id').primary();
-          table.integer('origin_code');
-          table.integer('destination_code');
+          table.string('origin', 255);
+          table.string('destination', 255);
           table.integer('price');
-          table.string('query_date_time', 255);
+          table.timestamp('created_at').defaultTo(knex.fn.now());
           table.string('depart_full_date', 255);
           table.string('return_full_date', 255);
           table.integer('depart_month');
           table.integer('return_month');
           table.integer('depart_year');
           table.integer('return_year');
+          table.string('deep_link', 2000);
         }).then(function (table) {
           console.log('Created quotes table.');
         });
@@ -60,6 +61,22 @@ knex.ensureSchema = function () {
           table.string('name', 255);
         }).then(function (table) {
           console.log('Created packages table.');
+        });
+      }
+    }),
+
+    knex.schema.hasTable('averages').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('averages', function (table) {
+          table.increments('id').primary();
+          table.integer('avg_price');
+          table.integer('count');
+          table.integer('month');
+          table.integer('year');
+          table.string('origin', 255);
+          table.string('destination', 255);
+        }).then(function (table) {
+          console.log('Created averages table.');
         });
       }
     })
@@ -76,7 +93,10 @@ knex.deleteEverything = function () {
       return knex('packages').truncate()
     })
     .then(function () {
-      console.log("Deleted destinations, quotes, and packages db tables")
+      return knex('averages').truncate()
+    })
+    .then(function () {
+      console.log("Deleted destinations, quotes, packages, and averages db tables")
     })
 }
 
