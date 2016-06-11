@@ -19,7 +19,7 @@ function getSessionKey() {
       currency: "USD",
       locale: "en-US",
       originplace: "DFWA-sky",
-      destinationplace: "GIG-sky",
+      destinationplace: "BJSA-sky",
       outbounddate: "2016-06-25",
       inbounddate: "2016-07-05"
     }
@@ -27,14 +27,30 @@ function getSessionKey() {
   return requestPromise(options)
 }
 
-function pollSession() {
-    let options = {
+function pollSession(sessionKey) {
+  let options = {
     method: 'GET',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0/' + sessionKey + '?apiKey=' + SkyscannerKeys.SKYSCANNER_API,
+    headers:{
+      Accept: "application/json"
+    }
   }
+  return requestPromise(options)
 }
 
 getSessionKey()
   .then(function (sessionKey) {
-    console.log(sessionKey)
+    console.log(sessionKey);
+    return sessionKey;
   })
+  .then(pollSession)
+  .then(function (resp){
+    let response = JSON.parse(resp)
+    console.log(response.Itineraries)
+  })
+
+
+
+
+
+
