@@ -5,6 +5,12 @@ let SkyscannerKeys = require("../APIKEYS.js");
 let arrivalCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 let departureCities = ["DFWA-sky", "HOUA-sky"];
 
+let arrivalCitiesTest = ["RIOA-sky"];
+let departureCitiesTest = ["DFWA-sky"];
+let today = new Date;
+
+//adds a given number of days to a date
+
 Date.prototype.addDays = function(days){
   let flightDate = new Date;
   console.log(flightDate);
@@ -12,12 +18,7 @@ Date.prototype.addDays = function(days){
   return flightDate;
 }
 
-let arrivalCitiesTest = ["RIOA-sky"];
-let departureCitiesTest = ["DFWA-sky"];
-let today = new Date;
-
-
-
+//POST request to skyscanner to get session key
 
 function getSessionKey(originplace, destinationplace, outbounddate, inbounddate) {
   console.log("getSessionKey called with arguments:", originplace, destinationplace, outbounddate, inbounddate);
@@ -45,6 +46,8 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
   return requestPromise(options)
 }
 
+//GET request to skyscanner to get flight info
+
 function pollSession(sessionKey) {
   console.log("pollSession called");
   let options = {
@@ -58,7 +61,7 @@ function pollSession(sessionKey) {
 }
 
 
-function callByDateThrottle(currentDate){
+function searchSkyscannerByDate(currentDate){
   let outbounddateTest = currentDate.addDays(14);
   let inbounddateTest = currentDate.addDays(24);
 
@@ -70,6 +73,7 @@ function callByDateThrottle(currentDate){
     .then(pollSession)
     .then(function (resp){
       let response = JSON.parse(resp)
+      //make this a return statement instead of console.log
       console.log(response.Itineraries
         .map(function(val){
           return val.PricingOptions
@@ -88,35 +92,25 @@ function callByDateThrottle(currentDate){
         }, [])
       )
     })
-
 }
 
-function generateOutboundFlightDates(){
+//generates an array of flight dates for the next year
+
+function generateFlightDates(daysOut){
   let dates = [];
-  let daysAdded = 14;
+  let daysAdded = daysOut;
   let count = 0
   while(count < 50){
     dates.push(today.addDays(daysAdded));
     daysAdded += 7;
     count++;
   }
-  console.log(dates)
+  console.log(dates);
+  return dates;
 }
 
-function generateInboundFlightDates(){
-  let dates = [];
-  let daysAdded = 24;
-  let count = 0
-  while(count < 50){
-    dates.push(today.addDays(daysAdded));
-    daysAdded += 7;
-    count++;
-  }
-  console.log(dates)
-}
-
-generateInboundFlightDates()
-// callByDateThrottle(today)
+// generateFlightDates(24)
+searchSkyscannerByDate(today)
 
 
 
