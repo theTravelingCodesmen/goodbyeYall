@@ -6,16 +6,16 @@ let arrivalCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "
 let departureCities = ["DFWA-sky", "HOUA-sky"];
 
 Date.prototype.addDays = function(days){
-    var outbounddate = new Date();
-    outbounddate.setDate(outbounddate.getDate() + days);
-    return outbounddate.toISOString().slice(0,10);
+  let flightDate = new Date;
+  console.log(flightDate);
+  flightDate.setDate(flightDate.getDate() + days);
+  return flightDate;
 }
 
 let arrivalCitiesTest = ["RIOA-sky"];
 let departureCitiesTest = ["DFWA-sky"];
 let today = new Date;
-let outbounddateTest = [today.addDays(7)];
-let inbounddateTest = [today.addDays(17)];
+
 
 
 
@@ -38,8 +38,8 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
       locale: "en-US",
       originplace: originplace,
       destinationplace: destinationplace,
-      outbounddate: outbounddate,
-      inbounddate: inbounddate
+      outbounddate: outbounddate.toISOString().slice(0,10),
+      inbounddate: inbounddate.toISOString().slice(0,10)
     }
   }
   return requestPromise(options)
@@ -57,33 +57,66 @@ function pollSession(sessionKey) {
   return requestPromise(options)
 }
 
-getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outbounddateTest[0], inbounddateTest[0])
-  .then(function (sessionKey) {
-    console.log(sessionKey);
-    return sessionKey;
-  })
-  .then(pollSession)
-  .then(function (resp){
-    let response = JSON.parse(resp)
-    console.log(response.Itineraries
-      .map(function(val){
-        return val.PricingOptions
-        .map(function(ops){
-          return  {
-                    Price: ops.Price,
-                    DeepLink: ops.DeeplinkUrl
-                  }
-        })
-      })
-      .reduce(function(prev, current){
-        return prev.concat(current)
-      }, [])
-      .reduce(function(prev, current){
-        return prev.Price < current.Price ? prev : current
-      }, [])
-    )
-  })
 
+function callByDateThrottle(currentDate){
+  let outbounddateTest = currentDate.addDays(14);
+  let inbounddateTest = currentDate.addDays(24);
+
+  getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outbounddateTest, inbounddateTest)
+    .then(function (sessionKey) {
+      console.log("sessionKey:", sessionKey);
+      return sessionKey;
+    })
+    .then(pollSession)
+    .then(function (resp){
+      let response = JSON.parse(resp)
+      console.log(response.Itineraries
+        .map(function(val){
+          return val.PricingOptions
+          .map(function(ops){
+            return  {
+                      Price: ops.Price,
+                      DeepLink: ops.DeeplinkUrl
+                    }
+          })
+        })
+        .reduce(function(prev, current){
+          return prev.concat(current)
+        }, [])
+        .reduce(function(prev, current){
+          return prev.Price < current.Price ? prev : current
+        }, [])
+      )
+    })
+
+}
+
+function generateOutboundFlightDates(){
+  let dates = [];
+  let daysAdded = 14;
+  let count = 0
+  while(count < 50){
+    dates.push(today.addDays(daysAdded));
+    daysAdded += 7;
+    count++;
+  }
+  console.log(dates)
+}
+
+function generateInboundFlightDates(){
+  let dates = [];
+  let daysAdded = 24;
+  let count = 0
+  while(count < 50){
+    dates.push(today.addDays(daysAdded));
+    daysAdded += 7;
+    count++;
+  }
+  console.log(dates)
+}
+
+generateInboundFlightDates()
+// callByDateThrottle(today)
 
 
 
