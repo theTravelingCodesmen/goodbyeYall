@@ -46,7 +46,23 @@ getSessionKey()
   .then(pollSession)
   .then(function (resp){
     let response = JSON.parse(resp)
-    console.log(response.Itineraries)
+    console.log(response.Itineraries
+      .map(function(val){
+        return val.PricingOptions
+        .map(function(ops){
+          return  {
+                    Price: ops.Price,
+                    DeepLink: ops.DeeplinkUrl
+                  }
+        })
+      })
+      .reduce(function(prev, current){
+        return prev.concat(current)
+      })
+      .reduce(function(prev, current){
+        return prev.Price < current.Price ? prev : current
+      })
+    )
   })
 
 
