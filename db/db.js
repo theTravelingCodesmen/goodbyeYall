@@ -37,10 +37,10 @@ knex.ensureSchema = function () {
       if (!exists) {
         knex.schema.createTable('quotes', function (table) {
           table.increments('id').primary();
-          table.integer('origin_code');
-          table.integer('destination_code');
+          table.string('origin', 255);
+          table.string('destination', 255);
           table.integer('price');
-          table.string('query_date_time', 255);
+          table.timestamp('created_at').defaultTo(knex.fn.now());
           table.string('depart_full_date', 255);
           table.string('return_full_date', 255);
           table.integer('depart_month');
@@ -71,10 +71,11 @@ knex.ensureSchema = function () {
         knex.schema.createTable('averages', function (table) {
           table.increments('id').primary();
           table.integer('avg_price');
-          table.integer('items_in_avg');
+          table.integer('count');
           table.integer('month');
-          table.integer('origin');
-          table.integer('destination');
+          table.integer('year');
+          table.string('origin', 255);
+          table.string('destination', 255);
         }).then(function (table) {
           console.log('Created averages table.');
         });
