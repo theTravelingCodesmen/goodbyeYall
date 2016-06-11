@@ -2,7 +2,25 @@
 let requestPromise = require("request-promise");
 let SkyscannerKeys = require("../APIKEYS.js");
 
-function getSessionKey() {
+let arrivalCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
+let departureCities = ["DFWA-sky", "HOUA-sky"];
+
+Date.prototype.addDays = function(days){
+    var outbounddate = new Date();
+    outbounddate.setDate(outbounddate.getDate() + days);
+    return outbounddate.toISOString().slice(0,10);
+}
+
+let arrivalCitiesTest = ["RIOA-sky"];
+let departureCitiesTest = ["DFWA-sky"];
+let today = new Date;
+let outbounddateTest = [today.addDays(7)];
+let inbounddateTest = [today.addDays(17)];
+
+
+
+function getSessionKey(originplace, destinationplace, outbounddate, inbounddate) {
+  console.log("getSessionKey called with arguments:", originplace, destinationplace, outbounddate, inbounddate);
   let options = {
     method: 'POST',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0',
@@ -18,16 +36,17 @@ function getSessionKey() {
       country: "US",
       currency: "USD",
       locale: "en-US",
-      originplace: "DFWA-sky",
-      destinationplace: "BJSA-sky",
-      outbounddate: "2016-06-25",
-      inbounddate: "2016-07-05"
+      originplace: originplace,
+      destinationplace: destinationplace,
+      outbounddate: outbounddate,
+      inbounddate: inbounddate
     }
   }
   return requestPromise(options)
 }
 
 function pollSession(sessionKey) {
+  console.log("pollSession called");
   let options = {
     method: 'GET',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0/' + sessionKey + '?apiKey=' + SkyscannerKeys.SKYSCANNER_API,
@@ -38,7 +57,7 @@ function pollSession(sessionKey) {
   return requestPromise(options)
 }
 
-getSessionKey()
+getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outbounddateTest[0], inbounddateTest[0])
   .then(function (sessionKey) {
     console.log(sessionKey);
     return sessionKey;
@@ -58,12 +77,14 @@ getSessionKey()
       })
       .reduce(function(prev, current){
         return prev.concat(current)
-      })
+      }, [])
       .reduce(function(prev, current){
         return prev.Price < current.Price ? prev : current
-      })
+      }, [])
     )
   })
+
+
 
 
 
