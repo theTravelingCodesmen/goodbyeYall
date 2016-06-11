@@ -47,7 +47,6 @@ knex.ensureSchema = function () {
           table.integer('return_month');
           table.integer('depart_year');
           table.integer('return_year');
-          table.string('skyscanner_link', 255);
           table.string('deep_link', 2000);
         }).then(function (table) {
           console.log('Created quotes table.');
