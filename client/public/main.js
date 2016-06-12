@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom'
 import PhotoOne from '../components/photoSlotOne'
 import PhotoTwo from '../components/photoSlotTwo'
 import PhotoThree from '../components/photoSlotThree'
+import PhotoFour from '../components/photoSlotFour'
+import PhotoFive from '../components/photoSlotFive'
+import PhotoSix from '../components/photoSlotSix'
+
 
 class Test extends React.Component {
 	render(){
