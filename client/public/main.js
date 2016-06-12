@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import PhotoOne from '../components/photoSlotOne'
 
 class Test extends React.Component {
 	render(){
