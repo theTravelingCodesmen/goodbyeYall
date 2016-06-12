@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PhotoOne from '../components/photoSlotOne'
 import PhotoTwo from '../components/photoSlotTwo'
+import PhotoThree from '../components/photoSlotThree'
 
 class Test extends React.Component {
 	render(){
