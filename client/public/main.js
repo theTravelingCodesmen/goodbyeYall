@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import CardTitle from '../components/cardTitle'
 import PhotoOne from '../components/photoSlotOne'
 import PhotoTwo from '../components/photoSlotTwo'
 import PhotoThree from '../components/photoSlotThree'
