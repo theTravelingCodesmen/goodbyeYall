@@ -12,8 +12,8 @@ let today = new Date;
 //adds a given number of days to a date
 
 Date.prototype.addDays = function(days){
-  let flightDate = this;
-  console.log("addDays function call", flightDate);
+  let flightDate = new Date(this.getTime())
+  // console.log("addDays function call", flightDate);
   flightDate.setDate(flightDate.getDate() + days);
   return flightDate;
 }
@@ -65,9 +65,9 @@ function pollSession(sessionKey) {
 
 function searchSkyscannerByDate(departureDate){
   let outboundDate = departureDate;
-  let inboundDate = departureDate.addDays(10);
+  let inboundDate = new Date(departureDate.getTime()).addDays(10);
 
-  console.log("outboundDate and inboundDate:", outboundDate, inboundDate)
+  // console.log("outboundDate and inboundDate:", outboundDate, inboundDate)
 
   getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outboundDate, inboundDate)
     .then(function (sessionKey) {
@@ -107,7 +107,7 @@ function generateFlightDates(daysOut){
   let daysAdded = daysOut;
   let count = 0;
   //change back to < 52
-  while(count < 1){
+  while(count < 8){
     dates.push(today.addDays(daysAdded));
     daysAdded += 7;
     count++;
@@ -117,7 +117,7 @@ function generateFlightDates(daysOut){
 }
 
 let departueDates = generateFlightDates(14)
-// console.log(departueDates)
+console.log(departueDates)
 
 departueDates.forEach( function(val) {
   return searchSkyscannerByDate(val)
