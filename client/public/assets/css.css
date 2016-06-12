@@ -1,0 +1,124 @@
+
+.cardBox, .cardTitle, .photoRoll, .ul, .chichen, .colusseum, .machu, .pentra, .christ, .taj, .parentPhoto, .wall, .intro, .dThree,.flight {
+	padding: 0;
+	margin: 0 ;
+	border: 0;
+}
+
+
+
+.cardBox {
+	position: absolute;
+	top: 0;
+	left:0;
+	min-height: 100%;
+	min-width: 100%;
+	background-color: red;
+	border-style: solid;
+	border-color: yellow;
+}
+
+.cardTitle{
+	margin-left: 0px;
+	min-height: 50px;
+	background-color: blue;
+	border-style: solid;
+	border-color: black;
+}
+
+.photoRoll{
+	margin-left: 0px;
+	min-height: 50px;
+	background-color: grey;
+	border-style: solid;
+	border-color: black;
+
+}
+
+.ul{
+	margin-right: 0px;
+	margin-left: 0px;
+}
+.chichen{
+	display : inline-block;
+	min-height: 40px;
+	min-width: 16%;
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+}
+
+.colusseum{
+	display : inline-block;
+	min-height: 40px;
+	min-width: 16%;
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+}
+
+.machu{
+	display : inline-block;
+	min-height: 40px;
+	min-width: 16%;
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+}
+
+.pentra{
+	display : inline-block;
+	min-height: 40px;
+	min-width: 16%;
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+}
+
+.christ{
+	display : inline-block;
+	min-height: 40px;
+	min-width: 16%;
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+}
+
+.taj{
+	display : inline-block;
+	min-height: 40px;
+	min-width: 16%;
+	background-color: white;
+	border-style: solid;
+	border-color: black;
+}
+
+.parentPhoto{
+/*	height: 500px;
+	background-color: green*/
+}
+
+.wall{
+
+}
+
+.intro{
+	margin-left: 0px;
+	min-height: 200px;
+	background-color: blue;
+	border-style: solid;
+	border-color: black;
+
+}
+
+.dThree{
+	display:inline-block;
+	align:center;
+}
+
+.flight{
+	display: inline-block;
+	align:center
+}
+
+
