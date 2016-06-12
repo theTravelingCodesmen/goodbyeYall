@@ -13,7 +13,6 @@ let today = new Date;
 
 Date.prototype.addDays = function(days){
   let flightDate = new Date(this.getTime())
-  // console.log("addDays function call", flightDate);
   flightDate.setDate(flightDate.getDate() + days);
   return flightDate;
 }
@@ -26,7 +25,6 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
     method: 'POST',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0',
     transform: function (body, response, resolveWithFullResponse) {
-      // console.log(response.headers);
       return response.headers.location.split("/").slice(-1)[0];
     },
     headers: {
@@ -66,8 +64,6 @@ function pollSession(sessionKey) {
 function searchSkyscannerByDate(departureDate){
   let outboundDate = departureDate;
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
-
-  // console.log("outboundDate and inboundDate:", outboundDate, inboundDate)
 
   getSessionKey(arrivalCitiesTest[0], departureCitiesTest[0], outboundDate, inboundDate)
     .then(function (sessionKey) {
@@ -112,7 +108,6 @@ function generateFlightDates(daysOut){
     daysAdded += 7;
     count++;
   }
-  // console.log(dates);
   return dates;
 }
 
@@ -127,14 +122,6 @@ departueDates.forEach( function(val) {
 //   searchSkyscannerByDate(departueDates[i])
 // }
 
-// let x = departueDates[0];
-// console.log("this is x", x);
-
-// searchSkyscannerByDate(x)
-
-// // searchSkyscannerByDate(departueDates[0])
-
-// // searchSkyscannerByDate(today)
 
 
 
