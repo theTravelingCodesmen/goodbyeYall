@@ -5,8 +5,7 @@ let SkyscannerKeys = require("../APIKEYS.js");
 let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
-let originCitiesTest = ["DFWA-sky"];
-let destinationCitiesTest = ["RIOA-sky", "BJSA-sky", "CUZ-sky"];
+let departureDates = generateFlightDates(14);
 let today = new Date;
 
 //adds a given number of days to a date
@@ -113,8 +112,8 @@ function generateFlightDates(daysOut){
   return dates;
 }
 
-let departureDates = generateFlightDates(14)
-console.log(departureDates)
+
+//iterates through cities arrays and dates array calling searchSkyscannerByDate
 
 originCities.forEach( (city) => {
   destinationCities.forEach( (dest) => {
@@ -125,9 +124,7 @@ originCities.forEach( (city) => {
 })
 
 
-// for (var i = 0; i < departureDates.length; i++) {
-//   searchSkyscannerByDate(departureDates[i])
-// }
+
 
 
 
