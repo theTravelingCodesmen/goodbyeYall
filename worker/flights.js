@@ -125,17 +125,7 @@ function generateFlightDates(daysOut){
 
 //
 // Insert flight object into quotes table
-//
-// {
-//   price: ops.Price,
-//   originCity: originCity,
-//   destinationCity: destinationCity,
-//   outboundDate: outboundDate.toISOString().slice(0,10),
-//   inboundDate: inboundDate.toISOString().slice(0,10),
-//   outboundMonth: outboundDate.toISOString().slice(5,7),
-//   outboundYear: outboundDate.toISOString().slice(0,4),
-//   deepLink: ops.DeeplinkUrl
-// }
+
 knex.insertQuotesIntoDb = function(flightObj) {
   return knex('quotes').insert(flightObj);
 }
