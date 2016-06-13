@@ -37,17 +37,15 @@ knex.ensureSchema = function () {
       if (!exists) {
         knex.schema.createTable('quotes', function (table) {
           table.increments('id').primary();
-          table.string('origin', 255);
-          table.string('destination', 255);
-          table.integer('price');
+          table.float('price');
+          table.string('originCity', 255);
+          table.string('destinationCity', 255);
+          table.date('outboundDate');
+          table.date('inboundDate');
+          table.string('outboundMonth', 2);
+          table.string('outboundYear', 4);
+          table.string('deepLink', 2000);
           table.timestamp('created_at').defaultTo(knex.fn.now());
-          table.string('depart_full_date', 255);
-          table.string('return_full_date', 255);
-          table.integer('depart_month');
-          table.integer('return_month');
-          table.integer('depart_year');
-          table.integer('return_year');
-          table.string('deep_link', 2000);
         }).then(function (table) {
           console.log('Created quotes table.');
         });
@@ -69,12 +67,12 @@ knex.ensureSchema = function () {
       if (!exists) {
         knex.schema.createTable('averages', function (table) {
           table.increments('id').primary();
-          table.integer('avg_price');
+          table.float('avg_price');
           table.integer('count');
-          table.integer('month');
-          table.integer('year');
-          table.string('origin', 255);
-          table.string('destination', 255);
+          table.string('originCity', 255);
+          table.string('destinationCity', 255);
+          table.string('outboundMonth',2);
+          table.string('outboundYear', 4);
         }).then(function (table) {
           console.log('Created averages table.');
         });
