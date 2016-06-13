@@ -2,10 +2,10 @@
 let requestPromise = require("request-promise");
 let SkyscannerKeys = require("../APIKEYS.js");
 
-let outboundCities = ["DFWA-sky", "HOUA-sky"];
+let originCities = ["DFWA-sky", "HOUA-sky"];
 let arrivalCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
-let outboundCitiesTest = ["DFWA-sky"];
+let originCitiesTest = ["DFWA-sky"];
 let arrivalCitiesTest = ["RIOA-sky"];
 let today = new Date;
 
@@ -61,11 +61,11 @@ function pollSession(sessionKey) {
 
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
 
-function searchSkyscannerByDate(departureDate, outboundCity){
+function searchSkyscannerByDate(departureDate, originCity){
   let outboundDate = departureDate;
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
 
-  getSessionKey(outboundCity, arrivalCitiesTest[0], outboundDate, inboundDate)
+  getSessionKey(originCity, arrivalCitiesTest[0], outboundDate, inboundDate)
     .then( (sessionKey) => {
       console.log("sessionKey:", sessionKey);
       return sessionKey;
@@ -80,7 +80,7 @@ function searchSkyscannerByDate(departureDate, outboundCity){
           .map( (ops) => {
             return  {
                       price: ops.Price,
-                      outboundCity: outboundCity,
+                      originCity: originCity,
                       outboundDate: outboundDate,
                       inboundDate: inboundDate,
                       deepLink: ops.DeeplinkUrl
@@ -115,7 +115,7 @@ function generateFlightDates(daysOut){
 let departureDates = generateFlightDates(14)
 console.log(departureDates)
 
-outboundCities.forEach( (city) => {
+originCities.forEach( (city) => {
   departureDates.forEach( (date) => {
     return searchSkyscannerByDate(date, city)
   }) 
