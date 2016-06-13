@@ -5,10 +5,9 @@ import getd3Cachegraph from './d3CacheGraphFetch'
 
 class D3Cache extends React.Component {
   render(){
-    return ( <div></div> )
+    return ( <div><button></button></div> )
   }
   componentDidMount(){
-    console.log('line 11');
     getd3Cachegraph();
   }
 }
