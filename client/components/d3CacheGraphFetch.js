@@ -1,7 +1,10 @@
 'use strict'
 
 import $ from 'jquery'
-let url = "http://partners.api.skyscanner.net/apiservices/browsedates/v1.0/US/USD/en-US/LON/JFK/2016/2016?apiKey=tr381925555151402243435952656975";
+
+
+/// the end point on the server is skyscanner_api/d3_cache/:location/:currency/:ISO/:dest/:arrival/:depart_time/:arrival_time
+let url = "/US/USD/en-US/LON/JFK/2016/2016?apiKey=tr381925555151402243435952656975";
 
 function compare(a, b) {
   if (a.date < b.date) {
@@ -18,7 +21,7 @@ function compare(a, b) {
 
 let getd3Cachegraph = function(){
   // Get the data
-  d3.json(url, function(error, price) {
+  d3.json('/skyscanner_api/d3_cache'+url, function(error, price) {
       //process data
     price = price.Dates;
     price.OutboundDates = price.OutboundDates.map(function(obj){ return {price:obj.Price, date:obj.PartialDate}});
