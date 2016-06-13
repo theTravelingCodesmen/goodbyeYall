@@ -123,4 +123,37 @@
 	background-color: white;*/
 }
 
-
+.d-three {
+	opacity: 1; 
+	background-color: white;
+}
+/* info box for d3 graph */
+.infobox {
+	border:2px solid steelblue;
+	border-radius:4px;
+	box-shadow:#333333 0px 0px 10px;
+	margin:0 0;
+	padding:5px 10px;
+	background:rgba(255, 255, 255, 0.8);
+	position:relative;
+	top:0px;
+	left:0px;
+	width:17%;
+	text-align: center;
+	z-index:10500;
+	font-weight:bold;
+}
+/* path for svg graph */
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+/* axis for svg graph */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
