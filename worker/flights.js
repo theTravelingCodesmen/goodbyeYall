@@ -24,7 +24,7 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
   let options = {
     method: 'POST',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0',
-    transform: function (body, response, resolveWithFullResponse) {
+    transform: (body, response, resolveWithFullResponse) => {
       return response.headers.location.split("/").slice(-1)[0];
     },
     headers: {
@@ -66,7 +66,7 @@ function searchSkyscannerByDate(departureDate, departueCity){
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
 
   getSessionKey(departueCity, arrivalCitiesTest[0], outboundDate, inboundDate)
-    .then(function (sessionKey) {
+    .then( (sessionKey) => {
       console.log("sessionKey:", sessionKey);
       return sessionKey;
     })
@@ -80,9 +80,10 @@ function searchSkyscannerByDate(departureDate, departueCity){
           .map( (ops) => {
             return  {
                       price: ops.Price,
-                      deepLink: ops.DeeplinkUrl,
+                      departueCity: departueCity,
                       outboundDate: outboundDate,
-                      inboundDate: inboundDate
+                      inboundDate: inboundDate,
+                      deepLink: ops.DeeplinkUrl
                     }
           })
         })
@@ -114,14 +115,12 @@ function generateFlightDates(daysOut){
 let departueDates = generateFlightDates(14)
 console.log(departueDates)
 
-// departureCities.forEach( (city) => {
-  
-  
-// })
-
+departureCities.forEach( (city) => {
   departueDates.forEach( (date) => {
-    return searchSkyscannerByDate(date, departureCitiesTest[0])
-  })
+    return searchSkyscannerByDate(date, city)
+  }) 
+})
+
 
 // for (var i = 0; i < departueDates.length; i++) {
 //   searchSkyscannerByDate(departueDates[i])
