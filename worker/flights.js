@@ -114,16 +114,21 @@ function generateFlightDates(daysOut){
 }
 
 
-let departureDates = generateFlightDates(14);
-//iterates through cities arrays and dates array calling searchSkyscannerByDate
+//generates all data that is collected and inserted into Db
 
-originCities.forEach( (city) => {
-  destinationCities.forEach( (dest) => {
-    departureDates.forEach( (date) => {
-      return searchSkyscannerByDate(date, city, dest)
-    })     
+function gatherDataAndInsertIntoDb() {  
+  let departureDates = generateFlightDates(14);
+  originCities.forEach( (city) => {
+    destinationCities.forEach( (dest) => {
+      departureDates.forEach( (date) => {
+        return searchSkyscannerByDate(date, city, dest)
+      })     
+    })
   })
-})
+}
+
+gatherDataAndInsertIntoDb()
+
 
 
 
