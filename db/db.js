@@ -103,6 +103,15 @@ knex.insertEverything = function(quoteArr) {
 }
 
 
+knex.calculateAverages = function (??) {
+  return knex.('quotes').avg('price')
+    .where()
+}
+
+
+
+
+
 knex.deleteEverything = function () {
   return knex('destinations').truncate()
     .then(function () {
