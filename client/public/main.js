@@ -9,6 +9,7 @@ import PhotoFive from '../components/photoSlotFive'
 import PhotoSix from '../components/photoSlotSix'
 import Intro from '../components/intro'
 import d3CacheGraph from '../components/d3CacheGraph'
+import FlightData from '../components/flightData'
 
 
 
