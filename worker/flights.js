@@ -2,10 +2,10 @@
 let requestPromise = require("request-promise");
 let SkyscannerKeys = require("../APIKEYS.js");
 
-let departureCities = ["DFWA-sky", "HOUA-sky"];
+let outboundCities = ["DFWA-sky", "HOUA-sky"];
 let arrivalCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
-let departureCitiesTest = ["DFWA-sky"];
+let outboundCitiesTest = ["DFWA-sky"];
 let arrivalCitiesTest = ["RIOA-sky"];
 let today = new Date;
 
@@ -61,11 +61,11 @@ function pollSession(sessionKey) {
 
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
 
-function searchSkyscannerByDate(departureDate, departueCity){
+function searchSkyscannerByDate(departureDate, outboundCity){
   let outboundDate = departureDate;
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
 
-  getSessionKey(departueCity, arrivalCitiesTest[0], outboundDate, inboundDate)
+  getSessionKey(outboundCity, arrivalCitiesTest[0], outboundDate, inboundDate)
     .then( (sessionKey) => {
       console.log("sessionKey:", sessionKey);
       return sessionKey;
@@ -80,7 +80,7 @@ function searchSkyscannerByDate(departureDate, departueCity){
           .map( (ops) => {
             return  {
                       price: ops.Price,
-                      departueCity: departueCity,
+                      outboundCity: outboundCity,
                       outboundDate: outboundDate,
                       inboundDate: inboundDate,
                       deepLink: ops.DeeplinkUrl
@@ -112,18 +112,18 @@ function generateFlightDates(daysOut){
   return dates;
 }
 
-let departueDates = generateFlightDates(14)
-console.log(departueDates)
+let departureDates = generateFlightDates(14)
+console.log(departureDates)
 
-departureCities.forEach( (city) => {
-  departueDates.forEach( (date) => {
+outboundCities.forEach( (city) => {
+  departureDates.forEach( (date) => {
     return searchSkyscannerByDate(date, city)
   }) 
 })
 
 
-// for (var i = 0; i < departueDates.length; i++) {
-//   searchSkyscannerByDate(departueDates[i])
+// for (var i = 0; i < departureDates.length; i++) {
+//   searchSkyscannerByDate(departureDates[i])
 // }
 
 
