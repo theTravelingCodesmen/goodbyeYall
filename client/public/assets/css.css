@@ -1,5 +1,5 @@
 
-.cardBox, .cardTitle, .photoRoll, .ul, .chichen, .colusseum, .machu, .pentra, .christ, .taj, .parentPhoto, .wall, .intro, .dThree,.flight {
+.card-box, .card-title, .photo-roll, .ul, .chichen, .colusseum, .machu, .pentra, .christ, .taj, .parent-photo, .wall, .intro, .d-three, .flight {
 	padding: 0;
 	margin: 0 ;
 	border: 0;
@@ -7,7 +7,7 @@
 
 
 
-.cardBox {
+.card-box {
 	position: absolute;
 	top: 0;
 	left:0;
@@ -18,7 +18,7 @@
 	border-color: yellow;
 }
 
-.cardTitle{
+.card-title{
 	margin-left: 0px;
 	min-height: 50px;
 	background-color: blue;
@@ -26,7 +26,7 @@
 	border-color: black;
 }
 
-.photoRoll{
+.photo-roll{
 	margin-left: 0px;
 	min-height: 50px;
 	background-color: grey;
@@ -93,7 +93,7 @@
 	border-color: black;
 }
 
-.parentPhoto{
+.parent-photo{
 /*	height: 500px;
 	background-color: green*/
 }
@@ -111,7 +111,7 @@
 
 }
 
-.dThree{
+.d-three{
 	display:inline-block;
 	align:center;
 }
