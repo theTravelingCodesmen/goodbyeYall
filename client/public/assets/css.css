@@ -118,7 +118,9 @@
 
 .flight{
 	display: inline-block;
-	align:center
+	align:center;
+/*	height: 500px;
+	background-color: white;*/
 }
 
 
