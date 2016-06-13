@@ -84,6 +84,25 @@ knex.ensureSchema = function () {
   ])
 }
 
+
+//
+// Insert all elements of a quotes/averages array into the given table name
+//
+knex.insertEverything = function(quoteArr, table) {
+  return Promise.all(_.map(quoteArr, function(quote) {
+    return knex(table).insert(quote)
+      .then(function (res) {
+        console.log("Added entry to " + table + " table: ", res);
+      })
+      .catch(function (err) {
+        console.log("Error inserting into " + table + " table: ", err);
+      })
+  })).then(function() {
+    return quoteArr;
+  });
+}
+
+
 knex.deleteEverything = function () {
   return knex('destinations').truncate()
     .then(function () {
@@ -105,6 +124,10 @@ knex.closeDb = function () {
     console.log("Closed db connection")
   })
 }
+
+
+
+
 
 
 
