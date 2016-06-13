@@ -116,7 +116,7 @@ let getd3Cachegraph = function(){
           .attr('fill','red')
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.price); })
-          .on("mouseover", function(d) { showData(this, d.date.toISOString().slice(0,7) + ': $' + d.price);})
+          .on("mouseover", function(d) { showData(this, d3.time.format("%b %Y")(d.date) + ': $' + d.price);})
           .on("mouseout", function(){ hideData();});
 
       // Add the X Axis
@@ -139,6 +139,12 @@ let getd3Cachegraph = function(){
           .attr('text-anchor','middle')
           .style('font-size','16px')
           .text('graph title');
+
+
+      svg.append("text")
+          .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+          .attr("transform", "translate("+ (width/2) +","+(height+(margin.bottom/3))+")")  // centre below axis
+          .text("Date");
 
       $("svg").after("<div class='infobox' style='display:none;'>Test</div>");
 
