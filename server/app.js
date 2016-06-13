@@ -5,6 +5,7 @@ let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+let requestpromise = require('request-promise');
 
 let routes = express.Router();
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
@@ -35,7 +36,10 @@ if(process.env.NODE_ENV === 'test'){
 			skyscanner_endpoint+= '/' + req.params.depart_time;
 			skyscanner_endpoint+= '/' + req.params.arrival_time;
 			skyscanner_endpoint+= '?apiKey=' + req.query.apiKey;
-			res.json({'realurl': skyscanner_endpoint})
+			requestpromise(skyscanner_endpoint).then(JSON.parse).then(function(resp){
+				res.json(resp)
+			})
+			
 		});
 
 		// at api endpoint here when available
