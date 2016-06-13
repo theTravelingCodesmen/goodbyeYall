@@ -47,7 +47,6 @@ let getd3Cachegraph = function(){
 
       function showData(obj, d) {
        let coord = d3.mouse(obj);
-       console.log(coord);
        let infobox = d3.select(".infobox");
        // now we just position the infobox roughly where our mouse is
        infobox.style("left", (coord[0]) + "px" );
