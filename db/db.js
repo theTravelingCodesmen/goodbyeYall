@@ -104,7 +104,7 @@ knex.insertQuotes = function(quoteArr) {
 
 
 
-//In progress-commented out until complete
+//Function construction in progress-commented out until complete
 
 // knex.calculateAverages = function (??) {
 //   return knex.('quotes').avg('price')
