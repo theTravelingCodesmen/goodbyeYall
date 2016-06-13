@@ -1,5 +1,5 @@
 
-.cardBox, .cardTitle, .photoRoll, .ul, .chichen, .colusseum, .machu, .pentra, .christ, .taj, .parentPhoto, .wall, .intro, .dThree,.flight {
+.card-box, .card-title, .photo-roll, .ul, .chichen, .colusseum, .machu, .petra, .christ, .taj, .parent-photo, .wall, .intro, .d-three, .flight {
 	padding: 0;
 	margin: 0 ;
 	border: 0;
@@ -7,7 +7,7 @@
 
 
 
-.cardBox {
+.card-box {
 	position: absolute;
 	top: 0;
 	left:0;
@@ -18,7 +18,7 @@
 	border-color: yellow;
 }
 
-.cardTitle{
+.card-title{
 	margin-left: 0px;
 	min-height: 50px;
 	background-color: blue;
@@ -26,7 +26,7 @@
 	border-color: black;
 }
 
-.photoRoll{
+.photo-roll{
 	margin-left: 0px;
 	min-height: 50px;
 	background-color: grey;
@@ -66,7 +66,7 @@
 	border-color: black;
 }
 
-.pentra{
+.petra{
 	display : inline-block;
 	min-height: 40px;
 	min-width: 16%;
@@ -93,7 +93,7 @@
 	border-color: black;
 }
 
-.parentPhoto{
+.parent-photo{
 /*	height: 500px;
 	background-color: green*/
 }
@@ -111,14 +111,49 @@
 
 }
 
-.dThree{
+.d-three{
 	display:inline-block;
 	align:center;
 }
 
 .flight{
 	display: inline-block;
-	align:center
+	align:center;
+/*	height: 500px;
+	background-color: white;*/
 }
 
-
+.d-three {
+	opacity: 1; 
+	background-color: white;
+}
+/* info box for d3 graph */
+.infobox {
+	border:2px solid steelblue;
+	border-radius:4px;
+	box-shadow:#333333 0px 0px 10px;
+	margin:0 0;
+	padding:5px 10px;
+	background:rgba(255, 255, 255, 0.8);
+	position:relative;
+	top:0px;
+	left:0px;
+	width:17%;
+	text-align: center;
+	z-index:10500;
+	font-weight:bold;
+}
+/* path for svg graph */
+path { 
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+/* axis for svg graph */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}

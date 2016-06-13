@@ -6,7 +6,7 @@ import ReactDom from 'react-dom'
 class PhotoTwo extends React.Component{
 	render(){
 		return (
-			<img className='christ_the_redeemer'src='/assets/images/christ_the_redeemer.png'></img>
+			<img className='christ'src='/assets/images/christ_the_redeemer.png'></img>
 		)
 	}
 }
