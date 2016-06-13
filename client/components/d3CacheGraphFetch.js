@@ -75,7 +75,8 @@ let getd3Cachegraph = function(){
 
       // Define the axes
       let xAxis = d3.svg.axis().scale(x)
-          .orient("bottom").ticks(7);
+          .orient("bottom").ticks(7)
+          .tickFormat(d3.time.format("%b %y"));
 
       let yAxis = d3.svg.axis().scale(y)
           .orient("left").ticks(5);
@@ -125,8 +126,8 @@ let getd3Cachegraph = function(){
           .call(xAxis)
           .selectAll("text")
           .attr('y',0)
-          .attr('x',-20)
-          .attr('transform','rotate(-90)');
+          .attr('x',-40)
+          .attr('transform','rotate(-65)');
 
       // Add the Y Axis
       svg.append("g")
@@ -138,6 +139,7 @@ let getd3Cachegraph = function(){
           .attr('text-anchor','middle')
           .style('font-size','16px')
           .text('graph title');
+
       $("svg").after("<div class='infobox' style='display:none;'>Test</div>");
 
   });
