@@ -1,9 +1,13 @@
 'use strict'
 let requestPromise = require("request-promise");
 let SkyscannerKeys = require("../APIKEYS.js");
+let knex = require ('../db/db');
 
 let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
+
+let destinationCitiesTest = ["RIOA-sky", "BJSA-sky"];
+
 
 let today = new Date;
 
@@ -82,8 +86,10 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
                       price: ops.Price,
                       originCity: originCity,
                       destinationCity: destinationCity,
-                      outboundDate: outboundDate,
-                      inboundDate: inboundDate,
+                      outboundDate: outboundDate.toISOString().slice(0,10),
+                      inboundDate: inboundDate.toISOString().slice(0,10),
+                      outboundMonth: outboundDate.toISOString().slice(5,7),
+                      outboundYear: outboundDate.toISOString().slice(0,4),
                       deepLink: ops.DeeplinkUrl
                     }
           })
@@ -116,13 +122,32 @@ function generateFlightDates(daysOut){
   return dates;
 }
 
+
+//
+// Insert flight object into quotes table
+//
+// {
+//   price: ops.Price,
+//   originCity: originCity,
+//   destinationCity: destinationCity,
+//   outboundDate: outboundDate.toISOString().slice(0,10),
+//   inboundDate: inboundDate.toISOString().slice(0,10),
+//   outboundMonth: outboundDate.toISOString().slice(5,7),
+//   outboundYear: outboundDate.toISOString().slice(0,4),
+//   deepLink: ops.DeeplinkUrl
+// }
+knex.insertQuotes = function(flightObj) {
+  return knex('quotes').insert(flightObj);
+}
+
 //
 //generates all data that is collected and inserted into Db
 
 function gatherDataAndInsertIntoDb() {  
   let departureDates = generateFlightDates(14);
   originCities.forEach( (city) => {
-    destinationCities.forEach( (dest) => {
+    //change back from test
+    destinationCitiesTest.forEach( (dest) => {
       departureDates.forEach( (date) => {
         return searchSkyscannerByDate(date, city, dest)
       })     
