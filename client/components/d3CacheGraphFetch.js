@@ -146,6 +146,11 @@ let getd3Cachegraph = function(){
           .attr("transform", "translate("+ (width/2) +","+(height+(margin.bottom/3))+")")  // centre below axis
           .text("Date");
 
+      svg.append("text")
+          .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
+          .attr("transform", "translate("+ (margin.bottom/2) +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
+          .text("Price");
+
       $("svg").after("<div class='infobox' style='display:none;'>Test</div>");
 
   });
