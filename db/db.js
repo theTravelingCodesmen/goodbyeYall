@@ -7,10 +7,9 @@
 //
 let path = require('path');
 
-let config = require('./knexfile')
-let env = process.env.NODE_ENV || 'development'
-let knex = require('knex')(config[env])
-let _ = require('underscore');
+let config = require('./knexfile');
+let env = process.env.NODE_ENV || 'development';
+let knex = require('knex')(config[env]);
 
 module.exports = knex;
 
@@ -98,7 +97,6 @@ knex.insertQuotes = function(quoteArr) {
     return quoteArr;
   });
 }
-
 
 
 //Function construction in progress-commented out until complete
