@@ -136,7 +136,7 @@ function generateFlightDates(daysOut){
 //   outboundYear: outboundDate.toISOString().slice(0,4),
 //   deepLink: ops.DeeplinkUrl
 // }
-knex.insertQuotes = function(flightObj) {
+knex.insertQuotesIntoDb = function(flightObj) {
   return knex('quotes').insert(flightObj);
 }
 

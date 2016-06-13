@@ -78,7 +78,6 @@ knex.ensureSchema = function () {
         });
       }
     })
-
   ])
 }
 
