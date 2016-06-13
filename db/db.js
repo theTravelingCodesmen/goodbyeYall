@@ -86,16 +86,16 @@ knex.ensureSchema = function () {
 
 
 //
-// Insert all elements of a quotes/averages array into the given table name
+// Insert all elements of a quotes array into the quotes table
 //
-knex.insertEverything = function(quoteArr, table) {
+knex.insertEverything = function(quoteArr) {
   return Promise.all(_.map(quoteArr, function(quote) {
-    return knex(table).insert(quote)
+    return knex('quotes').insert(quote)
       .then(function (res) {
-        console.log("Added entry to " + table + " table: ", res);
+        console.log("Added entry to quotes table: ", res);
       })
       .catch(function (err) {
-        console.log("Error inserting into " + table + " table: ", err);
+        console.log("Error inserting into quotes table': ", err);
       })
   })).then(function() {
     return quoteArr;
