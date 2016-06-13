@@ -102,8 +102,14 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
         }, [])
     })
     .then ( (objToInsertIntoDb) => {
-      console.log(objToInsertIntoDb)
+      console.log(objToInsertIntoDb);
+      return knex.insertQuotesIntoDb(objToInsertIntoDb);
     })
+    .then( knex.closeDb)
+    // .then(knex.insertQuotesIntoDb)
+    // .catch(function (err) {
+    //   console.log(err)
+    // })
 }
 
 //
@@ -146,6 +152,7 @@ function gatherDataAndInsertIntoDb() {
 }
 
 gatherDataAndInsertIntoDb()
+
 
 
 
