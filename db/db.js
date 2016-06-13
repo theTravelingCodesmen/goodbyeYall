@@ -84,27 +84,56 @@ knex.ensureSchema = function () {
   ])
 }
 
-knex.deleteEverything = function () {
-  return knex('destinations').truncate()
-    .then(function () {
-      return knex('quotes').truncate()
-    })
-    .then(function () {
-      return knex('packages').truncate()
-    })
-    .then(function () {
-      return knex('averages').truncate()
-    })
-    .then(function () {
-      console.log("Deleted destinations, quotes, packages, and averages db tables")
-    })
+
+//
+// Insert all elements of a quotes array into the quotes table
+//
+knex.insertQuotes = function(quoteArr) {
+  return Promise.all(_.map(quoteArr, function(quote) {
+    return knex('quotes').insert(quote)
+      .then(function (res) {
+        console.log("Added entry to quotes table: ", res);
+      })
+      .catch(function (err) {
+        console.log("Error inserting into quotes table': ", err);
+      })
+  })).then(function() {
+    return quoteArr;
+  });
 }
+
+
+
+//Function construction in progress-commented out until complete
+
+// knex.calculateAverages = function (??) {
+//   return knex.('quotes').avg('price')
+//     .where()
+// }
+
+
+knex.truncateTable = function (tableName) {
+  return knex(tableName).truncate()
+    .then(function () {
+      console.log("Deleted "+ tableName)
+  })
+}
+
 
 knex.closeDb = function () {
   knex.destroy().then(function () {
     console.log("Closed db connection")
   })
 }
+
+
+
+
+
+
+
+
+
 
 
 
