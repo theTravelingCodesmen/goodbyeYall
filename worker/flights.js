@@ -61,11 +61,11 @@ function pollSession(sessionKey) {
 
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
 
-function searchSkyscannerByDate(departureDate, originCity){
+function searchSkyscannerByDate(departureDate, originCity, destinationCity){
   let outboundDate = departureDate;
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
 
-  getSessionKey(originCity, destinationCitiesTest[0], outboundDate, inboundDate)
+  getSessionKey(originCity, destinationCity, outboundDate, inboundDate)
     .then( (sessionKey) => {
       console.log("sessionKey:", sessionKey);
       return sessionKey;
@@ -81,6 +81,7 @@ function searchSkyscannerByDate(departureDate, originCity){
             return  {
                       price: ops.Price,
                       originCity: originCity,
+                      destinationCity: destinationCity,
                       outboundDate: outboundDate,
                       inboundDate: inboundDate,
                       deepLink: ops.DeeplinkUrl
@@ -117,7 +118,7 @@ console.log(departureDates)
 
 originCities.forEach( (city) => {
   departureDates.forEach( (date) => {
-    return searchSkyscannerByDate(date, city)
+    return searchSkyscannerByDate(date, city, destinationCitiesTest[0])
   }) 
 })
 
