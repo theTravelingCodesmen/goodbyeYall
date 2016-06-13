@@ -3,10 +3,10 @@ let requestPromise = require("request-promise");
 let SkyscannerKeys = require("../APIKEYS.js");
 
 let originCities = ["DFWA-sky", "HOUA-sky"];
-let arrivalCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
+let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
 let originCitiesTest = ["DFWA-sky"];
-let arrivalCitiesTest = ["RIOA-sky"];
+let destinationCitiesTest = ["RIOA-sky"];
 let today = new Date;
 
 //adds a given number of days to a date
@@ -65,7 +65,7 @@ function searchSkyscannerByDate(departureDate, originCity){
   let outboundDate = departureDate;
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
 
-  getSessionKey(originCity, arrivalCitiesTest[0], outboundDate, inboundDate)
+  getSessionKey(originCity, destinationCitiesTest[0], outboundDate, inboundDate)
     .then( (sessionKey) => {
       console.log("sessionKey:", sessionKey);
       return sessionKey;
