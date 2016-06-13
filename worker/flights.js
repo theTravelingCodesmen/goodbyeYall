@@ -7,6 +7,7 @@ let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky
 
 let today = new Date;
 
+//
 //adds a given number of days to a date
 
 Date.prototype.addDays = function(days) {
@@ -15,10 +16,10 @@ Date.prototype.addDays = function(days) {
   return flightDate;
 }
 
+//
 //POST request to skyscanner to get session key
 
 function getSessionKey(originplace, destinationplace, outbounddate, inbounddate) {
-  console.log("getSessionKey called with arguments:", originplace, destinationplace, outbounddate, inbounddate);
   let options = {
     method: 'POST',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0',
@@ -43,6 +44,7 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
   return requestPromise(options)
 }
 
+//
 //GET request to skyscanner to get flight info
 
 function pollSession(sessionKey) {
@@ -57,6 +59,7 @@ function pollSession(sessionKey) {
   return requestPromise(options)
 }
 
+//
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
 
 function searchSkyscannerByDate(departureDate, originCity, destinationCity){
@@ -71,7 +74,6 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
     .then(pollSession)
     .then( (resp) => {
       let response = JSON.parse(resp)
-      //make this a return statement instead of console.log
       return response.Itineraries
         .map( (val) => {
           return val.PricingOptions
@@ -98,6 +100,7 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
     })
 }
 
+//
 //generates an array of flight dates for the next year
 
 function generateFlightDates(daysOut){
@@ -113,7 +116,7 @@ function generateFlightDates(daysOut){
   return dates;
 }
 
-
+//
 //generates all data that is collected and inserted into Db
 
 function gatherDataAndInsertIntoDb() {  
