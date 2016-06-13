@@ -6,7 +6,7 @@ let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
 let originCitiesTest = ["DFWA-sky"];
-let destinationCitiesTest = ["RIOA-sky"];
+let destinationCitiesTest = ["RIOA-sky", "BJSA-sky", "CUZ-sky"];
 let today = new Date;
 
 //adds a given number of days to a date
@@ -117,9 +117,11 @@ let departureDates = generateFlightDates(14)
 console.log(departureDates)
 
 originCities.forEach( (city) => {
-  departureDates.forEach( (date) => {
-    return searchSkyscannerByDate(date, city, destinationCitiesTest[0])
-  }) 
+  destinationCities.forEach( (dest) => {
+    departureDates.forEach( (date) => {
+      return searchSkyscannerByDate(date, city, dest)
+    })     
+  })
 })
 
 
