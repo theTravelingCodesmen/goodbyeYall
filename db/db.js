@@ -44,6 +44,7 @@ knex.ensureSchema = function () {
           table.string('outboundMonth', 2);
           table.string('outboundYear', 4);
           table.string('deepLink', 2000);
+          table.boolean('calculated').defaultTo(false);
           table.timestamp('created_at').defaultTo(knex.fn.now());
         }).then(function (table) {
           console.log('Created quotes table.');
