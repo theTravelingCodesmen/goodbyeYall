@@ -98,6 +98,33 @@ function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, dest
 
 }
 
-updateOrCalculateAverage("06","2016","DFWA-sky","BJSA-sky").then(knex.closeDb)
+///under contruction below this line
+let originCities = ["DFWA-sky", "HOUA-sky"];
+let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
+let months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
+let years = ["2016", "2017"];
+
+//create array of all permutations of month, year, origin and destination
+function generateArgumentsArray() {
+  let results = [];
+  originCities.forEach( (origin) => {
+    destinationCities.forEach( (dest) => {
+      months.forEach( (month) => {
+        years.forEach( (year) => {
+            results.push([month, year, origin, dest])
+        })
+      })
+    })
+  })
+  return results
+}
+
+Promise.all(generateArgumentsArray().map(function(array) {
+    return updateOrCalculateAverage.apply(null, array);
+}))
+    .then(knex.closeDb);
+
+
+// updateOrCalculateAverage("06","2016","DFWA-sky","BJSA-sky").then(knex.closeDb)
 
 
