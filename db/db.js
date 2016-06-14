@@ -7,10 +7,9 @@
 //
 let path = require('path');
 
-let config = require('./knexfile')
-let env = process.env.NODE_ENV || 'development'
-let knex = require('knex')(config[env])
-let _ = require('underscore');
+let config = require('./knexfile');
+let env = process.env.NODE_ENV || 'development';
+let knex = require('knex')(config[env]);
 
 module.exports = knex;
 
@@ -78,29 +77,8 @@ knex.ensureSchema = function () {
         });
       }
     })
-
   ])
 }
-
-
-//
-// Insert all elements of a quotes array into the quotes table
-//
-knex.insertQuotes = function(quoteArr) {
-  return Promise.all(_.map(quoteArr, function(quote) {
-    return knex('quotes').insert(quote)
-      .then(function (res) {
-        console.log("Added entry to quotes table: ", res);
-      })
-      .catch(function (err) {
-        console.log("Error inserting into quotes table': ", err);
-      })
-  })).then(function() {
-    return quoteArr;
-  });
-}
-
-
 
 //Function construction in progress-commented out until complete
 
