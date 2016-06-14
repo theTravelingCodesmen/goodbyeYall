@@ -8,8 +8,8 @@ let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky
 
 let destinationCitiesTest = ["RIOA-sky", "BJSA-sky"];
 
-
 let today = new Date;
+
 
 //
 //adds a given number of days to a date
@@ -19,6 +19,7 @@ Date.prototype.addDays = function(days) {
   flightDate.setDate(flightDate.getDate() + days);
   return flightDate;
 }
+
 
 //
 //POST request to skyscanner to get session key
@@ -48,6 +49,7 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
   return requestPromise(options)
 }
 
+
 //
 //GET request to skyscanner to get flight info
 
@@ -62,6 +64,7 @@ function pollSession(sessionKey) {
   }
   return requestPromise(options)
 }
+
 
 //
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
@@ -107,6 +110,7 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
     })
 }
 
+
 //
 //generates an array of flight dates for the next year
 
@@ -131,6 +135,7 @@ knex.insertQuotesIntoDb = function(flightObj) {
   return knex('quotes').insert(flightObj);
 }
 
+
 //
 //generates argments array for searchSkyscannerByDate function
 
@@ -148,6 +153,7 @@ function genrateArgumentsArray() {
   return results
 }
 
+
 //
 //starts the chain that handles all of the functions
 
@@ -158,7 +164,7 @@ function masterDataGenerator(){
     }))
     .then(knex.closeDb)
     .catch( (err) => {
-      console.log("database insertion error", err)
+      console.log("database insertion error:", err)
     })
 }
 
