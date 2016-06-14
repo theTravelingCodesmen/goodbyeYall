@@ -21,16 +21,6 @@ knex.changeCalculatedToTrue = function (array) {
     }))
 }
 
-// knex.getUncalculatedQuotes()
-//     .then(function(results) {
-//         console.log(typeof results);
-//         console.log(Array.isArray(results), results)
-//         return results;
-//     })
-//     .then(knex.changeCalculatedToTrue)
-//     .then(knex.closeDb)
-
-
 knex.getAverages = function(outboundMonth,outboundYear,originCity,destinationCity) {
     return knex('averages')
         .where({
@@ -48,15 +38,11 @@ knex.updateAverages = function (newAverageObject) {
         .update({'avg_price' : newAverageObject.price})
 }
 
-// knex.getAverages()
-//     .then(function(results) {
-//         console.log(typeof results);
-//         console.log(Array.isArray(results), results)
-//         return results;
-//     })
-//     // .then(knex.changeCalculatedToTrue)
-//     .then(knex.closeDb)
-
+let calculateFlightAverage = function(acc, quote) {
+    acc.count++;
+    acc.price = (acc.price * (acc.count-1) + quote.price) / acc.count;
+    return acc;
+}
 
 function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, destinationCity) {
     return Promise.all([
@@ -68,12 +54,9 @@ function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, dest
             let average = value[1];
             if (average.length === 0) {
                 //need to create new average
-                let newAverage = quotes.reduce(function(acc, quote) {
-                    console.log("quote.price:", quote.price, typeof quote.price);
-                    acc.count++;
-                    acc.price = (acc.price * (acc.count-1) + quote.price) / acc.count;
-                    return acc;
-                },{count:0, price:0});
+                let newAverage = quotes.reduce(calculateFlightAverage,
+                    {count:0, price:0}
+                    );
                 return knex('averages').insert({
                     avg_price: newAverage.price,
                     count:newAverage.count,
@@ -92,19 +75,13 @@ function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, dest
                 })
             } else {
                 //need to update current average
-                console.log("running line 90 of else block");
                 let currentAverage = average[0];
-                console.log("currentAverage:", currentAverage, "typeof currentAverage.count:" , typeof currentAverage.count);
-                let newAverage = quotes.reduce(function(acc, quote) {
-                    console.log("quote.price:", quote.price, typeof quote.price);
-                    acc.count++;
-                    acc.price = (acc.price * (acc.count-1) + quote.price) / acc.count;
-                    return acc;
-                },{
+                let newAverage = quotes.reduce(calculateFlightAverage,
+                    {
                     count:currentAverage.count,
                     price:currentAverage.avg_price,
                     id: currentAverage.id
-                });
+                    });
                 return knex('averages')
                     .where({id:newAverage.id})
                     .update({
