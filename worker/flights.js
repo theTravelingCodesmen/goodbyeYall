@@ -103,13 +103,8 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
     })
     .then ( (objToInsertIntoDb) => {
       console.log(objToInsertIntoDb);
-      return knex.insertQuotesIntoDb(objToInsertIntoDb);
+      return knex.insertQuotesIntoDb(objToInsertIntoDb)
     })
-    .then( knex.closeDb)
-    // .then(knex.insertQuotesIntoDb)
-    // .catch(function (err) {
-    //   console.log(err)
-    // })
 }
 
 //
@@ -145,13 +140,17 @@ function gatherDataAndInsertIntoDb() {
     //change back from test
     destinationCitiesTest.forEach( (dest) => {
       departureDates.forEach( (date) => {
+        // console.log(date, city, dest)
         return searchSkyscannerByDate(date, city, dest)
       })     
     })
   })
 }
 
+
+
 gatherDataAndInsertIntoDb()
+
 
 
 
