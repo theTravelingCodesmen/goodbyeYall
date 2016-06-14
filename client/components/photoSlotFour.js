@@ -6,13 +6,13 @@ import ReactDom from 'react-dom'
 class PhotoFour extends React.Component{
 	render(){
 		return (
-			<img className='machu'src='/assets/images/machu_picchu.png'></img>
+			<img className={this.props.className} src={'/assets/images/' + this.props.src}></img>
 		)
 	}
 }
 
-ReactDom.render(
-	<PhotoFour />, document.querySelector('.machu')
-);
+// ReactDom.render(
+// 	<PhotoFour />, document.querySelector('.machu')
+// );
 
 export default PhotoFour;
