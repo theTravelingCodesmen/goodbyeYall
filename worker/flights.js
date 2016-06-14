@@ -134,7 +134,7 @@ knex.insertQuotesIntoDb = function(flightObj) {
 //
 //generates argments array for searchSkyscannerByDate function
 
-function genrateArgumentsArray() {  
+function generateArgumentsArray() {  
   let departureDates = generateFlightDates(14);
   let results = [];
   originCities.forEach( (city) => {
@@ -152,7 +152,7 @@ function genrateArgumentsArray() {
 //starts the chain that handles all of the functions
 
 function masterDataGenerator(){
-  Promise.all(genrateArgumentsArray()
+  Promise.all(generateArgumentsArray()
     .map( (infoArray) => {
       return searchSkyscannerByDate.apply(null, infoArray)
     }))
