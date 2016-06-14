@@ -79,6 +79,11 @@ knex.ensureSchema = function () {
       }
     })
   ])
+  .then(knex.closeDb)
+  .catch(function(err){
+    console.log('there is an error when verifying table schemas, ', err);
+    knex.closeDb();
+  })
 }
 
 //Function construction in progress-commented out until complete
@@ -102,9 +107,6 @@ knex.closeDb = function () {
     console.log("Closed db connection")
   })
 }
-
-
-
 
 
 
