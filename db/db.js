@@ -44,6 +44,7 @@ knex.ensureSchema = function () {
           table.string('outboundMonth', 2);
           table.string('outboundYear', 4);
           table.string('deepLink', 2000);
+          table.boolean('calculated').defaultTo(false);
           table.timestamp('created_at').defaultTo(knex.fn.now());
         }).then(function (table) {
           console.log('Created quotes table.');
@@ -78,6 +79,11 @@ knex.ensureSchema = function () {
       }
     })
   ])
+  .then(knex.closeDb)
+  .catch(function(err){
+    console.log('there is an error when verifying table schemas, ', err);
+    knex.closeDb();
+  })
 }
 
 //Function construction in progress-commented out until complete
@@ -101,9 +107,6 @@ knex.closeDb = function () {
     console.log("Closed db connection")
   })
 }
-
-
-
 
 
 
