@@ -59,7 +59,7 @@ knex.updateAverages = function (newAverageObject) {
 
 
 function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, destinationCity) {
-    Promise.all([
+    return Promise.all([
         knex.getUncalculatedQuotes(outboundMonth, outboundYear, originCity, destinationCity),
         knex.getAverages(outboundMonth, outboundYear, originCity, destinationCity)
         ])
@@ -85,17 +85,42 @@ function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, dest
                 .catch(function(err) {
                     console.log("error inserting new average:",err);
                 })
+                .then(knex.getUncalculatedQuotes.bind(null,outboundMonth, outboundYear, originCity, destinationCity))
+                .then(knex.changeCalculatedToTrue)
+                .catch(function(err) {
+                    console.log("error toggling calculated quotes to true:", err);
+                })
             } else {
                 //need to update current average
+                console.log("running line 90 of else block");
+                let currentAverage = average[0];
+                console.log("currentAverage:", currentAverage, "typeof currentAverage.count:" , typeof currentAverage.count);
+                let newAverage = quotes.reduce(function(acc, quote) {
+                    console.log("quote.price:", quote.price, typeof quote.price);
+                    acc.count++;
+                    acc.price = (acc.price * (acc.count-1) + quote.price) / acc.count;
+                    return acc;
+                },{
+                    count:currentAverage.count,
+                    price:currentAverage.avg_price,
+                    id: currentAverage.id
+                });
+                return knex('averages')
+                    .where({id:newAverage.id})
+                    .update({
+                        count:newAverage.count,
+                        avg_price:newAverage.price
+                    })
+                    .then(knex.getUncalculatedQuotes.bind(null,outboundMonth, outboundYear, originCity, destinationCity))
+                    .then(knex.changeCalculatedToTrue)
+                    .catch(function(err) {
+                        console.log("error toggling calculated quotes to true:", err);
+                    })
             }
-            // average = average[0] || {};
-            // console.log("quotes: ", quotes);
-            // console.log("average: ", average);
         })
 
 }
 
-updateOrCalculateAverage("06","2016","DFWA-sky","BJSA-sky")
-    .then(knex.closeDb);
+updateOrCalculateAverage("06","2016","DFWA-sky","BJSA-sky").then(knex.closeDb)
 
 
