@@ -148,8 +148,14 @@ function gatherDataAndInsertIntoDb() {
 }
 
 
+// gatherDataAndInsertIntoDb()
 
-gatherDataAndInsertIntoDb()
+function insertThenCloseDb () {
+  gatherDataAndInsertIntoDb();
+  setTimeout(knex.closeDb, 30000);
+}
+
+insertThenCloseDb()
 
 
 
