@@ -58,22 +58,44 @@ knex.updateAverages = function (newAverageObject) {
 //     .then(knex.closeDb)
 
 
-Promise.all([
-    knex.getUncalculatedQuotes("06","2016","DFWA-sky","BJSA-sky"),
-    knex.getAverages("06","2016","DFWA-sky","BJSA-sky")
-    ])
-    .then(function (value) {
-        let quote = value[0];
-        let average = value[1];
-        if (average.length === 0) {
-            //need to create new average
-        } else {
-            //need to update current average
-        }
-        average = average[0] || {};
-        console.log("quote: ", quote);
-        console.log("average: ", average);
-    })
+function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, destinationCity) {
+    Promise.all([
+        knex.getUncalculatedQuotes(outboundMonth, outboundYear, originCity, destinationCity),
+        knex.getAverages(outboundMonth, outboundYear, originCity, destinationCity)
+        ])
+        .then(function (value) {
+            let quotes = value[0];
+            let average = value[1];
+            if (average.length === 0) {
+                //need to create new average
+                let newAverage = quotes.reduce(function(acc, quote) {
+                    console.log("quote.price:", quote.price, typeof quote.price);
+                    acc.count++;
+                    acc.price = (acc.price * (acc.count-1) + quote.price) / acc.count;
+                    return acc;
+                },{count:0, price:0});
+                return knex('averages').insert({
+                    avg_price: newAverage.price,
+                    count:newAverage.count,
+                    originCity: originCity,
+                    destinationCity: destinationCity,
+                    outboundMonth: outboundMonth,
+                    outboundYear: outboundYear
+                })
+                .catch(function(err) {
+                    console.log("error inserting new average:",err);
+                })
+            } else {
+                //need to update current average
+            }
+            // average = average[0] || {};
+            // console.log("quotes: ", quotes);
+            // console.log("average: ", average);
+        })
 
+}
+
+updateOrCalculateAverage("06","2016","DFWA-sky","BJSA-sky")
+    .then(knex.closeDb);
 
 
