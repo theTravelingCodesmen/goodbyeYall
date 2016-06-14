@@ -6,13 +6,13 @@ import ReactDom from 'react-dom'
 class PhotoFive extends React.Component{
 	render(){
 		return (
-			<img className='petra'src='/assets/images/petra.png'></img>
+			<img className={this.props.className} src={'/assets/images/' + this.props.src}></img>
 		)
 	}
 }
 
-ReactDom.render(
-	<PhotoFive />, document.querySelector('.petra')
-);
+// ReactDom.render(
+// 	<PhotoFive />, document.querySelector('.petra')
+// );
 
 export default PhotoFive;

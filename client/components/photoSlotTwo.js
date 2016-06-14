@@ -6,13 +6,13 @@ import ReactDom from 'react-dom'
 class PhotoTwo extends React.Component{
 	render(){
 		return (
-			<img className='christ'src='/assets/images/christ_the_redeemer.png'></img>
+			<img className={this.props.className} src={'/assets/images/' + this.props.src}></img>
 		)
 	}
 }
 
-ReactDom.render(
-	<PhotoTwo />, document.querySelector('.christ')
-);
+// ReactDom.render(
+// 	<PhotoTwo />, document.querySelector('.christ')
+// );
 
 export default PhotoTwo;
