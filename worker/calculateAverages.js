@@ -105,7 +105,7 @@ let months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
 let years = ["2016", "2017"];
 
 //create array of all permutations of month, year, origin and destination
-function generateArgumentsArray() {
+function generateAveragesArgumentsArray() {
   let results = [];
   originCities.forEach( (origin) => {
     destinationCities.forEach( (dest) => {
@@ -119,7 +119,7 @@ function generateArgumentsArray() {
   return results
 }
 
-Promise.all(generateArgumentsArray().map(function(array) {
+Promise.all(generateAveragesArgumentsArray().map(function(array) {
     return updateOrCalculateAverage.apply(null, array);
 }))
     .then(knex.closeDb);
