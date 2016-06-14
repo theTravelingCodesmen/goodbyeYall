@@ -70,7 +70,7 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
   let outboundDate = departureDate;
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
 
-  getSessionKey(originCity, destinationCity, outboundDate, inboundDate)
+  return getSessionKey(originCity, destinationCity, outboundDate, inboundDate)
     .then( (sessionKey) => {
       console.log("sessionKey:", sessionKey);
       return sessionKey;
@@ -132,30 +132,37 @@ knex.insertQuotesIntoDb = function(flightObj) {
 }
 
 //
-//generates all data that is collected and inserted into Db
+//generates argments array for searchSkyscannerByDate function
 
-function gatherDataAndInsertIntoDb() {  
+function genrateArgumentsArray() {  
   let departureDates = generateFlightDates(14);
+  let results = [];
   originCities.forEach( (city) => {
     //change back from test
     destinationCitiesTest.forEach( (dest) => {
       departureDates.forEach( (date) => {
-        // console.log(date, city, dest)
-        return searchSkyscannerByDate(date, city, dest)
+        results.push([date, city, dest])
       })     
     })
   })
+  return results
 }
 
+//
+//starts the chain that handles all of the functions
 
-// gatherDataAndInsertIntoDb()
-
-function insertThenCloseDb () {
-  gatherDataAndInsertIntoDb();
-  setTimeout(knex.closeDb, 30000);
+function masterDataGenerator(){
+  Promise.all(genrateArgumentsArray()
+    .map( (infoArray) => {
+      return searchSkyscannerByDate.apply(null, infoArray)
+    }))
+    .then(knex.closeDb)
+    .catch( (err) => {
+      console.log("database insertion error", err)
+    })
 }
 
-insertThenCloseDb()
+masterDataGenerator()
 
 
 
