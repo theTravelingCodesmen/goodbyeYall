@@ -9,7 +9,7 @@ import FlightData from '../components/flightData'
 class ActivePhoto extends React.Component {
 	render() {
 		return(	
-			<div className={this.props.className} src={'/assets/images/' + this.props.src} >
+			<div className={this.props.className}  >
 				<Intro className={'intro'} />
 				<d3CacheGraph className={'d-three'} />
 				<FlightData className={'flight'} />
