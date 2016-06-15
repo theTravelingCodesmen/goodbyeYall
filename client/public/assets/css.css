@@ -11,23 +11,26 @@
 	left:0;
 	min-height: 100%;
 	min-width: 100%;
-	background-color: red;
+	background-color: white;
 	border-style: solid;
 	border-color: yellow;
 }
 
 .card-title{
+	font-family: 'Alegreya Sans', sans-serif;
+	text-align: center;
 	margin-left: 0px;
 	min-height: 50px;
-	background-color: blue;
+	background-color: white;
 	border-style: solid;
 	border-color: black;
+	font-size: 3.5em;
 }
 
 .photo-roll{
 	margin-left: 0px;
 	min-height: 50px;
-	background-color: grey;
+	background-color: #5F5F5F;
 	border-style: solid;
 	border-color: black;
 }
@@ -96,17 +99,20 @@
 }
 
 .intro{
+	position: relative;
+	left: 20px;
 	margin-left: 0px;
 	min-height: 100px;
 	border-style: solid;
 	border-color: black;
-	opacity: .2;
+	opacity: 1;
+	width:50%;
 }
 
 .d-three{
 	display:inline-block;
 	align:center;
-	opacity: 	.9;
+	opacity: .9;
 }
 
 .flight{
@@ -115,7 +121,7 @@
 }
 
 .line {
-		background-color: 	white;
+	background-color: 	white;
 }
 
 /* info box for d3 graph */
@@ -135,7 +141,7 @@
 	font-weight:bold;
 }
 /* path for svg graph */
-path { 
+path {
     stroke: steelblue;
     stroke-width: 2;
     fill: none;
