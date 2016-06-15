@@ -1,17 +1,25 @@
 'use strict'
 
 import React from 'react';
-import ReactDom from 'reactdom'
+import ReactDOM from 'react-dom'
+import CardTitle from '../components/cardTitle'
+import PhotoRoll from '../components/photoRoll'
+import ActivePhoto from '../components/activePhoto'
+
 
 class CardBox extends React.Component {
 	render() {
 		return(
+			<div>
 			<div className='card-box'>
-				<div class='card-title'>cardTitle
+				<div className={'card-title'}>
 					<PhotoRoll />
 				</div>
 			</div>
-			
+			<div className='active-photo-container'>
+				<ActivePhoto className={'active-photo'} src={'wall_of_china.jpeg'} />
+			</div>
+			</div>
 
 		)
 	}
