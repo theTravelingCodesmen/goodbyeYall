@@ -11,7 +11,9 @@ let routes = express.Router();
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 routes.use('/hello-traveling-codesman', function(req, res){
 	res.end('hello travelingcodesman!');
-})
+});
+routes.use('/skyscanner_api', skyscanner_api);
+
 
 
 if(process.env.NODE_ENV === 'test'){
@@ -26,7 +28,7 @@ if(process.env.NODE_ENV === 'test'){
 		app.use(bodyParser.urlencoded({ extended: false }));
 		app.use(cookieParser());
 		app.use('/', routes);
-		app.use('/skyscanner_api', skyscanner_api);
+		// app.use('/skyscanner_api', skyscanner_api);
 		// at api endpoint here when available
 
 		app.listen(process.env.PORT||4000);
