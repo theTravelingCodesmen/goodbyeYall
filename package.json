@@ -36,6 +36,7 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.9.2",
     "pg": "^5.0.0",
+    "promise-throttle": "^0.2.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",

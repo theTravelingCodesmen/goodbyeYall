@@ -1,15 +1,20 @@
 'use strict'
-let requestPromise = require("request-promise");
+let RequestPromise = require("request-promise");
 let SkyscannerKeys = require("../APIKEYS.js");
-let knex = require ('../db/db');
+let Knex = require('../db/db');
+let PromiseThrottle = require("promise-throttle");
 
 let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
-let destinationCitiesTest = ["RIOA-sky", "BJSA-sky"];
-
+let destinationCitiesTest = ["CUN-sky"];
 
 let today = new Date;
+let promiseThrottle = new PromiseThrottle({
+  requestsPerSecond: 0.5,          // up to 10 requests per second 
+  promiseImplementation: Promise  // the Promise library you are using 
+});
+
 
 //
 //adds a given number of days to a date
@@ -19,6 +24,7 @@ Date.prototype.addDays = function(days) {
   flightDate.setDate(flightDate.getDate() + days);
   return flightDate;
 }
+
 
 //
 //POST request to skyscanner to get session key
@@ -45,8 +51,9 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
       inbounddate: inbounddate.toISOString().slice(0,10)
     }
   }
-  return requestPromise(options)
+  return RequestPromise(options)
 }
+
 
 //
 //GET request to skyscanner to get flight info
@@ -60,8 +67,9 @@ function pollSession(sessionKey) {
       Accept: "application/json"
     }
   }
-  return requestPromise(options)
+  return RequestPromise(options)
 }
+
 
 //
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
@@ -103,9 +111,12 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
     })
     .then ( (objToInsertIntoDb) => {
       console.log(objToInsertIntoDb);
-      return knex.insertQuotesIntoDb(objToInsertIntoDb)
+      return objToInsertIntoDb
     })
 }
+
+
+
 
 //
 //generates an array of flight dates for the next year
@@ -115,7 +126,7 @@ function generateFlightDates(daysOut){
   let daysAdded = daysOut;
   let count = 0;
   //change back to < 52
-  while(count < 1){
+  while(count < 52){
     dates.push(today.addDays(daysAdded));
     daysAdded += 7;
     count++;
@@ -127,19 +138,19 @@ function generateFlightDates(daysOut){
 //
 // Insert flight object into quotes table
 
-knex.insertQuotesIntoDb = function(flightObj) {
-  return knex('quotes').insert(flightObj);
+Knex.insertQuotesIntoDb = function(flightObj) {
+  return Knex('quotes').insert(flightObj);
 }
+
 
 //
 //generates argments array for searchSkyscannerByDate function
 
-function genrateArgumentsArray() {  
+function generateArgumentsArray() {  
   let departureDates = generateFlightDates(14);
   let results = [];
   originCities.forEach( (city) => {
-    //change back from test
-    destinationCitiesTest.forEach( (dest) => {
+    destinationCities.forEach( (dest) => {
       departureDates.forEach( (date) => {
         results.push([date, city, dest])
       })     
@@ -148,22 +159,41 @@ function genrateArgumentsArray() {
   return results
 }
 
+
 //
-//starts the chain that handles all of the functions
+//starts the chain that handles all of the functions which gets skyscanner to cache data
 
 function masterDataGenerator(){
-  Promise.all(genrateArgumentsArray()
+
+  let theMasterArray = generateArgumentsArray()
     .map( (infoArray) => {
-      return searchSkyscannerByDate.apply(null, infoArray)
-    }))
-    .then(knex.closeDb)
-    .catch( (err) => {
-      console.log("database insertion error", err)
+      return promiseThrottle.add(searchSkyscannerByDate.bind(this, ...infoArray))
     })
+  Promise.all(theMasterArray)
+    // .then(Knex.closeDb);
 }
 
-masterDataGenerator()
+//
+//reruns all api calls to skyscanner and inserts results into db
 
+function secondRoundInsertQuotes (){
+    let theMasterArray = generateArgumentsArray()
+      .map( (infoArray) => {
+        return promiseThrottle
+          .add(searchSkyscannerByDate.bind(this, ...infoArray))
+      })
+    Promise.all(theMasterArray
+      .map( (promiseFromSkyscanner) => {
+        return promiseFromSkyscanner
+          .then(Knex.insertQuotesIntoDb)
+      })
+      )
+      .then(Knex.closeDb);
+}
+
+
+masterDataGenerator()
+setTimeout(secondRoundInsertQuotes, 1500000)
 
 
 
