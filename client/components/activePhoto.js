@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Intro from '../components/intro'
-import d3CacheGraph from '../components/d3CacheGraph'
+import D3CacheGraph from '../components/d3CacheGraph'
 import FlightData from '../components/flightData'
 
 class ActivePhoto extends React.Component {
@@ -11,7 +11,7 @@ class ActivePhoto extends React.Component {
 		return(	
 			<div className={this.props.className}  >
 				<Intro className={'intro'} />
-				<d3CacheGraph className={'d-three'} />
+				<D3CacheGraph className='d-three-cache' />
 				<FlightData className={'flight'} />
 			</div>
 
