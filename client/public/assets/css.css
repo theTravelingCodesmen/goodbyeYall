@@ -5,8 +5,6 @@
 	border: 0;
 }
 
-
-
 .card-box {
 	position: absolute;
 	top: 0;
@@ -32,7 +30,6 @@
 	background-color: grey;
 	border-style: solid;
 	border-color: black;
-
 }
 
 .ul{
@@ -94,39 +91,33 @@
 }
 
 .active-photo{
-/*	height: 500px;
-	background-color: green*/
-}
-
-.wall{
-
+	height: 505px;
+	background-image: url('/assets/images/wall_of_china.jpeg');
 }
 
 .intro{
 	margin-left: 0px;
-	min-height: 200px;
-	background-color: blue;
+	min-height: 100px;
 	border-style: solid;
 	border-color: black;
-
+	opacity: .2;
 }
 
 .d-three{
 	display:inline-block;
 	align:center;
+	opacity: 	.9;
 }
 
 .flight{
 	display: inline-block;
 	align:center;
-/*	height: 500px;
-	background-color: white;*/
 }
 
-.d-three {
-	opacity: 1; 
-	background-color: white;
+.line {
+		background-color: 	white;
 }
+
 /* info box for d3 graph */
 .infobox {
 	border:2px solid steelblue;
