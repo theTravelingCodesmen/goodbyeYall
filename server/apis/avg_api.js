@@ -15,11 +15,12 @@ module.exports = router;
 
 
 router.get('/:originCity/:destCity', function(req, res){
-	knex.getAvg('DFWA-sky','RIOA-sky')
+	knex.getAvg(req.params.originCity,req.params.destCity)
 		.then((array)=>array.map(price=>{ 
+			let date = price.outboundYear+'-'+price.outboundMonth
 			return {
 				price:price.avg_price,
-				time:price.outboundYear+'-'+price.outboundMonth
+				date: new Date(date)
 			}
 		}))
 		.then((array)=>res.send(array))
