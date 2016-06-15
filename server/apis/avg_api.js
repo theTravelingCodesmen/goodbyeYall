@@ -14,8 +14,16 @@ knex.getAvg = function(originCity, destCity){
 module.exports = router;
 
 
-router.get('/', function(req, res){
-	res.send({hello:"world"})
+router.get('/:originCity/:destCity', function(req, res){
+	knex.getAvg('DFWA-sky','RIOA-sky')
+		.then((array)=>array.map(price=>{ 
+			return {
+				price:price.avg_price,
+				time:price.outboundYear+'-'+price.outboundMonth
+			}
+		}))
+		.then((array)=>res.send(array))
+
 });
 
 
