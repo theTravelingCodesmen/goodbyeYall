@@ -16,35 +16,35 @@ function compare(a, b) {
   return 0;
 };
 
+function transformCacheData(price){
+  //this transform json data from api to skyscanner to d3 friendly format
+  //input price cache data from skyscanner
+  //output array of objs for d3 plotting [{date:, price:}.....]
+  price = price.Dates;
+  price.OutboundDates = price.OutboundDates.map(function(obj){ return {price:obj.Price, date:obj.PartialDate}});
+  price.InboundDates = price.InboundDates.map(function(obj){ return {price:obj.Price, date:obj.PartialDate}});
 
+  price.OutboundDates = price.OutboundDates.sort(compare);
+  price.InboundDates = price.InboundDates.sort(compare);
+
+  let shorter = price.InboundDates.length > price.OutboundDates.length ? price.OutboundDates : price.InboundDates;
+  price.total = [];
+
+  shorter.forEach(function(obj){
+    let date = obj.date;
+    let inboundPrice = price.InboundDates.filter(function(obj){return obj.date ===date})[0].price;
+    let outboundPrice = price.OutboundDates.filter(function(obj){return obj.date ===date})[0].price;
+    price.total.push({date:date, price:inboundPrice+outboundPrice})
+  });
+  return price.total.slice();
+}
 
 
 let getd3Cachegraph = function(){
   // Get the data
   d3.json('/skyscanner_api/d3_cache'+url, function(error, price) {
-      //process data
-    price = price.Dates;
-    price.OutboundDates = price.OutboundDates.map(function(obj){ return {price:obj.Price, date:obj.PartialDate}});
-    price.InboundDates = price.InboundDates.map(function(obj){ return {price:obj.Price, date:obj.PartialDate}});
-
-
-
-    price.OutboundDates = price.OutboundDates.sort(compare);
-    price.InboundDates = price.InboundDates.sort(compare);
-
-    let shorter = price.InboundDates.length > price.OutboundDates.length ? price.OutboundDates : price.InboundDates;
-    price.total = [];
-
-    shorter.forEach(function(obj){
-      let date = obj.date;
-      let inboundPrice = price.InboundDates.filter(function(obj){return obj.date ===date})[0].price;
-      let outboundPrice = price.OutboundDates.filter(function(obj){return obj.date ===date})[0].price;
-      price.total.push({date:date, price:inboundPrice+outboundPrice})
-    });
-
-    let data = price.total.slice();
-
-
+    //transform data
+    let data = transformCacheData(price);
       function showData(obj, d) {
        let coord = d3.mouse(obj);
        let infobox = d3.select(".infobox");
