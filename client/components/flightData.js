@@ -3,6 +3,7 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import getd3LivePriceGraph from './flightDataGraphFetch'
 
 
 class FlightData extends React.Component {
@@ -11,10 +12,9 @@ class FlightData extends React.Component {
 			<div className={this.props.className}>Placeholder for flight data and still need ajax request</div>
 		)
 	}
+  componentDidMount(){
+    getd3LivePriceGraph();
+  }
 }
-
-ReactDOM.render(
-	<FlightData />, document.querySelector('.flight')
-);
 
 export default FlightData;

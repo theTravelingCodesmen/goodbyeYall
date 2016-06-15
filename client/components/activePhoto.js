@@ -12,7 +12,7 @@ class ActivePhoto extends React.Component {
 			<div className={this.props.className}  >
 				<Intro className={'intro'} />
 				<D3CacheGraph className='d-three-cache' />
-				<FlightData className={'flight'} />
+				<FlightData className='flight' />
 			</div>
 
 		)
