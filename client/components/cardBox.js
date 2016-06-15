@@ -11,13 +11,12 @@ class CardBox extends React.Component {
 	render() {
 		return(
 			<div>
-			<div className='card-box'>
 				<div className={'card-title'}>
 					<PhotoRoll />
 				</div>
-			</div>
+
 			<div className='active-photo-container'>
-				<ActivePhoto className={'active-photo'} src={'wall_of_china.jpeg'} />
+				<ActivePhoto className={'active-photo'} />
 			</div>
 			</div>
 
