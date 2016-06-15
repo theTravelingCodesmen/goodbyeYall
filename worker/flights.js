@@ -11,7 +11,7 @@ let destinationCitiesTest = ["CUN-sky"];
 
 let today = new Date;
 let promiseThrottle = new PromiseThrottle({
-  requestsPerSecond: 0.5,          // up to 10 requests per second 
+  requestsPerSecond: 0.4,          // up to 10 requests per second 
   promiseImplementation: Promise  // the Promise library you are using 
 });
 
