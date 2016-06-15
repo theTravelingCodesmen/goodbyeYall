@@ -11,10 +11,8 @@ class CardBox extends React.Component {
 	render() {
 		return(
 			<div>
-				<div className={'card-title'}>
-					<PhotoRoll />
-				</div>
-
+				<CardTitle className={'card-title'} />
+				<PhotoRoll />
 			<div className='active-photo-container'>
 				<ActivePhoto className={'active-photo'} />
 			</div>
@@ -29,3 +27,4 @@ ReactDOM.render(
 );
 
 export default CardBox;
+

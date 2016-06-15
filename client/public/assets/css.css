@@ -91,7 +91,7 @@
 }
 
 .active-photo{
-	height: 350px;
+	height: 505px;
 	background-image: url('/assets/images/wall_of_china.jpeg');
 }
 
@@ -148,3 +148,4 @@ path {
     stroke-width: 1;
     shape-rendering: crispEdges;
 }
+
