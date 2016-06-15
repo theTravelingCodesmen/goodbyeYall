@@ -2,7 +2,8 @@
 
 import $ from 'jquery'
 
-function d3LineDraw (endpoint, transformFunction) {
+function d3LineDraw (targetDOM, endpoint, transformFunction) {
+    //targetDOM is the class name of the DOM
 	if (transformFunction===undefined){
 		transformFunction = function(input){return input}
 	}
@@ -52,7 +53,7 @@ function d3LineDraw (endpoint, transformFunction) {
         .y(function(d) { return y(d.price); });
         
     // Adds the svg canvas
-    let svg = d3.select(".d-three")
+    let svg = d3.select("."+targetDOM)
         .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
