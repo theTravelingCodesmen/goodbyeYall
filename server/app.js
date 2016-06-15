@@ -5,7 +5,8 @@ let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
-let skyscanner_api = require('./apis/skyscanner_api')
+let skyscanner_api = require('./apis/skyscanner_api');
+let avg_price = require('./apis/avg_api');
 
 let routes = express.Router();
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
@@ -13,6 +14,7 @@ routes.use('/hello-traveling-codesman', function(req, res){
 	res.end('hello travelingcodesman!');
 });
 routes.use('/skyscanner_api', skyscanner_api);
+routes.use('/avg_price', avg_price);
 
 
 
