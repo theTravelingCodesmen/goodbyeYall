@@ -6,13 +6,9 @@ import ReactDom from 'react-dom'
 class Intro extends React.Component{
 	render(){
 		return (
-			<div className='intro'>placeholder for database entry</div>
+			<div className={this.props.className}>placeholder for database entry</div>
 		)
 	}
 }
-
-ReactDom.render(
-	<Intro />, document.querySelector('.intro')
-);
 
 export default Intro;

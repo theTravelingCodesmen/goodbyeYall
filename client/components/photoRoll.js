@@ -26,8 +26,4 @@ class PhotoRoll extends React.Component {
 	}
 }
 
-ReactDOM.render(
-	<PhotoRoll />, document.querySelector('.photo-roll')
-);
-
 export default PhotoRoll;
