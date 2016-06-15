@@ -47,5 +47,5 @@ function transformCacheData(price){
 }
 
 
-let getd3Cachegraph = d3LineDraw.bind(null, endpoint, transformCacheData)
+let getd3Cachegraph = d3LineDraw.bind(null, 'd-three-cache',endpoint, transformCacheData)
 export default getd3Cachegraph;
