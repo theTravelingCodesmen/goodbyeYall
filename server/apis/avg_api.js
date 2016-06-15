@@ -20,7 +20,7 @@ router.get('/:originCity/:destCity', function(req, res){
 			let date = price.outboundYear+'-'+price.outboundMonth
 			return {
 				price:price.avg_price,
-				date: new Date(date)
+				date: date
 			}
 		}))
 		.then((array)=>res.send(array))
