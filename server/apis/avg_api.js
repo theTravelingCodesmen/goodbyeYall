@@ -11,10 +11,9 @@ knex.getAvgByRoute = function(originCity, destCity){
 	})
 }
 
-knex.getCheapestPriceByRoute = function(){
-	return knex('averages').select('destinationCity', 'originCity').min('avg_price').where('avg_price','>',1).groupBy('destinationCity', 'originCity');
-}
-
+// knex.getCheapestPriceByRoute = function(){
+// 	return knex.select( knex.raw('MIN(avg_price)')).from('averages').where()
+// }
 
 
 module.exports = router;
@@ -32,8 +31,8 @@ router.get('/:originCity/:destCity', function(req, res){
 		.then((array)=>res.send(array))
 });
 
-router.get('/cheapest', function(req, res){
-	knex.getCheapestPriceByRoute().then(function(data){
-		console.log(data)
-	})
-})
+// router.get('/cheapest', function(req, res){
+// 	knex.getCheapestPriceByRoute().then(function(data){
+// 		console.log(data)
+// 	})
+// })
