@@ -95,21 +95,20 @@
 
 .intro{
 	position: relative;
-	left: 40px;
 	top: 10px;
-	margin-left: 0px;
+	margin: 0 0;
 	min-height: 130px;
 	border-style: solid;
 	border-color: black;
 	opacity: 1;
-	width:50%;
+	width:100%;
 	font-size:1.2em;
 	color: white;
 	text-shadow: 1px 1px #000000;
 }
 
 .d-three-cache, .flight{
-	left: 40px;
+	/*left: 40px;*/
 	display:inline-block;
 	text-align:center;
 	opacity: .75;
