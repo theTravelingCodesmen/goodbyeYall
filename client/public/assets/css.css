@@ -190,5 +190,8 @@ ul.photo-roll img {
   filter: sepia(45%);
 }
 
-
+/* Overrid bootstrap default */
+.container-fluid {
+	padding: 0 2em;
+}
 
