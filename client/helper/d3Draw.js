@@ -13,16 +13,17 @@ function d3LineDraw (targetDOM, endpoint, transformFunction) {
     let data = transformFunction(price);
     function showData(obj, d) {
      let coord = d3.mouse(obj);
-     let infobox = d3.select(".infobox");
+     console.log(coord);
+     let infobox = $(".infobox"+targetDOM);
      // now we just position the infobox roughly where our mouse is
-     infobox.style("left", (coord[0]) + "px" );
-     infobox.style("top", (coord[1]-300) + "px");
-     $(".infobox").html(d);
-     $(".infobox").show();
+     infobox.css("left", (coord[0]) + "px" );
+     infobox.css("top", (coord[1]-300) + "px");
+     $(".infobox"+targetDOM).html(d);
+     $(".infobox"+targetDOM).show();
      // debugger;
      }
      function hideData() {
-        $(".infobox").hide();
+        $(".infobox"+targetDOM).hide();
      }
     // Set the dimensions of the canvas / graph
     let margin = {top: 30, right: 20, bottom: 60, left: 50},
@@ -116,8 +117,10 @@ function d3LineDraw (targetDOM, endpoint, transformFunction) {
         .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
         .attr("transform", "translate("+ 0 +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
         .text("Price");
-
-    $("svg").after("<div class='infobox' style='display:none;'>Test</div>");
+    
+    let $infoboxDOM = $("<div style='display:none;'>Test</div>");
+    $infoboxDOM.addClass('infobox'+targetDOM);
+    $("."+targetDOM).append($infoboxDOM);
 
   });
 }
