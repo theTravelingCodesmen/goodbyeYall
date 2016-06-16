@@ -12,8 +12,8 @@ import PhotoSix from '../components/photoSlotSix'
 class PhotoRoll extends React.Component {
 	render() {
 		return(
-			<div className='photoRoll'>
-				<ul class='ul'>
+			<div>
+				<ul className='photo-roll'>
 					<PhotoOne className={'chichen col-md-2 col-sm-10' }  src={'chichen_itza.png'} />
 					<PhotoTwo className={'christ col-md-2 col-sm-10'} src={'christ_the_redeemer.png'} />
 					<PhotoThree className={'colusseum col-md-2 col-sm-10'} src={'colusseum.png'} />
