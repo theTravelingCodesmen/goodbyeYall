@@ -193,7 +193,7 @@ function secondRoundInsertQuotes (){
 
 
 masterDataGenerator()
-setTimeout(secondRoundInsertQuotes, 1500000)
+setTimeout(secondRoundInsertQuotes, 1700000)
 
 
 
