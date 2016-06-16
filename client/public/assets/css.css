@@ -166,8 +166,18 @@ ul.photo-roll img:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
-	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,122,0.9);
-	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,122,0.9);
-	box-shadow:         0px 0px 30px 0px rgba(217,218,122,0.9);
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
+	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
 	z-index: 10;
+  -webkit-filter: sepia(0%); /* Chrome, Safari, Opera */
+  filter: sepia(0%);
 }
+
+ul.photo-roll img {
+  -webkit-filter: sepia(45%); /* Chrome, Safari, Opera */
+  filter: sepia(45%);
+}
+
+
+
