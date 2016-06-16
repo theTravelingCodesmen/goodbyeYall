@@ -3,7 +3,7 @@ let knex = require('../../db/db');
 
 
 function fetchDestinationsFromDb(selectedPackage){
-	knex.pullDestinationsByPackage(selectedPackage)
+	return knex.pullDestinationsByPackage(selectedPackage)
 		.then( (data) => console.log(data))
 
 

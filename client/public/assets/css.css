@@ -29,17 +29,12 @@
 }
 
 .photo-roll{
-	margin-left: -10px;
 	min-height: 5em;
-	background-color: #5F5F5F;
+	background-color: rgba(0,0,0,0);
 	border-style: solid;
 	border-color: black;
 }
 
-.ul{
-	margin-right: 0px;
-	margin-left: 0px;
-}
 .chichen{
 	display : inline-block;
 	min-height: 40px;
@@ -100,23 +95,22 @@
 
 .intro{
 	position: relative;
-	left: 40px;
 	top: 10px;
-	margin-left: 0px;
+	margin: 0 0;
 	min-height: 130px;
 	border-style: solid;
 	border-color: black;
 	opacity: 1;
-	width:50%;
+	width:100%;
 	font-size:1.2em;
 	color: white;
 	text-shadow: 1px 1px #000000;
 }
 
 .d-three-cache, .flight{
-	left: 40px;
+	/*left: 40px;*/
 	display:inline-block;
-	align:center;
+	text-align:center;
 	opacity: .75;
 	background-color: white;
 	backface-visibility:
@@ -124,7 +118,7 @@
 
 .flight{
 	display: inline-block;
-	align:center;
+	text-align:center;
 }
 
 .line {
