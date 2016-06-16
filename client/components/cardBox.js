@@ -9,16 +9,11 @@ import PhotoRoll from './photoRoll'
 class CardBox extends React.Component {
 	render() {
 		return(
-			<div className='container'>
-
+			<div className='container-fluid'>
 					<CardTitle className='card-title' />
-
-
 					<PhotoRoll className='row' />
-
-
+					<ActivePhoto className='active-photo' />
 			</div>
-
 		)
 	}
 	//Currently hard-coded, will accept a package_group arguement on click event
