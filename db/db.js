@@ -26,6 +26,7 @@ knex.ensureSchema = function () {
           table.string('next_image_url', 255);
           table.string('intro', 1023);
           table.string('country', 255);
+          table.string('package_group', 255);
         }).then(function (table) {
           console.log('Created destinations table.');
         })
