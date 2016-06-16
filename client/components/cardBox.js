@@ -11,7 +11,7 @@ class CardBox extends React.Component {
 		return(
 			<div className='container'>
 
-					<CardTitle className='card-title col-md-12' />
+					<CardTitle className='card-title' />
 
 
 					<PhotoRoll className='row' />
