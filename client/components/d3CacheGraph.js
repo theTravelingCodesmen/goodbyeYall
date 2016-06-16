@@ -5,15 +5,12 @@ import getd3Cachegraph from './d3CacheGraphFetch'
 
 class D3Cache extends React.Component {
   render(){
-    return ( <div><button></button></div> )
+    return ( <div className='d-three-cache'> <button></button> </div> )
   }
   componentDidMount(){
     getd3Cachegraph();
   }
 }
 
-ReactDom.render(
-  <D3Cache />, document.querySelector('.d-three')
-);
 
 export default D3Cache;
