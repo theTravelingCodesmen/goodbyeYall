@@ -172,6 +172,7 @@ ul.photo-roll img:hover {
 	z-index: 10;
   -webkit-filter: sepia(0%); /* Chrome, Safari, Opera */
   filter: sepia(0%);
+  cursor: pointer;
 }
 
 ul.photo-roll img {
