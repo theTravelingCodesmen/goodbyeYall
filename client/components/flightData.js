@@ -9,7 +9,7 @@ import getd3LivePriceGraph from './flightDataGraphFetch'
 class FlightData extends React.Component {
 	render() {
 		return (
-			<div className={this.props.className}>Placeholder for flight data and still need ajax request</div>
+			<div className={this.props.className}></div>
 		)
 	}
   componentDidMount(){
