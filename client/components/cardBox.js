@@ -10,18 +10,16 @@ import ActivePhoto from '../components/activePhoto'
 class CardBox extends React.Component {
 	render() {
 		return(
-			<div>
-				<div className = 'row'>
-					<CardTitle className={'card-title col-md-12'} />
-				</div>
-				<div className = 'row'>
-					<PhotoRoll />
-				</div>
-				<div className = 'row'>
-					<div className='active-photo-container'>
-						<ActivePhoto className={'active-photo col-md-12'} />
-					</div>
-				</div>
+			<div className='container'>
+
+					<CardTitle className='card-title col-md-12' />
+
+
+					<PhotoRoll className='row' />
+
+
+						<ActivePhoto className='active-photo' />
+
 			</div>
 
 		)
