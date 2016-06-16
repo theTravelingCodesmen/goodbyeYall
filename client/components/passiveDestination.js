@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class PhotoOne extends React.Component {
+class PassiveDestination extends React.Component {
 	render() {
 		return(	
 			//<img className='chichen' src='/assets/images/chichen_itza.png'></img>
@@ -17,4 +17,4 @@ class PhotoOne extends React.Component {
 // 	<PhotoOne />, document.querySelector('.chichen')
 // );
 
-export default PhotoOne;
+export default PassiveDestination;

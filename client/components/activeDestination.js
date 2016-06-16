@@ -6,7 +6,7 @@ import Intro from '../components/intro'
 import D3CacheGraph from '../components/d3CacheGraph'
 import FlightData from '../components/flightData'
 
-class ActivePhoto extends React.Component {
+class ActiveDestination extends React.Component {
 	render() {
 		return(	
 			<div className='row active-photo-container'>
@@ -19,4 +19,4 @@ class ActivePhoto extends React.Component {
 	}
 }
 
-export default ActivePhoto;
+export default ActiveDestination;
