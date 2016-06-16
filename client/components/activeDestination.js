@@ -9,7 +9,7 @@ import FlightData from './flightData'
 class ActiveDestination extends React.Component {
 	render() {
 		return(	
-			<div className='row active-photo-container'>
+			<div className='row active-photo'>
 				<Intro />
 				<D3CacheGraph />
 				<FlightData />
