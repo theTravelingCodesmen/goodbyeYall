@@ -103,6 +103,10 @@ knex.closeDb = function () {
   })
 }
 
+knex.pullDestinationsByPackage = function(selectedPackage){
+  return knex.select(*).from('destinations').where('package_group', '=', selectedPackage)
+}
+
 
 
 
