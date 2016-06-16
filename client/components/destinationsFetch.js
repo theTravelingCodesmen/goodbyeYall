@@ -3,6 +3,10 @@ let knex = require('../../db/db');
 
 
 function fetchDestinationsFromDb(selectedPackage){
-	console.log(knex.pullDestinationsByPackage)
+	knex.pullDestinationsByPackage(selectedPackage)
+		.then( (data) => console.log(data))
+
+
+	///add closeDb function at end
 }
 fetchDestinationsFromDb("Seven Wonders of the World");

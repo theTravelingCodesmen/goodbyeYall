@@ -105,8 +105,9 @@ knex.closeDb = function () {
 
 knex.pullDestinationsByPackage = function(selectedPackage){
   return knex('destinations').where({'package_group': selectedPackage}).select('*')
-    .then( (data) => console.log(data) )
-    .then(knex.closeDb)
+    // .then( (data) => 
+    //   return (data)
+    // )
 }
 
 //knex.ensureSchema().then(knex.closeDb);
