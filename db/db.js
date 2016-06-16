@@ -21,12 +21,12 @@ knex.ensureSchema = function () {
           table.increments('id').primary();
           table.string('title', 255);
           table.string('airport_code', 255);
+          table.string('country', 255);
           table.string('city_name', 255);
+          table.string('package_group', 255);
+          table.string('intro', 1023);
           table.string('main_image_url');
           table.string('next_image_url', 255);
-          table.string('intro', 1023);
-          table.string('country', 255);
-          table.string('package_group', 255);
         }).then(function (table) {
           console.log('Created destinations table.');
         })
@@ -104,8 +104,15 @@ knex.closeDb = function () {
 }
 
 knex.pullDestinationsByPackage = function(selectedPackage){
-  return knex.select(*).from('destinations').where('package_group', '=', selectedPackage)
+  return knex('destinations').where({'package_group': selectedPackage}).select('*')
+    .then( (data) => console.log(data) )
+    .then(knex.closeDb)
 }
+
+//knex.ensureSchema().then(knex.closeDb);
+// knex.pullDestinationsByPackage("Seven Wonders of the World")
+
+
 
 
 
