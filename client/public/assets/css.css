@@ -17,14 +17,22 @@
 }
 
 .card-title{
-	font-family: 'Alegreya Sans', sans-serif;
+	/*comment out the font choices*/
+	/*font-family: 'Alegreya Sans', sans-serif;*/
+	/*
+	font-family: 'Abril Fatface', cursive;
+	font-family: 'Alex Brush', cursive;
+	font-family: 'Astloch', cursive;
+	font-family: 'Cedarville Cursive', cursive;
+	font-family: 'Chau Philomene One', sans-serif;*/
+	font-family: 'Cinzel', serif;
 	text-align: center;
 	margin-left: 0px;
 	min-height: 50px;
 	background-color: white;
 	border-style: solid;
 	border-color: black;
-	font-size: 3.5em;
+	font-size: 4.5em;
 }
 
 .photo-roll{
@@ -95,15 +103,18 @@
 .intro{
 	position: relative;
 	top: 10px;
-	margin: 0 0;
-	min-height: 130px;
+	margin: 10px 0;
+	min-height: 110px;
 	border-style: solid;
 	border-color: black;
 	opacity: 1;
 	width:100%;
 	font-size:1.2em;
 	color: white;
-	text-shadow: 1px 1px #000000;
+	text-shadow: 2px 2px #000000;
+	background-color:rgba(128,128,128,0.50);
+	padding: 0.5% 10%;
+	text-align: justify;
 }
 
 .d-three-cache, .flight{
@@ -120,9 +131,6 @@
 	text-align:center;
 }
 
-.line {
-	background-color: 	white;
-}
 
 /* info box for d3 graph */
 .infoboxflight, .infoboxd-three-cache {
@@ -146,6 +154,9 @@ path {
     stroke-width: 2;
     fill: none;
 }
+.line {
+	background-color: white;
+}
 /* axis for svg graph */
 .axis path,
 .axis line {
@@ -153,5 +164,33 @@ path {
     stroke: grey;
     stroke-width: 1;
     shape-rendering: crispEdges;
+}
+/* make sure d3 line chart is at least 600px becuase the svg is 600px width */
+.d3-line-chart {
+	min-width:600px;
+}
+
+/* photo roll pics effects */
+.photo-roll img:hover {
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 0px;
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
+	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
+	z-index: 10;
+  -webkit-filter: sepia(0%);
+  filter: sepia(0%);
+  cursor: pointer;
+}
+
+.photo-roll img {
+  -webkit-filter: sepia(45%);
+  filter: sepia(45%);
+}
+
+/* Overrid bootstrap default */
+.container-fluid {
+	padding: 0 2em;
 }
 

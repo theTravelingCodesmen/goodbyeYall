@@ -9,7 +9,7 @@ import getd3LivePriceGraph from './flightDataGraphFetch'
 class FlightData extends React.Component {
 	render() {
 		return (
-			<div className='flight col-md-6' ></div>
+			<div className='flight col-md-6 d3-line-chart' ></div>
 		)
 	}
   componentDidMount(){

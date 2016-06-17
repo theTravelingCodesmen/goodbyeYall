@@ -13,6 +13,7 @@ class ActiveDestination extends React.Component {
 				<h3>{this.props.city_name + ', ' + this.props.country}</h3>
 				<p> {this.props.intro}</p>
 			</div>
+
 				<D3CacheGraph />
 				<FlightData />
 			</div>
