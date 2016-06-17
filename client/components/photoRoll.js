@@ -14,43 +14,45 @@ class PhotoRoll extends React.Component {
 
 // this function creates an array of componets with the correct props asigned
 	findActive() {
-		const destinations = [
-			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/petra.png', next_image_url: 
-			'/assets/images/petra.jpeg', currentlyActivePhoto: true
-	   },
-	   {id:2, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   			{id:3, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   {id:4, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   			{id:5, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   {id:6, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   			{id:7, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   }
-	  ]
+		let destinations = this.props.getDestinations()
+
+		// const destinations = [
+		// 	{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+		// 	city_name: 'Rome', intro: "fahshjashfhashfsahfjahfshsahfaushhua", package_group: 'Seven Wonders of the World',
+		// 	main_image_url: '/assets/images/petra.png', next_image_url: 
+		// 	'/assets/images/petra.jpeg', currentlyActivePhoto: true
+	 //   },
+	 //   {id:2, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+		// 	city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
+		// 	main_image_url: '/assets/images/colusseum.png', next_image_url: 
+		// 	'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
+	 //   },
+	 //   			{id:3, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+		// 	city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
+		// 	main_image_url: '/assets/images/colusseum.png', next_image_url: 
+		// 	'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
+	 //   },
+	 //   {id:4, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+		// 	city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
+		// 	main_image_url: '/assets/images/colusseum.png', next_image_url: 
+		// 	'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
+	 //   },
+	 //   			{id:5, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+		// 	city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
+		// 	main_image_url: '/assets/images/colusseum.png', next_image_url: 
+		// 	'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
+	 //   },
+	 //   {id:6, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+		// 	city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
+		// 	main_image_url: '/assets/images/colusseum.png', next_image_url: 
+		// 	'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
+	 //   },
+	 //   			{id:7, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+		// 	city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
+		// 	main_image_url: '/assets/images/colusseum.png', next_image_url: 
+		// 	'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
+	 //   }
+	 //  ]
 		// this._getDestinations();
 		return destinations.map( (obj) => {
 			if(obj.currentlyActivePhoto){
@@ -71,44 +73,8 @@ class PhotoRoll extends React.Component {
 	}
 
 	findPassive() {
-		const destinations = [
-			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/petra.png', next_image_url: 
-			'/assets/images/petra.jpeg', currentlyActivePhoto: true
-	   },
-	   {id:2, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   			{id:3, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   {id:4, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   			{id:5, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   {id:6, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   },
-	   			{id:7, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg', currentlyActivePhoto: false
-	   }
-	  ]
-		// this._getDestinations();
+		// const destinations = getDestinations();
+		let destinations = this.props.getDestinations()
 		return destinations.map( (obj) => {
 			if(!obj.currentlyActivePhoto){
 				return <PassiveDestination
