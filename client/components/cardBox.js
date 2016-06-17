@@ -12,7 +12,6 @@ class CardBox extends React.Component {
 			<div className='container-fluid'>
 					<CardTitle className='card-title' />
 					<PhotoRoll className='row' />
-					<ActivePhoto className='active-photo' />
 			</div>
 		)
 	}
