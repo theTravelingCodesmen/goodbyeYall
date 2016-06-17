@@ -9,14 +9,17 @@ import PhotoRoll from './photoRoll'
 class CardBox extends React.Component {
 	render() {
 		return(
+
+			
 			<div className='container-fluid'>
 					<CardTitle className='card-title' />
-					<PhotoRoll className='row' />
+					<PhotoRoll getDestinations={this.getDestinations} className='row' />
+
 			</div>
 		)
 	}
 	//Currently hard-coded, will accept a package_group arguement on click event
-	_getDestinations(){
+	getDestinations(){
 
 		const destinationsList = [
 			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
@@ -63,6 +66,8 @@ class CardBox extends React.Component {
 			else{
 				obj.currentlyActivePhoto = false;
 			}
+				return obj
+
 		})
 	}
 
