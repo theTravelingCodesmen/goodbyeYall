@@ -85,6 +85,66 @@ let Petra = {
 
 let destinationsArray = [Petra, christTheRedeemer, Colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu];
 
+//template
+let <> = {
+  title:"",
+  airport_code:"",
+  country:"",
+  city_name:"",
+  package_group: "Seven Natural Wonders of the World",
+  intro:"",
+  main_image_url:"/assets/images/<>.png",
+  next_image_url:"/assets/images/<>.jpeg",
+};
+
+let victoriaFalls = {
+  title:"Victoria Falls",
+  airport_code:"VFAA-sky",
+  country:"Zimbabwe",
+  city_name:"Victoria Falls",
+  package_group: "Seven Natural Wonders of the World",
+  intro:"",
+  main_image_url:"/assets/images/victoria_falls.png",
+  next_image_url:"/assets/images/victoria_falls.jpeg",
+};
+
+let rioHarbor = {
+  title: "Harbor of Rio de Janeiro",
+  airport_code: "GIG-sky",
+  country: "Brazil",
+  city_name: "Rio de Janiero",
+  package_group: "Seven Natural Wonders of the World",
+  intro: "",
+  main_image_url: "/assets/images/rio_harbor.png",
+  next_image_url: "/assets/images/rio_harbor.jpeg",
+};
+
+let <> = {
+  title:"",
+  airport_code:"",
+  country:"",
+  city_name:"",
+  package_group: "Seven Natural Wonders of the World",
+  intro:"",
+  main_image_url:"/assets/images/<>.png",
+  next_image_url:"/assets/images/<>.jpeg",
+};
+
+let <> = {
+  title:"",
+  airport_code:"",
+  country:"",
+  city_name:"",
+  package_group: "Seven Natural Wonders of the World",
+  intro:"",
+  main_image_url:"/assets/images/<>.png",
+  next_image_url:"/assets/images/<>.jpeg",
+};
+
+
+
+
+
 
 // insert destination into destinations database
 knex.insertDestination = function(destinationObject) {
@@ -111,5 +171,5 @@ Promise.all(destinationsArray
 //     console.log("Error while inserting destination:",error);
 //   });
 
-  
+
 
