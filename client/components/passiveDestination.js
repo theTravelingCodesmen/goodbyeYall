@@ -3,13 +3,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+
 class PassiveDestination extends React.Component {
 	render() {
 		return(	
-			//<img className='chichen' src='/assets/images/chichen_itza.png'></img>
-			<img className={this.props.className} src={"/assets/images/" + this.props.src} />
-
-		)
+//change className to passiveDestination - then do CSS stuff
+			<img className='chichen' src={this.props.main_image_url} />
+		) 
 	}
 }
 
@@ -18,3 +18,4 @@ class PassiveDestination extends React.Component {
 // );
 
 export default PassiveDestination;
+ 

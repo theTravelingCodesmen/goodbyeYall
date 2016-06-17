@@ -2,8 +2,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom'
-import CardTitle from '../components/cardTitle'
-import PhotoRoll from '../components/photoRoll'
+import CardTitle from './cardTitle'
+import PhotoRoll from './photoRoll'
 
 
 class CardBox extends React.Component {
@@ -35,27 +35,27 @@ class CardBox extends React.Component {
 			main_image_url: '/assets/images/colusseum.png', next_image_url: 
 			'/assets/images/colusseum.jpeg'
 	   },
-	   			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+	   			{id:3, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
 			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
 			main_image_url: '/assets/images/colusseum.png', next_image_url: 
 			'/assets/images/colusseum.jpeg'
 	   },
-	   {id:2, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+	   {id:4, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
 			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
 			main_image_url: '/assets/images/colusseum.png', next_image_url: 
 			'/assets/images/colusseum.jpeg'
 	   },
-	   			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+	   			{id:5, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
 			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
 			main_image_url: '/assets/images/colusseum.png', next_image_url: 
 			'/assets/images/colusseum.jpeg'
 	   },
-	   {id:2, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+	   {id:6, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
 			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
 			main_image_url: '/assets/images/colusseum.png', next_image_url: 
 			'/assets/images/colusseum.jpeg'
 	   },
-	   			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
+	   			{id:7, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
 			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
 			main_image_url: '/assets/images/colusseum.png', next_image_url: 
 			'/assets/images/colusseum.jpeg'
@@ -65,30 +65,9 @@ class CardBox extends React.Component {
 		return destinationsList.map((obj,index) => {
 			if(index === 0){
 				obj.currentlyActivePhoto = true;
-				//rename img urls 
-				return <ActivePhoto 
-					title={obj.title} 
-					airport_code={obj.airport_code} 
-					country={obj.country} 
-					city_name={obj.city_name} 
-					intro={obj.intro} 
-					package_group={obj.package_group} 
-					main_image_url={obj.main_image_url} 
-					next_image_url={obj.next_image_url}
-				/>
 			}
 			else{
 				obj.currentlyActivePhoto = false;
-				return <PassivePhoto 
-					title={obj.title} 
-					airport_code={obj.airport_code} 
-					country={obj.country} 
-					city_name={obj.city_name} 
-					intro={obj.intro} 
-					package_group={obj.package_group} 
-					main_image_url={obj.main_image_url} 
-					next_image_url={obj.next_image_url}
-				/>
 			}
 		})
 	}
