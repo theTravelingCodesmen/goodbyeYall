@@ -7,7 +7,8 @@ let PromiseThrottle = require("promise-throttle");
 let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
-let naturalWondersCities = [];
+//array of Natural Wonders Cities to be used to get quotes
+let naturalWondersCities = ["HRE-sky","RIOA-sky","REYK-sky","PHXA-sky","SYD-sky","MEX-sky","DEL-sky"];
 
 let destinationCitiesTest = ["CUN-sky"];
 
