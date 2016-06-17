@@ -7,7 +7,7 @@ knex.truncateTable('destinations');
 
 let christTheRedeemer = {
   title: "Christ the Redeemer",
-  airport_code: "GIG-sky",
+  airport_code: "RIOA-sky",
   country: "Brazil",
   city_name: "Rio de Janiero",
   package_group: "Seven Wonders of the World",
@@ -83,65 +83,86 @@ let Petra = {
 };
 
 
-let destinationsArray = [Petra, christTheRedeemer, Colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu];
+let destinationsArray = [Petra, christTheRedeemer, Colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest];
 
-//template
-let <> = {
-  title:"",
-  airport_code:"",
-  country:"",
-  city_name:"",
-  package_group: "Seven Natural Wonders of the World",
-  intro:"",
-  main_image_url:"/assets/images/<>.png",
-  next_image_url:"/assets/images/<>.jpeg",
-};
 
 let victoriaFalls = {
   title:"Victoria Falls",
-  airport_code:"VFAA-sky",
+  airport_code:"HRE-sky",
   country:"Zimbabwe",
-  city_name:"Victoria Falls",
+  city_name:"Harare",
   package_group: "Seven Natural Wonders of the World",
-  intro:"",
+  intro:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae expedita cupiditate, soluta ab reiciendis vitae doloribus, repellat, perferendis sunt sequi at. Dolore, debitis! Molestiae iste officia assumenda, deserunt cumque laborum.",
   main_image_url:"/assets/images/victoria_falls.png",
   next_image_url:"/assets/images/victoria_falls.jpeg",
 };
 
 let rioHarbor = {
   title: "Harbor of Rio de Janeiro",
-  airport_code: "GIG-sky",
+  airport_code: "RIOA-sky",
   country: "Brazil",
   city_name: "Rio de Janiero",
   package_group: "Seven Natural Wonders of the World",
-  intro: "",
+  intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laborum iure alias maiores minus facere nihil. Deleniti debitis assumenda, officiis, fugit mollitia ratione veniam voluptate, officia accusamus, dignissimos earum saepe.",
   main_image_url: "/assets/images/rio_harbor.png",
   next_image_url: "/assets/images/rio_harbor.jpeg",
 };
 
-let <> = {
-  title:"",
-  airport_code:"",
-  country:"",
-  city_name:"",
+let northernLights = {
+  title:"The Aurora Borealis (Northern Lights)",
+  airport_code:"REYK-sky",
+  country:"Iceland",
+  city_name:"Reykjavik",
   package_group: "Seven Natural Wonders of the World",
-  intro:"",
-  main_image_url:"/assets/images/<>.png",
-  next_image_url:"/assets/images/<>.jpeg",
+  intro:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos quis omnis iste accusantium quod repellendus soluta officiis ullam facere unde laudantium at neque recusandae eligendi nam, sequi cumque sapiente dolor.",
+  main_image_url:"/assets/images/northern_lights.png",
+  next_image_url:"/assets/images/northern_lights.jpeg",
 };
 
-let <> = {
-  title:"",
-  airport_code:"",
-  country:"",
-  city_name:"",
+let grandCanyon = {
+  title:"The Grand Canyon",
+  airport_code:"PHXA-sky",
+  country:"United States of America",
+  city_name:"Phoenix",
   package_group: "Seven Natural Wonders of the World",
-  intro:"",
-  main_image_url:"/assets/images/<>.png",
-  next_image_url:"/assets/images/<>.jpeg",
+  intro:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro harum odit ullam consequuntur officiis, excepturi beatae nihil modi recusandae corporis architecto laudantium molestiae, quasi sequi eum repudiandae exercitationem fugit voluptatibus.",
+  main_image_url:"/assets/images/grand_canyon.png",
+  next_image_url:"/assets/images/grand_canyon.jpeg",
+};
+
+let greatBarrierReef = {
+  title:"Great Barrier Reef",
+  airport_code:"MELA-sky",
+  country:"Australia",
+  city_name:"Melbourne",
+  package_group: "Seven Natural Wonders of the World",
+  intro:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo perspiciatis, recusandae nulla sit voluptatibus magni minima voluptatum tempora voluptatem quis, voluptate quia totam dolor consequatur veritatis inventore, animi. Veritatis, amet.",
+  main_image_url:"/assets/images/great_barrier_reef.png",
+  next_image_url:"/assets/images/great_barrier_reef.jpeg",
+};
+
+let paricutin = {
+  title:"Parícutin Volcano",
+  airport_code:"MEX-sky",
+  country:"Mexico",
+  city_name:"Mexico City",
+  package_group: "Seven Natural Wonders of the World",
+  intro:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est officiis nam dignissimos voluptatibus quae blanditiis assumenda ad iusto sunt, obcaecati omnis aliquam. Vitae sunt omnis necessitatibus distinctio, explicabo voluptatibus iusto.",
+  main_image_url:"/assets/images/paricutin.png",
+  next_image_url:"/assets/images/paricutin.jpeg",
 };
 
 
+let mountEverest = {
+  title:"Mount Everest",
+  airport_code:"DEL-sky",
+  country:"India",
+  city_name:"New Delhi",
+  package_group: "Seven Natural Wonders of the World",
+  intro:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates corrupti quae, quis reprehenderit assumenda cupiditate sed et. Aspernatur, mollitia, consequuntur iure sequi quisquam magni sapiente aliquam, consequatur est officiis ipsam.",
+  main_image_url:"/assets/images/mount_everest.png",
+  next_image_url:"/assets/images/mount_everest.jpeg",
+};
 
 
 
@@ -157,10 +178,10 @@ Promise.all(destinationsArray
     return knex.insertDestination(destination);
   }))
   .then(function () {
-      console.log("Inserted all 7 destinations");
+      console.log("Inserted all 14 destinations");
   })
   .catch(function(error) {
-      console.log("There was an error inserting all 7 destinations:", error);
+      console.log("There was an error inserting all 14 destinations:", error);
   })
   .then(knex.closeDb)
 

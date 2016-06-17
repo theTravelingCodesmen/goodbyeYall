@@ -7,12 +7,14 @@ let PromiseThrottle = require("promise-throttle");
 let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
+let naturalWondersCities = [];
+
 let destinationCitiesTest = ["CUN-sky"];
 
 let today = new Date;
 let promiseThrottle = new PromiseThrottle({
-  requestsPerSecond: 0.4,          // up to 10 requests per second 
-  promiseImplementation: Promise  // the Promise library you are using 
+  requestsPerSecond: 0.4,          // up to 10 requests per second
+  promiseImplementation: Promise  // the Promise library you are using
 });
 
 
@@ -146,14 +148,14 @@ Knex.insertQuotesIntoDb = function(flightObj) {
 //
 //generates argments array for searchSkyscannerByDate function
 
-function generateArgumentsArray() {  
+function generateArgumentsArray() {
   let departureDates = generateFlightDates(14);
   let results = [];
   originCities.forEach( (city) => {
     destinationCities.forEach( (dest) => {
       departureDates.forEach( (date) => {
         results.push([date, city, dest])
-      })     
+      })
     })
   })
   return results
