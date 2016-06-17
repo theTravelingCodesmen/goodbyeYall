@@ -40,9 +40,9 @@ class PackageDestinations extends React.Component {
 		return destinations.map( (obj , i) => {
 			if(!obj.currentlyActivePhoto){
 				return <PassiveDestination
-					key={i} 
+					key = {i}
 					_id = {obj.id}
-					title={obj.title} 
+					title= {obj.title} 
 					airport_code={obj.airport_code} 
 					country={obj.country} 
 					city_name={obj.city_name} 
