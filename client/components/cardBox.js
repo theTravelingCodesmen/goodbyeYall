@@ -14,7 +14,7 @@ class CardBox extends React.Component {
 					<CardTitle className='card-title col-md-12' />
 
 
-					<PhotoRoll className='row' />
+					<PhotoRoll getDestinations={this.getDestinations} className='row' />
 
 
 			</div>
@@ -22,7 +22,7 @@ class CardBox extends React.Component {
 		)
 	}
 	//Currently hard-coded, will accept a package_group arguement on click event
-	_getDestinations(){
+	getDestinations(){
 
 		const destinationsList = [
 			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
@@ -69,6 +69,8 @@ class CardBox extends React.Component {
 			else{
 				obj.currentlyActivePhoto = false;
 			}
+				return obj
+
 		})
 	}
 
