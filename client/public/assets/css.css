@@ -172,7 +172,7 @@ path {
 }
 
 /* photo roll pics effects */
-ul.photo-roll img:hover {
+.photo-roll img:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
@@ -185,7 +185,7 @@ ul.photo-roll img:hover {
   cursor: pointer;
 }
 
-ul.photo-roll img {
+.photo-roll img {
   -webkit-filter: sepia(45%);
   filter: sepia(45%);
 }
