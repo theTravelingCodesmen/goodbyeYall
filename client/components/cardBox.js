@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import CardTitle from './cardTitle'
-import PhotoRoll from './photoRoll'
+import PackageDestinations from '../containers/packageDestinations'
 
 
 class CardBox extends React.Component {
@@ -13,7 +13,7 @@ class CardBox extends React.Component {
 			
 			<div className='container-fluid'>
 					<CardTitle className='card-title' />
-					<PhotoRoll getDestinations={this.getDestinations} className='row' />
+					<PackageDestinations getDestinations={this.getDestinations} className='row' />
 
 			</div>
 		)

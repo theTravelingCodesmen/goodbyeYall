@@ -8,7 +8,7 @@ class PassiveDestination extends React.Component {
 	render() {
 		return(	
 //change className to passiveDestination - then do CSS stuff
-			<img className='chichen' src={this.props.main_image_url} />
+			<img className='chichen' src={this.props.main_image_url} onClick={(()=>console.log(this.props._id))}/>
 		) 
 	}
 }
