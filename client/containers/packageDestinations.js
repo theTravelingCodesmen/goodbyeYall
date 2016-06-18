@@ -5,20 +5,31 @@ import ReactDOM from 'react-dom';
 import PassiveDestination from './passiveDestination'
 import ActiveDestination from '../components/activeDestination'
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage'
 
 // this componenet need to listen to the state.
 // in the initial state, it should render the hard coded data
 
 class PackageDestinations extends React.Component {
-	// componentWillMount(){
+	componentWillMount(){
+		return axios.get('/packages/selectpackage/Seven Wonders of the World')
+			.then(function(data){
+				let INITIAL_STATE = {};
+				INITIAL_STATE.active = data.data.slice(0,1);
+				INITIAL_STATE.passive = data.data.slice(1);
+				return INITIAL_STATE;
+			})
+			.then(this.props.fetchPackage)
+			.catch(err=>console.log(err))
 			///add closeDb function at end
-	//}
+	}
 	render() {
 		return(
 			<div className='row' className='photo-roll'>
 				<div className='photo-roll' >
 				{
-					this.props.passive.map(function(dest, i){
+					this.props.passive.map( (dest, i) => {
 						return <PassiveDestination 
 							key={i}
 							_id = {dest.id}
@@ -29,7 +40,7 @@ class PackageDestinations extends React.Component {
 				</div>
 				<div>
 					{
-						this.props.active.map(function(dest, i){
+						this.props.active.map( (dest, i) => {
 							return <ActiveDestination 
 								key={i}
 								_id = {dest.id}
@@ -56,4 +67,8 @@ function mapStateToProps ( state ){
 	}
 }
 
-export default connect(mapStateToProps)(PackageDestinations);
+function mapDispatchToProps( dispatch ){
+	return bindActionCreators({fetchPackage: fetchPackage}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PackageDestinations);
