@@ -75,8 +75,8 @@ class CardBox extends React.Component {
 
 }
 
-ReactDOM.render(
-	<CardBox />, document.querySelector('.card-box')
-);
+// ReactDOM.render(
+// 	<CardBox />, document.querySelector('.card-box')
+// );
 
 export default CardBox;

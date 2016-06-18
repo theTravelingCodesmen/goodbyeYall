@@ -1,1 +1,1 @@
-import CardBox from '../components/cardBox'
+import LandingPage from '../components/landingPage'
