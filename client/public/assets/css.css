@@ -6,7 +6,7 @@
 }
 
 .nav{
-	
+
 }
 .landing-page {
 /*	height: 50px;
@@ -202,3 +202,36 @@ path {
 	padding: 0 2em;
 }
 
+/*.package-uno {
+		display: block;
+		text-align: center;
+    width:  20%;
+    height: 20%;
+    border: 3px solid #73AD21;
+    margin: 0px 50%;
+}
+.package-dos{
+		display: block;
+		text-align: center;
+    width: 20%;
+    height: 20%;
+    border: 3px solid #73AD21;
+    margin: 0px 50%;
+}*/
+
+.center-div{
+	display:inline-block;
+	width: 100%;
+	margin: 0% 10%;
+}
+
+.value-prop{
+  width: 40%;
+  height: 40%;
+  margin: 0% 10%;
+}
+
+.carousel{
+	margin: 0% 10%;
+	width: 42%;
+}

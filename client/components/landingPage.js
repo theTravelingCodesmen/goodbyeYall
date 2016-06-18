@@ -2,18 +2,23 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom'
-import CardBox from './cardBox'
 import NavBar from './navBar'
+import OutCardBox from './OuterCardBox'
 
 
 class LandingPage extends React.Component {
 	render(){
+
+let showing = <OutCardBox />		
+//if(showpackage)
+//else{showing = <OutCardBox />}
+
 		return(
 					<div> 
 						<NavBar />
-					
+						{showing}
 					</div>
-			)
+		)
 	}
 }
 
@@ -24,13 +29,3 @@ ReactDOM.render(
 );
 export default LandingPage;
 
-
-	// <row>
-	// 						<div>
-	// 							<Screen />
-	// 							<div>
-	// 								<div className='package-pne'></div>
-	// 								<div className='package-two'></div>
-	// 							</div>
-	// 						</div>
-	// 					</row>

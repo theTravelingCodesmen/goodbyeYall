@@ -3,80 +3,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import CardTitle from './cardTitle'
-import PhotoRoll from './photoRoll'
+import PackageDestinations from '../containers/packageDestinations'
+import { Provider } from 'react-redux';
+import {createStore, applyMiddleware } from 'redux';
+import reducers from '../reducers';
+import promise from 'redux-promise';
 
+const createStoreWithMiddleware = applyMiddleware(
+	promise
+	)(createStore);
 
 class CardBox extends React.Component {
 	render() {
-		return(
-
-			
+		return(			
 			<div className='container-fluid'>
-					<CardTitle className='card-title' />
-					<PhotoRoll getDestinations={this.getDestinations} className='row' />
-
+				<CardTitle className='card-title' />
+				<PackageDestinations  className='row' />
 			</div>
 		)
 	}
-	//Currently hard-coded, will accept a package_group arguement on click event
-	getDestinations(){
-
-		const destinationsList = [
-			{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/petra.png', next_image_url: 
-			'/assets/images/petra.jpeg'
-	   },
-	   {id:2, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   			{id:3, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   {id:4, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   			{id:5, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   {id:6, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   			{id:7, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   }
-	  ]
-
-		return destinationsList.map((obj,index) => {
-			if(index === 0){
-				obj.currentlyActivePhoto = true;
-			}
-			else{
-				obj.currentlyActivePhoto = false;
-			}
-				return obj
-
-		})
-	}
-
-
-
 }
 
-// ReactDOM.render(
-// 	<CardBox />, document.querySelector('.card-box')
-// );
+
+ReactDOM.render(
+	<Provider store={createStoreWithMiddleware(reducers)}>
+		<CardBox />
+	</Provider>
+	, document.querySelector('.card-box')
+);
 
 export default CardBox;

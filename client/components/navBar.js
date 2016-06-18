@@ -8,12 +8,11 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem }from 'react-bootstrap';
 class NavBar extends React.Component{
   render(){
 
-// const navbarInstance = (
     return (
     <Navbar>
       <Navbar.Header>
         <Navbar.Brand>
-          <a href="#">React-Bootstrap</a>
+          <a href="#">GoodByeYall </a>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
@@ -28,7 +27,6 @@ class NavBar extends React.Component{
         </NavDropdown>
       </Nav>
     </Navbar>
-// );
 
   )};
 };
