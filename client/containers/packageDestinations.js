@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PassiveDestination from './passiveDestination'
 import ActiveDestination from '../components/activeDestination'
+// import FetchDestinations from '../components/destinationsFetch'
 
 import { connect } from 'react-redux';
 
