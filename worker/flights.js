@@ -7,6 +7,9 @@ let PromiseThrottle = require("promise-throttle");
 let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
+//array of Natural Wonders Cities to be used to get quotes
+let naturalWondersCities = ["HRE-sky","RIOA-sky","REYK-sky","PHXA-sky","SYD-sky","MEX-sky","DEL-sky"];
+
 let destinationCitiesTest = ["CUN-sky"];
 
 let today = new Date;
@@ -153,7 +156,7 @@ function generateArgumentsArray() {
     destinationCities.forEach( (dest) => {
       departureDates.forEach( (date) => {
         results.push([date, city, dest])
-      })     
+      })
     })
   })
   return results
