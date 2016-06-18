@@ -1,23 +1,18 @@
 'use strict'
-
+import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PassiveDestination from './passiveDestination'
 import ActiveDestination from '../components/activeDestination'
-// import FetchDestinations from '../components/destinationsFetch'
-
 import { connect } from 'react-redux';
 
 // this componenet need to listen to the state.
 // in the initial state, it should render the hard coded data
 
 class PackageDestinations extends React.Component {
-	
-	componentWillMount(){
-		//db call to render stored info...
-	}
-
-
+	// componentWillMount(){
+			///add closeDb function at end
+	//}
 	render() {
 		return(
 			<div className='row' className='photo-roll'>
@@ -52,9 +47,7 @@ class PackageDestinations extends React.Component {
 			</div>
 		)
 	}
-
 }
-
 
 function mapStateToProps ( state ){
 	return {
@@ -62,7 +55,5 @@ function mapStateToProps ( state ){
 		active: state.destinations.active
 	}
 }
-
-
 
 export default connect(mapStateToProps)(PackageDestinations);

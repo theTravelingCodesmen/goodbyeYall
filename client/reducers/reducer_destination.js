@@ -1,4 +1,4 @@
-import { SELECT_DESTINATION, TOGGLE_ACTIVE } from '../actions/selectDestination';
+import { SET_ACTIVE_DESTINATION } from '../actions/setActiveDestination';
 
 const INITIAL_STATE = { passive: [
 			
@@ -35,20 +35,20 @@ const INITIAL_STATE = { passive: [
 	  ],
 	  //TODO active just map to one object, not array of one obj
 	 active: [{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
+			city_name: 'Rome', intro: "axxxxxxx", package_group: 'Seven Wonders of the World',
 			main_image_url: '/assets/images/petra.png', next_image_url: 
 			'/assets/images/petra.jpeg'
 	   }] }
 
 export default function (state = INITIAL_STATE, action) {
-   //  switch (action.type){
-   //  case SELECT_DESTINATION:
-   //  	return { ...state, selectedDestination: action.payload.data }
-   //  // case TOGGLE_ACTIVE:
-   //  // 	return {...state, active: action.payload.data}
-   //  default:
-   //  	return state;
-   //  //else dont care about other action
-  	// }
-  	return state
+    switch (action.type){
+    case SET_ACTIVE_DESTINATION: 
+    	let newState = {};
+    	newState.passive = INITIAL_STATE.passive.concat(INITIAL_STATE.active)
+    	newState.active = newState.passive.filter((obj)=>{return obj.id === action.payload})
+    	newState.passive = newState.passive.filter((obj)=>{return obj.id !== action.payload})
+    	return newState
+  	default:
+  		return state
+	}
 }

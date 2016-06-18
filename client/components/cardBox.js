@@ -4,8 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import CardTitle from './cardTitle'
 import PackageDestinations from '../containers/packageDestinations'
-
-//potential adds:
 import { Provider } from 'react-redux';
 import {createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
@@ -24,9 +22,6 @@ class CardBox extends React.Component {
 			</div>
 		)
 	}
-
-
-
 }
 
 ReactDOM.render(
@@ -35,6 +30,5 @@ ReactDOM.render(
 	</Provider>
 	, document.querySelector('.card-box')
 );
-	// , document.querySelector('.card-box')
 
 export default CardBox;

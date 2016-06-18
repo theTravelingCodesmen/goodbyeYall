@@ -23,5 +23,4 @@ class ActiveDestination extends React.Component {
 	}
 }
 
-// export default connect(mapStateToProps)(ActiveDestination);
 export default ActiveDestination;

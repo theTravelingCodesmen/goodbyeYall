@@ -2,7 +2,9 @@
 let knex = require('../../db/db');
 
 
-function fetchDestinationsFromDb(selectedPackage){
+module.exports = knex;
+
+knex.fetchDestinationsFromDb = function(selectedPackage){
 	return knex.pullDestinationsByPackage(selectedPackage)
 		.then( (data) => {
 			console.log(data)
@@ -14,4 +16,3 @@ function fetchDestinationsFromDb(selectedPackage){
 }
 // fetchDestinationsFromDb("Seven Wonders of the World");
 
-export default fetchDestinationsFromDb;
