@@ -1,7 +1,5 @@
 'use strict'
 //
-// db.js
-//
 // KNEX database library
 // plus additional database helper functions
 //

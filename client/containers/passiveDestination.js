@@ -10,7 +10,6 @@ import { setActiveDestination } from '../actions/setActiveDestination';
 class PassiveDestination extends React.Component {
 	render() {
 		return(	
-			//change className to passiveDestination - then do CSS stuff
 			<img className='chichen' src={this.props.main_image_url} onClick={()=>this.props.setActiveDestination(this.props._id)}/>
 		) 
 	}

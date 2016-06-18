@@ -17,8 +17,8 @@ class CardBox extends React.Component {
 	render() {
 		return(			
 			<div className='container-fluid'>
-					<CardTitle className='card-title' />
-					<PackageDestinations  className='row' />
+				<CardTitle className='card-title' />
+				<PackageDestinations  className='row' />
 			</div>
 		)
 	}
