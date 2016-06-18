@@ -1,44 +1,14 @@
+'use strict'
+import axios from "axios"
 import { SET_ACTIVE_DESTINATION } from '../actions/setActiveDestination';
 
-const INITIAL_STATE = { passive: [
-			
-	   {id:2, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   			{id:3, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   {id:4, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   			{id:5, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   {id:6, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   },
-	   			{id:7, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "a", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/colusseum.png', next_image_url: 
-			'/assets/images/colusseum.jpeg'
-	   }
-	  ],
-	  //TODO active just map to one object, not array of one obj
-	 active: [{id:1, title: 'Colosseum', airport_code: 'ROME-sky', country:'Italy', 
-			city_name: 'Rome', intro: "axxxxxxx", package_group: 'Seven Wonders of the World',
-			main_image_url: '/assets/images/petra.png', next_image_url: 
-			'/assets/images/petra.jpeg'
-	   }] }
+let INITIAL_STATE={};
+axios.get('/packages/selectpackage/Seven Wonders of the World')
+	.then(function(data){
+		console.log(data)
+		INITIAL_STATE.active=data.data.slice(0,1);
+		INITIAL_STATE.passive=data.data.slice(1);
+	})
 
 export default function (state = INITIAL_STATE, action) {
     switch (action.type){
