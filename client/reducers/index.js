@@ -1,10 +1,9 @@
-mport { combineReducers } from 'redux';
-import Destination from './reducer_destination';
-import DestinationData from './reducer_destination_data'
+import { combineReducers } from 'redux';
+import Destination from './reducer_destination'
 
 const rootReducer = combineReducers({
-        destination: Destination,
-        destinationData:DestinationData
+	destinations: Destination
+        // destinationData:DestinationData
 });
 
 export default rootReducer;
