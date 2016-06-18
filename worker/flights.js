@@ -7,11 +7,14 @@ let PromiseThrottle = require("promise-throttle");
 let originCities = ["DFWA-sky", "HOUA-sky"];
 let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
 
+//array of Natural Wonders Cities to be used to get quotes
+let naturalWondersCities = ["HRE-sky","RIOA-sky","REYK-sky","PHXA-sky","SYD-sky","MEX-sky","DEL-sky"];
+
 let destinationCitiesTest = ["CUN-sky"];
 
 let today = new Date;
 let promiseThrottle = new PromiseThrottle({
-  requestsPerSecond: 0.4,          // up to 10 requests per second 
+  requestsPerSecond: 0.5,          // up to 10 requests per second 
   promiseImplementation: Promise  // the Promise library you are using 
 });
 
@@ -126,7 +129,7 @@ function generateFlightDates(daysOut){
   let daysAdded = daysOut;
   let count = 0;
   //change back to < 52
-  while(count < 52){
+  while(count < 49){
     dates.push(today.addDays(daysAdded));
     daysAdded += 7;
     count++;
@@ -147,13 +150,13 @@ Knex.insertQuotesIntoDb = function(flightObj) {
 //generates argments array for searchSkyscannerByDate function
 
 function generateArgumentsArray() {  
-  let departureDates = generateFlightDates(14);
+  let departureDates = generateFlightDates(12);
   let results = [];
   originCities.forEach( (city) => {
     destinationCities.forEach( (dest) => {
       departureDates.forEach( (date) => {
         results.push([date, city, dest])
-      })     
+      })
     })
   })
   return results
@@ -193,7 +196,7 @@ function secondRoundInsertQuotes (){
 
 
 masterDataGenerator()
-setTimeout(secondRoundInsertQuotes, 1700000)
+setTimeout(secondRoundInsertQuotes, 1400000)
 
 
 

@@ -6,11 +6,14 @@ knex.truncateTable('packages');
 
 
 let sevenWonders = {
-  name: "Seven Wonders of the World"
+    name: "Seven Wonders of the World"
 };
 
+let sevenNaturalWonders = {
+    name: "Seven Natural Wonders of the World"
+}
 
-let packagesArray = [sevenWonders];
+let packagesArray = [sevenWonders, sevenNaturalWonders];
 
 
 // insert destination into destinations database
