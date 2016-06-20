@@ -54,51 +54,6 @@
 	border-color: black;
 }
 
-.colusseum{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.machu{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.petra{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.christ{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.taj{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
 .active-photo{
 	height:705px;
 }
