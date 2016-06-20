@@ -3,7 +3,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import NavBar from './navBar'
-import OutCardBox from './OuterCardBox'
+import OutCardBox from './outerCardBox'
+import MissionStatement from './missionStatement'
+import MeetTheDevs from './meetTheDevs'
 
 
 class LandingPage extends React.Component {
@@ -17,6 +19,8 @@ let showing = <OutCardBox />
 					<div> 
 						<NavBar />
 						{showing}
+						<MissionStatement />
+						<MeetTheDevs />
 					</div>
 		)
 	}

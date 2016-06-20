@@ -16,14 +16,12 @@ class NavBar extends React.Component{
         </Navbar.Brand>
       </Navbar.Header>
       <Nav>
-        <NavItem eventKey={1} href="#">Link</NavItem>
-        <NavItem eventKey={2} href="#">Link</NavItem>
-        <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-          <MenuItem eventKey={3.1}>Action</MenuItem>
-          <MenuItem eventKey={3.2}>Another action</MenuItem>
-          <MenuItem eventKey={3.3}>Something else here</MenuItem>
-          <MenuItem divider />
-          <MenuItem eventKey={3.3}>Separated link</MenuItem>
+        <NavItem eventKey={1}>Home</NavItem>
+        <NavItem eventKey={2} href="#">How it Works</NavItem>
+        <NavItem eventKey={3} href="#">Meet the Devs</NavItem>
+        <NavDropdown eventKey={3} title="Travel Packages" id="basic-nav-dropdown">
+          <MenuItem eventKey={3.1}>Seven Wonders of the World</MenuItem>
+          <MenuItem eventKey={3.2}>Seven Natural Wonders of the World</MenuItem>
         </NavDropdown>
       </Nav>
     </Navbar>
@@ -34,3 +32,6 @@ class NavBar extends React.Component{
 export default NavBar;
 
 
+
+          // <MenuItem divider />
+          // <MenuItem eventKey={3.3}>Separated link</MenuItem>
