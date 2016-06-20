@@ -5,6 +5,7 @@ let FacebookStrategy = require('passport-facebook').Strategy;
 let pg = require('pg');
 let conString = require('../../APIKEYS').PG_CONNECTION_STRING;
 let client = new pg.Client(conString);
+let facebookApi = require("../../APIKEYS.js");
 
 module.exports = function(passport) {
  passport.serializeUser(function(user, done) {
