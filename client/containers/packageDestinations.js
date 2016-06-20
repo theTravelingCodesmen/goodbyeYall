@@ -15,6 +15,7 @@ class PackageDestinations extends React.Component {
 	componentWillMount(){
 		return axios.get('/packages/selectpackage/Seven Wonders of the World')
 			.then(function(data){
+				console.log(data)
 				let INITIAL_STATE = {};
 				INITIAL_STATE.active = data.data.slice(0,1);
 				INITIAL_STATE.passive = data.data.slice(1);

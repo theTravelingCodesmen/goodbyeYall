@@ -6,6 +6,7 @@ import {FETCH_PACKAGE} from '../actions/fetchPackage'
 let INITIAL_STATE = { passive: [], active: []};
 
 export default function (state = INITIAL_STATE, action) {
+	console.log(state)
   switch (action.type){
 		case SET_ACTIVE_DESTINATION:
     	let newState = {};
