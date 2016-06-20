@@ -1,5 +1,5 @@
 
-.card-box, .card-title, .photo-roll, .ul, .chichen, .colusseum, .machu, .petra, .christ, .taj, .parent-photo, .wall, .intro, .d-three-cache, .flight , .row{
+.card-box, .card-title, .photo-roll, .parent-photo, .intro, .d-three-cache, .flight , .row{
 	padding: 0;
 	margin: 0 ;
 	border: 0;
@@ -42,7 +42,10 @@
 	border-color: black;
 }
 
-.chichen{
+.passive-photo{
+	padding: 0;
+	margin: 0 ;
+	border: 0;
 	display : inline-block;
 	min-height: 40px;
 	min-width: 16%;
