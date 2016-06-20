@@ -18,6 +18,7 @@ let showing = <OutCardBox />
 		return(
 					<div> 
 						<NavBar />
+						<div className='nav-spacing'></div>
 						{showing}
 						<MissionStatement />
 						<MeetTheDevs />

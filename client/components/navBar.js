@@ -9,7 +9,7 @@ class NavBar extends React.Component{
   render(){
 
     return (
-    <Navbar>
+    <Navbar className="navbar-fixed-top">
       <Navbar.Header>
         <Navbar.Brand>
           <a href="#">GoodByeYall </a>

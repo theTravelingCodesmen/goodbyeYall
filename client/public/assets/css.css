@@ -195,3 +195,7 @@ path {
 	margin: 0% 10%;
 	width: 42%;
 }
+
+.nav-spacing{
+	min-height: 60px;
+}
