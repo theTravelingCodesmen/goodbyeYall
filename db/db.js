@@ -88,6 +88,19 @@ knex.ensureSchema = function () {
           console.log('Created cheapest_route_ever table.');
         });
       }
+    }),
+    knex.schema.hasTable('last_thirty_days').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('last_thirty_days', function (table) {
+          table.increments('id').primary();
+          table.float('price');
+          table.string('originCity', 255);
+          table.string('destinationCity', 255);
+          table.timestamp('scrapedAt');
+        }).then(function (table) {
+          console.log('Created last_thirty_days table.');
+        });
+      }
     })
   ])
 }
