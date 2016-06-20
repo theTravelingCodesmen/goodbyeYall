@@ -9,37 +9,37 @@
 'use strict'
 let knex = require('../db/db');
 
-knex.getCheapestRouteInQuotes = function(){
+knex.getCheapestRouteInQuotesByDate = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
-	return knex('quotes').select('price', 'originCity','destinationCity', 'created_at as scrapedAt').min('price as cheapest_price').groupBy('originCity', 'destinationCity')
+	return knex('quotes').where('created_at','<', new Date(Date.now()-24*60*60*1000)).select('originCity','destinationCity').min('price as price').groupBy('originCity', 'destinationCity')
 }
 
-knex.insertCheapestRoute = function(obj){
-	//obj represent the current cheapest route price in the quotes datatable
-	//obj format 
-  // {originCity: 'DFWA-sky',destinationCity: 'AMMA-sky', min: 813.86 }
- 	return knex('cheapest_route_ever').where({
-  	originCity: obj.originCity,
-  	destinationCity: obj.destinationCity
-  })
-  .then(function(currentCheapest){
-  	console.log('line27', currentCheapest);
-		if (currentCheapest.length===0){
-			return knex('cheapest_route_ever').insert(obj)
-		}else if (currentCheapest.length===1){
-			return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
-		}else{
-			throw new Error('line 37 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
-		}
-  })
-  .catch(function(err){
-		console.log('line 37 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
-  })
+// knex.insertCheapestRoute = function(obj){
+// 	//obj represent the current cheapest route price in the quotes datatable
+// 	//obj format 
+//   // {originCity: 'DFWA-sky',destinationCity: 'AMMA-sky', min: 813.86 }
+//  	return knex('cheapest_route_ever').where({
+//   	originCity: obj.originCity,
+//   	destinationCity: obj.destinationCity
+//   })
+//   .then(function(currentCheapest){
+//   	console.log('line27', currentCheapest);
+// 		if (currentCheapest.length===0){
+// 			return knex('cheapest_route_ever').insert(obj)
+// 		}else if (currentCheapest.length===1){
+// 			return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
+// 		}else{
+// 			throw new Error('line 37 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
+// 		}
+//   })
+//   .catch(function(err){
+// 		console.log('line 37 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
+//   })
 
 
-}
+// }
 
-knex.getCheapestRouteInQuotes().then(function(data){
+knex.getCheapestRouteInQuotesByDate().then(function(data){
 	data = data.sort(function(x, y){
 		if (x.originCity < y.originCity)return 1
 		if (x.originCity > y.originCity)return -1
@@ -51,7 +51,7 @@ knex.getCheapestRouteInQuotes().then(function(data){
 	console.log(data)
 	return data
 })
-.then(function(cheapestQuotes){
-	return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
-})
+// .then(function(cheapestQuotes){
+// 	return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
+// })
 .then(knex.closeDb);
