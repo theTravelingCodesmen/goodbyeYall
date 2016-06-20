@@ -5,8 +5,10 @@
   "main": "server./app.js",
   "scripts": {
     "test": "./test/run.sh",
-    "start": "nodemon server/app.js",
-    "build": "./node_modules/webpack/bin/webpack.js -w -c"
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js",
+    "build": "./node_modules/webpack/bin/webpack.js -w -c",
+    "postinstall": "./node_modules/webpack/bin/webpack.js -c"
   },
   "repository": {
     "type": "git",
