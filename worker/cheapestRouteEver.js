@@ -11,7 +11,7 @@ let knex = require('../db/db');
 
 knex.getCheapestRouteInQuotes = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
-	return knex('quotes').select('originCity','destinationCity').min('price').groupBy('originCity', 'destinationCity')
+	return knex('quotes').select('originCity','destinationCity').min('price as cheapest_price').groupBy('originCity', 'destinationCity')
 }
 
 
@@ -20,15 +20,22 @@ knex.insertCheapestRoute = function(obj){
 	//obj represent the current cheapest route price in the quotes datatable
 	//obj format 
   // {originCity: 'DFWA-sky',destinationCity: 'AMMA-sky', min: 813.86 }
- 	let currentCheapest = knex('cheapest_route_ever').select('*').where({
+ 	return knex('cheapest_route_ever').where({
   	originCity: obj.originCity,
   	destinationCity: obj.destinationCity
-  });
-  if (!currentCheapest){
-  	return knex('cheapest_route_ever').insert(obj)
-  }else{
-  	return knex('cheapest_route_ever').where('id','=',currentCheapest.id).update(obj)
-  }
+  })
+  .then(function(currentCheapest){
+		if (currentCheapest.length===0){
+			return knex('cheapest_route_ever').insert(obj)
+		}else{
+			return knex('cheapest_route_ever').where('id','=',currentCheapest.id).update(obj)
+		}
+  })
+  .catch(function(err){
+		console.log('line 37 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
+  })
+
+
 }
 
 knex.getCheapestRouteInQuotes().then(function(data){
