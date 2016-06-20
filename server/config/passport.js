@@ -5,7 +5,8 @@ let FacebookStrategy = require('passport-facebook').Strategy;
 let pg = require('pg');
 let conString = require('../../APIKEYS').PG_CONNECTION_STRING;
 let client = new pg.Client(conString);
-let facebookApi = require("../../APIKEYS.js");
+//let facebookApi = require("../../APIKEYS.js");
+let knex = require('../../db/db')
 
 module.exports = function(passport) {
  passport.serializeUser(function(user, done) {
@@ -24,7 +25,7 @@ module.exports = function(passport) {
          return console.error('error running query', err);
        }
        client.end();
-       console.log(result + 'line 26 result passport.js')
+       console.log(result + ' result passport.js')
        done(err, result[0])
      });
    });

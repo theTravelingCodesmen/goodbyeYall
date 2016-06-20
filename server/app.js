@@ -12,6 +12,8 @@ let cheapest_ever_api = require('./apis/cheapest_ever_api');
 let last_thirty_days_api = require('./apis/last_thirty_days_api');
 let book_now_quote_api = require('./apis/book_now_quote_api');
 
+require('/fb_routes')//load our routes and pass in our app and fully configured passport
+
 let routes = express.Router();
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 routes.use('/hello-traveling-codesman', function(req, res){
