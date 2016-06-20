@@ -1,6 +1,9 @@
 'use strict'
 let RequestPromise = require("request-promise");
-let SkyscannerKeys = require("../APIKEYS.js");
+if (process.env.NODE_ENV!=='production'){
+  var SkyscannerKeys = require("../APIKEYS.js");
+}
+
 let Knex = require('../db/db');
 let PromiseThrottle = require("promise-throttle");
 
@@ -44,7 +47,7 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
       "Accept": "application/json"
     },
     form: {
-      apiKey: SkyscannerKeys.SKYSCANNER_API,
+      apiKey: process.env.SKYSCANNER_API || SkyscannerKeys.SKYSCANNER_API,
       country: "US",
       currency: "USD",
       locale: "en-US",
@@ -65,7 +68,7 @@ function pollSession(sessionKey) {
   console.log("pollSession called");
   let options = {
     method: 'GET',
-    uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0/' + sessionKey + '?apiKey=' + SkyscannerKeys.SKYSCANNER_API,
+    uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0/' + sessionKey + '?apiKey=' + (process.env.SKYSCANNER_API || SkyscannerKeys.SKYSCANNER_API),
     headers:{
       Accept: "application/json"
     }

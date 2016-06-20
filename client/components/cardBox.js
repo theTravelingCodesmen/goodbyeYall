@@ -16,7 +16,7 @@ const createStoreWithMiddleware = applyMiddleware(
 class CardBox extends React.Component {
 	render() {
 		return(			
-			<div className='container-fluid'>
+			<div className='container'>
 				<CardTitle className='card-title' />
 				<PackageDestinations  className='row' />
 			</div>
