@@ -27,5 +27,5 @@ npm run build
 ```
 In a seperate tab in the terminal, start the development server
 ```
-npm start
+npm run dev
 ```

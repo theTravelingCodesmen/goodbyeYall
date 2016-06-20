@@ -79,14 +79,6 @@ knex.ensureSchema = function () {
   ])
 }
 
-//Function construction in progress-commented out until complete
-
-// knex.calculateAverages = function (??) {
-//   return knex.('quotes').avg('price')
-//     .where()
-// }
-
-
 knex.truncateTable = function (tableName) {
   return knex(tableName).truncate()
     .then(function () {
@@ -101,15 +93,8 @@ knex.closeDb = function () {
   })
 }
 
-knex.pullDestinationsByPackage = function(selectedPackage){
-  return knex('destinations').where({'package_group': selectedPackage}).select('*')
-    // .then( (data) => 
-    //   return (data)
-    // )
-}
-
 //knex.ensureSchema().then(knex.closeDb);
-// knex.pullDestinationsByPackage("Seven Wonders of the World")
+
 
 
 

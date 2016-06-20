@@ -1,5 +1,5 @@
 
-.card-box, .card-title, .photo-roll, .ul, .chichen, .colusseum, .machu, .petra, .christ, .taj, .parent-photo, .wall, .intro, .d-three-cache, .flight , .row{
+.card-box, .card-title, .photo-roll, .parent-photo, .intro, .d-three-cache, .flight , .row{
 	padding: 0;
 	margin: 0 ;
 	border: 0;
@@ -42,7 +42,10 @@
 	border-color: black;
 }
 
-.chichen{
+.passive-photo{
+	padding: 0;
+	margin: 0 ;
+	border: 0;
 	display : inline-block;
 	min-height: 40px;
 	min-width: 16%;
@@ -51,53 +54,10 @@
 	border-color: black;
 }
 
-.colusseum{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.machu{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.petra{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.christ{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.taj{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.active-photo{
-	height:705px;
+.active-photo-container{
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
 }
 
 .intro{
@@ -193,4 +153,5 @@ path {
 .container-fluid {
 	padding: 0 2em;
 }
+
 

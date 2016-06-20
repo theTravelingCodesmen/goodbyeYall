@@ -14,6 +14,7 @@ routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 routes.use('/hello-traveling-codesman', function(req, res){
 	res.end('hello travelingcodesman!');
 });
+// add api endpoints when available
 routes.use('/skyscanner_api', skyscanner_api);
 routes.use('/avg_price', avg_price);
 routes.use('/packages', select_package);
@@ -23,7 +24,6 @@ if(process.env.NODE_ENV === 'test'){
 	module.exports = routes;
 } else {
 		let app = express();
-
 		// uncomment after favicon moved into public
 		// app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
 		app.use(logger('dev'));
@@ -31,9 +31,6 @@ if(process.env.NODE_ENV === 'test'){
 		app.use(bodyParser.urlencoded({ extended: false }));
 		app.use(cookieParser());
 		app.use('/', routes);
-		// app.use('/skyscanner_api', skyscanner_api);
-		// at api endpoint here when available
-
 		app.listen(process.env.PORT||4000);
 	
 	};
