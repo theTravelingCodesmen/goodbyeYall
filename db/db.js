@@ -96,7 +96,7 @@ knex.ensureSchema = function () {
           table.float('price');
           table.string('originCity', 255);
           table.string('destinationCity', 255);
-          table.timestamp('scrapedAt');
+          table.timestamp('created_at').defaultTo(knex.fn.now());
         }).then(function (table) {
           console.log('Created last_thirty_days table.');
         });
