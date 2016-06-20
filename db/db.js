@@ -101,6 +101,18 @@ knex.ensureSchema = function () {
           console.log('Created last_thirty_days table.');
         });
       }
+    }),
+    knex.schema.hasTable('users').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('users', function (table) {
+          table.increments('profileId').primary();
+          table.string('token', 255);
+          table.string('profileName', 255);
+          table.string('profileEmail', 255);
+        }).then(function (table) {
+          console.log('Created users table.');
+        });
+      }
     })
   ])
 }
