@@ -25,10 +25,13 @@ knex.insertCheapestRoute = function(obj){
   	destinationCity: obj.destinationCity
   })
   .then(function(currentCheapest){
+  	console.log('line27', currentCheapest);
 		if (currentCheapest.length===0){
 			return knex('cheapest_route_ever').insert(obj)
+		}else if (currentCheapest.length===1){
+			return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
 		}else{
-			return knex('cheapest_route_ever').where('id','=',currentCheapest.id).update(obj)
+			throw new Error('line 37 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
 		}
   })
   .catch(function(err){
@@ -53,4 +56,4 @@ knex.getCheapestRouteInQuotes().then(function(data){
 .then(function(cheapestQuotes){
 	return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
 })
-.then(knex.closeDb)
+.then(knex.closeDb);
