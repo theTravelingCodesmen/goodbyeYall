@@ -14,8 +14,6 @@ knex.getCheapestRouteInQuotes = function(){
 	return knex('quotes').select('originCity','destinationCity').min('price as cheapest_price').groupBy('originCity', 'destinationCity')
 }
 
-
-
 knex.insertCheapestRoute = function(obj){
 	//obj represent the current cheapest route price in the quotes datatable
 	//obj format 
