@@ -8,6 +8,7 @@ let bodyParser = require('body-parser');
 let skyscanner_api = require('./apis/skyscanner_api');
 let avg_price = require('./apis/avg_api');
 let select_package = require('./apis/packages');
+let cheapest_ever_api = require('./apis/cheapest_ever_api')
 
 let routes = express.Router();
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
@@ -18,6 +19,7 @@ routes.use('/hello-traveling-codesman', function(req, res){
 routes.use('/skyscanner_api', skyscanner_api);
 routes.use('/avg_price', avg_price);
 routes.use('/packages', select_package);
+routes.use('/cheapest_ever_api', cheapest_ever_api)
 
 
 if(process.env.NODE_ENV === 'test'){
