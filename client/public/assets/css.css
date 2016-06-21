@@ -1,7 +1,5 @@
-/*.body{
-		background-color: #E8E8E8;
-}
-*/
+
+
 .card-title{
 	/*comment out the font choices*/
 /*	font-family: 'Alegreya Sans', sans-serif;*/
@@ -149,6 +147,82 @@ path {
 	min-width:600px;
 }
 
+/* photo roll pics effects */
+.passive-photo:hover {
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 0px;
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
+	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
+	z-index: 10;
+  cursor: pointer;
+}
+
+.passive-photo {
+	background-size: contain;
+  padding: 0;
+	margin: 0;
+	border: 0;
+	flex-grow: 1;
+	display: inline-block;
+	background-repeat: no-repeat;
+	border-style: solid;
+	border-color: black;
+}
+
+/* Overrid bootstrap default */
+.container-fluid {
+}
+
+
+/*.package-uno {
+		display: block;
+		text-align: center;
+    width:  20%;
+    height: 20%;
+    border: 3px solid #73AD21;
+    margin: 0px 50%;
+}
+.package-dos{
+		display: block;
+		text-align: center;
+    width: 20%;
+    height: 20%;
+    border: 3px solid #73AD21;
+    margin: 0px 50%;
+}*/
+
+.center-div{
+	display:inline-block;
+	width: 100%;
+	margin: 0% 10%;
+}
+
+.value-prop{
+  width: 40%;
+  height: 40%;
+  margin: 0% 10%;
+}
+
+.carousel{
+	margin: 0% 10%;
+	width: 42%;
+}
+
+.passive-price {
+	color: red;
+}
+
+.flight-details {
+	color: blue;
+}
+
+.nav-spacing{
+	min-height: 60px;
+}
+
 /*/////////////////////////////////////*/
 /*MAKE SURE YOUR CODE IS ORGANIZED////*/
 /*///////////////////////////////////*/
+
