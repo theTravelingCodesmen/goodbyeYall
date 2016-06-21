@@ -12,6 +12,8 @@ let select_package = require('./apis/packages');
 let cheapest_ever_api = require('./apis/cheapest_ever_api');
 let last_thirty_days_api = require('./apis/last_thirty_days_api');
 let book_now_quote_api = require('./apis/book_now_quote_api');
+let passport = require('passport');
+let session = require('express-session')
 
 let routes = express.Router();
 
@@ -33,13 +35,26 @@ if(process.env.NODE_ENV === 'test'){
 	module.exports = routes;
 } 
 else {
-	let app = express();
-	// uncomment after favicon moved into public
-	// app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
-	app.use(logger('dev'));
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({ extended: false }));
-	app.use(cookieParser());
-	app.use('/', routes);
-	app.listen(process.env.PORT||4000);
-};
+		let app = express();
+		// uncomment after favicon moved into public
+		// app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
+		app.use(logger('dev'));
+		app.use(bodyParser.json());
+		app.use(bodyParser.urlencoded({ extended: false }));
+		app.use(cookieParser());
+		app.use('/', routes);
+		require('./config/passport.js')(passport);
+		app.use(session({
+			secret: "travelingcodesman",
+			//name: cookie_name,
+	    //store: sessionStore, // connect-mongo session store
+	    //proxy: true,
+	    resave: true,
+	    saveUninitialized: true
+		}))
+		app.use(passport.initialize());
+		app.use(passport.session());
+		require('./config/fb_routes.js')(app, passport);//load our routes and pass in our app and fully configured passport
+		app.listen(process.env.PORT||4000);
+	
+	};
