@@ -32,6 +32,7 @@ module.exports = function(passport) {
        // asynchronous
        console.log(token, "type of token", typeof token)
        console.log("type of refreshtoken", typeof refreshToken)
+       console.log("refreshtoken", refreshToken);
        console.log('type of profile', profile)
        console.log('type of profile.emails', typeof profile.emails )
        console.log(profile.emails);
@@ -42,13 +43,15 @@ module.exports = function(passport) {
           if(err){
             console.error('passport couldnt connect', err)
           }
-          client.query('SELECT * FROM users WHERE fb_id =' + profile.id, function(err, result) {
+          client.query('SELECT * FROM users WHERE fb_id = $1', [profile.id], function(err, result) {
+            console.log('line 47, result ', result.rows);
             if (err) {
-              console.error('line 47 error running query', err);
+              console.error('line 49 error running query', err);
             }
             
-            if (result) {
-              let user = result[0];
+            if (result.rows.length!==0) {
+              let user = result.rows[0];
+              // client.end();
              return done(null, user);
             } else{
                 client.query('INSERT INTO users(token, fb_id, profile_name) VALUES($1, $2,$3)', [token, profile.id, profile.displayName ], 
@@ -56,8 +59,9 @@ module.exports = function(passport) {
                   if(err){
                     return console.error('problem with inserting user', err)
                   } 
-                  console.log('line 58');
-                  return done(null, result[0]);
+                  console.log('line 58, result.rows = ', result.rows);
+                  // client.end();
+                  return done(null, result.rows[0]);
                   })
               }
           })
