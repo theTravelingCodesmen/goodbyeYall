@@ -13,8 +13,8 @@
 }
 
 .card-box {
-	min-height: 100%;
-	min-width: 100%;
+/*	min-height: 100%;
+	min-width: 100%;*/
 	background-color: #E8E8E8;
 	display: flex;
 	flex-direction: column;
@@ -23,11 +23,11 @@
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll{
-	align-items: center;
 	border-style: solid;
 	border-color: black;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .passive-photo {
@@ -51,9 +51,12 @@
 }
 
 .passive-price {
+	top: -2.5em;
+	right: -3.5em;
 	margin: 0;
 	color: white;
 	font-weight: bold;
+	position: relative;
 }
 
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
@@ -74,17 +77,20 @@
 	font-size:1.2em;
 	color: white;
 	text-shadow: 2px 2px #000000;
-	background-color:rgba(128,128,128,0.50);
 	padding: 0.5% 10%;
 	text-align: justify;
 }
 
 .flight-info-container{
+	min-width: 40%;
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap-reverse;
 }
 
 .flight-details {
+	padding-left: 10%;
+	padding-top: 2%;
 	color: blue;
 	text-align: right;
 }
@@ -100,7 +106,6 @@
 .time-ago{
 	margin: 0;
 }
-
 
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
