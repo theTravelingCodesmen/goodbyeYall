@@ -16,6 +16,10 @@ class ActiveDestination extends React.Component {
 					<h3>{this.props.city_name + ', ' + this.props.country}</h3>
 					<p> {this.props.intro}</p>
 				</div>
+				<div className='col-md-6 flight-details'>
+					<h3>{this.props.bookingDetails.price}</h3>
+					<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
+				</div>
 				<FlightData />
 			</div>
 		)

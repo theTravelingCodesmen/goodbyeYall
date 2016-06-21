@@ -35,6 +35,7 @@ class PackageDestinations extends React.Component {
 							key={i}
 							_id = {dest.id}
 							main_image_url = {dest.main_image_url}
+							price = {dest.bookDetails.price}
 						/>
 					})
 				}
@@ -52,6 +53,7 @@ class PackageDestinations extends React.Component {
 								intro={dest.intro} 
 								package_group={dest.package_group} 
 								next_image_url={dest.next_image_url}
+								bookingDetails={dest.bookDetails}
 							/>
 						})
 					}
