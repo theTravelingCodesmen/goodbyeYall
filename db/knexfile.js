@@ -1,5 +1,7 @@
 'use strict'
-let api = require('../APIKEYS');
+if (process.env.NODE_ENV!=="production"){
+	var api = require('../APIKEYS');
+}
 
 
 module.exports = {

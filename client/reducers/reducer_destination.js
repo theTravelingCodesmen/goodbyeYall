@@ -3,15 +3,10 @@ import axios from "axios"
 import { SET_ACTIVE_DESTINATION } from '../actions/setActiveDestination';
 import {FETCH_PACKAGE} from '../actions/fetchPackage'
 
- let INITIAL_STATE = { passive: [], active: [], target: null };
-// axios.get('/packages/selectpackage/Seven Wonders of the World')
-// 	.then(function(data){
-// 		console.log(data)
-// 		INITIAL_STATE.active=data.data.slice(0,1);
-// 		INITIAL_STATE.passive=data.data.slice(1);
-// 	})
+let INITIAL_STATE = { passive: [], active: []};
 
 export default function (state = INITIAL_STATE, action) {
+	console.log(state)
   switch (action.type){
 		case SET_ACTIVE_DESTINATION:
     	let newState = {};

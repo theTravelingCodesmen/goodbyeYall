@@ -1,139 +1,122 @@
 
-.card-box, .card-title, .photo-roll, .ul, .chichen, .colusseum, .machu, .petra, .christ, .taj, .parent-photo, .wall, .intro, .d-three-cache, .flight , .row{
-	padding: 0;
-	margin: 0 ;
-	border: 0;
-}
-
-.card-box {
-	position: absolute;
-	top: 0;
-	left:0;
-	min-height: 100%;
-	min-width: 100%;
-	background-color: white;
-	border-style: solid;
-	border-color: yellow;
-}
 
 .card-title{
 	/*comment out the font choices*/
-	/*font-family: 'Alegreya Sans', sans-serif;*/
-	/*
-	font-family: 'Abril Fatface', cursive;
-	font-family: 'Alex Brush', cursive;
-	font-family: 'Astloch', cursive;
-	font-family: 'Cedarville Cursive', cursive;
-	font-family: 'Chau Philomene One', sans-serif;*/
-	font-family: 'Cinzel', serif;
+/*	font-family: 'Alegreya Sans', sans-serif;*/
+	font-family: 'Chau Philomene One', sans-serif;
 	text-align: center;
-	margin-left: 0px;
-	min-height: 50px;
-	background-color: white;
 	border-style: solid;
 	border-color: black;
-	font-size: 4.5em;
+	font-size: 3em;
 }
 
+.card-box {
+/*	min-height: 100%;
+	min-width: 100%;*/
+	background-color: #E8E8E8;
+	display: flex;
+	flex-direction: column;
+}
+
+/*PHOTO ROLL ELEMENTS////////////////////////*/
+/*//////////////////////////////////////////*/
 .photo-roll{
-	min-height: 5em;
-	background-color: rgba(0,0,0,0);
 	border-style: solid;
 	border-color: black;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
-.chichen{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
+.passive-photo {
+	display: flex;
+	flex-grow: 1;
+	padding: 5.6%;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
-.colusseum{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
+/* photo roll pics effects*/
+.passive-photo:hover {
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 0px;
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
+	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
+	z-index: 3;
+  cursor: pointer;
 }
 
-.machu{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
+.passive-price {
+	top: -2.5em;
+	right: -3.5em;
+	margin: 0;
+	color: white;
+	font-weight: bold;
+	position: relative;
 }
 
-.petra{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.christ{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.taj{
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
-}
-
-.active-photo{
-	height:705px;
+/*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
+/*///////////////////////////////////////////*/
+.active-photo-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: 100%;
+  background: no-repeat;
+  margin-bottom: 3em;
 }
 
 .intro{
-	position: relative;
-	top: 10px;
-	margin: 10px 0;
+	margin: 2em 0 0 2em 0em;
 	min-height: 110px;
-	border-style: solid;
-	border-color: black;
-	opacity: 1;
 	width:100%;
 	font-size:1.2em;
 	color: white;
 	text-shadow: 2px 2px #000000;
-	background-color:rgba(128,128,128,0.50);
 	padding: 0.5% 10%;
 	text-align: justify;
 }
 
-.d-three-cache, .flight{
-	/*left: 40px;*/
-	display:inline-block;
+.flight-info-container{
+	min-width: 40%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap-reverse;
+}
+
+.flight-details {
+	padding-left: 10%;
+	padding-top: 2%;
+	color: blue;
+	text-align: right;
+}
+
+.dates{
+	margin: 0;
+}
+
+.active-price{
+	margin: 0;
+}
+
+.time-ago{
+	margin: 0;
+}
+
+/*D3 GRAPH ELEMENTS//////////////////////////*/
+/*//////////////////////////////////////////*/
+.flight{
+	width: 40%;
 	text-align:center;
 	opacity: .75;
 	background-color: white;
 	backface-visibility:
 }
 
-.flight{
-	display: inline-block;
-	text-align:center;
-}
-
-
 /* info box for d3 graph */
-.infoboxflight, .infoboxd-three-cache {
+.infoboxflight {
 	border:2px solid steelblue;
 	border-radius:4px;
 	box-shadow:#333333 0px 0px 10px;
@@ -154,9 +137,11 @@ path {
     stroke-width: 2;
     fill: none;
 }
+
 .line {
 	background-color: white;
 }
+
 /* axis for svg graph */
 .axis path,
 .axis line {
@@ -171,7 +156,7 @@ path {
 }
 
 /* photo roll pics effects */
-.photo-roll img:hover {
+.passive-photo:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
@@ -179,18 +164,73 @@ path {
 	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
 	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
 	z-index: 10;
-  -webkit-filter: sepia(0%);
-  filter: sepia(0%);
   cursor: pointer;
 }
 
-.photo-roll img {
-  -webkit-filter: sepia(45%);
-  filter: sepia(45%);
+.passive-photo {
+	background-size: contain;
+  padding: 0;
+	margin: 0;
+	border: 0;
+	flex-grow: 1;
+	display: inline-block;
+	background-repeat: no-repeat;
+	border-style: solid;
+	border-color: black;
 }
 
 /* Overrid bootstrap default */
 .container-fluid {
-	padding: 0 2em;
 }
+
+
+/*.package-uno {
+		display: block;
+		text-align: center;
+    width:  20%;
+    height: 20%;
+    border: 3px solid #73AD21;
+    margin: 0px 50%;
+}
+.package-dos{
+		display: block;
+		text-align: center;
+    width: 20%;
+    height: 20%;
+    border: 3px solid #73AD21;
+    margin: 0px 50%;
+}*/
+
+.center-div{
+	display:inline-block;
+	width: 100%;
+	margin: 0% 10%;
+}
+
+.value-prop{
+  width: 40%;
+  height: 40%;
+  margin: 0% 10%;
+}
+
+.carousel{
+	margin: 0% 10%;
+	width: 42%;
+}
+
+.passive-price {
+	color: red;
+}
+
+.flight-details {
+	color: blue;
+}
+
+.nav-spacing{
+	min-height: 60px;
+}
+
+/*/////////////////////////////////////*/
+/*MAKE SURE YOUR CODE IS ORGANIZED////*/
+/*///////////////////////////////////*/
 
