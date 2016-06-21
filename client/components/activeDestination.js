@@ -17,7 +17,9 @@ class ActiveDestination extends React.Component {
 					<p> {this.props.intro}</p>
 				</div>
 				<div className='col-md-6 flight-details'>
+					<p>{'Leaving on ' + this.props.bookingDetails.outboundDate.slice(0,10) + ' and returning on ' + this.props.bookingDetails.inboundDate.slice(0,10)}</p>
 					<h3>{this.props.bookingDetails.price}</h3>
+					<p>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 					<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
 				</div>
 				<FlightData />
