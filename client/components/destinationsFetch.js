@@ -1,6 +1,6 @@
 'use strict'
 let knex = require('../../db/db');
-
+//not using this file 
 
 module.exports = knex;
 
