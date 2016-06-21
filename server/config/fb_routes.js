@@ -4,7 +4,7 @@ module.exports = function(app, passport) {
 
     // route for home page
     app.get('/', function(req, res) {
-       // res.render(''); 
+        res.render(''); 
     });
 
     // route for login form
@@ -14,22 +14,22 @@ module.exports = function(app, passport) {
 
     // route for showing the profile page
 
-    // DON'T THINK WE NEED THIS BUT COULD BE NICE?!?
+    // DON'T THINK WE NEED 
 
-    // app.get('/profile', isLoggedIn, function(req, res) {
-    //     res.render('profile.ejs', {
-    //         user : req.user // get the user out of session and pass to template
-    //     });
-    // });
+    app.get('/profile', isLoggedIn, function(req, res) {
+        res.render('', {
+            user : req.user // get the user out of session and pass to template
+        });
+    });
 
     // FACEBOOK ROUTES
     // route for facebook authentication and login
-    app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+    app.get('/auth/facebook', passport.authenticate('facebook', { scope : ['email'] }));
 
     // handle the callback after facebook has authenticated the user
     app.get('/auth/facebook/callback',
         passport.authenticate('facebook', {
-            //successRedirect : '/',
+            successRedirect : '/profile',
             failureRedirect : '/'
         }));
 

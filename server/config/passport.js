@@ -20,7 +20,7 @@ module.exports = function(passport) {
        }
        client.query('SELECT * FROM users WHERE fb_id =' + id, function(err, result) {
          if (err) {
-           return console.error('error running query', err);
+           return console.error('line 23 error running query', err);
          }
          client.end();
          console.log(result + ' result passport.js')
@@ -30,25 +30,33 @@ module.exports = function(passport) {
    });
   passport.use(new FacebookStrategy(facebookApi.facebookAuth, function(token, refreshToken, profile, done) {
        // asynchronous
+       console.log(token, "type of token", typeof token)
+       console.log("type of refreshtoken", typeof refreshToken)
+       console.log('type of profile', profile)
+       console.log('type of profile.emails', typeof profile.emails )
+       console.log(profile.emails);
+
       process.nextTick(function() {
          // find the user in the database based on their facebook id
         client.connect(function(err){
           if(err){
             console.error('passport couldnt connect', err)
           }
-          client.query('SELECT * FROM users where fb_id =' + id, function(err, result) {
+          client.query('SELECT * FROM users WHERE fb_id =' + profile.id, function(err, result) {
             if (err) {
-              return console.error('error running query', err);
+              console.error('line 47 error running query', err);
             }
-            let user = result[0];
-            if (user) {
+            
+            if (result) {
+              let user = result[0];
              return done(null, user);
             } else{
-                client.query('INSERT INTO users(token, fb_id, profileName, profileEmail) VALUES($1, $2,$3,$4)', [token, profile.id, profile.name.givenName + ' ' + profile.name.familyName, profile.emails[0].value], 
+                client.query('INSERT INTO users(token, fb_id, profile_name) VALUES($1, $2,$3)', [token, profile.id, profile.displayName ], 
                 function(err, result){
                   if(err){
                     return console.error('problem with inserting user', err)
                   } 
+                  console.log('line 58');
                   return done(null, result[0]);
                   })
               }

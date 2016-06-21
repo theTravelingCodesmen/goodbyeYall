@@ -108,8 +108,8 @@ knex.ensureSchema = function () {
           table.increments('id').primary();
           table.string('token', 255);
           table.string('fb_id', 255);
-          table.string('profileName', 255);
-          table.string('profileEmail', 255);
+          table.string('profile_name', 255);
+          table.string('profile_email', 255);
         }).then(function (table) {
           console.log('Created users table.');
         });
@@ -132,7 +132,7 @@ knex.closeDb = function () {
   })
 }
 
-// knex.ensureSchema().then(knex.closeDb);
+ //knex.ensureSchema().then(knex.closeDb);
 
 
 

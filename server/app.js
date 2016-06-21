@@ -14,7 +14,6 @@ let book_now_quote_api = require('./apis/book_now_quote_api');
 let passport = require('passport');
 let session = require('express-session')
 
-//require('./config/fb_routes')(app, passport);//load our routes and pass in our app and fully configured passport
 let routes = express.Router();
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 routes.use('/hello-traveling-codesman', function(req, res){
@@ -51,6 +50,7 @@ if(process.env.NODE_ENV === 'test'){
 		}))
 		app.use(passport.initialize());
 		app.use(passport.session());
+		require('./config/fb_routes.js')(app, passport);//load our routes and pass in our app and fully configured passport
 		app.listen(process.env.PORT||4000);
 	
 	};
