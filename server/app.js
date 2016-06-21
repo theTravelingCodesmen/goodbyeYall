@@ -11,9 +11,10 @@ let select_package = require('./apis/packages');
 let cheapest_ever_api = require('./apis/cheapest_ever_api');
 let last_thirty_days_api = require('./apis/last_thirty_days_api');
 let book_now_quote_api = require('./apis/book_now_quote_api');
+let passport = require('passport');
+let session = require('express-session')
 
-//require('./fb_routes')(app, passport);//load our routes and pass in our app and fully configured passport
-
+//require('./config/fb_routes')(app, passport);//load our routes and pass in our app and fully configured passport
 let routes = express.Router();
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 routes.use('/hello-traveling-codesman', function(req, res){
@@ -39,6 +40,17 @@ if(process.env.NODE_ENV === 'test'){
 		app.use(bodyParser.urlencoded({ extended: false }));
 		app.use(cookieParser());
 		app.use('/', routes);
+		require('./config/passport.js')(passport);
+		app.use(session({
+			secret: "travelingcodesman",
+			//name: cookie_name,
+	    //store: sessionStore, // connect-mongo session store
+	    //proxy: true,
+	    resave: true,
+	    saveUninitialized: true
+		}))
+		app.use(passport.initialize());
+		app.use(passport.session());
 		app.listen(process.env.PORT||4000);
 	
 	};
