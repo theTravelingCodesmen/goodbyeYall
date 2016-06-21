@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import NavBar from './navBar'
-import OutCardBox from './outerCardBox'
+import OuterCardBox from './outerCardBox'
 import MissionStatement from './missionStatement'
 import MeetTheDevs from './meetTheDevs'
 import {Router, browserHistory} from 'react-router'
@@ -14,7 +14,7 @@ import CardBox from './cardBox'
 class LandingPage extends React.Component {
 	render(){
 
-let showing = <OutCardBox />		
+let showing = <OuterCardBox />		
 //if(showpackage)
 //else{showing = <OutCardBox />}
 
