@@ -3,8 +3,23 @@ let passport = require('passport');
 let FacebookStrategy = require('passport-facebook').Strategy;
 let pg = require('pooled-pg');
 pg.defaults.poolSize = 6;
-let conString = require('../../APIKEYS').PG_CONNECTION_STRING;
-let facebookApi = require("../../APIKEYS.js").FACEBOOK_API
+let conString, facebookApi;
+
+if(process.env.NODE_ENV==='production'){
+  conString = process.env.DATABASE_URL
+  facebookApi = {
+    'facebookAuth' : {
+    'clientID'      : process.env.FB_CLIENT_ID, // your App ID
+    'clientSecret'  : process.env.FB_CLIENT_SECRET, // your App Secret
+    'callbackURL'   : 'http://www.goodbyeyall.com/auth/facebook/callback',
+    'profileFields' : ['id', 'displayName', 'email', 'photos']
+    }
+  }
+} else {
+  conString = require('../../APIKEYS').PG_CONNECTION_STRING;
+  facebookApi = require("../../APIKEYS.js").FACEBOOK_API
+}
+
 
 
 module.exports = function(passport) {
