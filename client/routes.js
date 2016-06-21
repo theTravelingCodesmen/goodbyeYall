@@ -17,8 +17,6 @@ export default (
 );			
 
 
-	// 	
-
 
 
 // These will be children of CardBox but this.props.children needs to be called in that component
