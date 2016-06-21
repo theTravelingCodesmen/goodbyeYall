@@ -110,6 +110,7 @@ knex.ensureSchema = function () {
           table.string('fb_id', 255);
           table.string('profile_name', 255);
           table.string('profile_email', 255);
+          table.string('profile_photo', 255);
         }).then(function (table) {
           console.log('Created users table.');
         });
