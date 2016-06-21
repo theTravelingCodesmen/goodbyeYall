@@ -105,8 +105,9 @@ knex.ensureSchema = function () {
     knex.schema.hasTable('users').then(function (exists) {
       if (!exists) {
         knex.schema.createTable('users', function (table) {
-          table.increments('profileId').primary();
+          table.increments('id').primary();
           table.string('token', 255);
+          table.string('fb_id', 255);
           table.string('profileName', 255);
           table.string('profileEmail', 255);
         }).then(function (table) {
