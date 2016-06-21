@@ -101,6 +101,20 @@ knex.ensureSchema = function () {
           console.log('Created last_thirty_days table.');
         });
       }
+    }),
+    knex.schema.hasTable('users').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('users', function (table) {
+          table.increments('id').primary();
+          table.string('token', 255);
+          table.string('fb_id', 255);
+          table.string('profile_name', 255);
+          table.string('profile_email', 255);
+          table.string('profile_photo', 255);
+        }).then(function (table) {
+          console.log('Created users table.');
+        });
+      }
     })
   ])
 }
@@ -119,7 +133,7 @@ knex.closeDb = function () {
   })
 }
 
-// knex.ensureSchema().then(knex.closeDb);
+ //knex.ensureSchema().then(knex.closeDb);
 
 
 
