@@ -1,11 +1,11 @@
 'use strict'
 
-let configAuth = require('./auth');
+//let configAuth = require('./auth');
 let FacebookStrategy = require('passport-facebook').Strategy;
 let pg = require('pg');
 let conString = require('../../APIKEYS').PG_CONNECTION_STRING;
 let client = new pg.Client(conString);
-//let facebookApi = require("../../APIKEYS.js");
+let facebookApi = require("../../APIKEYS.js").FACEBOOK_API
 let knex = require('../../db/db')
 
 module.exports = function(passport) {
@@ -30,14 +30,7 @@ module.exports = function(passport) {
      });
    });
  });
- passport.use(new FacebookStrategy({
-     clientId: configAuth.facebookAuth.clientId,
-     clientSecret: configAuth.facebookAuth.clientSecret,
-     callbackURL: configAuth.facebookAuth.callbackURL
-   },
-
-   function(token, refreshToken, profile, done) {
-
+ passport.use(new FacebookStrategy(facebookApi.facebookAuth, function(token, refreshToken, profile, done) {
      // asynchronous
      process.nextTick(function() {
 
