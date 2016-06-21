@@ -2,14 +2,6 @@
 		background-color: #E8E8E8;
 }
 */
-.card-box {
-	min-height: 100%;
-	min-width: 100%;
-	background-color: #E8E8E8;
-	display: flex;
-	flex-direction: column;
-}
-
 .card-title{
 	/*comment out the font choices*/
 /*	font-family: 'Alegreya Sans', sans-serif;*/
@@ -20,6 +12,16 @@
 	font-size: 3em;
 }
 
+.card-box {
+	min-height: 100%;
+	min-width: 100%;
+	background-color: #E8E8E8;
+	display: flex;
+	flex-direction: column;
+}
+
+/*photo roll elements////////////////////////*/
+/*//////////////////////////////////////////*/
 .photo-roll{
 	min-height: 10em;
 	align-items: center;
@@ -29,33 +31,7 @@
 	flex-direction: row;
 }
 
-.active-photo-container{
-  display: flex;
-  flex-direction: column;
-  background-size: 100%;
-  background: no-repeat;
-  margin-bottom: 3em;
-}
-
-.flight-info-container{
-	display: flex;
-	flex-direction: row;
-}
-
-.intro{
-	margin: 2em 0 0 2em 0em;
-	min-height: 110px;
-	width:100%;
-	font-size:1.2em;
-	color: white;
-	text-shadow: 2px 2px #000000;
-	background-color:rgba(128,128,128,0.50);
-	padding: 0.5% 10%;
-	text-align: justify;
-}
-
-
-/* photo roll pics effects */
+/* photo roll pics effects*/
 .passive-photo:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -81,6 +57,33 @@
 	float: right;
 }
 
+/*active photo container elements/////////////*/
+/*///////////////////////////////////////////*/
+.active-photo-container{
+  display: flex;
+  flex-direction: column;
+  background-size: 100%;
+  background: no-repeat;
+  margin-bottom: 3em;
+}
+
+.intro{
+	margin: 2em 0 0 2em 0em;
+	min-height: 110px;
+	width:100%;
+	font-size:1.2em;
+	color: white;
+	text-shadow: 2px 2px #000000;
+	background-color:rgba(128,128,128,0.50);
+	padding: 0.5% 10%;
+	text-align: justify;
+}
+
+.flight-info-container{
+	display: flex;
+	flex-direction: row;
+}
+
 .flight-details {
 	color: blue;
 	text-align: right;
@@ -98,6 +101,9 @@
 	margin: 0;
 }
 
+
+/*d3 graph elements//////////////////////////*/
+/*///////////////////////////////////////////*/
 .flight{
 	width: 40%;
 	text-align:center;
@@ -145,3 +151,6 @@ path {
 .d3-line-chart {
 	min-width:600px;
 }
+
+
+/*make sure your code is orgainized////*/
