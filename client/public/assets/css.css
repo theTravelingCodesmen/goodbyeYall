@@ -1,3 +1,7 @@
+/*.body{
+		background-color: #E8E8E8;
+}
+*/
 .card-box {
 	min-height: 100%;
 	min-width: 100%;
@@ -8,24 +12,17 @@
 
 .card-title{
 	/*comment out the font choices*/
-	/*font-family: 'Alegreya Sans', sans-serif;*/
-	/*
-	font-family: 'Abril Fatface', cursive;
-	font-family: 'Alex Brush', cursive;
-	font-family: 'Astloch', cursive;
-	font-family: 'Cedarville Cursive', cursive;
-	font-family: 'Chau Philomene One', sans-serif;*/
-	font-family: 'Cinzel', serif;
+/*	font-family: 'Alegreya Sans', sans-serif;*/
+	font-family: 'Chau Philomene One', sans-serif;
 	text-align: center;
-	min-height: 50px;
-	background-color: white;
 	border-style: solid;
 	border-color: black;
-	font-size: 4.5em;
+	font-size: 3em;
 }
 
 .photo-roll{
-	height: 10em;
+	min-height: 10em;
+	align-items: center;
 	border-style: solid;
 	border-color: black;
 	display: flex;
@@ -33,19 +30,21 @@
 }
 
 .active-photo-container{
-  background-size: contain;
-  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+  background-size: 100%;
+  background: no-repeat;
+  margin-bottom: 3em;
+}
+
+.flight-info-container{
+	display: flex;
+	flex-direction: row;
 }
 
 .intro{
-	position: relative;
-	top: 10px;
-	margin: 10px 0;
+	margin: 2em 0 0 2em 0em;
 	min-height: 110px;
-	border-style: solid;
-	border-color: black;
 	width:100%;
 	font-size:1.2em;
 	color: white;
@@ -55,23 +54,60 @@
 	text-align: justify;
 }
 
-.d-three-cache, .flight{
-	/*left: 40px;*/
-	display:inline-block;
+
+/* photo roll pics effects */
+.passive-photo:hover {
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 0px;
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
+	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
+  cursor: pointer;
+}
+
+.passive-photo {
+	display: flex;
+	margin: auto;
+	padding: 5%;
+	flex-grow: 1;
+	background-size: 100%
+}
+
+.passive-price {
+	color: white;
+	font-weight: bold;
+	text-align: right;
+	float: right;
+}
+
+.flight-details {
+	color: blue;
+	text-align: right;
+}
+
+.dates{
+	margin: 0;
+}
+
+.active-price{
+	margin: 0;
+}
+
+.time-ago{
+	margin: 0;
+}
+
+.flight{
+	width: 40%;
 	text-align:center;
 	opacity: .75;
 	background-color: white;
 	backface-visibility:
 }
 
-.flight{
-	display: inline-block;
-	text-align:center;
-}
-
-
 /* info box for d3 graph */
-.infoboxflight, .infoboxd-three-cache {
+.infoboxflight {
 	border:2px solid steelblue;
 	border-radius:4px;
 	box-shadow:#333333 0px 0px 10px;
@@ -109,40 +145,3 @@ path {
 .d3-line-chart {
 	min-width:600px;
 }
-
-/* photo roll pics effects */
-.passive-photo:hover {
-	-webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 0px;
-	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
-	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
-	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
-	z-index: 10;
-  cursor: pointer;
-}
-
-.passive-photo {
-	background-size: contain;
-  padding: 0;
-	margin: 0;
-	border: 0;
-	flex-grow: 1;
-	display: inline-block;
-	background-repeat: no-repeat;
-	border-style: solid;
-	border-color: black;
-}
-
-/* Overrid bootstrap default */
-.container-fluid {
-}
-
-.passive-price {
-	color: red;
-}
-
-.flight-details {
-	color: blue;
-}
-
