@@ -153,7 +153,7 @@ Knex.insertQuotesIntoDb = function(flightObj) {
 //generates argments array for searchSkyscannerByDate function
 
 function generateArgumentsArray() {  
-  let departureDates = generateFlightDates(12);
+  let departureDates = generateFlightDates(11);
   let results = [];
   originCities.forEach( (city) => {
     destinationCities.forEach( (dest) => {
