@@ -3,30 +3,33 @@
 //let configAuth = require('./auth');
 let passport = require('passport');
 let FacebookStrategy = require('passport-facebook').Strategy;
-let pg = require('pg');
+let pg = require('pooled-pg');
 let conString = require('../../APIKEYS').PG_CONNECTION_STRING;
-let client = new pg.Client(conString);
+//let client = new pg.Client(conString);
 let facebookApi = require("../../APIKEYS.js").FACEBOOK_API
 
 
 module.exports = function(passport) {
  passport.serializeUser(function(user, done) {
-   done(null, user.id)
+  console.log ("line 14 ", user)
+   done(null, user)
  });
-  passport.deserializeUser(function(id, done) {
-     client.connect(function(err) {
+  passport.deserializeUser(function(user, done) {
+    console.log('line 18 deserializeUser ', user)
+    pg.connect(conString, function(err, client, pg_done){
+      
        if (err) {
          return console.error('could not connect to postgres', err);
        }
-       client.query('SELECT * FROM users WHERE fb_id =' + id, function(err, result) {
+       client.query('SELECT * FROM users WHERE fb_id =' + user.id, function(err, result) {
          if (err) {
-           return console.error('line 23 error running query', err);
+           return console.error('line 26 error running query', err);
          }
-         client.end();
+         // client.end();
          console.log(result + ' result passport.js')
-         return done(err, result[0])
+         return done(err, result.rows[0])
        });
-     });
+    })
    });
   passport.use(new FacebookStrategy(facebookApi.facebookAuth, function(token, refreshToken, profile, done) {
        // asynchronous
@@ -39,29 +42,31 @@ module.exports = function(passport) {
 
       process.nextTick(function() {
          // find the user in the database based on their facebook id
-        client.connect(function(err){
+        pg.connect(conString, function(err, client, pg_done){
           if(err){
             console.error('passport couldnt connect', err)
           }
           client.query('SELECT * FROM users WHERE fb_id = $1', [profile.id], function(err, result) {
-            console.log('line 47, result ', result.rows);
+            if (result){
+              console.log('line 51, result ', result.rows);
+            }
             if (err) {
-              console.error('line 49 error running query', err);
+              console.error('line 54 error running query', err);
             }
             
             if (result.rows.length!==0) {
               let user = result.rows[0];
               // client.end();
-             return done(null, user);
+             return done(null, {token:user.token, id:user.fb_id});
             } else{
                 client.query('INSERT INTO users(token, fb_id, profile_name) VALUES($1, $2,$3)', [token, profile.id, profile.displayName ], 
                 function(err, result){
                   if(err){
                     return console.error('problem with inserting user', err)
                   } 
-                  console.log('line 58, result.rows = ', result.rows);
+                  console.log('line 67, result = ', result);
                   // client.end();
-                  return done(null, result.rows[0]);
+                  return done(null, {token:token, id:profile.id});
                   })
               }
           })
