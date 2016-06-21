@@ -1,4 +1,4 @@
-
+'use strict'
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -18,8 +18,6 @@ class MeetTheDevs extends React.Component {
 			)
 	}
 }
-
-
 
 
 

@@ -34,6 +34,8 @@ let showing = <OuterCardBox />
 ReactDOM.render(
 	<LandingPage />, document.querySelector('.landing-page')
 );
+
+
 export default LandingPage;
 
 

@@ -147,34 +147,9 @@ path {
 	min-width:600px;
 }
 
-/* photo roll pics effects */
-.passive-photo:hover {
-	-webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 0px;
-	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
-	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
-	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
-	z-index: 10;
-  cursor: pointer;
-}
-
-.passive-photo {
-	background-size: contain;
-  padding: 0;
-	margin: 0;
-	border: 0;
-	flex-grow: 1;
-	display: inline-block;
-	background-repeat: no-repeat;
-	border-style: solid;
-	border-color: black;
-}
-
-/* Overrid bootstrap default */
-.container-fluid {
-}
-
+/*/////////////////////////////////////*/
+/*MAKE SURE YOUR CODE IS ORGANIZED////*/
+/*///////////////////////////////////*/
 
 /*.package-uno {
 		display: block;
@@ -210,19 +185,8 @@ path {
 	width: 42%;
 }
 
-.passive-price {
-	color: red;
-}
-
-.flight-details {
-	color: blue;
-}
-
 .nav-spacing{
 	min-height: 60px;
 }
 
-/*/////////////////////////////////////*/
-/*MAKE SURE YOUR CODE IS ORGANIZED////*/
-/*///////////////////////////////////*/
 

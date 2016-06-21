@@ -1,4 +1,5 @@
 'use strict'
+
 let express = require('express');
 let path = require('path');
 let favicon = require('serve-favicon');
@@ -15,10 +16,12 @@ let passport = require('passport');
 let session = require('express-session')
 
 let routes = express.Router();
+
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 routes.use('/hello-traveling-codesman', function(req, res){
 	res.end('hello travelingcodesman!');
 });
+
 // add api endpoints when available
 routes.use('/skyscanner_api', skyscanner_api);
 routes.use('/avg_price', avg_price);
@@ -30,7 +33,8 @@ routes.use('/book_now_quote_api', book_now_quote_api);
 
 if(process.env.NODE_ENV === 'test'){
 	module.exports = routes;
-} else {
+} 
+else {
 		let app = express();
 		// uncomment after favicon moved into public
 		// app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
