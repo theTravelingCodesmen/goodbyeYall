@@ -20,15 +20,22 @@
 	flex-direction: column;
 }
 
-/*photo roll elements////////////////////////*/
+/*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll{
-	min-height: 10em;
 	align-items: center;
 	border-style: solid;
 	border-color: black;
 	display: flex;
 	flex-direction: row;
+}
+
+.passive-photo {
+	display: flex;
+	flex-grow: 1;
+	padding: 5.6%;
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
 /* photo roll pics effects*/
@@ -39,29 +46,22 @@
 	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
 	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
 	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
+	z-index: 3;
   cursor: pointer;
 }
 
-.passive-photo {
-	display: flex;
-	margin: auto;
-	padding: 5%;
-	flex-grow: 1;
-	background-size: 100%
-}
-
 .passive-price {
+	margin: 0;
 	color: white;
 	font-weight: bold;
-	text-align: right;
-	float: right;
 }
 
-/*active photo container elements/////////////*/
+/*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
 .active-photo-container{
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background-size: 100%;
   background: no-repeat;
   margin-bottom: 3em;
@@ -102,8 +102,8 @@
 }
 
 
-/*d3 graph elements//////////////////////////*/
-/*///////////////////////////////////////////*/
+/*D3 GRAPH ELEMENTS//////////////////////////*/
+/*//////////////////////////////////////////*/
 .flight{
 	width: 40%;
 	text-align:center;
@@ -152,5 +152,6 @@ path {
 	min-width:600px;
 }
 
-
-/*make sure your code is orgainized////*/
+/*/////////////////////////////////////*/
+/*MAKE SURE YOUR CODE IS ORGANIZED////*/
+/*///////////////////////////////////*/
