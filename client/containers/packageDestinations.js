@@ -15,6 +15,7 @@ class PackageDestinations extends React.Component {
 	componentWillMount(){
 		return axios.get('/packages/selectpackage/Seven Wonders of the World')
 			.then(function(data){
+				console.log(data)
 				let INITIAL_STATE = {};
 				INITIAL_STATE.active = data.data.slice(0,1);
 				INITIAL_STATE.passive = data.data.slice(1);
@@ -26,14 +27,15 @@ class PackageDestinations extends React.Component {
 	}
 	render() {
 		return(
-			<div className='row' className='package-view'>
-				<div className='photo-roll row' >
+			<div className='package-view'>
+				<div className='photo-roll' >
 				{
 					this.props.passive.map( (dest, i) => {
 						return <PassiveDestination 
 							key={i}
 							_id = {dest.id}
 							main_image_url = {dest.main_image_url}
+							price = {dest.bookDetails.price}
 						/>
 					})
 				}
@@ -51,6 +53,7 @@ class PackageDestinations extends React.Component {
 								intro={dest.intro} 
 								package_group={dest.package_group} 
 								next_image_url={dest.next_image_url}
+								bookingDetails={dest.bookDetails}
 							/>
 						})
 					}
