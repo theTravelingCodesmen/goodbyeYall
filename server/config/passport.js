@@ -4,6 +4,7 @@
 let passport = require('passport');
 let FacebookStrategy = require('passport-facebook').Strategy;
 let pg = require('pooled-pg');
+pg.defaults.poolSize = 6;
 let conString = require('../../APIKEYS').PG_CONNECTION_STRING;
 //let client = new pg.Client(conString);
 let facebookApi = require("../../APIKEYS.js").FACEBOOK_API
@@ -21,7 +22,7 @@ module.exports = function(passport) {
        if (err) {
          return console.error('could not connect to postgres', err);
        }
-       client.query('SELECT * FROM users WHERE fb_id =' + user.id, function(err, result) {
+       client.query('SELECT * FROM users WHERE fb_id =' + user.id.toString(), function(err, result) {
          if (err) {
            return console.error('line 26 error running query', err);
          }
@@ -59,7 +60,7 @@ module.exports = function(passport) {
               // client.end();
              return done(null, {token:user.token, id:user.fb_id});
             } else{
-                client.query('INSERT INTO users(token, fb_id, profile_name) VALUES($1, $2,$3)', [token, profile.id, profile.displayName ], 
+                client.query('INSERT INTO users(token, fb_id, profile_name, profile_email) VALUES($1, $2, $3, $4)', [token, profile.id, profile.displayName, profile.emails[0].value], 
                 function(err, result){
                   if(err){
                     return console.error('problem with inserting user', err)
