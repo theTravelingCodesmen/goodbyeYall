@@ -27,8 +27,8 @@ class PackageDestinations extends React.Component {
 	}
 	render() {
 		return(
-			<div className='row' className='package-view'>
-				<div className='photo-roll row' >
+			<div className='package-view'>
+				<div className='photo-roll' >
 				{
 					this.props.passive.map( (dest, i) => {
 						return <PassiveDestination 

@@ -1,19 +1,9 @@
-
-.card-box, .card-title, .photo-roll, .parent-photo, .intro, .d-three-cache, .flight , .row{
-	padding: 0;
-	margin: 0 ;
-	border: 0;
-}
-
 .card-box {
-	position: absolute;
-	top: 0;
-	left:0;
 	min-height: 100%;
 	min-width: 100%;
-	background-color: white;
-	border-style: solid;
-	border-color: yellow;
+	background-color: #E8E8E8;
+	display: flex;
+	flex-direction: column;
 }
 
 .card-title{
@@ -27,7 +17,6 @@
 	font-family: 'Chau Philomene One', sans-serif;*/
 	font-family: 'Cinzel', serif;
 	text-align: center;
-	margin-left: 0px;
 	min-height: 50px;
 	background-color: white;
 	border-style: solid;
@@ -36,28 +25,18 @@
 }
 
 .photo-roll{
-	min-height: 5em;
-	background-color: rgba(0,0,0,0);
+	height: 10em;
 	border-style: solid;
 	border-color: black;
-}
-
-.passive-photo{
-	padding: 0;
-	margin: 0 ;
-	border: 0;
-	display : inline-block;
-	min-height: 40px;
-	min-width: 16%;
-	background-color: white;
-	border-style: solid;
-	border-color: black;
+	display: flex;
+	flex-direction: row;
 }
 
 .active-photo-container{
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .intro{
@@ -67,7 +46,6 @@
 	min-height: 110px;
 	border-style: solid;
 	border-color: black;
-	opacity: 1;
 	width:100%;
 	font-size:1.2em;
 	color: white;
@@ -114,9 +92,11 @@ path {
     stroke-width: 2;
     fill: none;
 }
+
 .line {
 	background-color: white;
 }
+
 /* axis for svg graph */
 .axis path,
 .axis line {
@@ -131,7 +111,7 @@ path {
 }
 
 /* photo roll pics effects */
-.photo-roll img:hover {
+.passive-photo:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
@@ -139,23 +119,30 @@ path {
 	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
 	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
 	z-index: 10;
-  -webkit-filter: sepia(0%);
-  filter: sepia(0%);
   cursor: pointer;
 }
 
-.photo-roll img {
-  -webkit-filter: sepia(45%);
-  filter: sepia(45%);
+.passive-photo {
+	background-size: contain;
+  padding: 0;
+	margin: 0;
+	border: 0;
+	flex-grow: 1;
+	display: inline-block;
+	background-repeat: no-repeat;
+	border-style: solid;
+	border-color: black;
 }
 
 /* Overrid bootstrap default */
 .container-fluid {
-	padding: 0 2em;
 }
 
 .passive-price {
 	color: red;
 }
 
+.flight-details {
+	color: blue;
+}
 
