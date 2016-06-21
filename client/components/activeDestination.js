@@ -16,7 +16,7 @@ class ActiveDestination extends React.Component {
 					<h3>{this.props.city_name + ', ' + this.props.country}</h3>
 					<p> {this.props.intro}</p>
 				</div>
-				<div className='col-md-6 flight-details'>
+				<div className='flight-details'>
 					<p>{'Leaving on ' + this.props.bookingDetails.outboundDate.slice(0,10) + ' and returning on ' + this.props.bookingDetails.inboundDate.slice(0,10)}</p>
 					<h3>{this.props.bookingDetails.price}</h3>
 					<p>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
