@@ -6,6 +6,9 @@ import NavBar from './navBar'
 import OutCardBox from './outerCardBox'
 import MissionStatement from './missionStatement'
 import MeetTheDevs from './meetTheDevs'
+import {Router, browserHistory} from 'react-router'
+import routes from '../routes'
+import CardBox from './cardBox'
 
 
 class LandingPage extends React.Component {
@@ -19,9 +22,8 @@ let showing = <OutCardBox />
 					<div> 
 						<NavBar />
 						<div className='nav-spacing'></div>
-						{showing}
-						<MissionStatement />
-						<MeetTheDevs />
+						<Router history={browserHistory} routes={routes} />
+						{this.props.children}
 					</div>
 		)
 	}
@@ -34,3 +36,8 @@ ReactDOM.render(
 );
 export default LandingPage;
 
+
+
+						// {showing}
+						// <MissionStatement />
+						// <MeetTheDevs />
