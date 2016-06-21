@@ -1,26 +1,20 @@
-<<<<<<< HEAD
-
+/*
 .card-box, .card-title, .photo-roll, .parent-photo, .intro, .d-three-cache, .flight , .row{
 	padding: 0;
 	margin: 0 ;
 	border: 0;
-}
+}*/
 
-.nav{
+/*.nav{
 
 }
-.landing-page {
+.landing-page {*/
 /*	height: 50px;
 	width: 50px;
 	background-color: blue;*/
-}
+/*}*/
 .card-box {
-	position: relative;
-	top: 0;
-	left:0;
-=======
-.card-box {
->>>>>>> a124c06a6a45b138900894bad069adfe7f6e319a
+
 	min-height: 100%;
 	min-width: 100%;
 	background-color: #E8E8E8;
