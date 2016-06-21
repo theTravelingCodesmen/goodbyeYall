@@ -7,6 +7,7 @@
 	// compare the two obj
 	// if the new price is cheaper, update the cheapest_route_ever row (by id)
 'use strict'
+
 let knex = require('../db/db');
 
 knex.getCheapestRouteInQuotes = function(){
@@ -55,3 +56,4 @@ knex.getCheapestRouteInQuotes().then(function(data){
 	return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
 })
 .then(knex.closeDb);
+

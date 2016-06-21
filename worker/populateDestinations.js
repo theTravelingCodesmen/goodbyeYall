@@ -152,7 +152,6 @@ let paricutin = {
   next_image_url:"/assets/images/paricutin.jpeg",
 };
 
-
 let mountEverest = {
   title:"Mount Everest",
   airport_code:"DEL-sky",
@@ -163,7 +162,6 @@ let mountEverest = {
   main_image_url:"/assets/images/mount_everest.png",
   next_image_url:"/assets/images/mount_everest.jpeg",
 };
-
 
 
 
