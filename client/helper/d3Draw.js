@@ -1,27 +1,26 @@
 'use strict'
 
 import $ from 'jquery'
+import airportsToCity from './airport_to_city'
 
 function transformLivePriceData(price){
-    //only need to sort price correctly
-      function compare(a, b) {
-        if (a.date < b.date) {
-          return -1;
-        }
-        if (a.date > b.date) {
-          return 1;
-        }
-        return 0;
-      };
+  //only need to sort price correctly
+    function compare(a, b) {
+      if (a.date < b.date) {
+        return -1;
+      }
+      if (a.date > b.date) {
+        return 1;
+      }
+      return 0;
+    };
 
-    return price.sort(compare);
+  return price.sort(compare);
 }
 
 function d3LineDraw (targetDOM, endpoint) {
-    $('.'+targetDOM).empty();
-    
-
-
+  $('.'+targetDOM).empty();
+  let airports = endpoint.split('/').slice(2);
   // Get the data
   d3.json(endpoint, function(error, price) {
     //transform datagetd3Cachegraph
@@ -120,7 +119,7 @@ function d3LineDraw (targetDOM, endpoint) {
         .attr('y', 0-(margin.top/2))
         .attr('text-anchor','middle')
         .style('font-size','16px')
-        .text('graph title');
+        .text('Next 12 months prices from '+ airportsToCity[airports[0]]+ ' to '+airportsToCity[airports[1]]); // update title here
 
 
     svg.append("text")
