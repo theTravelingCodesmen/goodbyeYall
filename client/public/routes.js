@@ -27,7 +27,7 @@ export default(
 					// </div>
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} / >
-					<Route path="/package/seven-wonder" component={CardBox} />
+					<Route path="/package/:package_name" component={CardBox} />
 					<Route path="/how" component={MissionStatement} />
 					<Route path="/meetTheDevs" component={MeetTheDevs} />
 				</Route>

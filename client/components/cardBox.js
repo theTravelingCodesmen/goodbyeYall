@@ -15,11 +15,11 @@ const createStoreWithMiddleware = applyMiddleware(
 
 class CardBox extends React.Component {
 	render() {
+		console.log('line 18 components/cardBox.js params of package/:package_name', this.props.params.package_name);
 		return(			
 			<div className='seven-view'>
-				<div className='nav-spacing'></div>
-				<CardTitle className='card-title' /> 
-				<PackageDestinations  className='row' />
+				<CardTitle title={this.props.params.package_name} className='card-title' /> 
+				<PackageDestinations  package_name={this.props.params.package_name} className='row' />
 			</div>
 		)
 	}

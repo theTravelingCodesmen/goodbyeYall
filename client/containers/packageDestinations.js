@@ -13,17 +13,7 @@ import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
 
 class PackageDestinations extends React.Component {
 	componentWillMount(){
-		return axios.get('/packages/selectpackage/Seven Wonders')
-			.then(function(data){
-				console.log(data)
-				let INITIAL_STATE = {};
-				INITIAL_STATE.active = data.data.slice(0,1);
-				INITIAL_STATE.passive = data.data.slice(1);
-				return INITIAL_STATE;
-			})
-			.then(this.props.fetchPackage)
-			.catch(err=>console.log(err))
-			///add closeDb function at end
+		return axios.get(`/packages/selectpackage/${this.props.package_name}`)
 	}
 	render() {
 		return(
