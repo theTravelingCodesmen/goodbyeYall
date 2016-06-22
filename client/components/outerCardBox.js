@@ -3,7 +3,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 // import CardBox from './cardBox'
-import ImageCarousel from './imageCarousel'
+import ImageCarousel from './imageCarousel';
 
 class OuterCardBox extends React.Component {
 	render(){

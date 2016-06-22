@@ -1,9 +1,9 @@
 'use strict'
 
 //not using now
-import React from 'react'
-import ReactDom from 'react-dom'
-import getd3Cachegraph from './d3CacheGraphFetch'
+import React from 'react';
+import ReactDom from 'react-dom';
+import getd3Cachegraph from './d3CacheGraphFetch';
 
 class D3Cache extends React.Component {
   render(){
