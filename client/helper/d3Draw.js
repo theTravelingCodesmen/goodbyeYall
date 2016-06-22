@@ -2,15 +2,30 @@
 
 import $ from 'jquery'
 
-function d3LineDraw (targetDOM, endpoint, transformFunction) {
-    //targetDOM is the class name of the DOM
-	if (transformFunction===undefined){
-		transformFunction = function(input){return input}
-	}
+function transformLivePriceData(price){
+    //only need to sort price correctly
+      function compare(a, b) {
+        if (a.date < b.date) {
+          return -1;
+        }
+        if (a.date > b.date) {
+          return 1;
+        }
+        return 0;
+      };
+
+    return price.sort(compare);
+}
+
+function d3LineDraw (targetDOM, endpoint) {
+    $('.'+targetDOM).empty();
+    
+
+
   // Get the data
   d3.json(endpoint, function(error, price) {
     //transform datagetd3Cachegraph
-    let data = transformFunction(price);
+    let data = transformLivePriceData(price);
     function showData(obj, d) {
      let coord = d3.mouse(obj);
      console.log(coord);
