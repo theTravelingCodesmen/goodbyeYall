@@ -8,7 +8,7 @@ import OuterCardBox from '../components/outerCardBox'
 // import MeetTheDevs from './meetTheDevs'
 import { Route, IndexRoute } from 'react-router'
 // import routes from '../routes'
-// import CardBox from './cardBox'
+import CardBox from '../components/cardBox'
 
 
 class Test extends React.Component {
@@ -27,6 +27,7 @@ export default(
 					// </div>
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} / >
+					// <Route path="/package/seven-wonder" component={CardBox} />
 
 				</Route>
 )

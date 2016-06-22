@@ -25,11 +25,4 @@ class CardBox extends React.Component {
 }
 
 
-ReactDOM.render(
-	<Provider store={createStoreWithMiddleware(reducers)}>
-		<CardBox />
-	</Provider>
-	, document.querySelector('.card-box')
-);
-
 export default CardBox;
