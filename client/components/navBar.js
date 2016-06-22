@@ -3,6 +3,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem }from 'react-bootstrap';
+import MissionStatement from './missionStatement';
+import { Link } from 'react-router';
 
 
 class NavBar extends React.Component{
@@ -17,7 +19,7 @@ class NavBar extends React.Component{
       </Navbar.Header>
       <Nav>
         <NavItem eventKey={1}>Home</NavItem>
-        <NavItem eventKey={2} href="#">How it Works</NavItem>
+        <Link to='/mission' className='btn'><NavItem eventKey={2} href="#">How it Works</NavItem></Link>
         <NavItem eventKey={3} href="#">Meet the Devs</NavItem>
         <NavDropdown eventKey={3} title="Travel Packages" id="basic-nav-dropdown">
           <MenuItem eventKey={3.1}>Seven Wonders of the World</MenuItem>
