@@ -26,7 +26,7 @@ export default(
 					// 	{this.props.children}
 					// </div>
 				<Route path="/" component={NavBar}>
-					<IndexRoute component={Test} / >
+					<IndexRoute component={OuterCardBox} / >
 
 				</Route>
 )

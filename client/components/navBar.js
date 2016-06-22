@@ -9,6 +9,7 @@ class NavBar extends React.Component{
   render(){
 
     return (
+    <div>
     <Navbar className="navbar-fixed-top">
       <Navbar.Header>
         <Navbar.Brand>
@@ -25,6 +26,9 @@ class NavBar extends React.Component{
         </NavDropdown>
       </Nav>
     </Navbar>
+    {this.props.children}
+    </div>
+
 
   )};
 };
