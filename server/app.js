@@ -44,6 +44,10 @@ else {
 		app.use(cookieParser());
 		app.use('/', routes);
 		require('./config/passport.js')(passport);
+		app.use('/*', function(req, res){
+			res.sendFile(path.join(__dirname, '..', 'client', 'public','index.html'))
+			// res.redirect('/')
+		})
 		app.use(session({
 			secret: "travelingcodesman",
 			//name: cookie_name,

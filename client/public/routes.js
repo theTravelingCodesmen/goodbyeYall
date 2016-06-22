@@ -2,17 +2,23 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom'
-import NavBar from './navBar'
-import OuterCardBox from './outerCardBox'
+import NavBar from '../components/navBar'
+import OuterCardBox from '../components/outerCardBox'
 // import MissionStatement from './missionStatement'
 // import MeetTheDevs from './meetTheDevs'
-import { Route, IndexRoute, browserHistory } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 // import routes from '../routes'
-// import CardBox from './cardBox'
+import CardBox from '../components/cardBox'
 
 
-function LandingPage(){
-		return(
+class Test extends React.Component {
+	render(){
+		return (<div>test</div>)
+	}
+	
+}
+
+export default(
 					// <div> 
 					// 	<NavBar />
 					// 	<div className='nav-spacing'></div>
@@ -21,20 +27,7 @@ function LandingPage(){
 					// </div>
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} / >
+					<Route path="/package/seven-wonder" component={CardBox} />
 
 				</Route>
-		)
-	}
-
-
-// switch render function to here from CardBox
-
-
-
-export default LandingPage;
-
-
-
-						// {showing}
-						// <MissionStatement />
-						// <MeetTheDevs />
+)

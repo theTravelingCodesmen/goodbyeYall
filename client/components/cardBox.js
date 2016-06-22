@@ -16,7 +16,7 @@ const createStoreWithMiddleware = applyMiddleware(
 class CardBox extends React.Component {
 	render() {
 		return(			
-			<div className='container'>
+			<div className='seven-view'>
 				<CardTitle className='card-title' /> 
 				<PackageDestinations  className='row' />
 			</div>
@@ -24,12 +24,5 @@ class CardBox extends React.Component {
 	}
 }
 
-
-ReactDOM.render(
-	<Provider store={createStoreWithMiddleware(reducers)}>
-		<CardBox />
-	</Provider>
-	, document.querySelector('.card-box')
-);
 
 export default CardBox;
