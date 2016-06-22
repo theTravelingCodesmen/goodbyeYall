@@ -13,15 +13,10 @@ import { Route, IndexRoute, browserHistory } from 'react-router'
 
 function LandingPage(){
 		return(
-					// <div> 
-					// 	<NavBar />
-					// 	<div className='nav-spacing'></div>
-					// 	<Router history={browserHistory} routes={routes} />
-					// 	{this.props.children}
-					// </div>
+
+						<div className='nav-spacing'></div>
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} / >
-
 				</Route>
 		)
 	}
