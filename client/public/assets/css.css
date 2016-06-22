@@ -189,4 +189,10 @@ path {
 	min-height: 60px;
 }
 
+.seven-view {
+	padding-top:4em;
+	display: flex;
+  flex-direction: row;
+}
+
 
