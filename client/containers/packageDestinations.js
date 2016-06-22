@@ -2,11 +2,11 @@
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PassiveDestination from './passiveDestination'
-import ActiveDestination from '../components/activeDestination'
+import PassiveDestination from './passiveDestination';
+import ActiveDestination from '../components/activeDestination';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage'
+import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
 
 // this componenet need to listen to the state.
 // in the initial state, it should render the hard coded data
