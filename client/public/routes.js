@@ -29,6 +29,6 @@ export default(
 					<IndexRoute component={OuterCardBox} / >
 					<Route path="/package/seven-wonder" component={CardBox} />
 					<Route path="/how" component={MissionStatement} />
-					<Route path="/meetTheDevs" component={meetTheDevs} />
+					<Route path="/meetTheDevs" component={MeetTheDevs} />
 				</Route>
 )
