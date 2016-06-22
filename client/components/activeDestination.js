@@ -17,7 +17,7 @@ class ActiveDestination extends React.Component {
 					<p> {this.props.intro}</p>
 				</div>
 				<div className='flight-info-container'>
-					<FlightData />
+					<FlightData airport_code={this.props.airport_code}/>
 					<div className='flight-details'>
 						<p className='dates'>{'Leaving on ' + this.props.bookingDetails.outboundDate.slice(0,10) + ' and returning on ' + this.props.bookingDetails.inboundDate.slice(0,10)}</p>
 						<h3 className='active-price'>{this.props.bookingDetails.price}</h3>
