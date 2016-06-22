@@ -1,9 +1,9 @@
 // Component for Flight data
 "use strict"
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import getd3LivePriceGraph from '../helper/d3Draw'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import getd3LivePriceGraph from '../helper/d3Draw';
 
 
 class FlightData extends React.Component {
