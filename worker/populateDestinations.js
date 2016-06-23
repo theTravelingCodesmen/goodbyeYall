@@ -60,7 +60,7 @@ let tajMahal = {
   next_image_url: "/assets/images/taj_mahal.jpeg",
 };
 
-let Colosseum = {
+let colosseum = {
   title:"Colosseum",
   airport_code:"ROME-sky",
   country:"Italy",
@@ -71,7 +71,7 @@ let Colosseum = {
   next_image_url:"/assets/images/colusseum.jpeg",
 };
 
-let Petra = {
+let petra = {
   title:"Petra",
   airport_code:"AMMA-sky",
   country:"Jordan",
@@ -83,7 +83,6 @@ let Petra = {
 };
 
 
-let destinationsArray = [Petra, christTheRedeemer, Colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest];
 
 
 let victoriaFalls = {
@@ -164,6 +163,7 @@ let mountEverest = {
 };
 
 
+let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest];
 
 // insert destination into destinations database
 knex.insertDestination = function(destinationObject) {
