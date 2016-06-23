@@ -1,19 +1,16 @@
 'use strict'
+
 let RequestPromise = require("request-promise");
+let PromiseThrottle = require("promise-throttle");
 if (process.env.NODE_ENV!=='production'){
   var SkyscannerKeys = require("../APIKEYS.js");
 }
 
 let Knex = require('../db/db');
-let PromiseThrottle = require("promise-throttle");
 
 let originCities = ["DFWA-sky", "HOUA-sky"];
-let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
+let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky", "HRE-sky", "REYK-sky", "PHXA-sky", "SYD-sky", "MEX-sky"];
 
-//array of Natural Wonders Cities to be used to get quotes
-let naturalWondersCities = ["HRE-sky","RIOA-sky","REYK-sky","PHXA-sky","SYD-sky","MEX-sky","DEL-sky"];
-
-let destinationCitiesTest = ["CUN-sky"];
 
 let today = new Date;
 let promiseThrottle = new PromiseThrottle({
@@ -122,8 +119,6 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
 }
 
 
-
-
 //
 //generates an array of flight dates for the next year
 
@@ -170,36 +165,34 @@ function generateArgumentsArray() {
 //starts the chain that handles all of the functions which gets skyscanner to cache data
 
 function masterDataGenerator(){
-
   let theMasterArray = generateArgumentsArray()
     .map( (infoArray) => {
       return promiseThrottle.add(searchSkyscannerByDate.bind(this, ...infoArray))
     })
   Promise.all(theMasterArray)
-    // .then(Knex.closeDb);
 }
 
 //
 //reruns all api calls to skyscanner and inserts results into db
 
 function secondRoundInsertQuotes (){
-    let theMasterArray = generateArgumentsArray()
-      .map( (infoArray) => {
-        return promiseThrottle
-          .add(searchSkyscannerByDate.bind(this, ...infoArray))
-      })
-    Promise.all(theMasterArray
-      .map( (promiseFromSkyscanner) => {
-        return promiseFromSkyscanner
-          .then(Knex.insertQuotesIntoDb)
-      })
-      )
-      .then(Knex.closeDb);
+  let theMasterArray = generateArgumentsArray()
+    .map( (infoArray) => {
+      return promiseThrottle
+        .add(searchSkyscannerByDate.bind(this, ...infoArray))
+    })
+  Promise.all(theMasterArray
+    .map( (promiseFromSkyscanner) => {
+      return promiseFromSkyscanner
+        .then(Knex.insertQuotesIntoDb)
+    })
+    )
+    .then(Knex.closeDb);
 }
 
 
 masterDataGenerator()
-setTimeout(secondRoundInsertQuotes, 1400000)
+setTimeout(secondRoundInsertQuotes, 2400000)
 
 
 
