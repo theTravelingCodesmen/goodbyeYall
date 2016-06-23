@@ -7,10 +7,12 @@ module.exports = router;
 
 
 knex.getBookNowDetails = function (originCity, destinationCity) {
-	return knex('quotes').where({
-		originCity:originCity,
-		destinationCity:destinationCity
-	}).select('price', 'deepLink', 'outboundDate', 'inboundDate', 'originCity', 'destinationCity', 'created_at')
+	return knex('quotes')
+		.where({
+			originCity:originCity,
+			destinationCity:destinationCity
+		})
+		.select('price', 'deepLink', 'outboundDate', 'inboundDate', 'originCity', 'destinationCity', 'created_at')
 }
 
 

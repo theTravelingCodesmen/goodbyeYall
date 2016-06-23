@@ -3,6 +3,8 @@
 let knex = require('../../db/db');
 let router = require('express').Router();
 
+module.exports = router;
+
 knex.getCheapestByRoute = function (originCity, destinationCity) {
 	return knex('cheapest_route_ever').where({
 		originCity:originCity,
@@ -12,15 +14,19 @@ knex.getCheapestByRoute = function (originCity, destinationCity) {
 
 
 knex.getBookNowDetails = function (originCity, destinationCity) {
-	return knex('quotes').where({
-		originCity:originCity,
-		destinationCity:destinationCity
-	}).select('price', 'deepLink', 'outboundDate', 'inboundDate', 'originCity', 'destinationCity', 'created_at')
+	return knex('quotes')
+		.where({
+			originCity:originCity,
+			destinationCity:destinationCity
+		})
+		.select('price', 'deepLink', 'outboundDate', 'inboundDate', 'originCity', 'destinationCity', 'created_at')
 }
 
 
 knex.getCheapestInLastThirtyDays = function (originCity, destinationCity) {
-	return knex('last_thirty_days').min('price').where({
+	return knex('last_thirty_days')
+	.min('price')
+	.where({
 		originCity:originCity,
 		destinationCity:destinationCity
 	})
@@ -28,7 +34,9 @@ knex.getCheapestInLastThirtyDays = function (originCity, destinationCity) {
 
 
 router.use('/selectpackage/:packagename', function(req, res){
-  knex('destinations').where({'package_group': req.params.packagename}).select('*')
+  knex('destinations')
+  .where({'package_group': req.params.packagename})
+  .select('*')
   	.then(function(data){
 			return Promise.all(
 				data.map( (destination) => {
@@ -49,5 +57,3 @@ router.use('/selectpackage/:packagename', function(req, res){
   		console.log(err)
   	})
 })
-
-module.exports = router;

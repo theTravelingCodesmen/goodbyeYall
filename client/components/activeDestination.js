@@ -17,12 +17,15 @@ class ActiveDestination extends React.Component {
 					<p> {this.props.intro}</p>
 				</div>
 				<div className='flight-info-container'>
-					<FlightData />
+					<FlightData airport_code={this.props.airport_code}/>
 					<div className='flight-details'>
 						<p className='dates'>{'Leaving on ' + this.props.bookingDetails.outboundDate.slice(0,10) + ' and returning on ' + this.props.bookingDetails.inboundDate.slice(0,10)}</p>
-						<h3 className='active-price'>{this.props.bookingDetails.price}</h3>
+						<h3 className='active-price'>{this.props.bookingDetails.price.toFixed(2)}</h3>
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
+						<div>
+							<p>Powered By</p><img src="/assets/images/Skyscanner-Logo-Charcoal.png"/>
+						</div>
 					</div>
 				</div>
 			</div>

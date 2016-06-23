@@ -1,3 +1,20 @@
+/*NAVBAR ELEMENTS////////////////////////////*/
+/*//////////////////////////////////////////*/
+.logo{
+	font-weight: bold;
+	font-size: 1.7em;
+}
+
+.logo:hover {
+	cursor: pointer;
+	font-weight: bolder;
+	color: black;
+}
+
+.navbar-button:hover{
+	font-weight: bolder;
+}
+
 .card-title{
 	/*comment out the font choices*/
 /*	font-family: 'Alegreya Sans', sans-serif;*/
@@ -6,10 +23,10 @@
 	border-style: solid;
 	border-color: black;
 	font-size: 3em;
+/*	transform: rotate(270deg);
+	transform-origin: left bottom 0;*/
 }
 
-.card-box {
-}
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll{
@@ -147,34 +164,9 @@ path {
 	min-width:600px;
 }
 
-/* photo roll pics effects */
-.passive-photo:hover {
-	-webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 0px;
-	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
-	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
-	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
-	z-index: 10;
-  cursor: pointer;
-}
-
-.passive-photo {
-	background-size: contain;
-  padding: 0;
-	margin: 0;
-	border: 0;
-	flex-grow: 1;
-	display: inline-block;
-	background-repeat: no-repeat;
-	border-style: solid;
-	border-color: black;
-}
-
-/* Overrid bootstrap default */
-.container-fluid {
-}
-
+/*/////////////////////////////////////*/
+/*MAKE SURE YOUR CODE IS ORGANIZED////*/
+/*///////////////////////////////////*/
 
 /*.package-uno {
 		display: block;
@@ -210,19 +202,39 @@ path {
 	width: 42%;
 }
 
-.passive-price {
-	color: red;
-}
-
-.flight-details {
-	color: blue;
-}
-
 .nav-spacing{
 	min-height: 60px;
 }
 
-/*/////////////////////////////////////*/
-/*MAKE SURE YOUR CODE IS ORGANIZED////*/
-/*///////////////////////////////////*/
+.seven-view {
+	padding-top:4em;
+/*	display: flex;
+  flex-direction: row;*/
+}
+
+.meet-the-devs{
+    display: inline-block;
+    margin-top: 20px;
+    width: 18%;
+    text-align: center;
+}
+
+.dev-pic{
+	width:70%;
+}
+
+.icons {
+            margin-top: 10px;
+            display:inline-flex;
+}
+
+.linkedin, .github {
+            width:30%;
+}
+
+.bio{
+    font-size:.75em;
+    text-align: left;
+    padding-left: 10%;
+}
 

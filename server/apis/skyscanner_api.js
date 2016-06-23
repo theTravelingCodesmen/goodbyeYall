@@ -6,7 +6,6 @@ let requestpromise = require('request-promise');
 module.exports = router;
 
 
-
 router.get('/d3_cache/:location/:currency/:ISO/:dest/:arrival/:depart_time/:arrival_time', function(req, res){
 	let skyscanner_endpoint = 'http://partners.api.skyscanner.net/apiservices/browsedates/v1.0';
 	skyscanner_endpoint+= '/' + req.params.location;
@@ -20,5 +19,4 @@ router.get('/d3_cache/:location/:currency/:ISO/:dest/:arrival/:depart_time/:arri
 	requestpromise(skyscanner_endpoint).then(JSON.parse).then(function(resp){
 		res.json(resp)
 	})
-	
 });

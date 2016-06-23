@@ -2,13 +2,14 @@
 
 import React from 'react';
 import ReactDom from 'react-dom';
-import CardBox from './cardBox'
-import ImageCarousel from './imageCarousel'
+// import CardBox from './cardBox'
+import ImageCarousel from './imageCarousel';
 
 class OuterCardBox extends React.Component {
 	render(){
 		return (
 			<div >
+			<div className='nav-spacing'></div>
 				<div className='row'>
 					<img className='value-prop col-md-8' src='/assets/images/value-prop.jpg'></img> 
 				
