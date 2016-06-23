@@ -8,7 +8,7 @@ import MissionStatement from '../components/missionStatement'
 import MeetTheDevs from '../components/meetTheDevs'
 import { Route, IndexRoute } from 'react-router'
 // import routes from '../routes'
-import CardBox from '../components/cardBox'
+import CardBox from '../containers/cardBox'
 
 
 class Test extends React.Component {
@@ -19,16 +19,10 @@ class Test extends React.Component {
 }
 
 export default(
-					// <div> 
-					// 	<NavBar />
-					// 	<div className='nav-spacing'></div>
-					// 	<Router history={browserHistory} routes={routes} />
-					// 	{this.props.children}
-					// </div>
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} / >
-					<Route path="/package/seven-wonder" component={CardBox} />
-					<Route path="/how" component={MissionStatement} />
-					<Route path="/meetTheDevs" component={MeetTheDevs} />
+					<Route path="/package/:package_name" component={CardBox} />
+					<Route path="/How it Works" component={MissionStatement} />
+					<Route path="/Meet the Devs" component={MeetTheDevs} />
 				</Route>
 )
