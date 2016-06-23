@@ -8,7 +8,7 @@ class MissionStatement extends React.Component {
 		return (
 				<div className='mission-statement'>
 				<div className='nav-spacing'></div>
-					view -> click -> fly -> repeat
+					favorite -> fly -> repeat
 				</div>
 			)
 	}
