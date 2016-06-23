@@ -18,9 +18,11 @@ const createStoreWithMiddleware = applyMiddleware(
 
 class CardBox extends React.Component {
 	componentWillMount(){
+		this.setState({'cachedAirport': localStorage.getItem('originairport')});
 		this.props.fetchPackage(`${this.props.params.package_name}`)
 	}
 	componentDidUpdate(){
+		console.log(this.state.cachedAirport);
 		if (this.props.params.package_name !== this.props.package_name){
 			this.props.fetchPackage(`${this.props.params.package_name}`)
 		}
