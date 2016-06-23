@@ -17,6 +17,7 @@ class CardBox extends React.Component {
 	render() {
 		return(			
 			<div className='seven-view'>
+				<div className='nav-spacing'></div>
 				<CardTitle className='card-title' /> 
 				<PackageDestinations  className='row' />
 			</div>
