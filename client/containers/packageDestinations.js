@@ -13,7 +13,7 @@ import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
 
 class PackageDestinations extends React.Component {
 	componentWillMount(){
-		return axios.get('/packages/selectpackage/Seven Wonders of the World')
+		return axios.get('/packages/selectpackage/Seven Wonders')
 			.then(function(data){
 				console.log(data)
 				let INITIAL_STATE = {};

@@ -6,11 +6,11 @@ knex.truncateTable('packages');
 
 
 let sevenWonders = {
-    name: "Seven Wonders of the World"
+    name: "Seven Wonders"
 };
 
 let sevenNaturalWonders = {
-    name: "Seven Natural Wonders of the World"
+    name: "Seven Natural Wonders"
 }
 
 let packagesArray = [sevenWonders, sevenNaturalWonders];
