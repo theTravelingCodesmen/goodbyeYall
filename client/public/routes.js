@@ -22,7 +22,7 @@ export default(
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} / >
 					<Route path="/package/:package_name" component={CardBox} />
-					<Route path="/how" component={MissionStatement} />
-					<Route path="/meetTheDevs" component={MeetTheDevs} />
+					<Route path="/How it Works" component={MissionStatement} />
+					<Route path="/Meet the Devs" component={MeetTheDevs} />
 				</Route>
 )
