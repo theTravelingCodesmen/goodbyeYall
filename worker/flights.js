@@ -126,8 +126,7 @@ function generateFlightDates(daysOut){
   let dates = [];
   let daysAdded = daysOut;
   let count = 0;
-  //change back to < 52
-  while(count < 49){
+  while(count < 48){
     dates.push(today.addDays(daysAdded));
     daysAdded += 7;
     count++;
