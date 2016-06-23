@@ -13,7 +13,7 @@ class NavBar extends React.Component{
       <Navbar className="navbar-fixed-top">
         <Navbar.Header>
           <Navbar.Brand>
-            <LinkContainer to={{pathname:'/'}}><div>GoodByeYall </div></LinkContainer>
+            <LinkContainer to={{pathname:'/'}} className="btn"><div>GoodByeYall </div></LinkContainer>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
