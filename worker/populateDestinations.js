@@ -163,7 +163,9 @@ let mountEverest = {
 };
 
 
-let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest];
+
+let destinationsArray = [Petra, christTheRedeemer, Colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest];
+
 
 // insert destination into destinations database
 knex.insertDestination = function(destinationObject) {
