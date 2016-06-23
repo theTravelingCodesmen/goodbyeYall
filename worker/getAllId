@@ -1,0 +1,34 @@
+'use strict'
+
+let router = require('express').Router();
+let knex = require('../../db/db');
+let RequestPromise = require("request-promise");
+
+
+knex.getAllId = function(fb_id){
+	return Promise.all(knex('users').where({fb_id: fb_id}).select())
+}
+
+
+
+FB.api('/RECEIPIENT_USERID/notifications',
+	'post',
+	{
+		access_token: APP_ACCESS_TOKEN,
+    href: '/cheapest'        
+    template: "You have been added as adminstrator to goodbyeyall app",
+    fb_id: id
+  }, 
+  function(response){
+  	if (!response || response.error){
+    	alert('Error occurred');
+    } else {
+      alert('Success :D');
+    	}
+  };
+
+https://graph.facebook.com/endpoint?
+GET /oauth/access_token?
+    client_id={app-id}
+    client_secret={app-secret}
+    grant_type=client_credentials
