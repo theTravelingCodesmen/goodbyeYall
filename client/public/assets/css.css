@@ -1,3 +1,5 @@
+/*NAVBAR ELEMENTS////////////////////////////*/
+/*//////////////////////////////////////////*/
 .logo{
 	font-weight: bold;
 	font-size: 1.7em;
@@ -25,8 +27,6 @@
 	transform-origin: left bottom 0;*/
 }
 
-.card-box {
-}
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll{
