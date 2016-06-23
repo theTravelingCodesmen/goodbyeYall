@@ -1,12 +1,12 @@
 'use strict'
 
-import React from 'react'
-import ReactDom from 'react-dom'
+import React from 'react';
+import ReactDom from 'react-dom';
 
 class CardTitle extends React.Component{
 	render(){
 		return (
-			<div className={this.props.className}>Seven Wonders of the World</div>
+			<div className={this.props.className}>Seven Wonders</div>
 		)
 	}
 }

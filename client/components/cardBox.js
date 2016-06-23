@@ -1,9 +1,9 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom'
-import CardTitle from './cardTitle'
-import PackageDestinations from '../containers/packageDestinations'
+import ReactDOM from 'react-dom';
+import CardTitle from './cardTitle';
+import PackageDestinations from '../containers/packageDestinations';
 import { Provider } from 'react-redux';
 import {createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
@@ -16,7 +16,8 @@ const createStoreWithMiddleware = applyMiddleware(
 class CardBox extends React.Component {
 	render() {
 		return(			
-			<div className='container'>
+			<div className='seven-view'>
+				<div className='nav-spacing'></div>
 				<CardTitle className='card-title' /> 
 				<PackageDestinations  className='row' />
 			</div>
@@ -24,12 +25,5 @@ class CardBox extends React.Component {
 	}
 }
 
-
-ReactDOM.render(
-	<Provider store={createStoreWithMiddleware(reducers)}>
-		<CardBox />
-	</Provider>
-	, document.querySelector('.card-box')
-);
 
 export default CardBox;
