@@ -11,7 +11,7 @@ let knex = require('../db/db');
 
 knex.getCheapestRouteInQuotesByDate = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
-	return knex('quotes').where('created_at','<', new Date(Date.now())).select('originCity','destinationCity').min('price as price').groupBy('originCity', 'destinationCity')
+	return knex('quotes').where('created_at','<', new Date(Date.now())-24*60*60*1000).select('originCity','destinationCity').min('price as price').groupBy('originCity', 'destinationCity')
 }
 
 knex.insertIntoLastThirtyDays = function(obj){
