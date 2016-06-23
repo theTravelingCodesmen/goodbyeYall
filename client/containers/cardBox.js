@@ -29,7 +29,7 @@ class CardBox extends React.Component {
 		console.log('line 49 containers/cardBox.js params of package/:package_name', this.props.params.package_name);
 		return(			
 			<div className='seven-view'>
-				<CardTitle title={this.props.package_name} className='card-title' /> 
+				<CardTitle title={this.props.package_name} /> 
 				<PackageDestinations  active={this.props.active} passive={this.props.passive} package_name={this.props.params.package_name} className='row' />
 			</div>
 		)

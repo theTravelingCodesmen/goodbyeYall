@@ -6,7 +6,7 @@ import ReactDom from 'react-dom';
 class CardTitle extends React.Component{
 	render(){
 		return (
-			<div className={this.props.className}>{this.props.title}</div>
+			<div className='card-title' >{this.props.title}</div>
 		)
 	}
 }
