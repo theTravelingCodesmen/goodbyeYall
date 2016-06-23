@@ -19,7 +19,21 @@ const createStoreWithMiddleware = applyMiddleware(
 class CardBox extends React.Component {
 	componentWillMount(){
 		console.log('line 21 containers/cardBox.js this.props.params.package_name', this.props.params.package_name);
-		return axios.get(`/packages/selectpackage/${this.props.package_name}`)
+		return axios.get(`/packages/selectpackage/${this.props.params.package_name}`)
+			.then(function(data){
+				console.log(data)
+				let INITIAL_STATE = {};
+				INITIAL_STATE.active = data.data.slice(0,1);
+				INITIAL_STATE.passive = data.data.slice(1);
+				return INITIAL_STATE;
+			})
+			.then(this.props.fetchPackage)
+			.catch(err=>console.log(err))
+			///add closeDb function at end
+	}
+	componentDidUpdate(){
+		console.log('line 35 containers/cardBox.js this.props.params.package_name', this.props.params.package_name);
+		return axios.get(`/packages/selectpackage/${this.props.params.package_name}`)
 			.then(function(data){
 				console.log(data)
 				let INITIAL_STATE = {};
@@ -32,7 +46,7 @@ class CardBox extends React.Component {
 			///add closeDb function at end
 	}
 	render() {
-		console.log('line 35 containers/cardBox.js params of package/:package_name', this.props.params.package_name);
+		console.log('line 49 containers/cardBox.js params of package/:package_name', this.props.params.package_name);
 		return(			
 			<div className='seven-view'>
 				<CardTitle title={this.props.params.package_name} className='card-title' /> 
