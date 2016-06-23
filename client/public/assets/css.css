@@ -212,7 +212,29 @@ path {
   flex-direction: row;*/
 }
 
+.meet-the-devs{
+    display: inline-block;
+    margin-top: 20px;
+    width: 18%;
+    text-align: center;
+}
+
 .dev-pic{
-		width:5%;
+	width:70%;
+}
+
+.icons {
+            margin-top: 10px;
+            display:inline-flex;
+}
+
+.linkedin, .github {
+            width:30%;
+}
+
+.bio{
+    font-size:.75em;
+    text-align: left;
+    padding-left: 10%;
 }
 
