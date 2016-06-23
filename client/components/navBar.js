@@ -17,11 +17,11 @@ class NavBar extends React.Component{
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
-          <LinkContainer to={{pathname:'/How it Works'}}><NavItem eventKey={2} href="#">How it Works</NavItem></LinkContainer>
-          <LinkContainer to={{pathname:'/Meet the Devs'}}><NavItem eventKey={3} href="#">Meet the Devs</NavItem></LinkContainer>
-          <NavDropdown eventKey={3} title="Travel Packages" id="basic-nav-dropdown">
-            <MenuItem eventKey={3.1}><LinkContainer to={{pathname:'/package/Seven Wonders'}}><div>Seven Wonders</div></LinkContainer></MenuItem>
-            <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/package/Seven Natural Wonders'}}><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
+          <LinkContainer className="navbar-button" to={{pathname:'/How it Works'}}><NavItem eventKey={2} href="#">How it Works</NavItem></LinkContainer>
+          <LinkContainer className="navbar-button" to={{pathname:'/Meet the Devs'}}><NavItem eventKey={3} href="#">Meet the Devs</NavItem></LinkContainer>
+          <NavDropdown className="navbar-button" eventKey={3} title="Travel Packages" id="basic-nav-dropdown">
+            <MenuItem eventKey={3.1}><LinkContainer to={{pathname:'/package/Seven Wonders'}} className="navbar-button"><div>Seven Wonders</div></LinkContainer></MenuItem>
+            <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/package/Seven Natural Wonders'}} className="navbar-button"><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
           </NavDropdown>
         </Nav>
       </Navbar>
