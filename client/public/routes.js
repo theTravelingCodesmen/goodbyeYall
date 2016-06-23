@@ -19,12 +19,6 @@ class Test extends React.Component {
 }
 
 export default(
-					// <div> 
-					// 	<NavBar />
-					// 	<div className='nav-spacing'></div>
-					// 	<Router history={browserHistory} routes={routes} />
-					// 	{this.props.children}
-					// </div>
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} / >
 					<Route path="/package/:package_name" component={CardBox} />
