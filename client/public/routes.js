@@ -8,7 +8,7 @@ import MissionStatement from '../components/missionStatement'
 import MeetTheDevs from '../components/meetTheDevs'
 import { Route, IndexRoute } from 'react-router'
 // import routes from '../routes'
-import CardBox from '../components/cardBox'
+import CardBox from '../containers/cardBox'
 
 
 class Test extends React.Component {
