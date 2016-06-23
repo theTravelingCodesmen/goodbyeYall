@@ -31,8 +31,3 @@ class NavBar extends React.Component{
 };
 
 export default NavBar;
-
-
-
-          // <MenuItem divider />
-          // <MenuItem eventKey={3.3}>Separated link</MenuItem>
