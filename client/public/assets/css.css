@@ -46,7 +46,7 @@
 }
 
 /* photo roll pics effects*/
-.passive-photo:hover {
+.passive-photo:hover, .package-uno:hover, .package-dos:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
@@ -182,16 +182,19 @@ path {
 .package-uno {
     min-width: 50%;
     max-width: 100%;
+    cursor: pointer;
 }
 
 .package-dos{
     min-width: 50%;
     max-width: 100%;
+    cursor: pointer;
 }
 
 .carousel{
 	margin: 0% 10%;
 	width: 60%;
+            cursor: pointer;
 }
 
 .nav-spacing{
