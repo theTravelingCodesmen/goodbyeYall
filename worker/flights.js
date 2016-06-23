@@ -139,7 +139,8 @@ function generateFlightDates(daysOut){
 // Insert flight object into quotes table
 
 Knex.insertQuotesIntoDb = function(flightObj) {
-  return Knex('quotes').insert(flightObj);
+  return flightObj !== [] ? Knex('quotes').insert(flightObj) : undefined
+  // return Knex('quotes').insert(flightObj);
 }
 
 
