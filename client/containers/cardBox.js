@@ -49,10 +49,18 @@ class CardBox extends React.Component {
 		console.log('line 49 containers/cardBox.js params of package/:package_name', this.props.params.package_name);
 		return(			
 			<div className='seven-view'>
-				<CardTitle title={this.props.params.package_name} className='card-title' /> 
-				<PackageDestinations  package_name={this.props.params.package_name} className='row' />
+				<CardTitle title={this.props.package_name} className='card-title' /> 
+				<PackageDestinations  active={this.props.active} passive={this.props.passive} package_name={this.props.params.package_name} className='row' />
 			</div>
 		)
+	}
+}
+
+function mapStateToProps ( state ){
+	return {
+		passive: state.destinations.passive,
+		active: state.destinations.active,
+		package_name:state.destinations.package_name
 	}
 }
 
@@ -62,4 +70,4 @@ function mapDispatchToProps( dispatch ){
 
 
  
-export default connect(null, mapDispatchToProps)(CardBox);
+export default connect(mapStateToProps, mapDispatchToProps)(CardBox);
