@@ -100,9 +100,9 @@ function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, dest
 }
 
 let originCities = ["DFWA-sky", "HOUA-sky"];
-let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky"];
+let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky", "HRE-sky", "REYK-sky", "PHXA-sky", "SYD-sky", "MEX-sky"];
 let months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
-let years = ["2016", "2017"];
+let years = ["2016", "2017", "2018"];
 
 //create array of all permutations of month, year, origin and destination
 function generateAveragesArgumentsArray() {
