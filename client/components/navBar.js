@@ -7,6 +7,10 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class NavBar extends React.Component{
+  componentWillMount(){
+    localStorage.setItem('originAirport', (localStorage.getItem('originAirport')|| "HOUA-sky"));
+    console.log('line 12 localStorage', localStorage.getItem('originAirport'));
+  }
   render(){
     return (
     <div className="container">
