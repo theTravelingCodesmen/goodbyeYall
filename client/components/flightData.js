@@ -15,11 +15,11 @@ class FlightData extends React.Component {
 	}
   componentDidMount(){
   	console.log('line 19 airport_code', this.props.airport_code)
-    getd3LivePriceGraph.call(null, 'flight','/avg_price/DFWA-sky/'+this.props.airport_code);
+    getd3LivePriceGraph.call(null, 'flight',`/avg_price/${localStorage.getItem('originairport')}/${this.props.airport_code}`);
   }
   componentDidUpdate(){
   	console.log('line 23 airport_code', this.props.airport_code)
-    getd3LivePriceGraph.call(null, 'flight','/avg_price/DFWA-sky/'+this.props.airport_code);
+    getd3LivePriceGraph.call(null, 'flight',`/avg_price/${localStorage.getItem('originairport')}/${this.props.airport_code}`);
   }
 }
 
