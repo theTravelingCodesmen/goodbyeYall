@@ -8,8 +8,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 class NavBar extends React.Component{
   componentWillMount(){
-    localStorage.setItem('originAirport', (localStorage.getItem('originAirport')|| "HOUA-sky"));
-    // console.log('line 12 localStorage', localStorage.getItem('originAirport'));
+    localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "HOUA-sky"));
   }
   render(){
     return (
