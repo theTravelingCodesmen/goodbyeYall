@@ -23,7 +23,7 @@ function d3LineDraw (targetDOM, endpoint) {
   let airports = endpoint.split('/').slice(2);
   // Get the data
   d3.json(endpoint)
-    .header('originairport', localStorage.getItem('originairport'))
+    // .header('originairport', localStorage.getItem('originairport'))
     .get(function(error, price) {
     //transform datagetd3Cachegraph
       let data = transformLivePriceData(price);
