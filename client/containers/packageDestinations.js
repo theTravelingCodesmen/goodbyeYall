@@ -53,15 +53,9 @@ class PackageDestinations extends React.Component {
 	}
 }
 
-function mapStateToProps ( state ){
-	return {
-		passive: state.destinations.passive,
-		active: state.destinations.active
-	}
-}
 
 function mapDispatchToProps( dispatch ){
 	return bindActionCreators({fetchPackage: fetchPackage}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(PackageDestinations);
+export default connect(null, mapDispatchToProps)(PackageDestinations);
