@@ -27,8 +27,14 @@ knex.insertCheapestRoute = function(obj){
   	console.log('line27', currentCheapest);
 		if (currentCheapest.length===0){
 			return knex('cheapest_route_ever').insert(obj)
-		}else if (currentCheapest.length===1){
-			return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
+		}
+		else if (currentCheapest.length===1){
+			if(obj.cheapest_price < currentCheapest.cheapest_price){
+				return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
+			}
+			else{
+				return;
+			}
 		}else{
 			throw new Error('line 37 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
 		}
