@@ -3,12 +3,12 @@
 .logo{
 	font-weight: bold;
 	font-size: 1.2em;
-            display:flex;
+  display:flex;
 }
 
 .logo img{
-    width:75px;
-    height: 75px;
+  width:75px;
+  height: 75px;
 }
 
 .logo:hover {
@@ -53,7 +53,7 @@ body {
 .passive-photo {
 	display: flex;
 	flex-grow: 1;
-	padding: 5.9%;
+	padding: 5.1%;
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -71,7 +71,7 @@ body {
 }
 
 .passive-photo:hover .passive-price {
-
+	opacity: 1;
 }
 
 .passive-price {
@@ -79,10 +79,9 @@ body {
 	padding: 2px;
 	font-size: 2em;
 	width: auto;
-	left: .4em;
-/*	display: none;*/
+	left: .2em;
 	color: white;
-/*	opacity: .5;*/
+	opacity: 0;
 	font-weight: bold;
 	position: relative;
 }
@@ -140,7 +139,7 @@ body {
 .flight{
 	width: 40%;
 	text-align:center;
-	opacity: .75;
+	opacity: .5;
 	background-color: white;
 	backface-visibility:
 }
