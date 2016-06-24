@@ -56,7 +56,11 @@ router.use('/selectpackage/:packagename', function(req, res){
      .then((data) => {
          return Promise.all(
              data.map((destination) =>{
-                 return requestPromise.get(`http://api.wunderground.com/api/${WEATHER_API}/planner_12011220/q/${destination.weather}.json`)
+                let inDate = destination.bookDetails.outboundDate.toString().slice(5,10).replace("-","")
+                let outDate = destination.bookDetails.inboundDate.toString().slice(5,10).replace("-","")
+                // console.log(inDate,outDate);
+                console.log(destination.bookDetails.outboundDate.toString());
+                 return requestPromise.get(`http://api.wunderground.com/api/${WEATHER_API}/planner_${inDate}${outDate}/q/${destination.weather}.json`)
                  .then(data => {
                      return JSON.parse(data)
                  })
