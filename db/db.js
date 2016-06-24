@@ -115,7 +115,7 @@ knex.ensureSchema = function () {
           console.log('Created users table.');
         });
       }
-    })
+    }),
     knex.schema.hasTable('user_preferences').then(function (exists) {
       if (!exists) {
         knex.schema.createTable('user_preferences', function (table) {
@@ -150,7 +150,7 @@ knex.closeDb = function () {
   })
 }
 
- //knex.ensureSchema().then(knex.closeDb);
+knex.ensureSchema().then(knex.closeDb);
 
 
 
