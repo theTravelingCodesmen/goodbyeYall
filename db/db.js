@@ -116,6 +116,23 @@ knex.ensureSchema = function () {
         });
       }
     })
+    knex.schema.hasTable('user_preferences').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('user_preferences', function (table) {
+          table.increments('id').primary();
+          //fb_id needs to be overwritten when changing user prefs
+          table.foreign('fb_id').references('users');
+          table.boolean('DFWA-sky').defaultTo(false);
+          table.boolean('HOUA-sky').defaultTo(false);
+          table.boolean('Seven Wonders').defaultTo(false);
+          table.boolean('Seven Natural Wonders').defaultTo(false);
+        }).then(function (table) {
+          console.log('Created user_preferences table.');
+        });
+      }
+    })
+
+
   ])
 }
 
