@@ -17,7 +17,7 @@ class NavBar extends React.Component{
       <Navbar className="navbar-fixed-top">
         <Navbar.Header>
           <Navbar.Brand className="logo">
-            <LinkContainer to={{pathname:'/'}}><div>GoodbyeYall</div></LinkContainer>
+            <LinkContainer to={{pathname:'/'}}><div><img src='/assets/images/logo.png'/><div>GoodbyeYall</div></div></LinkContainer>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>
@@ -28,6 +28,7 @@ class NavBar extends React.Component{
             <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/package/Seven Natural Wonders'}} className="navbar-button"><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
           </NavDropdown>
           <AirportDropdown / >
+          <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>
         </Nav>
       </Navbar>
       {this.props.children}
