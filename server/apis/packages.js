@@ -40,8 +40,8 @@ router.use('/selectpackage/:packagename', function(req, res){
   	.then(function(data){
 			return Promise.all(
 				data.map( (destination) => {
-					//remove hard coding of HOUA-sky
-					return knex.getBookNowDetails('HOUA-sky', destination.airport_code)
+					//req.headers.originairport is from axios header, which is fetch from client's localstorage
+					return knex.getBookNowDetails( req.headers.originairport, destination.airport_code)
 				.then( (info) => {
 					destination.bookDetails = info.reduce( (prev, curr) => {
 					return prev.price < curr.price ? prev : curr

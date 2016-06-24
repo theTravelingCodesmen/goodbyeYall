@@ -6,7 +6,8 @@ import {FETCH_PACKAGE} from '../actions/fetchPackage'
 let INITIAL_STATE = { passive: [], active: [], package_name:''};
 
 export default function (state = INITIAL_STATE, action) {
-	console.log(state)
+	// console.log('line 9 reducers/reducers_destination.js state is ',state)
+	// console.log('line 10 reducers/reducers_destination.js action is',action)
   switch (action.type){
 		case SET_ACTIVE_DESTINATION:
     	let newState = {};
