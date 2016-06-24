@@ -59,7 +59,7 @@ body {
 }
 
 /* photo roll pics effects*/
-.passive-photo:hover, .package-uno:hover, .package-dos:hover {
+.passive-photo:hover.package-uno:hover, .package-dos:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
@@ -275,4 +275,15 @@ path {
     margin-left:10%;
     padding-left: 1%;
     background: white;
+}
+
+.package-uno:hover, .package-dos:hover {
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 0px;
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
+	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
+	z-index: 3;
+  cursor: pointer;
 }
