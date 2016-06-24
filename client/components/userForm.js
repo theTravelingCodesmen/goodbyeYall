@@ -10,16 +10,27 @@ class UserForm extends React.Component {
             <div>
                 <form className="user-form">
                     <FormGroup>
-                      <ControlLabel>Static text</ControlLabel>
+                      <ControlLabel>Alert Preferences</ControlLabel>
                       <FormControl.Static>
-                        Please select your preferred outbound airport below
+                        Choose your preferred outbound airports below:
                       </FormControl.Static>
                     </FormGroup>
                     <Checkbox unchecked readOnly>
-                      DFW
+                      Dallas/Fort Worth (DFW & DAL)
                     </Checkbox>
                     <Checkbox unchecked readOnly>
-                      HOU
+                      Houston (IAH & HOU)
+                    </Checkbox>
+                   <FormGroup>
+                      <FormControl.Static>
+                        Choose your preferred travel packages below:
+                      </FormControl.Static>
+                    </FormGroup>
+                    <Checkbox unchecked readOnly>
+                      Seven Wonders of the World
+                    </Checkbox>
+                    <Checkbox unchecked readOnly>
+                      Seven Natural Wonders of the World
                     </Checkbox>
 
                     <Button type="submit">
