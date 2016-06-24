@@ -1,12 +1,12 @@
 /*NAVBAR ELEMENTS////////////////////////////*/
 /*//////////////////////////////////////////*/
-.logo{
+.logo {
 	font-weight: bold;
 	font-size: 1.2em;
   display:flex;
 }
 
-.logo img{
+.logo img {
   width:75px;
   height: 75px;
 }
@@ -17,11 +17,11 @@
 	color: black;
 }
 
-.navbar-button:hover{
+.navbar-button:hover {
 	font-weight: bolder;
 }
 
-.card-title{
+.card-title {
 	/*comment out the font choices*/
 /*	font-family: 'Alegreya Sans', sans-serif;*/
 	font-family: 'Chau Philomene One', sans-serif;
@@ -39,10 +39,9 @@ body {
     background-repeat: no-repeat;
 }
 
-
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
-.photo-roll{
+.photo-roll {
 	border-style: solid;
 	border-color: black;
 	display: flex;
@@ -88,7 +87,7 @@ body {
 
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
-.active-photo-container{
+.active-photo-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,7 +96,7 @@ body {
   margin-bottom: 3em;
 }
 
-.intro{
+.intro {
 	margin: 2em 0 0 2em 0em;
 	min-height: 110px;
 	width:100%;
@@ -108,7 +107,7 @@ body {
 	text-align: justify;
 }
 
-.flight-info-container{
+.flight-info-container {
 	background-color: rgba(255,255,255, 0.6);
 	margin: 3em;
 	min-width: 40%;
@@ -126,21 +125,21 @@ body {
 	border-left-color: black;
 }
 
-.dates{
+.dates {
 	margin: 0;
 }
 
-.active-price{
+.active-price {
 	margin: 0;
 }
 
-.time-ago{
+.time-ago {
 	margin: 0;
 }
 
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
-.flight{
+.flight {
 	width: 40%;
 	text-align:center;
 	backface-visibility:
@@ -176,10 +175,10 @@ path {
 /* axis for svg graph */
 .axis path,
 .axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
+  fill: none;
+  stroke: black;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
 /* make sure d3 line chart is at least 600px becuase the svg is 600px width */
 .d3-line-chart {
@@ -190,12 +189,12 @@ path {
 /*MAKE SURE YOUR CODE IS ORGANIZED////*/
 /*///////////////////////////////////*/
 
-.value-prop{
+.value-prop {
   width: 60%;
   margin: 0% 10%;
 }
 
-.center-div{
+.center-div {
     display:inline-block;
     width: 70%;
     margin: 0% 10%;
@@ -207,19 +206,19 @@ path {
     cursor: pointer;
 }
 
-.package-dos{
+.package-dos {
     min-width: 50%;
     max-width: 100%;
     cursor: pointer;
 }
 
-.carousel{
+.carousel {
 	margin: 0% 10%;
 	width: 70%;
             cursor: pointer;
 }
 
-.nav-spacing{
+.nav-spacing {
 	min-height: 60px;
 }
 
@@ -230,42 +229,43 @@ path {
 }
 /* MISSION STATEMENT */
 
-.mission-statement{
+.mission-statement {
 /*    background: white;*/
-    margin-left: 5%
-    margin-bottom:5%;
-    margin-right::;
-    position:relative;
-    top:2%;
-    left:10%;
+  margin-left: 5%
+  margin-bottom:5%;
+  margin-right::;
+  position:relative;
+  top:2%;
+  left:10%;
 }
 
 /* MEET THE DEVS */
 
-.meet-the-devs{
-    display: inline-block;
-    margin-top: 20px;
-    width: 18%;
-    text-align: center;
+.meet-the-devs {
+  display: inline-block;
+  margin-top: 20px;
+  width: 18%;
+  text-align: center;
 }
 
-.dev-pic{
+.dev-pic {
 	width:70%;
 }
 
 .icons {
-            margin-top: 10px;
-            display:inline-flex;
+  margin-top: 10px;
+  display:inline-flex;
 }
 
-.linkedin, .github {
-            width:30%;
+.linkedin,
+.github {
+	width: 30%;
 }
 
-.bio{
-    font-size:.75em;
-    text-align: left;
-    padding-left: 10%;
+.bio {
+  font-size:.75em;
+  text-align: left;
+  padding-left: 10%;
 }
 
 /* USER PREFERENCES FORM */
@@ -277,7 +277,8 @@ path {
     background: white;
 }
 
-.package-uno:hover, .package-dos:hover {
+.package-uno:hover,
+.package-dos:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
