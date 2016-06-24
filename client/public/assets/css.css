@@ -2,7 +2,13 @@
 /*//////////////////////////////////////////*/
 .logo{
 	font-weight: bold;
-	font-size: 1.7em;
+	font-size: 1.2em;
+            display:flex;
+}
+
+.logo img{
+    width:75px;
+    height: 75px;
 }
 
 .logo:hover {
