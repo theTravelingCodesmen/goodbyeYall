@@ -28,6 +28,7 @@ class NavBar extends React.Component{
             <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/package/Seven Natural Wonders'}} className="navbar-button"><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
           </NavDropdown>
           <AirportDropdown / >
+          <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>
         </Nav>
       </Navbar>
       {this.props.children}
