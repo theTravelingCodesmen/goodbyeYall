@@ -46,7 +46,7 @@
 .passive-photo {
 	display: flex;
 	flex-grow: 1;
-	padding: 5.6%;
+	padding: 5.9%;
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -63,11 +63,19 @@
   cursor: pointer;
 }
 
+.passive-photo:hover .passive-price {
+
+}
+
 .passive-price {
-	top: -2.5em;
-	right: -3.5em;
 	margin: 0;
+	padding: 2px;
+	font-size: 2em;
+	width: auto;
+	left: .4em;
+/*	display: none;*/
 	color: white;
+/*	opacity: .5;*/
 	font-weight: bold;
 	position: relative;
 }
