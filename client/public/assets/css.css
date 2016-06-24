@@ -213,6 +213,8 @@ path {
   flex-direction: row;*/
 }
 
+/* MEET THE DEVS */
+
 .meet-the-devs{
     display: inline-block;
     margin-top: 20px;
@@ -239,3 +241,8 @@ path {
     padding-left: 10%;
 }
 
+/* USER PREFERENCES FORM */
+
+.user-form {
+    margin-top: 20px;
+}

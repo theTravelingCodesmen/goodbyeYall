@@ -8,11 +8,11 @@ class UserForm extends React.Component {
     render() {
         return (
             <div>
-                <form>
+                <form className="user-form">
                     <FormGroup>
                       <ControlLabel>Static text</ControlLabel>
                       <FormControl.Static>
-                        email@example.com
+                        Please select your preferred outbound airport below
                       </FormControl.Static>
                     </FormGroup>
 
