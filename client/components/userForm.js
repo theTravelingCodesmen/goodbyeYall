@@ -15,10 +15,10 @@ class UserForm extends React.Component {
                         Please select your preferred outbound airport below
                       </FormControl.Static>
                     </FormGroup>
-                    <Checkbox checked readOnly>
+                    <Checkbox unchecked readOnly>
                       DFW
                     </Checkbox>
-                    <Checkbox checked readOnly>
+                    <Checkbox unchecked readOnly>
                       HOU
                     </Checkbox>
 
