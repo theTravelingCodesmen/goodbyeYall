@@ -26,6 +26,7 @@ class ActiveDestination extends React.Component {
 						<div>
 							<p>Powered By</p><img src="/assets/images/Skyscanner-Logo-Charcoal.png"/>
 						</div>
+						<div>{this.props.temperatures.high + " " + this.props.temperatures.low}</div>
 					</div>
 				</div>
 			</div>

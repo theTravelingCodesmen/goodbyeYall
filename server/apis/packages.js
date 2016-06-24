@@ -71,6 +71,7 @@ router.use('/selectpackage/:packagename', function(req, res){
      })
          .then(data => {
              console.log(data)
+             return data
          })
      .then( (data) => {
          res.send(data)
