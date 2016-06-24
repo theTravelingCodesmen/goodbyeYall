@@ -20,6 +20,7 @@ class ActiveDestination extends React.Component {
 					<FlightData airport_code={this.props.airport_code}/>
 					<div className='flight-details'>
 						<p className='dates'>{'Leaving on ' + this.props.bookingDetails.outboundDate.slice(0,10) + ' and returning on ' + this.props.bookingDetails.inboundDate.slice(0,10)}</p>
+						<p className="historical-weather"> Average temperature for this period: hi {this.props.temperatures.high}&deg;F low {this.props.temperatures.low}&deg;F</p>
 						<h3 className='active-price'>{this.props.bookingDetails.price.toFixed(2)}</h3>
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
