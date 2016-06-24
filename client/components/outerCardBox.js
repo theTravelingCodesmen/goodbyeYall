@@ -12,10 +12,7 @@ class OuterCardBox extends React.Component {
 		return (
 			<div >
 			<div className='nav-spacing'></div>
-				<div className='row'>
-					<img className='value-prop col-md-8' src='/assets/images/value-prop.jpg'></img>
 
-				</div>
 				<div>
 					<div className='center-div row'>
 						<LinkContainer to={{pathname:'/package/Seven Wonders'}}><img className='package-uno' src='/assets/images/postcard-package.jpg'></img></LinkContainer>

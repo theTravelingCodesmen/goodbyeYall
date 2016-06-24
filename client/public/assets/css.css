@@ -33,6 +33,13 @@
 	transform-origin: left bottom 0;*/
 }
 
+body {
+    background-image: url('/assets/images/map.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll{
@@ -181,7 +188,7 @@ path {
 
 .center-div{
     display:inline-block;
-    width: 60%;
+    width: 70%;
     margin: 0% 10%;
 }
 
@@ -199,7 +206,7 @@ path {
 
 .carousel{
 	margin: 0% 10%;
-	width: 60%;
+	width: 70%;
             cursor: pointer;
 }
 
@@ -212,6 +219,19 @@ path {
 /*	display: flex;
   flex-direction: row;*/
 }
+/* MISSION STATEMENT */
+
+.mission-statement{
+/*    background: white;*/
+    margin-left: 5%
+    margin-bottom:5%;
+    margin-right::;
+    position:relative;
+    top:2%;
+    left:10%;
+}
+
+/* MEET THE DEVS */
 
 .meet-the-devs{
     display: inline-block;
@@ -239,3 +259,11 @@ path {
     padding-left: 10%;
 }
 
+/* USER PREFERENCES FORM */
+
+.user-form {
+    margin-top: 6%;
+    margin-left:10%;
+    padding-left: 1%;
+    background: white;
+}
