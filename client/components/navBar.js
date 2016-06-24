@@ -5,8 +5,12 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import AirportDropdown from '../containers/airportDropdown';
 
 class NavBar extends React.Component{
+  componentWillMount(){
+    localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "HOUA-sky"));
+  }
   render(){
     return (
     <div className="container">
@@ -23,6 +27,7 @@ class NavBar extends React.Component{
             <MenuItem eventKey={3.1}><LinkContainer to={{pathname:'/package/Seven Wonders'}} className="navbar-button"><div>Seven Wonders</div></LinkContainer></MenuItem>
             <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/package/Seven Natural Wonders'}} className="navbar-button"><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
           </NavDropdown>
+          <AirportDropdown / >
         </Nav>
       </Navbar>
       {this.props.children}
