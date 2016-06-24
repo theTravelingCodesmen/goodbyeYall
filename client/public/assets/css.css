@@ -109,6 +109,9 @@ body {
 }
 
 .flight-info-container{
+	background-color: white;
+	margin: 2em;
+	opacity: .6;
 	min-width: 40%;
 	display: flex;
 	flex-direction: row;
@@ -120,6 +123,8 @@ body {
 	padding-top: 2%;
 	color: blue;
 	text-align: right;
+	border-left-style: solid;
+	border-left-color: black;
 }
 
 .dates{
@@ -139,7 +144,7 @@ body {
 .flight{
 	width: 40%;
 	text-align:center;
-	opacity: .5;
+	opacity: .6;
 	background-color: white;
 	backface-visibility:
 }
