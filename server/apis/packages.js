@@ -4,7 +4,12 @@
 let knex = require('../../db/db');
 let router = require('express').Router();
 let requestPromise = require('request-promise');
-let WEATHER_API = require('../../APIKEYS.js').WEATHER_API
+let WEATHER_API;
+if (process.env.NODE_ENV!=='production'){
+  WEATHER_API = require('../../APIKEYS.js').WEATHER_API
+} else{
+  WEATHER_API = process.env.WEATHER_API;
+}
 
 module.exports = router;
 
