@@ -36,7 +36,7 @@ function getAppAccessToken(){
 //
 //POST request to Facebook Graph API to send user a Facebook notification
 ///need to add href as forth param
-function sendFbNotification(receipientUserId, appAccessToken, notification){
+function sendFbNotification(receipientUserId, appAccessToken, notification) {
 	let options = {
 		method: 'POST',
 		uri: 'https://graph.facebook.com/' + receipientUserId + '/notifications?access_token=' + appAccessToken + '&template=' + notification + '&href=/'
@@ -47,7 +47,7 @@ function sendFbNotification(receipientUserId, appAccessToken, notification){
 
 //
 //Promise chain that will send a notification to all users
-function facebookNotifyAllUsers(notification){
+function facebookNotifyAllUsers(notification) {
 	getAppAccessToken()
 	.then ( (accessToken) => {
 		console.log("Successfully grabbed accessToken:", accessToken)
