@@ -14,17 +14,27 @@ let testNotification = 'Please work';
 
 //
 //returns all fb user ids from users table
-knex.getAllFacebookIdsFromDb = function(){
+knex.getAllFacebookIdsFromDb = function() {
 	return knex('users').select('fb_id')
 }
 
 //
 //returns all fb user ids who meet desired preferences
+knex.getRelevantFacebookIdsFromDb = function(preferredAirport, preferredPackage) {
+	let conditions = {};
+	conditions[preferredAirport] = true;
+	conditions[preferredPackage] = true;
 
+	return knex('users')
+		.select('fb_id')
+		.where(conditions)
+	.then( (x) => {console.log(x)} )
+	.then(knex.closeDb)
+}
 
 //
 //GET reqest to Facebook oauth to get new App Access Token
-function getAppAccessToken(){
+function getAppAccessToken() {
 	let options = {
 		method: 'GET',
 		uri: 'https://graph.facebook.com/oauth/access_token?client_id=' + ApiKeys.FACEBOOK_API.facebookAuth.clientID + '&client_secret=' + ApiKeys.FACEBOOK_API.facebookAuth.clientSecret + '&grant_type=client_credentials'
@@ -73,7 +83,7 @@ function facebookNotifyAllUsers(notification) {
 	})
 }
 
-facebookNotifyAllUsers("You are being spammed by GoodbyeYall.com")
+// facebookNotifyAllUsers("You are being spammed by GoodbyeYall.com")
 
-
+knex.getRelevantFacebookIdsFromDb('DFWA-sky', 'Seven Wonders')
 
