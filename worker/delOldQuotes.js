@@ -1,6 +1,6 @@
 'use strict'
 
-let knex = require('../db/db');
+let knex = require('../db/db.js');
 
 
 knex.delOldQuotes = function(){
@@ -22,7 +22,7 @@ knex.delOldThirtyDayQuote = function(){
 knex.delOldQuotes()
 	.then(function(data){console.log("Total number of rows deleted: ", data)})
 	.then(function(){
-		console.log('deleted all rows from data table "quotes" that are calculated and more than 36 hours old')
+		console.log('deleted all rows from data table "quotes" that are calculated and more than 30 hours old')
 		console.log('==============================');
 	})
 	knex.delOldThirtyDayQuote()

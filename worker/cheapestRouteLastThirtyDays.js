@@ -7,7 +7,7 @@
 	// compare the two obj
 	// if the new price is cheaper, update the cheapest_route_ever row (by id)
 'use strict'
-let knex = require('../db/db');
+let knex = require('../db/db.js');
 
 knex.getCheapestRouteInQuotesByDate = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest

@@ -8,7 +8,7 @@
 	// if the new price is cheaper, update the cheapest_route_ever row (by id)
 'use strict'
 
-let knex = require('../db/db');
+let knex = require('../db/db.js');
 
 knex.getCheapestRouteInQuotes = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
@@ -29,7 +29,7 @@ knex.insertCheapestRoute = function(obj){
 			return knex('cheapest_route_ever').insert(obj)
 		}
 		else if (currentCheapest.length===1){
-			if(obj.cheapest_price < currentCheapest.cheapest_price){
+			if(obj.cheapest_price < currentCheapest[0].cheapest_price){
 				return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
 			}
 			else{
