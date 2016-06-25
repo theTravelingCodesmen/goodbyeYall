@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Button, FormGroup, FormControl, ControlLabel, Checkbox} from 'react-bootstrap';
+import axios from 'axios';
 
 let UserForm = React.createClass ({
     getInitialState:function(){
@@ -15,7 +16,11 @@ let UserForm = React.createClass ({
     },
     submitForm:function(event){
       event.preventDefault();
-      console.log(this.state)
+      console.log(this.state);
+      axios.post('/user_prefs', this.state)
+        .then(function(response) {
+          console.log(response);
+        })
     },
     render:function(){
         return (
