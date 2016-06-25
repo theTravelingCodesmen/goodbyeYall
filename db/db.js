@@ -110,28 +110,37 @@ knex.ensureSchema = function () {
           table.string('fb_id', 255);
           table.string('profile_name', 255);
           table.string('profile_email', 255);
-          table.string('profile_photo', 255);
+          table.string('profile_photo', 255);          
         }).then(function (table) {
           console.log('Created users table.');
-        });
+        })
       }
-    }),
-    knex.schema.hasTable('user_preferences').then(function (exists) {
-      if (!exists) {
-        knex.schema.createTable('user_preferences', function (table) {
-          table.increments('id').primary();
-          //fb_id needs to be overwritten when changing user prefs
-          table.foreign('fb_id').references('users');
+      else if (exists) {
+        knex.schema.table('users', function (table) {      
           table.boolean('DFWA-sky').defaultTo(false);
           table.boolean('HOUA-sky').defaultTo(false);
           table.boolean('Seven Wonders').defaultTo(false);
           table.boolean('Seven Natural Wonders').defaultTo(false);
         }).then(function (table) {
-          console.log('Created user_preferences table.');
-        });
-      }
+          console.log('Altered users table.');
+        })
+      }          
     })
-
+    // knex.schema.hasTable('user_preferences').then(function (exists) {
+    //   if (!exists) {
+    //     knex.schema.createTable('user_preferences', function (table) {
+    //       table.increments('id').primary();
+    //       //fb_id needs to be overwritten when changing user prefs
+    //       table.foreign('fb_id').references('users');
+    //       table.boolean('DFWA-sky').defaultTo(false);
+    //       table.boolean('HOUA-sky').defaultTo(false);
+    //       table.boolean('Seven Wonders').defaultTo(false);
+    //       table.boolean('Seven Natural Wonders').defaultTo(false);
+    //     }).then(function (table) {
+    //       console.log('Created user_preferences table.');
+    //     });
+    //   }
+    // })
 
   ])
 }
@@ -150,7 +159,7 @@ knex.closeDb = function () {
   })
 }
 
-// knex.ensureSchema().then(knex.closeDb);
+knex.ensureSchema().then(knex.closeDb);
 
 
 
