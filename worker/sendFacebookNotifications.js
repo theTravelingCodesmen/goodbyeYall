@@ -18,6 +18,7 @@ knex.getAllFacebookIdsFromDb = function() {
 	return knex('users').select('fb_id')
 }
 
+
 //
 //returns all fb user ids who meet desired preferences
 knex.getRelevantFacebookIdsFromDb = function(preferredAirport, preferredPackage) {
@@ -31,6 +32,7 @@ knex.getRelevantFacebookIdsFromDb = function(preferredAirport, preferredPackage)
 	.then( (x) => {console.log(x)} )
 	.then(knex.closeDb)
 }
+
 
 //
 //GET reqest to Facebook oauth to get new App Access Token
