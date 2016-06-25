@@ -24,7 +24,12 @@ let UserForm = React.createClass ({
 
       axios.post('/user_prefs', body)
         .then(function(response) {
-          console.log(response);
+          if (response.status===200){
+            localStorage.setItem('goodbyeyall.fb_id',response.data.fb_id)
+          }else{
+            //throw error here?
+          }
+
         })
     },
     render:function(){

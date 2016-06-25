@@ -22,7 +22,7 @@ router.post('/',function(req, res) {
 				prefsObj.profile_name = data.name;
 				prefsObj.profile_email = data.email;
 				prefsObj.profile_photo = data.picture.data.url;
-				console.log('line 24 prefsObj before insert into db', prefsObj)
+				// console.log('line 24 prefsObj before insert into db', prefsObj)
 				return prefsObj
 			})
 			.then(knex.insertUserPrefs)
