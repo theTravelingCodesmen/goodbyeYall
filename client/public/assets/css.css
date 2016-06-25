@@ -55,6 +55,7 @@ body {
 	padding: 5.1%;
 	background-size: 100%;
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 /* photo roll pics effects*/
@@ -260,6 +261,7 @@ path {
 .linkedin,
 .github {
 	width: 30%;
+	cursor: pointer;
 }
 
 .bio {
