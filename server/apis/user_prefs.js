@@ -11,6 +11,12 @@ knex.insertUserPrefs = function(prefsObj) {
 
 router.post('/',function(req, res) {
 	console.log(req.body);
-
+	knex.insertUserPrefs(req.body)
+		.then(function(data){
+			console.log("line 16 after call knex.insertUserPrefs:", data)
+		})
+		.catch(function (err) {
+			console.log("error on line 19",err);
+		})
 })
 
