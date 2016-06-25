@@ -3,7 +3,13 @@
 let router = require('express').Router();
 let knex = require('../db/db');
 let RequestPromise = require("request-promise");
+let ApiKeys = require('../APIKEYS')
 
+
+
+let testUserId ='10107762894943180';
+let testAccessToken = '1071311906250508|tcn74O778myEtGAFYWSUu8tBSH8';
+let testNotification = 'Please work';
 
 knex.getAllId = function(){
 	return knex('users').select('fb_id')
@@ -14,12 +20,36 @@ knex.getAllId = function(){
 function getAppAccessToken(){
 	let options = {
 		method: 'GET',
-		uri: 
-	},
-	headers: {
-		"Content-Type": "application/json"
+		uri: 'https://graph.facebook.com/oauth/access_token?client_id=' + ApiKeys.FACEBOOK_API.facebookAuth.clientID + '&client_secret=' + ApiKeys.FACEBOOK_API.facebookAuth.clientSecret + '&grant_type=client_credentials'
 	}
+	return RequestPromise(options)
 }
+
+
+
+///need to add href as forth param
+function sendFbNotification(receipientUserId, appAccessToken, notification){
+	let options = {
+		method: 'POST',
+		uri: 'https://graph.facebook.com/' + receipientUserId + '/notifications?access_token=' + appAccessToken + '&template=' + notification + '&href=/'
+	}
+	return RequestPromise(options)
+}
+
+getAppAccessToken()
+	.then ((accessToken) => {
+		console.log(accessToken)
+		return accessToken.toString();
+	})
+	.then( (accessTokenString) => {
+		return sendFbNotification('10107762894943180', accessTokenString, 'This is the real test')
+	})
+	.then( () => {console.log('we sent dat bitch')})
+
+
+// sendFbNotification(testUserId, testAccessToken, testNotification)
+// 	.then( (x) => { console.log(x) })
+
 
 
 
@@ -67,4 +97,4 @@ function getAppAccessToken(){
 //1071311906250508|tcn74O778myEtGAFYWSUu8tBSH8
 
 
-knex.getAllId();
+//knex.getAllId();
