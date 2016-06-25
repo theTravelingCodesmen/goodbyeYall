@@ -59,7 +59,7 @@ body {
 }
 
 /* photo roll pics effects*/
-.passive-photo:hover.package-uno:hover, .package-dos:hover {
+.passive-photo:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
