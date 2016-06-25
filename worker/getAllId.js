@@ -11,12 +11,15 @@ let testUserId ='10107762894943180';
 let testAccessToken = '1071311906250508|tcn74O778myEtGAFYWSUu8tBSH8';
 let testNotification = 'Please work';
 
+//
+//returns all fb user ids from users table
 knex.getAllId = function(){
 	return knex('users').select('fb_id')
 		.then(knex.closeDb)
 }
 
-
+//
+//GET reqest to Facebook oauth to get new App Access Token
 function getAppAccessToken(){
 	let options = {
 		method: 'GET',
@@ -26,7 +29,8 @@ function getAppAccessToken(){
 }
 
 
-
+//
+//POST request to Facebook Graph API to send user a Facebook notification
 ///need to add href as forth param
 function sendFbNotification(receipientUserId, appAccessToken, notification){
 	let options = {
@@ -36,19 +40,30 @@ function sendFbNotification(receipientUserId, appAccessToken, notification){
 	return RequestPromise(options)
 }
 
+
+
 getAppAccessToken()
-	.then ((accessToken) => {
-		console.log(accessToken)
-		return accessToken.toString();
+	.then ( (accessToken) => {
+		console.log("Successfully grabbed accessToken:", accessToken)
+		return accessToken.toString().slice(13);
+	})
+	.catch( (err) => {
+		console.log("Error getting app access_token", err)
 	})
 	.then( (accessTokenString) => {
 		return sendFbNotification('10107762894943180', accessTokenString, 'This is the real test')
 	})
-	.then( () => {console.log('we sent dat bitch')})
+	.then( (successResp) => {
+		console.log(successResp)
+	})
+	.catch( (err) => {
+		console.log("Error sending Facebook notification", err)
+	})
+
+knex.getAllId()
 
 
-// sendFbNotification(testUserId, testAccessToken, testNotification)
-// 	.then( (x) => { console.log(x) })
+
 
 
 
