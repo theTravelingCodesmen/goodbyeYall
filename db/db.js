@@ -149,17 +149,3 @@ knex.closeDb = function () {
 
 // knex.ensureSchema().then(knex.closeDb);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-

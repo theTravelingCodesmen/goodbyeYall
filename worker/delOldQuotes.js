@@ -1,6 +1,6 @@
 'use strict'
 
-let knex = require('../db/db');
+let knex = require('../db/db.js');
 
 
 knex.delOldQuotes = function(){
