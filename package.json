@@ -44,6 +44,7 @@
     "pg": "^5.0.0",
     "pooled-pg": "0.0.7",
     "promise-throttle": "^0.2.0",
+    "query-string": "^4.2.2",
     "react": "^15.1.0",
     "react-bootstrap": "^0.29.4",
     "react-dom": "^15.1.0",
