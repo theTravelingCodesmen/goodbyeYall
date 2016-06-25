@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Button, FormGroup, FormControl, ControlLabel, Checkbox} from 'react-bootstrap';
 import axios from 'axios';
+import queryString from 'query-string';
 
 let UserForm = React.createClass ({
     getInitialState:function(){
@@ -16,8 +17,12 @@ let UserForm = React.createClass ({
     },
     submitForm:function(event){
       event.preventDefault();
-      console.log(this.state);
-      axios.post('/user_prefs', this.state)
+      let qs = queryString.parse(window.location.hash);
+      // console.log(this.state);
+      // console.log('line 22 access_token is',qs.access_token);
+      let body = Object.assign({}, this.state, {token:qs.access_token});
+
+      axios.post('/user_prefs', body)
         .then(function(response) {
           console.log(response);
         })
