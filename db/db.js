@@ -88,13 +88,13 @@ knex.ensureSchema = function () {
           console.log('Created cheapest_route_ever table.');
         });
       }
-      else if (exists) {
-        knex.schema.table('cheapest_route_ever', function (table) {      
-          table.timestamp('created_at').defaultTo(knex.fn.now());
-        }).then(function (table) {
-          console.log('Altered cheapest_route_ever table.');
-        })
-      }   
+      // else if (exists) {
+      //   knex.schema.table('cheapest_route_ever', function (table) {      
+      //     table.timestamp('created_at').defaultTo(knex.fn.now());
+      //   }).then(function (table) {
+      //     console.log('Altered cheapest_route_ever table.');
+      //   })
+      // }
     }),
     knex.schema.hasTable('last_thirty_days').then(function (exists) {
       if (!exists) {
@@ -144,7 +144,7 @@ knex.closeDb = function () {
   })
 }
 
-knex.ensureSchema().then(knex.closeDb);
+// knex.ensureSchema().then(knex.closeDb);
 
 
 
