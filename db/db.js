@@ -96,6 +96,7 @@ knex.ensureSchema = function () {
       //   })
       // }
     }),
+
     knex.schema.hasTable('last_thirty_days').then(function (exists) {
       if (!exists) {
         knex.schema.createTable('last_thirty_days', function (table) {
@@ -109,6 +110,7 @@ knex.ensureSchema = function () {
         });
       }
     }),
+    
     knex.schema.hasTable('users').then(function (exists) {
       if (!exists) {
         knex.schema.createTable('users', function (table) {
