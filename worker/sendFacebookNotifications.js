@@ -14,9 +14,12 @@ let testNotification = 'Please work';
 
 //
 //returns all fb user ids from users table
-knex.getAllId = function(){
+knex.getAllFacebookIdsFromDb = function(){
 	return knex('users').select('fb_id')
 }
+
+//
+//returns all fb user ids who meet desired preferences
 
 
 //
@@ -55,7 +58,7 @@ function facebookNotifyAllUsers(notification){
 	})
 	.then( (accessTokenString) => {
 		accessTokenString = accessTokenString;
-		return knex.getAllId()
+		return knex.getAllFacebookIdsFromDb()
 			.map((obj)=> {
 				return obj.fb_id
 			})
