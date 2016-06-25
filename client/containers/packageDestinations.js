@@ -44,6 +44,7 @@ class PackageDestinations extends React.Component {
 								package_group={dest.package_group} 
 								next_image_url={dest.next_image_url}
 								bookingDetails={dest.bookDetails}
+								temperatures={dest.temperature}
 							/>
 						})
 					}

@@ -1,14 +1,14 @@
 /*NAVBAR ELEMENTS////////////////////////////*/
 /*//////////////////////////////////////////*/
-.logo{
+.logo {
 	font-weight: bold;
 	font-size: 1.2em;
-            display:flex;
+  display:flex;
 }
 
-.logo img{
-    width:75px;
-    height: 75px;
+.logo img {
+  width:75px;
+  height: 75px;
 }
 
 .logo:hover {
@@ -17,11 +17,11 @@
 	color: black;
 }
 
-.navbar-button:hover{
+.navbar-button:hover {
 	font-weight: bolder;
 }
 
-.card-title{
+.card-title {
 	/*comment out the font choices*/
 /*	font-family: 'Alegreya Sans', sans-serif;*/
 	font-family: 'Chau Philomene One', sans-serif;
@@ -33,9 +33,15 @@
 	transform-origin: left bottom 0;*/
 }
 
+body {
+    background-image: url('/assets/images/map.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
-.photo-roll{
+.photo-roll {
 	border-style: solid;
 	border-color: black;
 	display: flex;
@@ -46,13 +52,14 @@
 .passive-photo {
 	display: flex;
 	flex-grow: 1;
-	padding: 5.6%;
+	padding: 5.1%;
 	background-size: 100%;
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 /* photo roll pics effects*/
-.passive-photo:hover, .package-uno:hover, .package-dos:hover {
+.passive-photo:hover {
 	-webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
@@ -63,18 +70,25 @@
   cursor: pointer;
 }
 
+.passive-photo:hover .passive-price {
+	opacity: 1;
+}
+
 .passive-price {
-	top: -2.5em;
-	right: -3.5em;
 	margin: 0;
+	padding: 2px;
+	font-size: 2em;
+	width: auto;
+	left: .2em;
 	color: white;
+	opacity: 0;
 	font-weight: bold;
 	position: relative;
 }
 
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
-.active-photo-container{
+.active-photo-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,7 +97,7 @@
   margin-bottom: 3em;
 }
 
-.intro{
+.intro {
 	margin: 2em 0 0 2em 0em;
 	min-height: 110px;
 	width:100%;
@@ -94,7 +108,9 @@
 	text-align: justify;
 }
 
-.flight-info-container{
+.flight-info-container {
+	background-color: rgba(255,255,255, 0.6);
+	margin: 3em;
 	min-width: 40%;
 	display: flex;
 	flex-direction: row;
@@ -106,27 +122,27 @@
 	padding-top: 2%;
 	color: blue;
 	text-align: right;
+	border-left-style: solid;
+	border-left-color: black;
 }
 
-.dates{
+.dates {
 	margin: 0;
 }
 
-.active-price{
+.active-price {
 	margin: 0;
 }
 
-.time-ago{
+.time-ago {
 	margin: 0;
 }
 
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
-.flight{
+.flight {
 	width: 40%;
 	text-align:center;
-	opacity: .75;
-	background-color: white;
 	backface-visibility:
 }
 
@@ -160,10 +176,10 @@ path {
 /* axis for svg graph */
 .axis path,
 .axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
+  fill: none;
+  stroke: black;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
 /* make sure d3 line chart is at least 600px becuase the svg is 600px width */
 .d3-line-chart {
@@ -174,14 +190,14 @@ path {
 /*MAKE SURE YOUR CODE IS ORGANIZED////*/
 /*///////////////////////////////////*/
 
-.value-prop{
+.value-prop {
   width: 60%;
   margin: 0% 10%;
 }
 
-.center-div{
+.center-div {
     display:inline-block;
-    width: 60%;
+    width: 70%;
     margin: 0% 10%;
 }
 
@@ -191,19 +207,19 @@ path {
     cursor: pointer;
 }
 
-.package-dos{
+.package-dos {
     min-width: 50%;
     max-width: 100%;
     cursor: pointer;
 }
 
-.carousel{
+.carousel {
 	margin: 0% 10%;
-	width: 60%;
+	width: 70%;
             cursor: pointer;
 }
 
-.nav-spacing{
+.nav-spacing {
 	min-height: 60px;
 }
 
@@ -212,30 +228,65 @@ path {
 /*	display: flex;
   flex-direction: row;*/
 }
+/* MISSION STATEMENT */
 
-.meet-the-devs{
-    display: inline-block;
-    margin-top: 20px;
-    width: 18%;
-    text-align: center;
+.mission-statement {
+/*    background: white;*/
+  margin-left: 5%
+  margin-bottom:5%;
+  margin-right::;
+  position:relative;
+  top:2%;
+  left:10%;
 }
 
-.dev-pic{
+/* MEET THE DEVS */
+
+.meet-the-devs {
+  display: inline-block;
+  margin-top: 20px;
+  width: 18%;
+  text-align: center;
+}
+
+.dev-pic {
 	width:70%;
 }
 
 .icons {
-            margin-top: 10px;
-            display:inline-flex;
+  margin-top: 10px;
+  display:inline-flex;
 }
 
-.linkedin, .github {
-            width:30%;
+.linkedin,
+.github {
+	width: 30%;
+	cursor: pointer;
 }
 
-.bio{
-    font-size:.75em;
-    text-align: left;
-    padding-left: 10%;
+.bio {
+  font-size:.75em;
+  text-align: left;
+  padding-left: 10%;
 }
 
+/* USER PREFERENCES FORM */
+
+.user-form {
+    margin-top: 6%;
+    margin-left:10%;
+    padding-left: 1%;
+    background: white;
+}
+
+.package-uno:hover,
+.package-dos:hover {
+	-webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 0px;
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
+	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
+	z-index: 3;
+  cursor: pointer;
+}
