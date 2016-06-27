@@ -37,7 +37,7 @@ let UserForm = React.createClass ({
       let qs = queryString.parse(window.location.hash);
       // console.log(this.state);
       // console.log('line 22 access_token is',qs.access_token);
-      let body = Object.assign({}, this.state, {token:qs.access_token});
+      let body = Object.assign({}, this.state, {token:qs.access_token}, {fb_id:localStorage.getItem("goodbyeyall.fb_id")});
 
       axios.post('/user_prefs', body)
         .then(function(response) {
