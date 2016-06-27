@@ -66,6 +66,9 @@ let UserForm = React.createClass ({
             <div>
 
                 <form className="user-form" onSubmit={this.submitForm}>
+                    <Button className="pull-right btn btn-danger">
+                      logout
+                    </Button>
                     <FormGroup>
                       <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name : "Thank you for signing up. Let us know your preferences" }</p>
                       <ControlLabel>Alert Preferences</ControlLabel>
