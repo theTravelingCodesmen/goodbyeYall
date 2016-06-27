@@ -61,12 +61,16 @@ let UserForm = React.createClass ({
           }
         })
     },
+    logout:function(event){
+      console.log('event is, ', event)
+      localStorage.removeItem('goodbyeyall.fb_id');
+    },
     render:function(){
         return (
             <div>
 
                 <form className="user-form" onSubmit={this.submitForm}>
-                    <Button className="pull-right btn btn-danger">
+                    <Button className="pull-right btn btn-danger" onClick={this.logout}>
                       logout
                     </Button>
                     <FormGroup>
