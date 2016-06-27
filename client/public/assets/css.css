@@ -196,6 +196,16 @@ path {
   text-align: center;
 }
 
+.main {
+    font-size: 2.8em;
+}
+
+.sub {
+}
+
+.call-to-action {
+}
+
 .center-div {
     display:inline-block;
     width: 70%;
