@@ -16,27 +16,22 @@ let UserForm = React.createClass ({
         'profile_name':null
       }
     },
-    // componentDidMount:function(){
-    //   let fb_id = localStorage.getItem("goodbyeyall.fb_id");
-    //   if (fb_id){
-    //     console.log('line 13 fb id',fb_id);
-    //     axios.get(`/user_prefs/existing_pref/${fb_id}`)
-    //       .then((userPrefs)=>{
-    //         this.setState({
-    //           'DFWA-sky':userPrefs['DFWA-sky'],
-    //           'HOUA-sky': userPrefs['HOUA-sky'],
-    //           'Seven Wonders': userPrefs['Seven Wonders'],
-    //           'Seven Natural Wonders': userPrefs['Seven Natural Wonders'],
-    //           'profile_name':userPrefs['profile_name']
-    //         })
-    //       })
-    //   }
-    // },
+    componentWillMount:function(){
+      let fb_id = localStorage.getItem("goodbyeyall.fb_id");
+      if (fb_id){
+        // console.log('line 23 fb id',fb_id);
+        axios.get(`/user_prefs/existing_pref/${fb_id}`)
+          .then((userPrefs)=>{
+            this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
+            this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
+            this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
+            this.setState({'profile_name': userPrefs.data['profile_name']});
+          })
+      }
+    },
     submitForm:function(event){
       event.preventDefault();
       let qs = queryString.parse(window.location.hash);
-      // console.log(this.state);
-      // console.log('line 22 access_token is',qs.access_token);
       let body = Object.assign({}, this.state, {token:qs.access_token}, {fb_id:localStorage.getItem("goodbyeyall.fb_id")});
 
       axios.post('/user_prefs', body)
@@ -52,8 +47,10 @@ let UserForm = React.createClass ({
     render:function(){
         return (
             <div>
+
                 <form className="user-form" onSubmit={this.submitForm}>
                     <FormGroup>
+                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name : "Thank you for signing up. Let us know your preferences" }</p>
                       <ControlLabel>Alert Preferences</ControlLabel>
                       <FormControl.Static>
                         Choose your preferred outbound airports below:
