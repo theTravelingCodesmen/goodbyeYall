@@ -34,9 +34,9 @@
 }
 
 body {
-    background-image: url('/assets/images/map.jpg');
-    background-size: 100%;
-    background-repeat: no-repeat;
+  background-image: url('/assets/images/map.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 /*PHOTO ROLL ELEMENTS////////////////////////*/
@@ -176,9 +176,9 @@ body {
 }
 /* path for svg graph */
 path {
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none;
 }
 
 .line {
@@ -209,8 +209,8 @@ path {
 }
 
 .main {
-    font-size: 3.3em;
-    font-family: 'Lalezar', sans-serif;
+  font-size: 3.3em;
+  font-family: 'Lalezar', sans-serif;
 }
 
 .sub {
@@ -220,9 +220,9 @@ path {
 }
 
 .center-div {
-    display:inline-block;
-    width: 70%;
-    margin: 0% 10%;
+  display:inline-block;
+  width: 70%;
+  margin: 0% 10%;
 }
 
 .carousel {
@@ -286,10 +286,10 @@ path {
 /* USER PREFERENCES FORM */
 
 .user-form {
-    margin-top: 6%;
-    margin-left:10%;
-    padding-left: 1%;
-    background: white;
+  margin-top: 6%;
+  margin-left:10%;
+  padding-left: 1%;
+  background: white;
 }
 
 .package-uno:hover,
