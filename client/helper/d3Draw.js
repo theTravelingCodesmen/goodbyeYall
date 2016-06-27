@@ -118,7 +118,7 @@ function d3LineDraw (targetDOM, endpoint) {
           .attr('y', 0-(margin.top/2))
           .attr('text-anchor','middle')
           .style('font-size','16px')
-          .text('Next 12 months prices from '+ airportsToCity[airports[0]]+ ' to '+airportsToCity[airports[1]]); // update title here
+          .text('Average Daily Deal from '+ airportsToCity[airports[0]]+ ' to '+airportsToCity[airports[1]]); // update title here
 
       svg.append("text")
           .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
