@@ -8,7 +8,15 @@ module.exports = router
 knex.insertUserPrefs = function(prefsObj) {
 	return knex('users').insert(prefsObj);
 }
+knex.fetchExistingPrefs = function(fb_id){
+	return knex('users').where({fb_id:fb_id}).select('*')
+}
+router.get('/existing_pref/:fb_id',function(req, res) {
+	console.log(req.params.fb_id);
+	knex.fetchExistingPrefs(req.params.fb_id)
+		.then((data)=>console.log(data))
 
+})
 
 
 router.post('/',function(req, res) {
