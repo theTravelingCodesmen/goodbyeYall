@@ -10,7 +10,7 @@ import { Route, IndexRoute } from 'react-router'
 // import routes from '../routes'
 import CardBox from '../containers/cardBox'
 import UserForm from '../components/userForm'
-
+import login from '../components/login'
 
 class Test extends React.Component {
 	render(){
@@ -26,6 +26,6 @@ export default(
 					<Route path="/HowItWorks" component={MissionStatement} />
 					<Route path="/MeetTheDevs" component={MeetTheDevs} />
 					<Route path="/Preferences" component={UserForm} />
-					<Route path="/auth/facebook"/>
+					<Route path="/login" component={login} />
 				</Route>
 )
