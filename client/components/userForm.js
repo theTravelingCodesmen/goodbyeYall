@@ -32,25 +32,19 @@ let UserForm = React.createClass ({
       if (token && !fb_id){ // if has token but no fb_id, just need to check if user had registered and in the db
         axios.get(`/user_prefs/is_exist/${token}`)
           .then((resp)=>{
-            // console.log('line 25 is user exist', data)
+            // console.log('line 35 is user exist', data)
             if (resp.data.found){
-              localStorage.setItem("goodbyeyall.fb_id", resp.data.fb_id);
+              fb_id = resp.data.fb_id;
+              localStorage.setItem("goodbyeyall.fb_id", fb_id);
               //fetch user preferences from db to repopulate form
+              this.fetchPrefsByFB_ID(fb_id)
             }else{
               //nothing. no state change
             }
           })
-
       }
       if (fb_id){ //already logged in
-        // console.log('line 23 fb id',fb_id);
-        axios.get(`/user_prefs/existing_pref/${fb_id}`)
-          .then((userPrefs)=>{
-            this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
-            this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
-            this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
-            this.setState({'profile_name': userPrefs.data['profile_name']});
-          })
+        this.fetchPrefsByFB_ID(fb_id)
       }
     },
     submitForm:function(event){
