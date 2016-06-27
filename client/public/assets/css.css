@@ -203,8 +203,20 @@ path {
 /*///////////////////////////////////*/
 
 .value-prop {
-  width: 60%;
+  width: 70%;
   margin: 0% 10%;
+  text-align: center;
+}
+
+.main {
+    font-size: 3.3em;
+    font-family: 'Lalezar', sans-serif;
+}
+
+.sub {
+}
+
+.call-to-action {
 }
 
 .center-div {
