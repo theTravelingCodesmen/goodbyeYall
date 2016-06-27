@@ -8,6 +8,10 @@ import queryString from 'query-string';
 
 let UserForm = React.createClass ({
     getInitialState:function(){
+      let fb_id = localStorage.getItem("goodbyeyall.fb_id");
+      if (fb_id){
+        // alert(fb_id);
+      }
       return {
         'DFWA-sky':false,
         'HOUA-sky':false,
