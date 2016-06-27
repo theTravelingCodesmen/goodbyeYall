@@ -35,11 +35,11 @@ function d3LineDraw (targetDOM, endpoint) {
        infobox.css("left", (coord[0]) + "px" );
        infobox.css("top", (coord[1]-300) + "px");
        $(".infobox"+targetDOM).html(d);
-       $(".infobox"+targetDOM).show();
+       $(".infobox"+targetDOM).css("opacity", 1);
        // debugger;
        }
        function hideData() {
-          $(".infobox"+targetDOM).hide();
+          $(".infobox"+targetDOM).css("opacity", 0);
        }
       // Set the dimensions of the canvas / graph
       let margin = {top: 30, right: 20, bottom: 60, left: 50},
@@ -91,6 +91,7 @@ function d3LineDraw (targetDOM, endpoint) {
       svg.selectAll("dot")
           .data(data)
         .enter().append("circle")
+          .attr("class", "data-point")
           .attr("r", 2.5)
           .attr('fill','red')
           .attr("cx", function(d) { return x(d.date); })
@@ -117,7 +118,7 @@ function d3LineDraw (targetDOM, endpoint) {
           .attr('y', 0-(margin.top/2))
           .attr('text-anchor','middle')
           .style('font-size','16px')
-          .text('Next 12 months prices from '+ airportsToCity[airports[0]]+ ' to '+airportsToCity[airports[1]]); // update title here
+          .text('Average Daily Deal from '+ airportsToCity[airports[0]]+ ' to '+airportsToCity[airports[1]]); // update title here
 
       svg.append("text")
           .attr("text-anchor", "middle")  // this makes it easy to centre the text as the transform is applied to the anchor
@@ -129,7 +130,7 @@ function d3LineDraw (targetDOM, endpoint) {
           .attr("transform", "translate("+ 0 +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
           .text("Price");
 
-      let $infoboxDOM = $("<div style='display:none;'>Test</div>");
+      let $infoboxDOM = $("<div'>Test</div>");
       $infoboxDOM.addClass('infobox'+targetDOM);
       $("."+targetDOM).append($infoboxDOM);
 
