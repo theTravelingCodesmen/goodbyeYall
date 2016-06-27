@@ -307,3 +307,7 @@ path {
 .meet-the-devs > img {
 	 box-shadow: 8px 8px 4px #888888;
 }
+
+.popover-content {
+    word-wrap: break-word;
+}

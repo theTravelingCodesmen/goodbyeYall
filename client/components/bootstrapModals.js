@@ -21,7 +21,7 @@ const BootStrapModal = React.createClass({
   },
 
 	render() {
-	  let popover = <Popover title="Technical Knowledge">{this.props.laguages}</Popover>;
+	  let popover = <Popover title="Technical Knowledge">{this.props.languages}</Popover>;
 
 //============================Instructions===============================
 //Button Label
