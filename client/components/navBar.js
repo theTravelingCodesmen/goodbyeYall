@@ -29,7 +29,7 @@ class NavBar extends React.Component{
           </NavDropdown>
           <AirportDropdown / >
           <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>
-          <LinkContainer className="navbar-button" to={{pathname:'/auth/facebook'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
+          <LinkContainer className="navbar-button" to={{pathname:'/login'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
         </Nav>
       </Navbar>
       {this.props.children}
