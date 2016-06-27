@@ -13,7 +13,8 @@ let cheapest_ever_api = require('./apis/cheapest_ever_api');
 let last_thirty_days_api = require('./apis/last_thirty_days_api');
 let book_now_quote_api = require('./apis/book_now_quote_api');
 let passport = require('passport');
-let session = require('express-session')
+let session = require('express-session');
+let user_prefs = require('./apis/user_prefs');
 
 let routes = express.Router();
 
@@ -29,6 +30,7 @@ routes.use('/packages', select_package);
 routes.use('/cheapest_ever_api', cheapest_ever_api);
 routes.use('/last_thirty_days_api', last_thirty_days_api);
 routes.use('/book_now_quote_api', book_now_quote_api);
+routes.use('/user_prefs', user_prefs);
 
 
 if(process.env.NODE_ENV === 'test'){
