@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router'
 import {Button, FormGroup, FormControl, ControlLabel, Checkbox} from 'react-bootstrap';
 import axios from 'axios';
 import queryString from 'query-string';
@@ -70,9 +70,9 @@ let UserForm = React.createClass ({
             <div>
 
                 <form className="user-form" onSubmit={this.submitForm}>
-                    <Button className="pull-right btn btn-danger" onClick={this.logout}>
+                    <Link to='/'><Button className="pull-right btn btn-danger" onClick={this.logout}>
                       logout
-                    </Button>
+                    </Button></Link>
                     <FormGroup>
                       <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name : "Thank you for signing up. Let us know your preferences" }</p>
                       <ControlLabel>Alert Preferences</ControlLabel>
