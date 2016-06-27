@@ -21,7 +21,6 @@ const BootStrapModal = React.createClass({
   },
 
 	render() {
-	  let popover = <Popover title="Technical Knowledge">{this.props.languages}</Popover>;
 
 //============================Instructions===============================
 //Button Label
@@ -42,7 +41,11 @@ const BootStrapModal = React.createClass({
 //Personal Statement
 //{this.props.personalStatement}
 
+//Popover title
+//{this.props.popOverTitle}
 
+	  let popover = <Popover title={this.props.popOverTitle}>{this.props.languages}</Popover>;
+	  
 	  return (
 	    <div>
 	    	<Button bsSize="small" onClick={this.open}>
@@ -57,7 +60,7 @@ const BootStrapModal = React.createClass({
 	          <p>{this.props.personalStatement}</p>
 
 	          <h4>Technical Skills</h4>
-	          <p>I have used <OverlayTrigger overlay={popover}><a href="#">My Languages</a></OverlayTrigger></p>
+	          <p>I have used <OverlayTrigger overlay={popover}><a href="#">Coding Languages</a></OverlayTrigger></p>
 
 	          <hr />
 
@@ -77,8 +80,6 @@ const BootStrapModal = React.createClass({
 
 	})
 	export default BootStrapModal
-
-
 
 	     //not being used 
 	  // let tooltip = <Tooltip>wow.</Tooltip>;
