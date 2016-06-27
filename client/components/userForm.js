@@ -62,7 +62,7 @@ let UserForm = React.createClass ({
         })
     },
     logout:function(event){
-      console.log('event is, ', event)
+      // console.log('line 65 event is, ', event)
       localStorage.removeItem('goodbyeyall.fb_id');
     },
     render:function(){
