@@ -108,6 +108,16 @@ body {
 	text-align: justify;
 }
 
+.destination-name{
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+.destination-location{
+	margin: 0;
+	margin-bottom: 0.2em;
+}
+
 .flight-info-container {
 	background-color: rgba(255,255,255, 0.6);
 	margin: 3em;
