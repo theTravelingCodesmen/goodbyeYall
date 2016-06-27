@@ -22,7 +22,15 @@ let UserForm = React.createClass ({
       let token = qs.access_token;
       if (token && !fb_id){ // if has token but no fb_id, just need to check if user had registered and in the db
         axios.get(`/user_prefs/is_exist/${token}`)
-          .then((data)=>console.log('line 25 is user exist', data))
+          .then((resp)=>{
+            // console.log('line 25 is user exist', data)
+            if (resp.data.found){
+              localStorage.setItem("goodbyeyall.fb_id", resp.data.fb_id);
+              //fetch user preferences from db to repopulate form
+            }else{
+              //nothing. no state change
+            }
+          })
 
       }
       if (fb_id){ //already logged in
