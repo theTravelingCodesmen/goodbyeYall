@@ -16,6 +16,15 @@ let UserForm = React.createClass ({
         'profile_name':null
       }
     },
+    fetchPrefsByFB_ID:function(fb_id){
+      return axios.get(`/user_prefs/existing_pref/${fb_id}`)
+          .then((userPrefs)=>{
+            this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
+            this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
+            this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
+            this.setState({'profile_name': userPrefs.data['profile_name']});
+          })
+    },
     componentWillMount:function(){
       let fb_id = localStorage.getItem("goodbyeyall.fb_id");
       let qs = queryString.parse(window.location.hash);
@@ -56,7 +65,6 @@ let UserForm = React.createClass ({
           }else{
             //throw error here?
           }
-
         })
     },
     render:function(){
