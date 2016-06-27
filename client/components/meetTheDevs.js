@@ -7,7 +7,8 @@ const bioInfo = [
 		{person: 'Owen',
 		label: 'Bio',
 		devType: 'Stack',
-		languages: [],
+		languagesStrong: 'STRONG:  JavaScript | React | AngularJS | Git | Node.js/Express | SQL | Postgres | HTML/CSS | Bootstrap | jQuery',
+		languagesExperienced:	'EXPERIENCED:  MongoDB | Heroku | Backbone.js | Mithril | Python | Photoshop',
 		bio: 'stuff',
 		personalStatement: 'hire me',
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/11080339',
@@ -17,7 +18,8 @@ const bioInfo = [
 		{person: 'Paul',
 		label: 'Bio',
 		devType: 'Stack',
-		languages: [],
+		languagesStrong:'STRONG: JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git', 
+		languagesExperienced:	'EXPERIENCED: AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
 		bio: 'stuff',
 		personalStatement: 'hire me',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/16947596',
@@ -27,7 +29,8 @@ const bioInfo = [
 		{person: 'Vidush',
 		label: 'Bio',
 		devType: 'Stack',
-		languages: [],
+		languagesStrong: 'STRONG: JavaScript | React | Redux | ES2015 | Gulp | Html | Node | Babel | Webpack | Passport | GraphAPI | and JQuery',
+		languagesExperienced:	'EXPERIENCED: CSS | Angular | Express | Mithril | Mongoose | Backbone | SQL | websockets | Postgres | Mongo DB | deployment(heroku) | Grunt | bootstrap | mocha/chai',
 		bio: 'stuff',
 		personalStatement: 'hire me',
 		gitHubPic: 'https://avatars1.githubusercontent.com/u/17035769',
@@ -37,7 +40,8 @@ const bioInfo = [
 		{person: 'Sin',
 		label: 'Bio',
 		devType: 'Stack',
-		languages: [],
+		languagesStrong: 'STRONG: 	JavaScript | SQL | MongoDB | Node | Express | Gulp | Angular | jQuery | Git',
+		languagesExperienced:	'EXPERIENCED:	React | Python (pandas, matplotlib/seaborn, NumPy) | Data Structure | jwt | socketIO | bootstrap',
 		bio: 'stuff',
 		personalStatement: 'hire me',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/12867107',
@@ -47,8 +51,8 @@ const bioInfo = [
 		{person:'James', 
 		label: 'Bio.',
 		devType: 'Stack',
-		languages: 'JAVASCRIPT | ANGULARJS | REACTJS NODEJS | EXPRESS | GIT | SQL | EXCEL | HTML5 | ' + 
-		'POSTGRESQL | KNEX.JS | MONGODB | REDUX | HEROKU | SOCKET.IO | @RISK | BOOTSTRAP | ES6',
+		languagesStrong: 'STRONG: JavaScript | Angular | React | Node | Express | GIT | SQL | Excel | HTML5',
+		languagesExperienced: 'EXPERIENCED: Postgres | Knex | MongoDB | Redux | Heroku | SOCKET.IO | @RISK | CSS | Bootstrap | ES6',
 		bio: 'stuff',
 		personalStatement: 'hire me',
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/16716625',
@@ -65,7 +69,7 @@ _getDevInfo() {
 			<div className='meet-the-devs'><img src={obj.gitHubPic} className='dev-pic'></img>
 				<div><h5>{obj.person}</h5>
 					<div className='bio'>
-						<BootStrapModal bTitle='Bio' devType={obj.devType} languages={obj.languages} bodyText={obj.personalStatement} person={obj.person} popOverTitle='Technical Knowledge' />
+						<BootStrapModal bTitle='Bio' devType={obj.devType} languagesStrong={obj.languagesStrong} languagesExperienced={obj.languagesExperienced} bodyText={obj.personalStatement} person={obj.person} popOverTitle='Technical Knowledge' />
 					</div>
 					<div className='icons'>
 						<div> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>

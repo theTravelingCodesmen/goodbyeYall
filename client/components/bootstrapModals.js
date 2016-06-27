@@ -44,8 +44,8 @@ const BootStrapModal = React.createClass({
 //Popover title
 //{this.props.popOverTitle}
 
-	  let popover = <Popover title={this.props.popOverTitle}>{this.props.languages}</Popover>;
-	  
+	  let popover = <Popover title={this.props.popOverTitle}><p>{this.props.languagesStrong}</p>  <p>{this.props.languagesExperienced}</p></Popover>;
+
 	  return (
 	    <div>
 	    	<Button bsSize="small" onClick={this.open}>
