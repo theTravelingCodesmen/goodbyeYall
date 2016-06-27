@@ -9,19 +9,23 @@ knex.insertUserPrefs = function(prefsObj) {
 	return knex('users').insert(prefsObj);
 }
 knex.fetchExistingPrefs = function(fb_id){
-	return knex('users').where({fb_id:fb_id}).select('*')
+	return knex('users').where("fb_id",fb_id).select()
 }
 
 router.get('/existing_pref/:fb_id',function(req, res) {
 	console.log(req.params.fb_id);
 	knex.fetchExistingPrefs(req.params.fb_id)
-		.then((data)=>res.send({
+		.then((data)=>{
+			data = data[0];
+			res.send({
 			'DFWA-sky': data['DFWA-sky'],
     	'HOUA-sky': data['HOUA-sky'],
     	'Seven Wonders': data['Seven Wonders'],
     	'Seven Natural Wonders': data['Seven Natural Wonders'],
     	'profile_name':data['profile_name']
-		}))
+			})
+		}
+		)
 })
 
 router.post('/',function(req, res) {
