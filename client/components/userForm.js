@@ -10,7 +10,8 @@ let UserForm = React.createClass ({
     getInitialState:function(){
       let fb_id = localStorage.getItem("goodbyeyall.fb_id");
       if (fb_id){
-        // alert(fb_id);
+        console.log('line 13 fb id',fb_id);
+        axios.get(`/user_prefs/existing_pref/${fb_id}`)
       }
       return {
         'DFWA-sky':false,
