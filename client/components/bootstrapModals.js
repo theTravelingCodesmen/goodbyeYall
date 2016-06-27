@@ -56,7 +56,7 @@ const BootStrapModal = React.createClass({
 	          <Modal.Title>{this.props.person}</Modal.Title>
 	        </Modal.Header>
 	        	        <Modal.Body>
-	          <h4>{this.props.devType}</h4>
+	          <h4>{this.props.modalTitle}</h4>
 	          <p>{this.props.personalStatement}</p>
 
 	          <h4>Technical Skills</h4>

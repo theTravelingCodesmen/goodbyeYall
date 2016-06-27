@@ -69,7 +69,17 @@ _getDevInfo() {
 			<div className='meet-the-devs'><img src={obj.gitHubPic} className='dev-pic'></img>
 				<div><h5>{obj.person}</h5>
 					<div className='bio'>
-						<BootStrapModal bTitle='Bio' devType={obj.devType} languagesStrong={obj.languagesStrong} languagesExperienced={obj.languagesExperienced} bodyText={obj.personalStatement} person={obj.person} popOverTitle='Technical Knowledge' />
+						<BootStrapModal 
+							bTitle='Bio' modalTitle={obj.devType} 
+							languagesStrong={obj.languagesStrong} 
+							popoverLink='Coding Languages'
+							modalHeader1='Technical Skills'
+							modalHeader2='This is my story'
+							languagesExperienced={obj.languagesExperienced} 
+							bodyText={obj.personalStatement} 
+							person={obj.person} 
+							popOverTitle='Technical Knowledge' 
+						/>
 					</div>
 					<div className='icons'>
 						<div> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
