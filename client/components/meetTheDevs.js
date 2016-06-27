@@ -63,14 +63,14 @@ class MeetTheDevs extends React.Component {
 _getDevinfo() {
 	return bioInfo.map(function(obj){
 		return( 
-			<div className="meet-the-devs"><img src='https://avatars0.githubusercontent.com/u/11080339' className='dev-pic'></img>
+			<div className="meet-the-devs"><img src={obj.gitHubPic} className='dev-pic'></img>
 				<div><h5>{obj.person}</h5>
 					<div className="bio">
 						<BootStrapModal bTitle='Bio' devType={obj.devType} languages={obj.languages} bodyText={obj.personalStatement} person={obj.person} />
 					</div>
 					<div className='icons'>
-						<div> <a href='https://www.linkedin.com/in/owentemple' target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
-						<div> <a href='https://github.com/owentemp' target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
+						<div> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
+						<div> <a href={obj.gitHUbLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
 					</div>
 				</div>
 			</div>	
