@@ -15,13 +15,14 @@ class ActiveDestination extends React.Component {
 		return(	
 			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
 				<div className='intro'>
+					<h1>{this.props.title}</h1>
 					<h3>{this.props.city_name + ', ' + this.props.country}</h3>
 					<p> {this.props.intro}</p>
 				</div>
 				<div className='flight-info-container'>
 					<FlightData airport_code={this.props.airport_code}/>
 					<div className='flight-details'>
-						<p className='dates'>{'Leaving ' + airportToCity[localStorage.getItem('originairport')] + ' on ' + numberToMonth[this.props.bookingDetails.outboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.outboundDate.slice(8,10) + ' and returning on ' + numberToMonth[this.props.bookingDetails.inboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.inboundDate.slice(8,10)}</p>
+						<p className='dates'>{'Leaving ' + airportToCity[localStorage.getItem('originairport')] + ' ' + numberToMonth[this.props.bookingDetails.outboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.outboundDate.slice(8,10) + ' and returning ' + numberToMonth[this.props.bookingDetails.inboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.inboundDate.slice(8,10)}</p>
 						<h3 className='active-price'>{this.props.bookingDetails.price.toFixed(2)}</h3>
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
