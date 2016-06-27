@@ -70,14 +70,15 @@ _getDevInfo() {
 				<div><h5>{obj.person}</h5>
 					<div className='bio'>
 						<BootStrapModal 
-							bTitle='Bio' modalTitle={obj.devType} 
-							languagesStrong={obj.languagesStrong} 
+							bTitle='Bio' 
+							modalTitle={obj.devType} 
 							popoverLink='Coding Languages'
-							modalHeader1='Technical Skills'
-							modalHeader2='This is my story'
-							languagesExperienced={obj.languagesExperienced} 
+							modalHeaderOne='Technical Skills'
+							modalHeaderTwo='This is my story'
+							PopoverPOne={obj.languagesStrong}
+							PopoverPTwo={obj.languagesExperienced} 
 							bodyText={obj.personalStatement} 
-							person={obj.person} 
+							item={obj.person} 
 							popOverTitle='Technical Knowledge' 
 						/>
 					</div>

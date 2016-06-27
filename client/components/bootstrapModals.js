@@ -4,7 +4,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Popover, Tooltip, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 
-//  
 
 const BootStrapModal = React.createClass({
 
@@ -26,25 +25,38 @@ const BootStrapModal = React.createClass({
 //Button Label
 // this.props.bTitle
 
-//Dev type (frontend/backend/fullstack)
-//this.props.devType
-
-//Languages
-//this.props.languages
-
-//Bio
-//this.props.bodyText
-
-//Person
-//{this.props.person}
-
-//Personal Statement
-//{this.props.personalStatement}
+//Modal Title
+//this.props.modalTitle
 
 //Popover title
 //{this.props.popOverTitle}
 
-	  let popover = <Popover title={this.props.popOverTitle}><p>{this.props.languagesStrong}</p>  <p>{this.props.languagesExperienced}</p></Popover>;
+//Popover first paragraph
+//{this.props.PopoverPOne}
+
+//Popover second paragraph
+//{this.props.PopoverPTwo}
+
+// Modal Header Top
+//{this.props.modalHeaderOne}
+
+//Modal Header Bottom
+//{this.props.modalHeaderTwo}
+
+//Body Text
+//{this.props.bodyText}
+
+//Item
+//{this.props.item}
+
+//Personal Statement
+//{this.props.personalStatement}
+
+
+	  let popover = <Popover title={this.props.popOverTitle}>
+	  								<p>{this.props.PopoverPOne}</p>
+	  								<p>{this.props.PopoverPTwo}</p>
+	  							</Popover>;
 
 	  return (
 	    <div>
@@ -52,22 +64,18 @@ const BootStrapModal = React.createClass({
 	        {this.props.bTitle}
 	      </Button>
         <Modal show={this.state.showModal} onHide={this.close}>
-        	        <Modal.Header closeButton>
-	          <Modal.Title>{this.props.person}</Modal.Title>
+        	<Modal.Header closeButton>
+	        	<Modal.Title>{this.props.item}</Modal.Title>
 	        </Modal.Header>
-	        	        <Modal.Body>
+	        <Modal.Body>
 	          <h4>{this.props.modalTitle}</h4>
 	          <p>{this.props.personalStatement}</p>
-
-	          <h4>Technical Skills</h4>
-	          <p>I have used <OverlayTrigger overlay={popover}><a href="#">Coding Languages</a></OverlayTrigger></p>
-
+	          <h4>{this.props.modalHeaderOne}</h4>
+	          <p>I have used <OverlayTrigger overlay={popover}><a href="#">{this.props.popoverLink}</a></OverlayTrigger></p>
 	          <hr />
-
-	          <h4>This is my story</h4>
+	          <h4>{this.props.modalHeaderTwo}</h4>
 	          <p>{this.props.bodyText}</p>
 	        </Modal.Body>	
-
 	        <Modal.Footer>
 	          <Button onClick={this.close}>Close</Button>
 	        </Modal.Footer>
@@ -81,6 +89,6 @@ const BootStrapModal = React.createClass({
 	})
 	export default BootStrapModal
 
-	     //not being used 
+	  //not being used 
 	  // let tooltip = <Tooltip>wow.</Tooltip>;
-	          // <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
+	  // <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
