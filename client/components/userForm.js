@@ -8,18 +8,30 @@ import queryString from 'query-string';
 
 let UserForm = React.createClass ({
     getInitialState:function(){
-      let fb_id = localStorage.getItem("goodbyeyall.fb_id");
-      if (fb_id){
-        console.log('line 13 fb id',fb_id);
-        axios.get(`/user_prefs/existing_pref/${fb_id}`)
-      }
       return {
         'DFWA-sky':false,
         'HOUA-sky':false,
         'Seven Wonders':false,
-        'Seven Natural Wonders':false
+        'Seven Natural Wonders':false,
+        'profile_name':null
       }
     },
+    // componentDidMount:function(){
+    //   let fb_id = localStorage.getItem("goodbyeyall.fb_id");
+    //   if (fb_id){
+    //     console.log('line 13 fb id',fb_id);
+    //     axios.get(`/user_prefs/existing_pref/${fb_id}`)
+    //       .then((userPrefs)=>{
+    //         this.setState({
+    //           'DFWA-sky':userPrefs['DFWA-sky'],
+    //           'HOUA-sky': userPrefs['HOUA-sky'],
+    //           'Seven Wonders': userPrefs['Seven Wonders'],
+    //           'Seven Natural Wonders': userPrefs['Seven Natural Wonders'],
+    //           'profile_name':userPrefs['profile_name']
+    //         })
+    //       })
+    //   }
+    // },
     submitForm:function(event){
       event.preventDefault();
       let qs = queryString.parse(window.location.hash);
