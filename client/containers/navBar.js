@@ -8,7 +8,8 @@ import { LinkContainer } from 'react-router-bootstrap';
 import AirportDropdown from './airportDropdown';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { IS_LOGGED_IN, changeLogin } from '../actions/isloggedIn'
+import { IS_LOGGED_IN, changeLogin } from '../actions/isloggedIn';
+import Logout from '../components/logout';
 
 
 
@@ -17,6 +18,14 @@ class NavBar extends React.Component{
     localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "HOUA-sky"));
     console.log(this.props.isLoggedIn + ' line 17')
   }
+
+  logout(){
+    alert('logging out')
+    localStorage.removeItem('goodbyeyall.fb_id');
+    this.props.changeLogin(false);
+    window.location.assign('/');
+  }
+
   render(){
     return (
     <div className="container">
@@ -35,7 +44,7 @@ class NavBar extends React.Component{
           </NavDropdown>
           <AirportDropdown / >
           { this.props.isLoggedIn ? <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>:null}
-         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'>login</a>: null}
+         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'>login</a>: <Logout onClick={this.logout.bind(this)}/>}
         </Nav>
       </Navbar>
       {this.props.children}

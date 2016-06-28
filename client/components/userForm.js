@@ -65,18 +65,12 @@ let UserForm = React.createClass ({
           window.location.assign('/')
         })
     },
-    logout:function(event){
-      // console.log('line 65 event is, ', event)
-      localStorage.removeItem('goodbyeyall.fb_id');
-    },
+    
     render:function(){
         return (
             <div>
 
                 <form className="user-form" onSubmit={this.submitForm}>
-                    <Link to='/'><Button className="pull-right btn btn-danger" onClick={this.logout}>
-                      logout
-                    </Button></Link>
                     <FormGroup>
                       <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences " : "Thank you for signing up. Let us know your preferences" }</p>
                       <ControlLabel>Alert Preferences</ControlLabel>
