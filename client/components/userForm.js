@@ -22,6 +22,7 @@ let UserForm = React.createClass ({
             this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
             this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
             this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
+            this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
             this.setState({'profile_name': userPrefs.data['profile_name']});
           })
     },
@@ -60,6 +61,9 @@ let UserForm = React.createClass ({
             //throw error here?
           }
         })
+        .then(()=>{
+          window.location.reload()
+        })
     },
     logout:function(event){
       // console.log('line 65 event is, ', event)
@@ -74,7 +78,7 @@ let UserForm = React.createClass ({
                       logout
                     </Button></Link>
                     <FormGroup>
-                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name : "Thank you for signing up. Let us know your preferences" }</p>
+                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences " : "Thank you for signing up. Let us know your preferences" }</p>
                       <ControlLabel>Alert Preferences</ControlLabel>
                       <FormControl.Static>
                         Choose your preferred outbound airports below:
