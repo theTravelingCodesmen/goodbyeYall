@@ -73,7 +73,9 @@ let UserForm = React.createClass ({
 
                 <form className="user-form" onSubmit={this.submitForm}>
                     <FormGroup>
-                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences " : "Thank you for signing up. Let us know your preferences" }</p>
+                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences." : "Thank you for signing up. Let us know your preferences" }</p>
+                      <b>Click submit to save your preferences and continue your adventure. </b>
+                      <br/>
                       <ControlLabel>Alert Preferences</ControlLabel>
                       <FormControl.Static>
                         Choose your preferred outbound airports below:
