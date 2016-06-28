@@ -45,14 +45,14 @@ class PackageDestinations extends React.Component {
 								next_image_url={dest.next_image_url}
 								bookingDetails={dest.bookDetails}
 								temperatures={dest.temperature}
-							    lang ={dest.countryData.languages} 
-                  plugs = {dest.countryData.electricity.Plugs}
-                  callingCode={dest.countryData.telephone.callingcode}
-                 	vaccinations={dest.countryData.vaccinations}
-                  currencyName={dest.countryData.currency.name}
-                  currencyRate={dest.countryData.currency.rate}
-                  weather={dest.countryData.weather}
-                 	water={dest.countryData.water}
+						    lang ={dest.countryData.languages} 
+                plugs = {dest.countryData.electricity.plugs}
+                callingCode={dest.countryData.telephone.callingcode}
+               	vaccinations={dest.countryData.vaccinations}
+                currencyName={dest.countryData.currency.name}
+                currencyRate={dest.countryData.currency.rate}
+               	water={dest.countryData.water}
+               	popOverTitle={null}
 							/>
 						})
 					}
