@@ -13,9 +13,9 @@ class OuterCardBox extends React.Component {
 			<div >
 				<div className='nav-spacing'></div>
 				<div className='value-prop'>
-					<h1 className='main'>We do the math, you do the travel</h1>
+					<h1 className='main'>We do the work, you do the travel</h1>
 					<h4 className='sub'>Thousands of flights screened to find the cheapest time to go in the next year</h4>
-					<h5 className='call-to-action'>Choose a travel theme to get started</h5>
+					<h5 className='call-to-action'>Choose a travel theme or <Link to={{pathname:'/login'}}>log in</Link> to get started</h5>
 				</div>
 				<div>
 					<div className='center-div row'>

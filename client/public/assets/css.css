@@ -203,13 +203,13 @@ path {
 /*///////////////////////////////////*/
 
 .value-prop {
-  width: 70%;
+  width: 80%;
   margin: 0% 10%;
   text-align: center;
 }
 
 .main {
-  font-size: 3.3em;
+  font-size: 4.0em;
   font-family: 'Lalezar', sans-serif;
 }
 
@@ -221,13 +221,13 @@ path {
 
 .center-div {
   display:inline-block;
-  width: 70%;
+  width: 80%;
   margin: 0% 10%;
 }
 
 .carousel {
 	margin: 0% 10%;
-	width: 70%;
+	width: 80%;
 	cursor: pointer;
 }
 
@@ -262,7 +262,7 @@ path {
 }
 
 .meet-the-devs-wrapper {
-	
+
 	margin-top: 15%;
 }
 
@@ -297,10 +297,13 @@ path {
   background: white;
 }
 
+.package-uno, .package-dos {
+    min-width: 50%;
+    max-width: 100%;
+}
+
 .package-uno:hover,
 .package-dos:hover {
-	min-width: 50%;
-  max-width: 100%;
   cursor: pointer;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -309,7 +312,6 @@ path {
 	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
 	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
 	z-index: 3;
-  cursor: pointer;
 }
 
 
