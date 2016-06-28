@@ -23,10 +23,13 @@ const BootStrapModal = React.createClass({
 
 //============================Instructions===============================
 //Button Label
-// this.props.bTitle
+//{this.props.bTitle}
 
 //Modal Title
-//this.props.modalTitle
+//{this.props.modalTitle}
+
+//introToPopover
+//{this.props.introToPopover}
 
 //Popover title
 //{this.props.popOverTitle}
@@ -71,7 +74,12 @@ const BootStrapModal = React.createClass({
 	          <h4>{this.props.modalTitle}</h4>
 	          <p>{this.props.personalStatement}</p>
 	          <h4>{this.props.modalHeaderOne}</h4>
-	          <p>I have used <OverlayTrigger overlay={popover}><a href="#">{this.props.popoverLink}</a></OverlayTrigger></p>
+	          <p>{this.props.topBody}
+	          <p>{this.props.children}</p>
+	          	<OverlayTrigger overlay={popover}>
+	          		<a href="#">{ " " + this.props.popoverLink}</a>
+	          	</OverlayTrigger>
+          	</p>
 	          <hr />
 	          <h4>{this.props.modalHeaderTwo}</h4>
 	          <p>{this.props.bodyText}</p>
