@@ -57,6 +57,10 @@ body {
 	margin-left: 1.5em;
 }
 
+#fb-login-button{
+	margin: .85em
+}
+
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll {

@@ -45,7 +45,7 @@ class NavBar extends React.Component{
           </NavDropdown>
           <AirportDropdown / >
           { this.props.isLoggedIn ? <LinkContainer id="profile-photo-li" className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#" ><img className='avatar' src={this.profilePhoto}></img></NavItem></LinkContainer>:null}
-         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'>login</a>: <Logout onClick={this.logout.bind(this)}/>}
+         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'><img id="fb-login-button" src="/assets/images/facebookLoginBtn.png" /></a>: <Logout onClick={this.logout.bind(this)}/>}
         </Nav>
       </Navbar>
       {this.props.children}
