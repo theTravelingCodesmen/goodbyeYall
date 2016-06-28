@@ -38,6 +38,9 @@ function deleteOldQuotesWorker(){
 	])
 }
 
+deleteOldQuotesWorker();
+
+
 module.exports = {
 	deleteOldQuotesWorker: deleteOldQuotesWorker
 };

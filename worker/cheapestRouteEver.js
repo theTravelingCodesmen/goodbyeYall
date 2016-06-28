@@ -63,8 +63,10 @@ function cheapestRouteEverWorker() {
 	.then(function(cheapestQuotes){
 		return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
 	})
-	// .then(knex.closeDb);
 }
+
+
+cheapestRouteEverWorker();
 
 
 module.exports = {

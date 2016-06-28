@@ -126,8 +126,9 @@ function calculateAveragesWorker() {
   return Promise.all(generateAveragesArgumentsArray().map(function(array) {
     return updateOrCalculateAverage.apply(null, array);
   }))
-    // .then(knex.closeDb);
 }
+
+calculateAveragesWorker();
 
 module.exports = {
   calculateAveragesWorker: calculateAveragesWorker
