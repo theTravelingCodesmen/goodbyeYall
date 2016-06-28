@@ -352,29 +352,46 @@ let miami = {
 
 
 
-
-
 let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest, london, bangkok, paris, dubai, istanbul, singapore, seoul, losAngeles, chicago, denver, lasVegas, sanFrancisco, newYork, miami];
 
+//returns an array of unique destination airports
+let destinationAirportArray = destinationsArray
+  .map( (dest) => {
+    return dest.airport_code
+  })
+  .reduce( (prev, curr, ind) => {
+    if(prev.includes(curr)){
+      return prev
+    }
+    else{
+      prev.push(curr);
+      return prev;
+    }
+  }, [])
+
+  // console.log(destinationAirportArray.length)
+  // console.log(destinationsArray.length)
 
 // insert destination into destinations database
 knex.insertDestination = function(destinationObject) {
     return knex('destinations').insert(destinationObject);
 }
 
+function populateDestinations() {
+  Promise.all(destinationsArray
+    .map(function (destination) {
+      return knex.insertDestination(destination);
+    }))
+    .then(function () {
+        console.log("Inserted all 14 destinations");
+    })
+    .catch(function(error) {
+        console.log("There was an error inserting all 14 destinations:", error);
+    })
+    .then(knex.closeDb)
+}
 
-Promise.all(destinationsArray
-  .map(function (destination) {
-    return knex.insertDestination(destination);
-  }))
-  .then(function () {
-      console.log("Inserted all 14 destinations");
-  })
-  .catch(function(error) {
-      console.log("There was an error inserting all 14 destinations:", error);
-  })
-  .then(knex.closeDb)
-
+populateDestinations()
 
 
 
