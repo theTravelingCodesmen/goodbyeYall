@@ -9,6 +9,7 @@
 'use strict'
 
 let knex = require('../db/db.js');
+module.exports = {};
 
 knex.getCheapestRouteInQuotes = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
@@ -43,24 +44,26 @@ knex.insertCheapestRoute = function(obj){
   .catch(function(err){
 		console.log('line 37 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
   })
-
-
 }
 
-knex.getCheapestRouteInQuotes().then(function(data){
-	data = data.sort(function(x, y){
-		if (x.originCity < y.originCity)return 1
-		if (x.originCity > y.originCity)return -1
-		if (x.originCity === y.originCity){
-			if (x.destinationCity < y.destinationCity)return 1
-			if (x.destinationCity > y.destinationCity)return -1
-		}
+
+module.exports.cheapestRouteEverWorker = function(){
+	knex.getCheapestRouteInQuotes().then(function(data){
+		data = data.sort(function(x, y){
+			if (x.originCity < y.originCity)return 1
+			if (x.originCity > y.originCity)return -1
+			if (x.originCity === y.originCity){
+				if (x.destinationCity < y.destinationCity)return 1
+				if (x.destinationCity > y.destinationCity)return -1
+			}
+		})
+		console.log(data)
+		return data
 	})
-	console.log(data)
-	return data
-})
-.then(function(cheapestQuotes){
-	return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
-})
-.then(knex.closeDb);
+	.then(function(cheapestQuotes){
+		return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
+	})
+	.then(knex.closeDb);
+}
+
 
