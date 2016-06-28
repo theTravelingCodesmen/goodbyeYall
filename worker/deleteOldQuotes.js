@@ -1,7 +1,7 @@
 'use strict'
 
 let knex = require('../db/db.js');
-
+module.exports = {};
 
 knex.delOldQuotes = function(){
 	//get any quotes in the quote tables

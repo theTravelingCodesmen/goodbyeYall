@@ -2,7 +2,7 @@
 
 let knex = require('../db/db');
 let CheapestRouteEver = require('./cheapestRouteEver')
-let DeleteOldQuotes = require('./delOldQuotes')
+let DeleteOldQuotes = require('./deleteOldQuotes')
 
 function databaseWorkerManager(){
 	CheapestRouteEver.cheapestRouteEverWorker()
