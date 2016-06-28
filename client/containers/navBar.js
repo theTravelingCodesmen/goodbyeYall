@@ -5,7 +5,9 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import AirportDropdown from '../containers/airportDropdown';
+import AirportDropdown from './airportDropdown';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 class NavBar extends React.Component{
   componentWillMount(){
