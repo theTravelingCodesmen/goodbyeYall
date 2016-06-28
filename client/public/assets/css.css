@@ -228,7 +228,7 @@ path {
 .carousel {
 	margin: 0% 10%;
 	width: 70%;
-            cursor: pointer;
+	cursor: pointer;
 }
 
 .nav-spacing {
@@ -237,13 +237,10 @@ path {
 
 .seven-view {
 	padding-top:4em;
-/*	display: flex;
-  flex-direction: row;*/
 }
 /* MISSION STATEMENT */
 
 .mission-statement {
-/*    background: white;*/
   margin-left: 5%
   margin-bottom:5%;
   margin-right::;
