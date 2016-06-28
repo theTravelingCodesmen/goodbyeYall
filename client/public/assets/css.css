@@ -52,6 +52,11 @@ body {
 	width: 5rem;
 }
 
+.btn-danger{
+	margin: 0.68em;
+	margin-left: 1.5em;
+}
+
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll {
