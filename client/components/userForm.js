@@ -57,6 +57,7 @@ let UserForm = React.createClass ({
         .then(function(response) {
           if (response.status===200){
             localStorage.setItem('goodbyeyall.fb_id',response.data.fb_id)
+            localStorage.setItem('goodbyeyall.profile_photo',response.data.profile_photo)
           }else{
             //throw error here?
           }
@@ -65,7 +66,7 @@ let UserForm = React.createClass ({
           window.location.assign('/')
         })
     },
-    
+
     render:function(){
         return (
             <div>

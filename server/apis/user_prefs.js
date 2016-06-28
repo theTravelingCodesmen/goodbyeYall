@@ -40,7 +40,7 @@ router.get('/is_exist/:token', function(req, res){
 			return knex('users').where('fb_id',fb_id)
 		})
 		.then((data)=>{
-			data.length>0 ? res.json({found:true, fb_id:data[0].fb_id}) : res.json({found:false})
+			data.length>0 ? res.json({found:true, fb_id:data[0].fb_id, profile_photo:data[0].profile_photo}) : res.json({found:false})
 		})
 })
 
