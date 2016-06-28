@@ -65,6 +65,7 @@ router.use('/selectpackage/:packagename', function(req, res){
                 let outDate = destination.bookDetails.inboundDate.toJSON().slice(5,10).replace("-","")
                 // console.log(inDate,outDate);
                 // console.log('line 62===================',inDate, outDate);
+                console.log('package.js line 68')
                  return requestPromise.get(`http://api.wunderground.com/api/${WEATHER_API}/planner_${inDate}${outDate}/q/${destination.weather}.json`)
                  .then(data => {
                      return JSON.parse(data)
@@ -77,6 +78,28 @@ router.use('/selectpackage/:packagename', function(req, res){
                      return destination
                  })
              }))
+     })
+     .then((data) => {
+        return Promise.all(
+            data.map((destination) => {
+                console.log("destination", destination)
+                return requestPromise.get(`https://travelbriefing.org/${destination.country}?format=json`)
+                .then(data => {
+                    return JSON.parse(data)
+                })
+                .then(countryData =>{
+                    console.log('packages line 89', countryData)
+                    destination.countryData.languages = countryData.languages
+                    destination.countryData.electricity.Plugs = countryData.electricity.Plugs
+                    destination.countryData.telephone.callingcode = countryData.telephone.callingcode
+                    destination.countryData.vaccinations = countryData.vaccinations
+                    destination.countryData.currency.name = countryData.currency.name
+                    destination.countryData.currency.rate = countryData.rate
+                    destination.countryData.weather = countryData.weather.January.tAvg 
+                    destination.countryData.water = countryData.water.short
+                    return destination
+                })
+            }))
      })
          .then(data => {
              // console.log(data)

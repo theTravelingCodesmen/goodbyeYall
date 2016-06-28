@@ -7,6 +7,7 @@ import FlightData from './flightData';
 import { connect } from 'react-redux';
 import numberToMonth from '../helper/number_to_month';
 import airportToCity from '../helper/airport_to_city';
+//import BootstrapModal from './bootstrapModal';
 
 
 class ActiveDestination extends React.Component {
@@ -29,6 +30,18 @@ class ActiveDestination extends React.Component {
 						<div>
 							<a href="https://www.skyscanner.net" target="_blank"><p>Powered By</p><img src="/assets/images/Skyscanner-Logo-Charcoal.png"/></a>
 						</div>
+						<BootStrapModal bTitle='Country Travel info'>
+						
+							<div>{this.props.lang }</div>
+							<div>{this.props.plugs }</div>
+							<div>{this.props.callingCode }</div>
+							<div>{this.props.vaccinations }</div>
+							<div>{this.props.currencyName }</div>
+							<div>{this.props.currencyRate}</div>
+							<div>{this.props.weather}</div>
+							<div>{this.props.water}</div>
+
+						</BootStrapModal>
 					</div>
 				</div>
 			</div>
