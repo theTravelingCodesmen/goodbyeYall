@@ -25,6 +25,7 @@ knex.ensureSchema = function () {
           table.string('intro', 1023);
           table.string('main_image_url');
           table.string('next_image_url', 255);
+          table.string('weather',255);
         }).then(function (table) {
           console.log('Created destinations table.');
         })
@@ -88,7 +89,15 @@ knex.ensureSchema = function () {
           console.log('Created cheapest_route_ever table.');
         });
       }
+      // else if (exists) {
+      //   knex.schema.table('cheapest_route_ever', function (table) {      
+      //     table.timestamp('created_at').defaultTo(knex.fn.now());
+      //   }).then(function (table) {
+      //     console.log('Altered cheapest_route_ever table.');
+      //   })
+      // }
     }),
+
     knex.schema.hasTable('last_thirty_days').then(function (exists) {
       if (!exists) {
         knex.schema.createTable('last_thirty_days', function (table) {
@@ -101,7 +110,26 @@ knex.ensureSchema = function () {
           console.log('Created last_thirty_days table.');
         });
       }
-    })
+    }),
+    
+    knex.schema.hasTable('users').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('users', function (table) {
+          table.increments('id').primary();
+          table.string('token', 255);
+          table.string('fb_id', 255);
+          table.string('profile_name', 255);
+          table.string('profile_email', 255);
+          table.string('profile_photo', 255);          
+          table.boolean('DFWA-sky').defaultTo(false);
+          table.boolean('HOUA-sky').defaultTo(false);
+          table.boolean('Seven Wonders').defaultTo(false);
+          table.boolean('Seven Natural Wonders').defaultTo(false);
+        }).then(function (table) {
+          console.log('Created users table.');
+        })
+      } 
+    })     
   ])
 }
 
@@ -120,18 +148,4 @@ knex.closeDb = function () {
 }
 
 // knex.ensureSchema().then(knex.closeDb);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

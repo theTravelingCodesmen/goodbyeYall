@@ -1,4 +1,5 @@
 'use strict'
+
 let express = require('express');
 let path = require('path');
 let favicon = require('serve-favicon');
@@ -11,12 +12,17 @@ let select_package = require('./apis/packages');
 let cheapest_ever_api = require('./apis/cheapest_ever_api');
 let last_thirty_days_api = require('./apis/last_thirty_days_api');
 let book_now_quote_api = require('./apis/book_now_quote_api');
+let passport = require('passport');
+let session = require('express-session');
+let user_prefs = require('./apis/user_prefs');
 
 let routes = express.Router();
+
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
 routes.use('/hello-traveling-codesman', function(req, res){
 	res.end('hello travelingcodesman!');
 });
+
 // add api endpoints when available
 routes.use('/skyscanner_api', skyscanner_api);
 routes.use('/avg_price', avg_price);
@@ -24,11 +30,13 @@ routes.use('/packages', select_package);
 routes.use('/cheapest_ever_api', cheapest_ever_api);
 routes.use('/last_thirty_days_api', last_thirty_days_api);
 routes.use('/book_now_quote_api', book_now_quote_api);
+routes.use('/user_prefs', user_prefs);
 
 
 if(process.env.NODE_ENV === 'test'){
 	module.exports = routes;
-} else {
+} 
+else {
 		let app = express();
 		// uncomment after favicon moved into public
 		// app.use(favicon(path.join(__dirname, 'client', 'favicon.ico')));
@@ -37,6 +45,22 @@ if(process.env.NODE_ENV === 'test'){
 		app.use(bodyParser.urlencoded({ extended: false }));
 		app.use(cookieParser());
 		app.use('/', routes);
+		require('./config/passport.js')(passport);
+		app.use('/*', function(req, res){
+			res.sendFile(path.join(__dirname, '..', 'client', 'public','index.html'))
+			// res.redirect('/')
+		})
+		app.use(session({
+			secret: "travelingcodesman",
+			//name: cookie_name,
+	    //store: sessionStore, // connect-mongo session store
+	    //proxy: true,
+	    resave: true,
+	    saveUninitialized: true
+		}))
+		app.use(passport.initialize());
+		app.use(passport.session());
+		require('./config/fb_routes.js')(app, passport);//load our routes and pass in our app and fully configured passport
 		app.listen(process.env.PORT||4000);
 	
 	};

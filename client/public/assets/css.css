@@ -1,4 +1,27 @@
-.card-title{
+/*NAVBAR ELEMENTS////////////////////////////*/
+/*//////////////////////////////////////////*/
+.logo {
+	font-weight: bold;
+	font-size: 1.2em;
+  display:flex;
+}
+
+.logo img {
+  width:75px;
+  height: 75px;
+}
+
+.logo:hover {
+	cursor: pointer;
+	font-weight: bolder;
+	color: black;
+}
+
+.navbar-button:hover {
+	font-weight: bolder;
+}
+
+.card-title {
 	/*comment out the font choices*/
 /*	font-family: 'Alegreya Sans', sans-serif;*/
 	font-family: 'Chau Philomene One', sans-serif;
@@ -6,13 +29,41 @@
 	border-style: solid;
 	border-color: black;
 	font-size: 3em;
+/*	transform: rotate(270deg);
+	transform-origin: left bottom 0;*/
 }
 
-.card-box {
+body {
+  background-image: url('/assets/images/map.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
+
+#profile-photo-li {
+	padding:0 0 0 0;
+}
+
+.avatar {
+	border-radius: 1000px;
+	height: 5rem;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	width: 5rem;
+}
+
+.btn-danger{
+	margin: 0.68em;
+	margin-left: 1.5em;
+}
+
+#fb-login-button{
+	margin: .85em
+}
+
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
-.photo-roll{
+.photo-roll {
 	border-style: solid;
 	border-color: black;
 	display: flex;
@@ -23,9 +74,10 @@
 .passive-photo {
 	display: flex;
 	flex-grow: 1;
-	padding: 5.6%;
+	padding: 5.1%;
 	background-size: 100%;
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 
 /* photo roll pics effects*/
@@ -40,18 +92,25 @@
   cursor: pointer;
 }
 
+.passive-photo:hover .passive-price {
+	opacity: 1;
+}
+
 .passive-price {
-	top: -2.5em;
-	right: -3.5em;
 	margin: 0;
+	padding: 2px;
+	font-size: 2em;
+	width: auto;
+	left: .2em;
 	color: white;
+	opacity: 0;
 	font-weight: bold;
 	position: relative;
 }
 
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
-.active-photo-container{
+.active-photo-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -60,7 +119,7 @@
   margin-bottom: 3em;
 }
 
-.intro{
+.intro {
 	margin: 2em 0 0 2em 0em;
 	min-height: 110px;
 	width:100%;
@@ -71,7 +130,19 @@
 	text-align: justify;
 }
 
-.flight-info-container{
+.destination-name{
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+.destination-location{
+	margin: 0;
+	margin-bottom: 0.2em;
+}
+
+.flight-info-container {
+	background-color: rgba(255,255,255, 0.55);
+	margin: 0em 3em 3em 3em;
 	min-width: 40%;
 	display: flex;
 	flex-direction: row;
@@ -79,41 +150,43 @@
 }
 
 .flight-details {
-	padding-left: 10%;
+	padding-left: 2em;
 	padding-top: 2%;
 	color: blue;
 	text-align: right;
+	border-left-style: solid;
+	border-left-color: black;
 }
 
-.dates{
+.dates {
 	margin: 0;
 }
 
-.active-price{
+.active-price {
 	margin: 0;
 }
 
-.time-ago{
+.time-ago {
 	margin: 0;
 }
 
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
-.flight{
+.flight {
 	width: 40%;
 	text-align:center;
-	opacity: .75;
-	background-color: white;
 	backface-visibility:
 }
 
 /* info box for d3 graph */
 .infoboxflight {
+	opacity: 0;
 	border:2px solid steelblue;
 	border-radius:4px;
 	box-shadow:#333333 0px 0px 10px;
-	margin:0 0;
-	/*padding:5px 10px;*/
+	margin: 0em;
+	padding: 0em;
+	display: block;
 	background:rgba(255, 255, 255, 0.8);
 	position:relative;
 	top:0px;
@@ -125,9 +198,9 @@
 }
 /* path for svg graph */
 path {
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none;
 }
 
 .line {
@@ -137,92 +210,143 @@ path {
 /* axis for svg graph */
 .axis path,
 .axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
+  fill: none;
+  stroke: black;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
 /* make sure d3 line chart is at least 600px becuase the svg is 600px width */
 .d3-line-chart {
 	min-width:600px;
 }
 
-/* photo roll pics effects */
-.passive-photo:hover {
-	-webkit-border-radius: 10px;
+/*/////////////////////////////////////*/
+/*MAKE SURE YOUR CODE IS ORGANIZED////*/
+/*///////////////////////////////////*/
+
+.value-prop {
+  width: 80%;
+  margin: 0% 10%;
+  text-align: center;
+}
+
+.main {
+  font-size: 4.0em;
+  font-family: 'Lalezar', sans-serif;
+}
+
+.sub {
+}
+
+.call-to-action {
+}
+
+.center-div {
+  display:inline-block;
+  width: 80%;
+  margin: 0% 10%;
+}
+
+.carousel {
+	margin: 0% 10%;
+	width: 80%;
+	cursor: pointer;
+}
+
+.nav-spacing {
+	min-height: 60px;
+}
+
+.seven-view {
+	padding-top:4em;
+}
+/* MISSION STATEMENT */
+
+.mission-statement {
+  margin-left: 5%
+  margin-bottom:5%;
+  margin-right::;
+  position:relative;
+  top:2%;
+  left:10%;
+}
+
+/* MEET THE DEVS */
+
+.meet-the-devs {
+  display: inline-block;
+  margin-top: 20px;
+  width: 20%;
+  text-align: center;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+
+}
+
+.meet-the-devs-wrapper {
+
+	margin-top: 15%;
+}
+
+.dev-pic {
+	width:70%;
+}
+
+.icons {
+  margin-top: 10px;
+  display:inline-flex;
+}
+
+.linkedin,
+.github {
+	width: 3em;
+	cursor: pointer;
+	margin: 1em;
+}
+
+.bio {
+  font-size:.75em;
+  text-align: left;
+  padding-left: 10%;
+}
+
+/* USER PREFERENCES FORM */
+
+.user-form {
+  margin-top: 6%;
+  margin-left:10%;
+  padding-left: 1%;
+  background: white;
+}
+
+.package-uno, .package-dos {
+    min-width: 50%;
+    max-width: 100%;
+}
+
+.package-uno:hover,
+.package-dos:hover {
+  cursor: pointer;
+  -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 0px;
 	-webkit-box-shadow: 0px 0px 30px 0px rgba(217,218,256,0.9);
 	-moz-box-shadow:    0px 0px 30px 0px rgba(217,218,256,0.9);
 	box-shadow:         0px 0px 30px 0px rgba(217,218,256,0.9);
-	z-index: 10;
-  cursor: pointer;
-}
-
-.passive-photo {
-	background-size: contain;
-  padding: 0;
-	margin: 0;
-	border: 0;
-	flex-grow: 1;
-	display: inline-block;
-	background-repeat: no-repeat;
-	border-style: solid;
-	border-color: black;
-}
-
-/* Overrid bootstrap default */
-.container-fluid {
+	z-index: 3;
 }
 
 
-/*.package-uno {
-		display: block;
-		text-align: center;
-    width:  20%;
-    height: 20%;
-    border: 3px solid #73AD21;
-    margin: 0px 50%;
-}
-.package-dos{
-		display: block;
-		text-align: center;
-    width: 20%;
-    height: 20%;
-    border: 3px solid #73AD21;
-    margin: 0px 50%;
-}*/
-
-.center-div{
-	display:inline-block;
-	width: 100%;
-	margin: 0% 10%;
+.meet-the-devs:hover {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
 }
 
-.value-prop{
-  width: 40%;
-  height: 40%;
-  margin: 0% 10%;
+.meet-the-devs > img {
+	 box-shadow: 8px 8px 4px #888888;
 }
 
-.carousel{
-	margin: 0% 10%;
-	width: 42%;
+.popover-content {
+    word-wrap: break-word;
 }
-
-.passive-price {
-	color: red;
-}
-
-.flight-details {
-	color: blue;
-}
-
-.nav-spacing{
-	min-height: 60px;
-}
-
-/*/////////////////////////////////////*/
-/*MAKE SURE YOUR CODE IS ORGANIZED////*/
-/*///////////////////////////////////*/
 

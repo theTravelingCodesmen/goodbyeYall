@@ -2,15 +2,10 @@
 
 import d3LineDraw from '../helper/d3Draw';
 
-
-
 /// the end point on the server is skyscanner_api/d3_cache/:location/:currency/:ISO/:dest/:arrival/:depart_time/:arrival_time
 let url = "/US/USD/en-US/LON/JFK/2016/2016?apiKey=tr381925555151402243435952656975";
 
 let endpoint = '/skyscanner_api/d3_cache'+url
-
-
-
 
 
 function transformCacheData(price){
@@ -48,4 +43,6 @@ function transformCacheData(price){
 
 
 let getd3Cachegraph = d3LineDraw.bind(null, 'd-three-cache',endpoint, transformCacheData)
+
+
 export default getd3Cachegraph;
