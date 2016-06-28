@@ -29,7 +29,7 @@ class NavBar extends React.Component{
           </NavDropdown>
           <AirportDropdown / >
           <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>
-          <LinkContainer className="navbar-button" to={{pathname:'/login'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
+         <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'>login</a>
         </Nav>
       </Navbar>
       {this.props.children}
@@ -38,3 +38,6 @@ class NavBar extends React.Component{
 };
 
 export default NavBar;
+
+
+          //<LinkContainer className="navbar-button" to={{pathname:'http://www.facebook.com/dialog/oauth?client_id=1071311906250508s&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
