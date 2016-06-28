@@ -37,6 +37,7 @@ let UserForm = React.createClass ({
             if (resp.data.found){
               fb_id = resp.data.fb_id;
               localStorage.setItem("goodbyeyall.fb_id", fb_id);
+              localStorage.setItem("goodbyeyall.profile_photo", resp.data.profile_photo);
               //fetch user preferences from db to repopulate form
               this.fetchPrefsByFB_ID(fb_id)
             }else{
@@ -56,7 +57,10 @@ let UserForm = React.createClass ({
       axios.post('/user_prefs', body)
         .then(function(response) {
           if (response.status===200){
-            localStorage.setItem('goodbyeyall.fb_id',response.data.fb_id)
+            localStorage.setItem('goodbyeyall.fb_id',response.data.fb_id);
+            let currentPhoto = localStorage.getItem('goodbyeyall.profile_photo');
+            (currentPhoto===undefined || currentPhoto==="undefined") ? null : localStorage.setItem('goodbyeyall.profile_photo',response.data.profile_photo);
+            
           }else{
             //throw error here?
           }
@@ -65,20 +69,16 @@ let UserForm = React.createClass ({
           window.location.assign('/')
         })
     },
-    logout:function(event){
-      // console.log('line 65 event is, ', event)
-      localStorage.removeItem('goodbyeyall.fb_id');
-    },
+
     render:function(){
         return (
             <div>
 
                 <form className="user-form" onSubmit={this.submitForm}>
-                    <Link to='/'><Button className="pull-right btn btn-danger" onClick={this.logout}>
-                      logout
-                    </Button></Link>
                     <FormGroup>
-                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences " : "Thank you for signing up. Let us know your preferences" }</p>
+                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences." : "Thank you for signing up. Let us know your preferences" }</p>
+                      <b>Click submit to save your preferences and continue your adventure. </b>
+                      <br/>
                       <ControlLabel>Alert Preferences</ControlLabel>
                       <FormControl.Static>
                         Choose your preferred outbound airports below:
