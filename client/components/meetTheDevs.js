@@ -116,9 +116,9 @@ _getDevInfo() {
 							item={obj.person} 
 							popOverTitle='Technical Knowledge' 
 						>
-							<div>Project One:<a href={obj.gitProjectOneLink}> {' ' + obj.gitProjectOneTitle}</a></div>
-							<div>Project Two:<a href={obj.gitProjectTwoLink}> {' ' + obj.gitProjectTwoTitle}</a></div>
-							<div>Project Three:<a href={obj.gitProjectThreeLink}> {' ' + obj.gitProjectThreeTitle}</a></div>
+							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
+							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
+							<div>Project Three:<a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
 						</BootStrapModal>
 					</div>
 					<div className='icons'>

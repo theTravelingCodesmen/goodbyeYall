@@ -100,7 +100,3 @@ const BootStrapModal = React.createClass({
 
 	})
 	export default BootStrapModal
-
-	  //not being used 
-	  // let tooltip = <Tooltip>wow.</Tooltip>;
-	  // <p>there is a <OverlayTrigger overlay={tooltip}><a href="#">tooltip</a></OverlayTrigger> here</p>
