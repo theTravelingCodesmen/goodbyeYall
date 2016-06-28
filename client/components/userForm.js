@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { Link } from 'react-router'
 import {Button, FormGroup, FormControl, ControlLabel, Checkbox} from 'react-bootstrap';
 import axios from 'axios';
 import queryString from 'query-string';
@@ -16,17 +16,36 @@ let UserForm = React.createClass ({
         'profile_name':null
       }
     },
-    componentWillMount:function(){
-      let fb_id = localStorage.getItem("goodbyeyall.fb_id");
-      if (fb_id){
-        // console.log('line 23 fb id',fb_id);
-        axios.get(`/user_prefs/existing_pref/${fb_id}`)
+    fetchPrefsByFB_ID:function(fb_id){
+      return axios.get(`/user_prefs/existing_pref/${fb_id}`)
           .then((userPrefs)=>{
             this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
             this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
             this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
+            this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
             this.setState({'profile_name': userPrefs.data['profile_name']});
           })
+    },
+    componentWillMount:function(){
+      let fb_id = localStorage.getItem("goodbyeyall.fb_id");
+      let qs = queryString.parse(window.location.hash);
+      let token = qs.access_token;
+      if (token && !fb_id){ // if has token but no fb_id, just need to check if user had registered and in the db
+        axios.get(`/user_prefs/is_exist/${token}`)
+          .then((resp)=>{
+            // console.log('line 35 is user exist', data)
+            if (resp.data.found){
+              fb_id = resp.data.fb_id;
+              localStorage.setItem("goodbyeyall.fb_id", fb_id);
+              //fetch user preferences from db to repopulate form
+              this.fetchPrefsByFB_ID(fb_id)
+            }else{
+              //nothing. no state change
+            }
+          })
+      }
+      if (fb_id){ //already logged in
+        this.fetchPrefsByFB_ID(fb_id)
       }
     },
     submitForm:function(event){
@@ -41,16 +60,25 @@ let UserForm = React.createClass ({
           }else{
             //throw error here?
           }
-
         })
+        .then(()=>{
+          window.location.assign('/')
+        })
+    },
+    logout:function(event){
+      // console.log('line 65 event is, ', event)
+      localStorage.removeItem('goodbyeyall.fb_id');
     },
     render:function(){
         return (
             <div>
 
                 <form className="user-form" onSubmit={this.submitForm}>
+                    <Link to='/'><Button className="pull-right btn btn-danger" onClick={this.logout}>
+                      logout
+                    </Button></Link>
                     <FormGroup>
-                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name : "Thank you for signing up. Let us know your preferences" }</p>
+                      <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences " : "Thank you for signing up. Let us know your preferences" }</p>
                       <ControlLabel>Alert Preferences</ControlLabel>
                       <FormControl.Static>
                         Choose your preferred outbound airports below:
