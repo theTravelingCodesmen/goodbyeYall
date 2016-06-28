@@ -4,12 +4,10 @@ let router = require('express').Router();
 let knex = require('../db/db.js');
 let RequestPromise = require("request-promise");
 let ApiKeys = require('../APIKEYS');
-let accessTokenString;
 
 
 // let testUserId ='10107762894943180';
-// let testAccessToken = '1071311906250508|tcn74O778myEtGAFYWSUu8tBSH8';
-let testNotification = 'Please work';
+let testNotification = "You have been !randomly selected as Paul's test subject";
 
 
 //
@@ -29,8 +27,8 @@ knex.getRelevantFacebookIdsFromDb = function(preferredAirport, preferredPackage)
 	return knex('users')
 		.select('fb_id')
 		.where(conditions)
-	.then( (x) => {console.log(x)} )
-	.then(knex.closeDb)
+	// .then( (x) => {console.log(x)} )
+	// .then(knex.closeDb)
 }
 
 
@@ -58,8 +56,9 @@ function sendFbNotification(receipientUserId, appAccessToken, notification) {
 
 
 //
-//Promise chain that will send a notification to all users
-function facebookNotifyAllUsers(notification) {
+//Promise chain that will send a Facebook notification to all users
+function notifyAllUsers(notification) {
+	let accessTokenString;
 	getAppAccessToken()
 	.then ( (accessToken) => {
 		console.log("Successfully grabbed accessToken:", accessToken)
@@ -74,6 +73,9 @@ function facebookNotifyAllUsers(notification) {
 			.map((obj)=> {
 				return obj.fb_id
 			})
+	.catch( (err) => {
+		console.log("Error fetching fb_ids from database", err)
+	})
 	.then( (userIdArray) => {
 		return Promise.all(userIdArray
 			.map((fb_id)=> {
@@ -85,7 +87,43 @@ function facebookNotifyAllUsers(notification) {
 	})
 }
 
-// facebookNotifyAllUsers("You are being spammed by GoodbyeYall.com")
 
-knex.getRelevantFacebookIdsFromDb('DFWA-sky', 'Seven Wonders')
+//
+//Promise chain that will send a Facebook notification to users who's preferences match conditions
+function notifyRelevantUsers(notification, preferredOutboundAirport, preferredPackage){
+	let accessTokenString;
+	getAppAccessToken()
+	.then ( (accessToken) => {
+		console.log("Successfully grabbed accessToken:", accessToken)
+		return accessToken.toString().slice(13);
+	})
+	.catch( (err) => {
+		console.log("Error getting app access_token", err)
+	})
+	.then( (accessTokenString) => {
+		accessTokenString = accessTokenString;
+		return knex.getRelevantFacebookIdsFromDb(preferredOutboundAirport, preferredPackage)
+			.map((obj)=> {
+				return obj.fb_id
+			})
+	.catch( (err) => {
+		console.log("Error fetching fb_ids from database", err)
+	})
+	.then( (userIdArray) => {
+		return Promise.all(userIdArray
+			.map((fb_id)=> {
+				return sendFbNotification(fb_id, accessTokenString, notification)
+			})
+		)
+	})
+	.catch( (err) => {
+		console.log("Error sending facebook notification to relevant user", err)
+	})
+	.then(knex.closeDb)
+	})
+}
+
+// notifyAllUsers("You are being spammed by GoodbyeYall.com")
+
+// notifyRelevantUsers(testNotification, 'DFWA-sky', 'Seven Wonders')
 
