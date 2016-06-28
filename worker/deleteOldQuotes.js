@@ -1,7 +1,6 @@
 'use strict'
 
 let knex = require('../db/db.js');
-module.exports = {};
 
 knex.delOldQuotes = function(){
 	//get any quotes in the quote tables
@@ -19,16 +18,24 @@ knex.delOldThirtyDayQuote = function(){
 }
 
 
-knex.delOldQuotes()
-	.then(function(data){console.log("Total number of rows deleted: ", data)})
-	.then(function(){
-		console.log('deleted all rows from data table "quotes" that are calculated and more than 30 hours old')
-		console.log('==============================');
-	})
-	knex.delOldThirtyDayQuote()
-	.then(function(data){console.log("Total number of rows deleted: ", data)})
-	.then(function(){
-		console.log('deleted all rows from data table "last_thirty_days" that are more than 30 days old')
-		console.log('==============================');
-	})
-	.then(knex.closeDb)
+//
+//deletes old quotes from 'quotes' and 'last_thirty_days' tables in db
+function deleteOldQuotesWorker(){
+	knex.delOldQuotes()
+		.then(function(data){console.log("Total number of rows deleted: ", data)})
+		.then(function(){
+			console.log('deleted all rows from data table "quotes" that are calculated and more than 30 hours old')
+			console.log('==============================');
+		})
+		knex.delOldThirtyDayQuote()
+		.then(function(data){console.log("Total number of rows deleted: ", data)})
+		.then(function(){
+			console.log('deleted all rows from data table "last_thirty_days" that are more than 30 days old')
+			console.log('==============================');
+		})
+		.then(knex.closeDb)
+}
+
+module.exports = {
+	deleteOldQuotesWorker: deleteOldQuotesWorker
+};

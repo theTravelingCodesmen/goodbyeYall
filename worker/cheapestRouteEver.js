@@ -9,7 +9,6 @@
 'use strict'
 
 let knex = require('../db/db.js');
-module.exports = {};
 
 knex.getCheapestRouteInQuotes = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
@@ -46,8 +45,9 @@ knex.insertCheapestRoute = function(obj){
   })
 }
 
-
-module.exports.cheapestRouteEverWorker = function(){
+//
+//updates cheapest_route_ever table in db
+function cheapestRouteEverWorker() {
 	knex.getCheapestRouteInQuotes().then(function(data){
 		data = data.sort(function(x, y){
 			if (x.originCity < y.originCity)return 1
@@ -67,3 +67,6 @@ module.exports.cheapestRouteEverWorker = function(){
 }
 
 
+module.exports = {
+	cheapestRouteEverWorker: cheapestRouteEverWorker
+};
