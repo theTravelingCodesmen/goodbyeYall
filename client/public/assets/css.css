@@ -39,6 +39,19 @@ body {
   background-repeat: no-repeat;
 }
 
+#profile-photo-li {
+	padding:0 0 0 0;
+}
+
+.avatar {
+	border-radius: 1000px;
+	height: 5rem;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	width: 5rem;
+}
+
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll {
