@@ -1,15 +1,16 @@
 'use strict'
 
 let knex = require('../db/db');
+let CheapestRouteLastThirtyDays = require('./cheapestRouteLastThirtyDays');
 let CheapestRouteEver = require('./cheapestRouteEver');
+let CalculateAverages = require('./calculateAverages');
 let DeleteOldQuotes = require('./deleteOldQuotes');
-let CheapestRouteLastThirtyDays = require('./cheapestRouteLastThirtyDays')
 
 function databaseWorkerManager(){
+	CheapestRouteLastThirtyDays.cheapestRouteLastThirtyDaysWorker()
 	CheapestRouteEver.cheapestRouteEverWorker()
-		.then( () => {
-			return DeleteOldQuotes.deleteOldQuotesWorker()
-		})
+	CalculateAverages.calculateAveragesWorker()
+	DeleteOldQuotes.deleteOldQuotesWorker()
 }
 
-databaseWorkerManager()
+// databaseWorkerManager()
