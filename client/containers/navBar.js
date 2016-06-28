@@ -34,8 +34,8 @@ class NavBar extends React.Component{
             <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/Package/Seven Natural Wonders'}} className="navbar-button"><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
           </NavDropdown>
           <AirportDropdown / >
-          <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>
-         <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'>login</a>
+          { this.props.isLoggedIn ? <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>:null}
+         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'>login</a>: null}
         </Nav>
       </Navbar>
       {this.props.children}
