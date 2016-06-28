@@ -11,6 +11,12 @@ const bioInfo = [
 		languagesExperienced:	'EXPERIENCED:  MongoDB | Heroku | Backbone.js | Mithril | Python | Photoshop',
 		bio: 'stuff',
 		personalStatement: 'hire me',
+		gitProjectOneLink:'',
+		gitProjectOneTitle:'',
+		gitProjectTwoLink:'',
+		gitProjectTwoTitle:'',
+		gitProjectThreeLink:'',
+		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/11080339',
 		linkedinLink: 'https://www.linkedin.com/in/owentemple',
 		gitHubLink: 'https://github.com/owentemp'
@@ -22,6 +28,12 @@ const bioInfo = [
 		languagesExperienced:	'EXPERIENCED: AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
 		bio: 'stuff',
 		personalStatement: 'hire me',
+		gitProjectOneLink:'',
+		gitProjectOneTitle:'',
+		gitProjectTwoLink:'',
+		gitProjectTwoTitle:'',
+		gitProjectThreeLink:'',
+		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/16947596',
 		linkedinLink: 'https://www.linkedin.com/in/paulmschreibe',
 		gitHubLink: 'https://github.com/pschreibs85'
@@ -33,6 +45,12 @@ const bioInfo = [
 		languagesExperienced:	'EXPERIENCED: CSS | Angular | Express | Mithril | Mongoose | Backbone | SQL | websockets | Postgres | Mongo DB | deployment(heroku) | Grunt | bootstrap | mocha/chai',
 		bio: 'stuff',
 		personalStatement: 'hire me',
+		gitProjectOneLink:'',
+		gitProjectOneTitle:'',
+		gitProjectTwoLink:'',
+		gitProjectTwoTitle:'',
+		gitProjectThreeLink:'',
+		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars1.githubusercontent.com/u/17035769',
 		linkedinLink: 'https://www.linkedin.com/in/vidush-rana-579590123',
 		gitHubLink: 'https://github.com/Vidushr'
@@ -44,6 +62,12 @@ const bioInfo = [
 		languagesExperienced:	'EXPERIENCED:	React | Python (pandas, matplotlib/seaborn, NumPy) | Data Structure | jwt | socketIO | bootstrap',
 		bio: 'stuff',
 		personalStatement: 'hire me',
+		gitProjectOneLink:'',
+		gitProjectOneTitle:'',
+		gitProjectTwoLink:'',
+		gitProjectTwoTitle:'',
+		gitProjectThreeLink:'',
+		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/12867107',
 		linkedinLink: 'https://www.linkedin.com/in/scko823',
 		gitHubLink: 'https://github.com/scko823'
@@ -66,27 +90,15 @@ const bioInfo = [
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/16716625',
 		linkedinLink: 'https://www.linkedin.com/in/fitzpatrick1',
 		gitHubLink: 'https://github.com/fitzpatrick1'
-
-
-
-
-
-
-		}
+	}
 ]
 
 class MeetTheDevs extends React.Component {
-
-
 
 _getDevInfo() {
 
 	return bioInfo.map(function(obj){
 
-
-// [obj.gitProjectOneLink,obj.gitProjectOneTitle, obj.gitProjectTwoLink, obj.gitProjectTwoTitle, obj.gitProjectThreeLink, obj.gitProjectThreeTitle]
- 
- 
 		return( 
 			<div className='meet-the-devs'><img src={obj.gitHubPic} className='dev-pic'></img>
 				<div><h5>{obj.person}</h5>

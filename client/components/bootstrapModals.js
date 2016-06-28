@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Popover, Tooltip, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 
 
@@ -42,6 +41,11 @@ const BootStrapModal = React.createClass({
 
 // Modal Header Top
 //{this.props.modalHeaderOne}
+
+//Body text of the top
+//{this.props.topBody}
+//or
+//{this.props.children}
 
 //Modal Header Bottom
 //{this.props.modalHeaderTwo}
