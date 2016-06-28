@@ -62,7 +62,7 @@ let UserForm = React.createClass ({
           }
         })
         .then(()=>{
-          window.location.reload()
+          window.location.assign('/')
         })
     },
     logout:function(event){
