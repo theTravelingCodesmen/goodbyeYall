@@ -122,10 +122,11 @@ function generateAveragesArgumentsArray() {
 //
 //updates 'averages' table by averaging in new quotes from 'quotes' table
 function calculateAveragesWorker() {
-  Promise.all(generateAveragesArgumentsArray().map(function(array) {
+  console.log('calculating averages')
+  return Promise.all(generateAveragesArgumentsArray().map(function(array) {
     return updateOrCalculateAverage.apply(null, array);
   }))
-    .then(knex.closeDb);
+    // .then(knex.closeDb);
 }
 
 module.exports = {

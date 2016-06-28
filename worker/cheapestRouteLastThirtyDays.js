@@ -24,22 +24,23 @@ knex.insertIntoLastThirtyDays = function(obj){
 //
 //finds the cheapest routes in 'quotes' less than 12 hours old and inserts into 'last_thirty_days'
 function cheapestRouteLastThirtyDaysWorker() {
-	knex.getCheapestRouteInQuotesByDate().then(function(data){
-		data = data.sort(function(x, y){
-			if (x.originCity < y.originCity)return 1
-			if (x.originCity > y.originCity)return -1
-			if (x.originCity === y.originCity){
-				if (x.destinationCity < y.destinationCity)return 1
-				if (x.destinationCity > y.destinationCity)return -1
-			}
+	console.log('calculating cheapest routes last thirty days')
+	return knex.getCheapestRouteInQuotesByDate()
+		.then(function(data){
+			data = data.sort(function(x, y){
+				if (x.originCity < y.originCity)return 1
+				if (x.originCity > y.originCity)return -1
+				if (x.originCity === y.originCity){
+					if (x.destinationCity < y.destinationCity)return 1
+					if (x.destinationCity > y.destinationCity)return -1
+				}
+			})
+			console.log(data)
+			return data
 		})
-		console.log(data)
-		return data
-	})
-	.then(function(cheapestQuotes){
-		return Promise.all(cheapestQuotes.map(knex.insertIntoLastThirtyDays))
-	})
-	.then(knex.closeDb);
+		.then(function(cheapestQuotes){
+			return Promise.all(cheapestQuotes.map(knex.insertIntoLastThirtyDays))
+		})
 }
 
 module.exports = {

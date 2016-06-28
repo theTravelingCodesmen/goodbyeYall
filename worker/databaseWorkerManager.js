@@ -6,12 +6,19 @@ let CheapestRouteEver = require('./cheapestRouteEver');
 let CalculateAverages = require('./calculateAverages');
 let DeleteOldQuotes = require('./deleteOldQuotes');
 
-// function databaseWorkerManager(){
-// 	// dont run this piece until wednesday //CheapestRouteLastThirtyDays.cheapestRouteLastThirtyDaysWorker()
 
-// 	CheapestRouteEver.cheapestRouteEverWorker()
-// 	CalculateAverages.calculateAveragesWorker()
-// 	DeleteOldQuotes.deleteOldQuotesWorker()
-// }
+function databaseWorkerManager(){
+	CheapestRouteLastThirtyDays.cheapestRouteLastThirtyDaysWorker()
+		.then( () => {
+			return CheapestRouteEver.cheapestRouteEverWorker()
+		})
+		.then( () => {
+			return CalculateAverages.calculateAveragesWorker()
+		})
+		.then( () => {
+			return DeleteOldQuotes.deleteOldQuotesWorker()
+		})
+		.then(knex.closeDb)
+}
 
-// databaseWorkerManager()
+databaseWorkerManager()

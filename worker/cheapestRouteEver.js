@@ -48,7 +48,7 @@ knex.insertCheapestRoute = function(obj){
 //
 //updates cheapest_route_ever table in db
 function cheapestRouteEverWorker() {
-	knex.getCheapestRouteInQuotes().then(function(data){
+	return knex.getCheapestRouteInQuotes().then(function(data){
 		data = data.sort(function(x, y){
 			if (x.originCity < y.originCity)return 1
 			if (x.originCity > y.originCity)return -1
@@ -63,7 +63,7 @@ function cheapestRouteEverWorker() {
 	.then(function(cheapestQuotes){
 		return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
 	})
-	.then(knex.closeDb);
+	// .then(knex.closeDb);
 }
 
 
