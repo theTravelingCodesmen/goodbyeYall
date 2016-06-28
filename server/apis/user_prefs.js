@@ -47,7 +47,7 @@ router.get('/is_exist/:token', function(req, res){
 router.post('/',function(req, res) {
 	console.log(req.body);
 	let prefsObj=Object.assign({}, req.body);
-	if (req.body.token){
+	if (req.body.token && !req.body.fb_id){
 		requestPromise(`https://graph.facebook.com/me?fields=id,name,email,picture&access_token=${req.body.token}`)
 			.then((data)=>{
 				data = JSON.parse(data);
