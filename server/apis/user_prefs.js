@@ -40,6 +40,7 @@ router.get('/is_exist/:token', function(req, res){
 			return knex('users').where('fb_id',fb_id)
 		})
 		.then((data)=>{
+			console.log('line 43 on user_prefs', data)
 			data.length>0 ? res.json({found:true, fb_id:data[0].fb_id, profile_photo:data[0].profile_photo}) : res.json({found:false})
 		})
 })
@@ -73,6 +74,7 @@ router.post('/',function(req, res) {
 		knex('users').where("fb_id",req.body.fb_id).select()
 			.then((existing_pref)=>{
 				if (existing_pref.length>0){
+					newPref.profile_photo = existing_pref[0].profile_photo;
 					return knex('users').where("fb_id",req.body.fb_id).update(newPref)
 				}
 			})

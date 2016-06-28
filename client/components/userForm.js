@@ -37,6 +37,7 @@ let UserForm = React.createClass ({
             if (resp.data.found){
               fb_id = resp.data.fb_id;
               localStorage.setItem("goodbyeyall.fb_id", fb_id);
+              localStorage.setItem("goodbyeyall.profile_photo", resp.data.profile_photo);
               //fetch user preferences from db to repopulate form
               this.fetchPrefsByFB_ID(fb_id)
             }else{
@@ -56,8 +57,10 @@ let UserForm = React.createClass ({
       axios.post('/user_prefs', body)
         .then(function(response) {
           if (response.status===200){
-            localStorage.setItem('goodbyeyall.fb_id',response.data.fb_id)
-            localStorage.setItem('goodbyeyall.profile_photo',response.data.profile_photo)
+            localStorage.setItem('goodbyeyall.fb_id',response.data.fb_id);
+            let currentPhoto = localStorage.getItem('goodbyeyall.profile_photo');
+            (currentPhoto===undefined || currentPhoto==="undefined") ? null : localStorage.setItem('goodbyeyall.profile_photo',response.data.profile_photo);
+            
           }else{
             //throw error here?
           }
