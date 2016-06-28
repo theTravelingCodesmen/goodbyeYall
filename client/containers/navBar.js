@@ -17,12 +17,11 @@ class NavBar extends React.Component{
   componentWillMount(){
     localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "HOUA-sky"));
     this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
-    console.log(this.props.isLoggedIn + ' line 20')
-    console.log(this.profilePhoto + ' line 21')
+    //console.log(this.props.isLoggedIn + ' line 20')
+    //console.log(this.profilePhoto + ' line 21')
   }
 
   logout(){
-    alert('logging out')
     localStorage.removeItem('goodbyeyall.fb_id');
     this.props.changeLogin(false);
     window.location.assign('/');
@@ -67,5 +66,3 @@ function mapDispatchToProps( dispatch ){
 
  
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
-
-//<LinkContainer className="navbar-button" to={{pathname:'http://www.facebook.com/dialog/oauth?client_id=1071311906250508s&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
