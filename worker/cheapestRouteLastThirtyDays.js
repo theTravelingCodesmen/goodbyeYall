@@ -11,7 +11,7 @@ let knex = require('../db/db.js');
 
 knex.getCheapestRouteInQuotesByDate = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
-	return knex('quotes').where('created_at','>', new Date(Date.now()-24*60*60*1000)).select('originCity','destinationCity').min('price as price').groupBy('originCity', 'destinationCity')
+	return knex('quotes').where('created_at','>', new Date(Date.now()-12*60*60*1000)).select('originCity','destinationCity').min('price as price').groupBy('originCity', 'destinationCity')
 }
 
 knex.insertIntoLastThirtyDays = function(obj){
@@ -21,19 +21,27 @@ knex.insertIntoLastThirtyDays = function(obj){
  	return knex('last_thirty_days').insert(obj)
 }
 
-knex.getCheapestRouteInQuotesByDate().then(function(data){
-	data = data.sort(function(x, y){
-		if (x.originCity < y.originCity)return 1
-		if (x.originCity > y.originCity)return -1
-		if (x.originCity === y.originCity){
-			if (x.destinationCity < y.destinationCity)return 1
-			if (x.destinationCity > y.destinationCity)return -1
-		}
+//
+//finds the cheapest routes in 'quotes' less than 12 hours old and inserts into 'last_thirty_days'
+function cheapestRouteLastThirtyDaysWorker() {
+	knex.getCheapestRouteInQuotesByDate().then(function(data){
+		data = data.sort(function(x, y){
+			if (x.originCity < y.originCity)return 1
+			if (x.originCity > y.originCity)return -1
+			if (x.originCity === y.originCity){
+				if (x.destinationCity < y.destinationCity)return 1
+				if (x.destinationCity > y.destinationCity)return -1
+			}
+		})
+		console.log(data)
+		return data
 	})
-	console.log(data)
-	return data
-})
-.then(function(cheapestQuotes){
-	return Promise.all(cheapestQuotes.map(knex.insertIntoLastThirtyDays))
-})
-.then(knex.closeDb);
+	.then(function(cheapestQuotes){
+		return Promise.all(cheapestQuotes.map(knex.insertIntoLastThirtyDays))
+	})
+	.then(knex.closeDb);
+}
+
+module.exports = {
+	cheapestRouteLastThirtyDaysWorker: cheapestRouteLastThirtyDaysWorker
+}
