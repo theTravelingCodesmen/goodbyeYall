@@ -376,11 +376,6 @@ Promise.all(destinationsArray
   .then(knex.closeDb)
 
 
-// knex.insertDestination(christTheRedeemer)
-//   .then(knex.closeDb)
-//   .catch(function (error) {
-//     console.log("Error while inserting destination:",error);
-//   });
 
 
 

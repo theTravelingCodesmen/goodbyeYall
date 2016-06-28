@@ -6,7 +6,6 @@ let RequestPromise = require("request-promise");
 let ApiKeys = require('../APIKEYS');
 
 
-// let testUserId ='10107762894943180';
 let testNotification = "You have been !randomly selected as Paul's test subject";
 
 
@@ -27,8 +26,6 @@ knex.getRelevantFacebookIdsFromDb = function(preferredAirport, preferredPackage)
 	return knex('users')
 		.select('fb_id')
 		.where(conditions)
-	// .then( (x) => {console.log(x)} )
-	// .then(knex.closeDb)
 }
 
 
