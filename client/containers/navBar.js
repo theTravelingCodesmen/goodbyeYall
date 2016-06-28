@@ -8,10 +8,14 @@ import { LinkContainer } from 'react-router-bootstrap';
 import AirportDropdown from './airportDropdown';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { IS_LOGGED_IN, changeLogin } from '../actions/isloggedIn'
+
+
 
 class NavBar extends React.Component{
   componentWillMount(){
     localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "HOUA-sky"));
+    console.log(this.props.isLoggedIn + ' line 17')
   }
   render(){
     return (
@@ -39,7 +43,18 @@ class NavBar extends React.Component{
   )};
 };
 
-export default NavBar;
+function mapStateToProps ( state ){
+  return {
+    isLoggedIn: state.isLoggedIn.isLoggedIn
+  }
+}
+
+function mapDispatchToProps( dispatch ){
+  return bindActionCreators({ changeLogin: changeLogin }, dispatch)
+}
 
 
-          //<LinkContainer className="navbar-button" to={{pathname:'http://www.facebook.com/dialog/oauth?client_id=1071311906250508s&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
+
+//<LinkContainer className="navbar-button" to={{pathname:'http://www.facebook.com/dialog/oauth?client_id=1071311906250508s&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
