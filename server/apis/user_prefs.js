@@ -28,11 +28,26 @@ router.get('/existing_pref/:fb_id',function(req, res) {
 		)
 })
 
+router.get('/is_exist/:token', function(req, res){
+	let fb_id;
+	requestPromise(`https://graph.facebook.com/me?fields=id&access_token=${req.params.token}`)
+		.then((data)=>{
+			data = JSON.parse(data);
+			// console.log('line 36 data get back from fb graph with token', data)
+			if (data.id){fb_id = data.id}
+		})
+		.then(()=>{
+			return knex('users').where('fb_id',fb_id)
+		})
+		.then((data)=>{
+			data.length>0 ? res.json({found:true, fb_id:data[0].fb_id}) : res.json({found:false})
+		})
+})
+
 router.post('/',function(req, res) {
 	console.log(req.body);
 	let prefsObj=Object.assign({}, req.body);
 	if (req.body.token){
-		// if token in req body, we can assuming user is logged in the first time
 		requestPromise(`https://graph.facebook.com/me?fields=id,name,email,picture&access_token=${req.body.token}`)
 			.then((data)=>{
 				data = JSON.parse(data);
