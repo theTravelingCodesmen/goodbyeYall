@@ -74,7 +74,7 @@ router.use('/selectpackage/:packagename', function(req, res){
                      // destination.temperature = {};
                      // destination.temperature.high = weatherData.trip.temp_high.avg.F
                      // destination.temperature.low = weatherData.trip.temp_low.avg.F
-                     // return destination
+                     return destination
                  // })
              }))
      })
