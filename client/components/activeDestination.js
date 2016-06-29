@@ -1,12 +1,12 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import D3CacheGraph from './d3CacheGraph';
 import FlightData from './flightData';
 import { connect } from 'react-redux';
 import numberToMonth from '../helper/number_to_month';
 import airportToCity from '../helper/airport_to_city';
+import BootStrapModal from './bootstrapModals';
 
 
 class ActiveDestination extends React.Component {
@@ -29,6 +29,24 @@ class ActiveDestination extends React.Component {
 						<div>
 							<a href="https://www.skyscanner.net" target="_blank"><p>Powered By</p><img src="/assets/images/Skyscanner-Logo-Charcoal.png"/></a>
 						</div>
+						<BootStrapModal bTitle='IMPORTANT! Country Travel info' popoverLink={''}>
+
+							<div>Languages: {this.props.lang.map(obj => {
+								return <div>{obj.language}</div>
+							}) }
+							</div>
+							<div>Electric Plugs: {this.props.plugs.map(element => {
+								return <div>{element}</div>
+							}) }</div>
+							<div>Calling Code: {this.props.callingCode}</div>
+							<div>Vaccinations: {this.props.vaccinations.map(obj => {
+								return <p> {obj.name}</p>
+							})  }
+							</div>
+							<div>Currecny Name: {this.props.currencyName }</div>
+							<div>currencyRate/USD: {this.props.currencyRate}</div>
+							<div>Water Saftey:{this.props.water}</div>
+						</BootStrapModal>
 					</div>
 				</div>
 			</div>
@@ -38,3 +56,8 @@ class ActiveDestination extends React.Component {
 
 export default ActiveDestination;
 /*<p className="historical-weather"> Average temperature for this period: hi {this.props.temperatures.high}&deg;F low {this.props.temperatures.low}&deg;F</p>*/
+
+
+
+
+

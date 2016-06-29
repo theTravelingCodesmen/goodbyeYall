@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Carousel} from 'react-bootstrap';
 import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
