@@ -1,16 +1,15 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom'
-import CardTitle from '../components/cardTitle'
-import PackageDestinations from './packageDestinations'
-import axios from 'axios'
+import CardTitle from '../components/cardTitle';
+import PackageDestinations from './packageDestinations';
+import axios from 'axios';
 import {createStore, applyMiddleware } from 'redux';
 import reducers from '../reducers';
 import promise from 'redux-promise';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage'
+import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
 
 
 const createStoreWithMiddleware = applyMiddleware(

@@ -19,7 +19,8 @@ const bioInfo = [
 		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/11080339',
 		linkedinLink: 'https://www.linkedin.com/in/owentemple',
-		gitHubLink: 'https://github.com/owentemp'
+		gitHubLink: 'https://github.com/owentemp',
+		resumeLink: ''
 	},
 		{person: 'Paul',
 		label: 'Bio',
@@ -36,7 +37,8 @@ const bioInfo = [
 		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/16947596',
 		linkedinLink: 'https://www.linkedin.com/in/paulmschreibe',
-		gitHubLink: 'https://github.com/pschreibs85'
+		gitHubLink: 'https://github.com/pschreibs85',
+		resumeLink: ''
 	},
 		{person: 'Vidush',
 		label: 'Bio',
@@ -53,7 +55,8 @@ const bioInfo = [
 		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars1.githubusercontent.com/u/17035769',
 		linkedinLink: 'https://www.linkedin.com/in/vidush-rana-579590123',
-		gitHubLink: 'https://github.com/Vidushr'
+		gitHubLink: 'https://github.com/Vidushr',
+		resumeLink: ''
 	},
 		{person: 'Sin',
 		label: 'Bio',
@@ -70,7 +73,8 @@ const bioInfo = [
 		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/12867107',
 		linkedinLink: 'https://www.linkedin.com/in/scko823',
-		gitHubLink: 'https://github.com/scko823'
+		gitHubLink: 'https://github.com/scko823',
+		resumeLink: ''
 	},
 		{person:'James', 
 		label: 'Bio.',
@@ -89,7 +93,8 @@ const bioInfo = [
 		gitProjectThreeTitle:'Marshmallow',
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/16716625',
 		linkedinLink: 'https://www.linkedin.com/in/fitzpatrick1',
-		gitHubLink: 'https://github.com/fitzpatrick1'
+		gitHubLink: 'https://github.com/fitzpatrick1',
+		resumeLink: 'https://drive.google.com/open?id=0B4nZKPBqvvktT2x5RHV0d3labFU'
 	}
 ]
 
@@ -124,6 +129,7 @@ _getDevInfo() {
 					<div className='icons'>
 						<div> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
 						<div> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
+						<div> <a href={obj.resumeLink} target='_blank'> ResumeLink</a></div>
 					</div>
 				</div>
 			</div>	

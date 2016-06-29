@@ -61,7 +61,6 @@ router.use('/selectpackage/:packagename', function(req, res){
      .then((data) => {
          return Promise.all(
              data.map((destination) =>{
-                return destination
                 // let inDate = destination.bookDetails.outboundDate.toJSON().slice(5,10).replace("-","")
                 // let outDate = destination.bookDetails.inboundDate.toJSON().slice(5,10).replace("-","")
                 // console.log(inDate,outDate);
@@ -75,12 +74,36 @@ router.use('/selectpackage/:packagename', function(req, res){
                      // destination.temperature = {};
                      // destination.temperature.high = weatherData.trip.temp_high.avg.F
                      // destination.temperature.low = weatherData.trip.temp_low.avg.F
-                     // return destination
+                     return destination
                  // })
              }))
      })
+     .then((data) => {
+        return Promise.all(
+            data.map((destination) => {
+                return requestPromise.get(`https://travelbriefing.org/${destination.country}?format=json`)
+                .then(data => {
+                    return JSON.parse(data)
+                })
+                .then(countryData =>{
+
+                    destination.countryData = {};
+                    destination.countryData.electricity = {};
+                    destination.countryData.telephone = {};
+                    destination.countryData.currency = {};
+
+                    destination.countryData.languages = countryData.language
+                    destination.countryData.electricity.plugs = countryData.electricity.plugs
+                    destination.countryData.telephone.callingcode = countryData.telephone.calling_code
+                    destination.countryData.vaccinations = countryData.vaccinations
+                    destination.countryData.currency.name = countryData.currency.name
+                    destination.countryData.currency.rate = countryData.rate
+                    destination.countryData.water = countryData.water.short
+                    return destination
+                })
+            }))
+     })
          .then(data => {
-             // console.log(data)
              return data
          })
      .then( (data) => {
