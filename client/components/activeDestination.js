@@ -16,7 +16,7 @@ class ActiveDestination extends React.Component {
 			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
 				<div className='intro'>
 					<h1 className='destination-name'>{this.props.title}</h1>
-					<h3 className='destination-location'>{this.props.city_name + ', ' + this.props.country}</h3>
+					<h3 className='destination-location'>{this.props.city_name}</h3>
 					<p className='destination-info'> {this.props.intro}</p>
 				</div>
 				<div className='flight-info-container'>
