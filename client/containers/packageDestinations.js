@@ -11,9 +11,6 @@ import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
 // in the initial state, it should render the hard coded data
 
 class PackageDestinations extends React.Component {
-	componentWillMount(){
-		return axios.get(`/packages/selectpackage/${this.props.package_name}`)
-	}
 	render() {
 		return(
 			<div className='package-view'>
