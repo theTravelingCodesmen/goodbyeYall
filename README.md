@@ -1,4 +1,5 @@
-# goodbyeYall
+# :airplane::airplane:goodbyeYall :airplane::airplane:
+###We do the work, you do the travel.
 Helping people achieve their travel goals
 
 ### Development Team
@@ -12,9 +13,9 @@ Helping people achieve their travel goals
 http://www.goodbyeyall.com
 (MKS36 Thesis Project)
 
-GoodbyeYall is backend-intensive travel app that analyzes flight quotes to 28 of the most popular global destinations to identify the least expensive time to fly in the next 12 months.
+GoodbyeYall is backend-intensive travel app that analyzes flight quotes to 28 of the most popular global destinations to identify the least expensive time to fly in the next 12 months. :tada::tada:
 
-We do the work, you do the travel.
+
 
 ###Getting Started
 
@@ -26,7 +27,7 @@ The front-end accepts user input (travel package selection), and then sends the 
 
 The backend web server then queries the database for all saved flight quotes and average prices for that route by month retrieved by the worker.
 
-Using this response info, the frontend displays the desirable data in a D3 line chart view, and also generates a Buy Now buttton fo rthe cheapest flight available for that destination in the next 12 months. Users can toggle between views of each destination within a given travel package.
+Using this response info, the frontend displays the desirable data in a D3 line chart view, and also generates a 'Buy Now' button offering the cheapest flight available for that route in the next 12 months. Users can toggle between views of each destination within a given travel package.
 
 
 ### Installing Codebase
