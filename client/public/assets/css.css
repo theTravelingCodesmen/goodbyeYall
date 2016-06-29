@@ -203,7 +203,7 @@ body {
 	font-weight:bold;
 }
 /* path for svg graph */
-path {
+.line {
   stroke: steelblue;
   stroke-width: 2;
   fill: none;
