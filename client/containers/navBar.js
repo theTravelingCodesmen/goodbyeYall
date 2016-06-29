@@ -7,7 +7,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import AirportDropdown from './airportDropdown';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { IS_LOGGED_IN, changeLogin } from '../actions/isloggedIn';
+import { IS_LOGGED_IN, changeLogin } from '../actions/isLoggedIn';
 
 
 class NavBar extends React.Component{
