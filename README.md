@@ -46,12 +46,11 @@ Then run webpack and have webpack watch for file changes
 ```
 npm run build
 ```
-In a seperate tab in the terminal, start the development server
+In a separate tab in the terminal, start the development server
 ```
 npm run dev
 ```
 Connect to localhost:4000 in your browser
-
 
 
 Built With
