@@ -29,7 +29,8 @@ knex.insertCheapestRoute = function(obj){
 			return knex('cheapest_route_ever').insert(obj)
 		}
 		else if (currentCheapest.length===1){
-			if(obj.cheapest_price < currentCheapest[0].cheapest_price){
+			if(obj.cheapest_price <= currentCheapest[0].cheapest_price){
+				obj.created_at = knex.fn.now();
 				return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
 			}
 			else{
@@ -42,24 +43,32 @@ knex.insertCheapestRoute = function(obj){
   .catch(function(err){
 		console.log('line 37 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
   })
-
-
 }
 
-knex.getCheapestRouteInQuotes().then(function(data){
-	data = data.sort(function(x, y){
-		if (x.originCity < y.originCity)return 1
-		if (x.originCity > y.originCity)return -1
-		if (x.originCity === y.originCity){
-			if (x.destinationCity < y.destinationCity)return 1
-			if (x.destinationCity > y.destinationCity)return -1
-		}
+//
+//updates cheapest_route_ever table in db
+function cheapestRouteEverWorker() {
+	return knex.getCheapestRouteInQuotes().then(function(data){
+		data = data.sort(function(x, y){
+			if (x.originCity < y.originCity)return 1
+			if (x.originCity > y.originCity)return -1
+			if (x.originCity === y.originCity){
+				if (x.destinationCity < y.destinationCity)return 1
+				if (x.destinationCity > y.destinationCity)return -1
+			}
+		})
+		console.log(data)
+		return data
 	})
-	console.log(data)
-	return data
-})
-.then(function(cheapestQuotes){
-	return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
-})
-.then(knex.closeDb);
+	.then(function(cheapestQuotes){
+		return Promise.all(cheapestQuotes.map(knex.insertCheapestRoute))
+	})
+}
 
+
+cheapestRouteEverWorker();
+
+
+module.exports = {
+	cheapestRouteEverWorker: cheapestRouteEverWorker
+};

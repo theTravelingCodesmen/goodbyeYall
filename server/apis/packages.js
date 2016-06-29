@@ -61,21 +61,21 @@ router.use('/selectpackage/:packagename', function(req, res){
      .then((data) => {
          return Promise.all(
              data.map((destination) =>{
-                let inDate = destination.bookDetails.outboundDate.toJSON().slice(5,10).replace('-','')
-                let outDate = destination.bookDetails.inboundDate.toJSON().slice(5,10).replace('-','')
+                // let inDate = destination.bookDetails.outboundDate.toJSON().slice(5,10).replace("-","")
+                // let outDate = destination.bookDetails.inboundDate.toJSON().slice(5,10).replace("-","")
                 // console.log(inDate,outDate);
                 // console.log('line 62===================',inDate, outDate);
-                 return requestPromise.get(`http://api.wunderground.com/api/${WEATHER_API}/planner_${inDate}${outDate}/q/${destination.weather}.json`)
-                 .then(data => {
-                     return JSON.parse(data)
-                 })
-                 .then(weatherData => {
-                     // console.log('line 63 package.js', weatherData)
+                 // return requestPromise.get(`http://api.wunderground.com/api/${WEATHER_API}/planner_${inDate}${outDate}/q/${destination.weather}.json`)
+                 // .then(data => {
+                 //     return JSON.parse(data)
+                 // })
+                 // .then(weatherData => {
+                     // console.log("line 63 package.js", weatherData)
                      // destination.temperature = {};
                      // destination.temperature.high = weatherData.trip.temp_high.avg.F
                      // destination.temperature.low = weatherData.trip.temp_low.avg.F
-                     return destination
-                 })
+                     // return destination
+                 // })
              }))
      })
      .then((data) => {

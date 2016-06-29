@@ -4,12 +4,28 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import AirportDropdown from '../containers/airportDropdown';
+import AirportDropdown from './airportDropdown';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { IS_LOGGED_IN, changeLogin } from '../actions/isloggedIn';
+import Logout from '../components/logout';
+
+
 
 class NavBar extends React.Component{
   componentWillMount(){
     localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "HOUA-sky"));
+    this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
+    //console.log(this.props.isLoggedIn + ' line 20')
+    //console.log(this.profilePhoto + ' line 21')
   }
+
+  logout(){
+    localStorage.removeItem('goodbyeyall.fb_id');
+    this.props.changeLogin(false);
+    window.location.assign('/');
+  }
+
   render(){
     return (
     <div className="container">
@@ -27,8 +43,8 @@ class NavBar extends React.Component{
             <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/Package/Seven Natural Wonders'}} className="navbar-button"><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
           </NavDropdown>
           <AirportDropdown / >
-          <LinkContainer className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#">Preferences</NavItem></LinkContainer>
-          <LinkContainer className="navbar-button" to={{pathname:'/login'}}><NavItem eventKey={2} href="#"><img src="/assets/images/facebookLoginBtn.png" /></NavItem></LinkContainer>
+          { this.props.isLoggedIn ? <LinkContainer id="profile-photo-li" className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#" ><img className='avatar' src={this.profilePhoto}></img></NavItem></LinkContainer>:null}
+         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'><img id="fb-login-button" src="/assets/images/facebookLoginBtn.png" /></a>: <Logout onClick={this.logout.bind(this)}/>}
         </Nav>
       </Navbar>
       {this.props.children}
@@ -36,4 +52,16 @@ class NavBar extends React.Component{
   )};
 };
 
-export default NavBar;
+function mapStateToProps ( state ){
+  return {
+    isLoggedIn: state.isLoggedIn.isLoggedIn
+  }
+}
+
+function mapDispatchToProps( dispatch ){
+  return bindActionCreators({ changeLogin: changeLogin }, dispatch)
+}
+
+
+ 
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

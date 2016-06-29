@@ -119,12 +119,19 @@ function generateAveragesArgumentsArray() {
   return results
 }
 
-Promise.all(generateAveragesArgumentsArray().map(function(array) {
-  return updateOrCalculateAverage.apply(null, array);
-}))
-  .then(knex.closeDb);
+//
+//updates 'averages' table by averaging in new quotes from 'quotes' table
+function calculateAveragesWorker() {
+  console.log('calculating averages')
+  return Promise.all(generateAveragesArgumentsArray().map(function(array) {
+    return updateOrCalculateAverage.apply(null, array);
+  }))
+}
 
+calculateAveragesWorker();
 
-// updateOrCalculateAverage("06","2016","DFWA-sky","BJSA-sky").then(knex.closeDb)
+module.exports = {
+  calculateAveragesWorker: calculateAveragesWorker
+}
 
 
