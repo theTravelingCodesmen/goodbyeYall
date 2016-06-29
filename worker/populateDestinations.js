@@ -2,7 +2,6 @@
 
 let knex = require ('../db/db');
 
-knex.truncateTable('destinations');
 
 
 let christTheRedeemer = {
@@ -369,8 +368,6 @@ let destinationAirportArray = destinationsArray
     }
   }, [])
 
-  // console.log(destinationAirportArray.length)
-  // console.log(destinationsArray.length)
 
 // insert destination into destinations database
 knex.insertDestination = function(destinationObject) {
@@ -391,7 +388,9 @@ function populateDestinations() {
     .then(knex.closeDb)
 }
 
+knex.truncateTable('destinations');
 populateDestinations()
+
 
 
 
