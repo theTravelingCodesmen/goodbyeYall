@@ -10,7 +10,8 @@ import reducers from '../reducers';
 import promise from 'redux-promise';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage'
+import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
+import BreadCrumb from '../components/breadCrumbs'
 
 
 const createStoreWithMiddleware = applyMiddleware(
@@ -40,6 +41,7 @@ class CardBox extends React.Component {
 			<div className='seven-view'>
 				<CardTitle title={this.props.package_name} /> 
 				<PackageDestinations  active={this.props.active} passive={this.props.passive} package_name={this.props.params.package_name} className='row' />
+				<BreadCrumb/>
 			</div>
 		)
 	}

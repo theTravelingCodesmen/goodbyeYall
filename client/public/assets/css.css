@@ -326,3 +326,10 @@ path {
     word-wrap: break-word;
 }
 
+.bread-crumb {
+	position: absolute;
+	left: 0px
+	min-height: 300px;
+	word-wrap: break-word;
+	z-index: 10;
+}

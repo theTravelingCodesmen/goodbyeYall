@@ -30,7 +30,7 @@ class ActiveDestination extends React.Component {
 						<div>
 							<a href="https://www.skyscanner.net" target="_blank"><p>Powered By</p><img src="/assets/images/Skyscanner-Logo-Charcoal.png"/></a>
 						</div>
-						<BootStrapModal bTitle='IMPORTANT! Country Travel info'>
+						<BootStrapModal bTitle='IMPORTANT! Country Travel info' popoverLink={''}>
 
 							<div>Languages: {this.props.lang.map(obj => {
 								return <div>{obj.language}</div>
@@ -47,7 +47,6 @@ class ActiveDestination extends React.Component {
 							<div>Currecny Name: {this.props.currencyName }</div>
 							<div>currencyRate/USD: {this.props.currencyRate}</div>
 							<div>Water Saftey:{this.props.water}</div>
-
 						</BootStrapModal>
 					</div>
 				</div>

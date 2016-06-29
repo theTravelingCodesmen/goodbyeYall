@@ -52,7 +52,6 @@ class PackageDestinations extends React.Component {
                 currencyName={dest.countryData.currency.name}
                 currencyRate={dest.countryData.currency.rate}
                	water={dest.countryData.water}
-               	popOverTitle={null}
 							/>
 						})
 					}
