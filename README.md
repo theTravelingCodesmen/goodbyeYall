@@ -75,19 +75,18 @@ Frontend:
 
 API Reference:
 
-  Backend APIs to collect flight quotes
+Backend APIs to collect flight quotes
 
-- Skyscanner Flight API:
-http://business.skyscanner.net/portal/en-GB/Documentation/ApiOverviewhttp://developer.active.com/docs/read/Campground_Search_API
+Skyscanner Flight API:
+- http://business.skyscanner.net/portal/en-GB/Documentation/ApiOverviewhttp://developer.active.com/docs/read/Campground_Search_API
 
 
+Front-end APIs to weather and and travel requirements
 
-  Front-end APIs to weather and and travel requirements
-
-- Weather API:
+Weather API:
 - http://developer.active.com/docs/read/Campsite_Search_API
 
-- Travel Requirements API:
+Travel Requirements API:
 - https://travelbriefing.org/api
 
 
