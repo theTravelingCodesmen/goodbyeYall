@@ -43,7 +43,7 @@ function cheapestRouteLastThirtyDaysWorker() {
 		})
 }
 
-cheapestRouteLastThirtyDaysWorker()
+// cheapestRouteLastThirtyDaysWorker()
 
 module.exports = {
 	cheapestRouteLastThirtyDaysWorker: cheapestRouteLastThirtyDaysWorker
