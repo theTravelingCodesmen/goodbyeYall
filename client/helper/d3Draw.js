@@ -130,7 +130,7 @@ function d3LineDraw (targetDOM, endpoint) {
           .attr("transform", "translate("+ 0 +","+(height/2)+")rotate(-90)")  // text is drawn off the screen top left, move down and out and rotate
           .text("Price");
 
-      let $infoboxDOM = $("<div'>Test</div>");
+      let $infoboxDOM = $("<div>Test</div>");
       $infoboxDOM.addClass('infobox'+targetDOM);
       $("."+targetDOM).append($infoboxDOM);
 
