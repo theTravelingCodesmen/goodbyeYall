@@ -1,4 +1,5 @@
-# goodbyeYall
+# :airplane::airplane:goodbyeYall :airplane::airplane:
+###We do the work, you do the travel.
 Helping people achieve their travel goals
 
 ### Development Team
@@ -12,9 +13,9 @@ Helping people achieve their travel goals
 http://www.goodbyeyall.com
 (MKS36 Thesis Project)
 
-GoodbyeYall is backend-intensive travel app that analyzes flight quotes to 28 of the most popular global destinations to identify the least expensive time to fly in the next 12 months.
+GoodbyeYall is backend-intensive travel app that analyzes flight quotes to 28 of the most popular global destinations to identify the least expensive time to fly in the next 12 months. :tada::tada:
 
-####We do the work, you do the travel.
+
 
 ###Getting Started
 
