@@ -9,6 +9,7 @@ Helping people achieve their travel goals
 ######[Vidush Rana](https://github.com/Vidushr)
 
 #GoodbyeYall Cheap Airfare Finder
+http://www.goodbyeyall.com
 (MKS36 Thesis Project)
 
 GoodbyeYall is backend-intensive travel app that analyzes flight quotes to 28 of the most popular global destinations to identify the least expensive time to fly in the next 12 months.
@@ -50,7 +51,7 @@ In a seperate tab in the terminal, start the development server
 npm run dev
 ```
 Connect to localhost:4000 in your browser
-```
+
 
 
 Built With
@@ -60,13 +61,13 @@ PostgreSGL
 Express
 React JS
 Bootstrap
-
+D3 JS
 
 Project TODO:
 
 Backend:
 
-- Note: The backend is already feature complete. The only improvement necessary would be to schedule worker/cggrabber.js to run periodically using a process scheduler.
+- Note: The backend is already feature complete.
 
 Frontend:
 
@@ -88,7 +89,7 @@ http://business.skyscanner.net/portal/en-GB/Documentation/ApiOverviewhttp://deve
 - http://developer.active.com/docs/read/Campsite_Search_API
 
 - Travel Requirements API:
--
+- https://travelbriefing.org/api
 
 
 
