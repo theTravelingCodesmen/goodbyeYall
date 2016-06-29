@@ -17,7 +17,7 @@ class NavBar extends React.Component{
   componentWillMount(){
     localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "HOUA-sky"));
     this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
-    //console.log(this.props.isLoggedIn + ' line 20')
+    // console.log(this + ' line 20')
     //console.log(this.profilePhoto + ' line 21')
   }
 
@@ -44,8 +44,12 @@ class NavBar extends React.Component{
             <MenuItem eventKey={3.2}><LinkContainer to={{pathname:'/Package/Seven Natural Wonders'}} className="navbar-button"><div>Seven Natural Wonders</div></LinkContainer></MenuItem>
           </NavDropdown>
           <AirportDropdown / >
-          { this.props.isLoggedIn ? <LinkContainer id="profile-photo-li" className="navbar-button" to={{pathname:'/Preferences'}}><NavItem eventKey={4} href="#" ><img className='avatar' src={this.profilePhoto}></img></NavItem></LinkContainer>:null}
-         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'><img id="fb-login-button" src="/assets/images/facebookLoginBtn.png" /></a>: <Logout onClick={this.logout.bind(this)}/>}
+          { this.props.isLoggedIn ? 
+            <NavDropdown className="navbar-button" eventKey={4} href="#" id="basic-nav-dropdown" title={<img className='avatar' src={this.profilePhoto}></img>}>
+              <MenuItem eventKey={4.1}><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button"><div>Preferences</div></LinkContainer></MenuItem>
+              <MenuItem eventKey={4.2} className="logout-button"><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button" ><div onClick={this.logout.bind(this)}>Logout</div></LinkContainer></MenuItem> 
+            </NavDropdown>:null}       
+         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'><img className="fb-login-button" src="/assets/images/facebookLoginBtn.png" /></a> : null}
         </Nav>
       </Navbar>
       {this.props.children}
