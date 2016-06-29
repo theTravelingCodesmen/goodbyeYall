@@ -2,7 +2,6 @@
 
 let knex = require ('../db/db');
 
-knex.truncateTable('destinations');
 
 
 let christTheRedeemer = {
@@ -21,7 +20,7 @@ let machuPicchu = {
   title: "Machu Picchu",
   airport_code: "CUZ-sky",
   country: "Peru",
-  city_name: "50mi Northwest of Cuzco",
+  city_name: "50 miles Northwest of Cuzco",
   package_group: "Seven Wonders",
   intro: "In the 15th century, the Incan Emperor Pachacútec built a city in the clouds on the mountain known as Machu Picchu (“old mountain”). This extraordinary settlement lies halfway up the Andes Plateau, deep in the Amazon jungle and above the Urubamba River. It was probably abandoned by the Incas because of a smallpox outbreak and, after the Spanish defeated the Incan Empire, the city remained ‘lost’ for over three centuries. It was rediscovered by Hiram Bingham in 1911.",
   main_image_url: "/assets/images/machu_picchu.png",
@@ -132,7 +131,7 @@ let grandCanyon = {
   title:"The Grand Canyon",
   airport_code:"PHXA-sky",
   country:"United States of America",
-  city_name:"70mi north of Flagstaff",
+  city_name:"70 miles north of Flagstaff",
   package_group: "Seven Natural Wonders",
   intro:"Located in North America is the Grand Canyon, extending 400 kilometres through the Colorado Plateau in northwest Arizona. The canyon is 6 to 30 kilometres wide and 1.6 kilometres deep. The canyon is an erosion formed by water, ice and wind and is considered one of the 7 wonders. The layers of sedimentary rock were formed over millions of years ago and provide significant insight into the earth’s geologic timescale.",
   main_image_url:"/assets/images/grand_canyon.png",
@@ -156,7 +155,7 @@ let paricutin = {
   title:"Parícutin Volcano",
   airport_code:"MEX-sky",
   country:"Mexico",
-  city_name:"28mi west of Uruapan",
+  city_name:"28 miles west of Uruapan",
   package_group: "Seven Natural Wonders",
   intro:"In 1943 the Parícutin Volcano erupted in the state of Michoacán, Mexico. The first man to witness the eruption was a Tarascan Indian farmer, named Dominic Pulido. The Parîcutin is a Monogenetic cone, which means it stems from a single point of eruption. The volcano now stands at 410 metres above ground. Its hardened lava covers 16 square kilometres and its volcanic sand covers 32 square kilometres. Named after a small Tarascan Indian village, Parîcutin is now counted as one of the seven wonders.",
   main_image_url:"/assets/images/paricutin.png",
@@ -369,8 +368,6 @@ let destinationAirportArray = destinationsArray
     }
   }, [])
 
-  // console.log(destinationAirportArray.length)
-  // console.log(destinationsArray.length)
 
 // insert destination into destinations database
 knex.insertDestination = function(destinationObject) {
@@ -383,15 +380,17 @@ function populateDestinations() {
       return knex.insertDestination(destination);
     }))
     .then(function () {
-        console.log("Inserted all 14 destinations");
+      console.log("Inserted all " + destinationsArray.length + " destinations");
     })
     .catch(function(error) {
-        console.log("There was an error inserting all 14 destinations:", error);
+      console.log("There was an error inserting all " + destinationsArray.length + " destinations:", error);
     })
     .then(knex.closeDb)
 }
 
+knex.truncateTable('destinations');
 populateDestinations()
+
 
 
 

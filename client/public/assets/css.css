@@ -2,7 +2,7 @@
 /*//////////////////////////////////////////*/
 .logo {
 	font-weight: bold;
-	font-size: 1.2em;
+	font-size: 1.8em;
   display:flex;
 }
 
@@ -15,6 +15,12 @@
 	cursor: pointer;
 	font-weight: bolder;
 	color: black;
+}
+
+.navbar-button{
+	padding: 0em .5em 0em .5em;
+	font-size: 1.2em;
+	font-family: initial;
 }
 
 .navbar-button:hover {
@@ -33,10 +39,15 @@
 	transform-origin: left bottom 0;*/
 }
 
-body {
-  background-image: url('/assets/images/map.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
+.logout-button {
+	border-top-color: black;
+	border-top-style: solid;
+	border-top-color: black;
+	border-top-width: 1px;
+}
+
+.fb-login-button{
+	margin: .85em
 }
 
 #profile-photo-li {
@@ -45,20 +56,15 @@ body {
 
 .avatar {
 	border-radius: 1000px;
-	height: 5rem;
+	height: 1.8em;
+	width: 1.8em;
 	margin: 0 auto;
-	overflow: hidden;
-	position: relative;
-	width: 5rem;
 }
 
-.btn-danger{
-	margin: 0.68em;
-	margin-left: 1.5em;
-}
-
-#fb-login-button{
-	margin: .85em
+body {
+  background-image: url('/assets/images/map.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 /*PHOTO ROLL ELEMENTS////////////////////////*/

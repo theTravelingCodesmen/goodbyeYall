@@ -66,7 +66,7 @@ function cheapestRouteEverWorker() {
 }
 
 
-cheapestRouteEverWorker();
+// cheapestRouteEverWorker();
 
 
 module.exports = {

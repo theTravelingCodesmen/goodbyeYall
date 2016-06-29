@@ -128,7 +128,7 @@ function calculateAveragesWorker() {
   }))
 }
 
-calculateAveragesWorker();
+// calculateAveragesWorker();
 
 module.exports = {
   calculateAveragesWorker: calculateAveragesWorker

@@ -38,7 +38,7 @@ function deleteOldQuotesWorker(){
 	])
 }
 
-deleteOldQuotesWorker();
+// deleteOldQuotesWorker();
 
 
 module.exports = {
