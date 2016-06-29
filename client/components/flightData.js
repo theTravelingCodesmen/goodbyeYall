@@ -2,7 +2,6 @@
 "use strict"
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import getd3LivePriceGraph from '../helper/d3Draw';
 
 

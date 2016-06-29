@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';

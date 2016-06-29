@@ -1,7 +1,6 @@
 'use strict'
 import axios from 'axios';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PassiveDestination from './passiveDestination';
 import ActiveDestination from '../components/activeDestination';
 import { connect } from 'react-redux';

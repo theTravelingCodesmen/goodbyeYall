@@ -1,8 +1,6 @@
 'use strict'
 
 import React from 'react';
-import ReactDom from 'react-dom';
-// import CardBox from './cardBox'
 import ImageCarousel from './imageCarousel';
 import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';

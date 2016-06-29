@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import D3CacheGraph from './d3CacheGraph';
 import FlightData from './flightData';
 import { connect } from 'react-redux';

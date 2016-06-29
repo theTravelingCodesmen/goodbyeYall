@@ -12,8 +12,6 @@ if (process.env.NODE_ENV!=='production'){
 }
 
 module.exports = router;
-let start = Date.now()
-let finish = Date.now()
 
 knex.getCheapestByRoute = function (originCity, destinationCity) {
     return knex('cheapest_route_ever').where({
@@ -81,7 +79,6 @@ router.use('/selectpackage/:packagename', function(req, res){
              }))
      })
      .then((data) => {
-        start= Date.now()
         return Promise.all(
             data.map((destination) => {
                 return requestPromise.get(`https://travelbriefing.org/${destination.country}?format=json`)
@@ -107,9 +104,6 @@ router.use('/selectpackage/:packagename', function(req, res){
             }))
      })
          .then(data => {
-           finish = Date.now()
-           console.log('travelbriefing.org api call time', finish-start)
-             // console.log(data)
              return data
          })
      .then( (data) => {

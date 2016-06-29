@@ -1,16 +1,14 @@
 'use strict'
 
 import React from 'react';
-import ReactDOM from 'react-dom'
-import NavBar from '../components/navBar'
-import OuterCardBox from '../components/outerCardBox'
-import MissionStatement from '../components/missionStatement'
-import MeetTheDevs from '../components/meetTheDevs'
-import { Route, IndexRoute } from 'react-router'
-// import routes from '../routes'
-import CardBox from '../containers/cardBox'
-import UserForm from '../components/userForm'
-import login from '../components/login'
+import NavBar from '../components/navBar';
+import OuterCardBox from '../components/outerCardBox';
+import MissionStatement from '../components/missionStatement';
+import MeetTheDevs from '../components/meetTheDevs';
+import { Route, IndexRoute } from 'react-router';
+import CardBox from '../containers/cardBox';
+import UserForm from '../components/userForm';
+import login from '../components/login';
 
 class Test extends React.Component {
 	render(){
