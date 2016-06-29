@@ -3,7 +3,6 @@
 let knex = require ('../db/db');
 
 
-
 let christTheRedeemer = {
   title: "Christ the Redeemer",
   airport_code: "RIOA-sky",

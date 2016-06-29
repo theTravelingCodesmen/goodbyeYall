@@ -66,7 +66,8 @@ function cheapestRouteEverWorker() {
 }
 
 
-// cheapestRouteEverWorker();
+// cheapestRouteEverWorker()
+// 	.then(knex.closeDb)
 
 
 module.exports = {

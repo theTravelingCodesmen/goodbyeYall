@@ -128,7 +128,9 @@ function calculateAveragesWorker() {
   }))
 }
 
-// calculateAveragesWorker();
+// calculateAveragesWorker()
+//   .then(knex.closeDb)
+
 
 module.exports = {
   calculateAveragesWorker: calculateAveragesWorker
