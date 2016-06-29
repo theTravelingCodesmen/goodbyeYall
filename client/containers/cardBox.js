@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage'
 import {IS_FETCHING, changeFetching} from '../actions/isFetching';
-
+import Loading from 'react-loading';
 
 
 
@@ -43,11 +43,18 @@ class CardBox extends React.Component {
 	render() {
 		// console.log('line 38 containers/cardBox.js params of package/:package_name', this.props.params.package_name);
 		if (this.props.fetching){
-			return (<div className='seven-view'> <div className="card-title">fetching</div> </div>)
+			return (
+				<div className='seven-view'> 
+					<div className="card-title"> 
+						✈  ✈  ✈ fetching  ✈  ✈  ✈ 
+						<div id="loader"><Loading type='spokes' color='#333' /></div>
+					</div>
+				</div>)
 		}else{
 			return(			
 			<div className='seven-view'>
 				<CardTitle title={this.props.package_name} /> 
+				
 				<PackageDestinations  active={this.props.active} passive={this.props.passive} package_name={this.props.params.package_name} className='row' />
 			</div>
 		)
