@@ -9,7 +9,10 @@ import reducers from '../reducers';
 import promise from 'redux-promise';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
+import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage'
+import {IS_FETCHING, changeFetching} from '../actions/isFetching';
+
+
 
 
 const createStoreWithMiddleware = applyMiddleware(
@@ -19,15 +22,19 @@ const createStoreWithMiddleware = applyMiddleware(
 class CardBox extends React.Component {
 	componentWillMount(){
 		this.setState({'cachedAirport': localStorage.getItem('originairport')});
+		// console.log('line 26 this.props', this.props);
+		this.props.changeFetching(true);
 		this.props.fetchPackage(`${this.props.params.package_name}`)
 	}
 	componentDidUpdate(){
 		// console.log('lin 26 containers/cardBox.js this.state.cachedAirport',this.state.cachedAirport);
-		// console.log('lin 27 containers/cardBox.js this.props',this.props);
+		// console.log('lin 33 containers/cardBox.js this.props',this.props);
 		if (this.props.params.package_name !== this.props.package_name){
+			this.props.changeFetching(true);
 			this.props.fetchPackage(`${this.props.params.package_name}`)
 		}
 		if (this.state.cachedAirport !== this.props.originairport){
+			this.props.changeFetching(true);
 			localStorage.setItem('originairport',this.props.originairport)
 			this.setState({'cachedAirport': this.props.originairport});
 			this.props.fetchPackage(`${this.props.params.package_name}`)
@@ -35,12 +42,17 @@ class CardBox extends React.Component {
 	}
 	render() {
 		// console.log('line 38 containers/cardBox.js params of package/:package_name', this.props.params.package_name);
-		return(			
+		if (this.props.fetching){
+			return (<div className='seven-view'> <div className="card-title">fetching</div> </div>)
+		}else{
+			return(			
 			<div className='seven-view'>
 				<CardTitle title={this.props.package_name} /> 
 				<PackageDestinations  active={this.props.active} passive={this.props.passive} package_name={this.props.params.package_name} className='row' />
 			</div>
 		)
+		}
+
 	}
 }
 
@@ -49,12 +61,13 @@ function mapStateToProps ( state ){
 		passive: state.destinations.passive,
 		active: state.destinations.active,
 		package_name:state.destinations.package_name,
-		originairport:state.airport.originairport
+		originairport:state.airport.originairport,
+		fetching: state.destinations.fetching
 	}
 }
 
 function mapDispatchToProps( dispatch ){
-	return bindActionCreators({fetchPackage: fetchPackage}, dispatch)
+	return bindActionCreators({changeFetching:changeFetching, fetchPackage: fetchPackage}, dispatch)
 }
 
 
