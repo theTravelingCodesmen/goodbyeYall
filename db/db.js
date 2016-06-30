@@ -131,7 +131,7 @@ knex.ensureSchema = function () {
           table.boolean('American Cities').defaultTo(false);
           table.boolean('Party Islands').defaultTo(false);
           table.boolean('Seven Continents').defaultTo(false);
-          table.boolean('Custom Packages').defaultTo(false);
+          table.boolean('Custom Package').defaultTo(false);
         }).then(function (table) {
           console.log('Created users table.');
         })
@@ -154,5 +154,5 @@ knex.closeDb = function () {
   })
 }
 
-// knex.ensureSchema().then(knex.closeDb);
+knex.ensureSchema().then(knex.closeDb);
 
