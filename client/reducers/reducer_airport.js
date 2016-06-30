@@ -3,7 +3,7 @@ import axios from "axios"
 import { SET_AIRPORT } from '../actions/setAirport';
 
 
-let INITIAL_STATE = { originairport: localStorage.getItem('originairport')|| "HOUA-sky" };
+let INITIAL_STATE = { originairport: localStorage.getItem('originairport')|| "AUS-sky" };
 
 export default function (state = INITIAL_STATE, action) {
 	// console.log('line 9 reducers/reducers_airport.js state is',state);
