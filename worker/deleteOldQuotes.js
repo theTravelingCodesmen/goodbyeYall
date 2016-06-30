@@ -38,7 +38,8 @@ function deleteOldQuotesWorker(){
 	])
 }
 
-// deleteOldQuotesWorker();
+// deleteOldQuotesWorker()
+// 	.then(knex.closeDb)
 
 
 module.exports = {
