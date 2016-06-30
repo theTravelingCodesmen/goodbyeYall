@@ -13,8 +13,6 @@ let UserForm = React.createClass ({
         'HOUA-sky':false,
         'Seven Wonders':false,
         'Seven Natural Wonders':false,
-        'American Cities': false,
-        'Global Explorer':false,
         'profile_name':null
       }
     },
@@ -25,8 +23,6 @@ let UserForm = React.createClass ({
             this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
             this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
             this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
-            this.setState({'American Cities' : userPrefs.data['American Cities']});
-            this.setState({'Global Explorer' : userPrefs.data['Global Explorer']});
             this.setState({'profile_name': userPrefs.data['profile_name']});
           })
     },
@@ -64,7 +60,7 @@ let UserForm = React.createClass ({
             localStorage.setItem('goodbyeyall.fb_id',response.data.fb_id);
             let currentPhoto = localStorage.getItem('goodbyeyall.profile_photo');
             (currentPhoto===undefined || currentPhoto==="undefined") ? null : localStorage.setItem('goodbyeyall.profile_photo',response.data.profile_photo);
-
+            
           }else{
             //throw error here?
           }
@@ -105,14 +101,8 @@ let UserForm = React.createClass ({
                     <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
                       Seven Natural Wonders of the World
                     </Checkbox>
-                    <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
-                      American Cities
-                    </Checkbox>
-                    <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
-                      Global Explorer
-                    </Checkbox>
 
-                    <Button className="prefs-submit-button btn" type="submit">
+                    <Button type="submit">
                       Submit
                     </Button>
                 </form>
