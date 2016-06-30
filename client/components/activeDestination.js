@@ -29,23 +29,23 @@ _plugPictureInserter(element) {
 		else {
 			return(
 			<BootStrapModal item='Travel Information' id={'country-information'} bTitle='Country Travel Info' popoverLink={''} bsStyle={'primary'}>
-			<div className='languages-block'>Languages: {this.props.lang.map(obj => {
+			<div className='languages-block'><div className='aD-modal-langauge-title'>Languages: </div>{this.props.lang.map(obj => {
 				return <div className='languages'>{obj.language}</div>
 			}) }
 			</div>
 			<div className='plug-block'>
-			<div className='electric-plugs-title'>Electric Plugs: </div> <div className='electric-plugs-pictures'>{this.props.plugs.map(element => {
+			<div className='electric-plugs-title'><div className='aD-modal-electric-title'>Electric Plugs: </div></div><div className='electric-plugs-pictures'>{this.props.plugs.map(element => {
 				return <div className='plug-type'>{element} {this._plugPictureInserter(element)}</div> 
 			}) }</div>
 			</div>
-			<div className='calling-block'>Calling Code: {this.props.callingCode}</div>
-			<div className='vaccination-block'>Vaccinations: {this.props.vaccinations.map(obj => {
+			<div className='calling-block'><div className='aD-modal-calling-code-title'>Calling Code: </div>{this.props.callingCode}</div>
+			<div className='vaccination-block'><div className='aD-modal-vaccinations-title'>Vaccinations: </div>{this.props.vaccinations.map(obj => {
 				return <div className='vaccinations'> {obj.name}</div>
 			})  }
 			</div>
-			<div className='currency-block'>Currency Name: {this.props.currencyName }</div>
-			<div className='currency-rate-block'>Currency Rate/USD: { Number(this.props.currencyRate).toFixed(2)}</div>
-			<div className='water-safety-block'>Water Consumption: {this.props.water === 'not safe' ? 'Bottle water': 'Tap water'}</div>
+			<div className='currency-block'><div className='aD-modal-currency-name-title'>Currency Name: </div>{this.props.currencyName }</div>
+			<div className='currency-rate-block'><div className='aD-modal-currency-rate-title'>Currency Rate/USD: </div>{ Number(this.props.currencyRate).toFixed(2)}</div>
+			<div className='water-safety-block'><div className='aD-modal-water-title'>Water Consumption: </div>{this.props.water === 'not safe' ? 'Bottle water': 'Tap water'}</div>
 		</BootStrapModal>
 			)
 		}

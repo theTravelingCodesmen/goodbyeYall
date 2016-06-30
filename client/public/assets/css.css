@@ -395,3 +395,16 @@ body {
 	display: block;
 	margin-bottom: 20px;
 }
+
+
+.aD-modal-langauge-title, .aD-modal-electric-title, .aD-modal-calling-code-title, .aD-modal-currency-name-title, .aD-modal-currency-rate-title, .aD-modal-vaccinations-title, .aD-modal-water-title{
+	font-weight: bolder;
+	display: inline-flex;
+	margin-right: 5px;
+}
+
+/*Dynamic Modal*/
+.modal-header{
+	font-weight: bolder;
+	text-align: center;
+}
