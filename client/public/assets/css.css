@@ -286,7 +286,7 @@ path {
 }
 
 .meet-the-devs-wrapper {
-display: 	inline-flex;
+	display: inline-flex;
 	margin-top: 15%;
 }
 
@@ -296,7 +296,7 @@ display: 	inline-flex;
 }
 
 .icons {
- display:inline-flex;	
+ 	display: inline-flex;	
 }
 
 .linkedin,
@@ -307,14 +307,17 @@ display: 	inline-flex;
 }
 
 .bio{
-display: 	inline-flex;
+	display: inline-flex;
+}
+
+.buttons:hover{
+	border-radius: 10px
 }
 
 .resume-link{
 }
 
 .meet-the-devs img {
-
 }
 
 /* USER PREFERENCES FORM */
