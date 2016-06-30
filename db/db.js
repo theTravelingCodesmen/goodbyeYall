@@ -85,13 +85,14 @@ knex.ensureSchema = function () {
           table.float('cheapest_price');
           table.string('originCity', 255);
           table.string('destinationCity', 255);
+          table.timestamp('created_at').defaultTo(knex.fn.now());          
         }).then(function (table) {
           console.log('Created cheapest_route_ever table.');
         });
       }
       // else if (exists) {
       //   knex.schema.table('cheapest_route_ever', function (table) {      
-      //     table.timestamp('created_at').defaultTo(knex.fn.now());
+          // table.timestamp('created_at').defaultTo(knex.fn.now());
       //   }).then(function (table) {
       //     console.log('Altered cheapest_route_ever table.');
       //   })
@@ -123,8 +124,14 @@ knex.ensureSchema = function () {
           table.string('profile_photo', 255);          
           table.boolean('DFWA-sky').defaultTo(false);
           table.boolean('HOUA-sky').defaultTo(false);
+          table.boolean('AUS-sky').defaultTo(false);
           table.boolean('Seven Wonders').defaultTo(false);
           table.boolean('Seven Natural Wonders').defaultTo(false);
+          table.boolean('Global Explorer').defaultTo(false);
+          table.boolean('American Cities').defaultTo(false);
+          table.boolean('Party Islands').defaultTo(false);
+          table.boolean('Seven Continents').defaultTo(false);
+          table.boolean('Custom Package').defaultTo(false);
         }).then(function (table) {
           console.log('Created users table.');
         })
@@ -147,5 +154,5 @@ knex.closeDb = function () {
   })
 }
 
-// knex.ensureSchema().then(knex.closeDb);
+knex.ensureSchema().then(knex.closeDb);
 

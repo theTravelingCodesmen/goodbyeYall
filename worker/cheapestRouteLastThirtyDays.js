@@ -44,6 +44,7 @@ function cheapestRouteLastThirtyDaysWorker() {
 }
 
 // cheapestRouteLastThirtyDaysWorker()
+// 	.then(knex.closeDb)
 
 module.exports = {
 	cheapestRouteLastThirtyDaysWorker: cheapestRouteLastThirtyDaysWorker

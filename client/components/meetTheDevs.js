@@ -19,13 +19,13 @@ const bioInfo = [
 		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/11080339',
 		linkedinLink: 'https://www.linkedin.com/in/owentemple',
-		gitHubLink: 'https://github.com/owentemp',
+		gitHubLink: 'https://github.com/owentemple',
 		resumeLink: ''
 	},
 		{person: 'Paul',
 		label: 'Bio',
 		devType: 'Stack',
-		languagesStrong:'STRONG: JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git', 
+		languagesStrong:'STRONG: JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'EXPERIENCED: AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
 		bio: 'stuff',
 		personalStatement: 'hire me',
@@ -76,7 +76,7 @@ const bioInfo = [
 		gitHubLink: 'https://github.com/scko823',
 		resumeLink: ''
 	},
-		{person:'James', 
+		{person:'James',
 		label: 'Bio.',
 		devType: 'Stack',
 		languagesStrong: 'STRONG: JavaScript | Angular | React | Node | Express | GIT | SQL | Excel | HTML5',
@@ -104,22 +104,22 @@ _getDevInfo() {
 
 	return bioInfo.map(function(obj){
 
-		return( 
+		return(
 			<div className='meet-the-devs'><img src={obj.gitHubPic} className='dev-pic'></img>
 				<div><h5>{obj.person}</h5>
 					<div className='bio'>
-						<BootStrapModal 
-							bTitle='Bio' 
+						<BootStrapModal
+							bTitle='Bio'
 							popoverLink='Coding Languages'
 							modalHeaderOne='Technical Skills'
 							modalHeaderTwo='This is my story'
 							topBody='Recent GitHub Projects'
-							modalTitle={obj.devType} 
+							modalTitle={obj.devType}
 							PopoverPOne={obj.languagesStrong}
-							PopoverPTwo={obj.languagesExperienced} 
-							bodyText={obj.personalStatement} 
-							item={obj.person} 
-							popOverTitle='Technical Knowledge' 
+							PopoverPTwo={obj.languagesExperienced}
+							bodyText={obj.personalStatement}
+							item={obj.person}
+							popOverTitle='Technical Knowledge'
 						>
 							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
@@ -132,7 +132,7 @@ _getDevInfo() {
 						<div> <a href={obj.resumeLink} target='_blank'> ResumeLink</a></div>
 					</div>
 				</div>
-			</div>	
+			</div>
 		)
 	});
 }

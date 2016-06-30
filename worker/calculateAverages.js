@@ -100,9 +100,9 @@ function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, dest
 }
 
 let originCities = ["DFWA-sky", "HOUA-sky"];
-let destinationCities = ["RIOA-sky", "BJSA-sky", "CUZ-sky", "AMMA-sky", "CUN-sky", "ROME-sky", "DEL-sky", "HRE-sky", "REYK-sky", "PHXA-sky", "SYD-sky", "MEX-sky"];
+let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky'];
 let months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
-let years = ["2016", "2017", "2018"];
+let years = ["2016", "2017"];
 
 //create array of all permutations of month, year, origin and destination
 function generateAveragesArgumentsArray() {
@@ -128,7 +128,9 @@ function calculateAveragesWorker() {
   }))
 }
 
-// calculateAveragesWorker();
+calculateAveragesWorker()
+  .then(knex.closeDb)
+//make sure to add to the years array
 
 module.exports = {
   calculateAveragesWorker: calculateAveragesWorker
