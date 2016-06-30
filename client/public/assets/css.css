@@ -11,10 +11,14 @@
   height: 75px;
 }
 
-.logo:hover {
+.logo-text:hover {
 	cursor: pointer;
 	font-weight: bolder;
 	color: black;
+}
+
+.logo:hover {
+	cursor: pointer;
 }
 
 .navbar-button{
@@ -187,7 +191,7 @@ body {
 .flight {
 	width: 40%;
 	text-align:center;
-	backface-visibility:
+	margin-top: 2em;
 }
 
 /* info box for d3 graph */
@@ -208,6 +212,13 @@ body {
 	z-index:10;
 	font-weight:bold;
 }
+
+.d3-title {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0;
+}
+
 /* path for svg graph */
 .line {
   stroke: steelblue;
@@ -242,9 +253,12 @@ body {
 .main {
   font-size: 4.0em;
   font-family: 'Lalezar', sans-serif;
+  margin-bottom: 0em;
 }
 
 .sub {
+	margin-top: 0em;
+	margin-bottom: .5em;
 }
 
 .call-to-action {
@@ -315,8 +329,12 @@ body {
 }
 
 .resume-link{
-		margin-left: 10px;
-		padding:0%;
+	margin-left: 10px;
+	padding:0%;
+}
+
+.resume-link:hover {
+	text-decoration: none;
 }
 
 /* USER PREFERENCES FORM */
@@ -329,8 +347,8 @@ body {
 }
 
 .package-uno, .package-dos {
-    min-width: 50%;
-    max-width: 100%;
+  min-width: 50%;
+  max-width: 100%;
 }
 
 .package-uno:hover,

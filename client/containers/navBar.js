@@ -30,7 +30,7 @@ class NavBar extends React.Component{
       <Navbar className="navbar-fixed-top">
         <Navbar.Header>
           <Navbar.Brand className="logo">
-            <LinkContainer to={{pathname:'/'}}><div><img src='/assets/images/logo.png'/><div>GoodbyeYall</div></div></LinkContainer>
+            <LinkContainer to={{pathname:'/'}}><div><img src='/assets/images/logo.png'/><div className="logo-text">GoodbyeYall</div></div></LinkContainer>
           </Navbar.Brand>
         </Navbar.Header>
         <Nav>

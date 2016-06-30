@@ -8,7 +8,7 @@ if (process.env.NODE_ENV!=='production'){
 
 let Knex = require('../db/db');
 
-let originCities = ["DFWA-sky", "HOUA-sky"];
+let originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
 let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky'];
 
 
