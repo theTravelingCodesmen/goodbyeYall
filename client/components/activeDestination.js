@@ -6,7 +6,7 @@ import FlightData from './flightData';
 import { connect } from 'react-redux';
 import numberToMonth from '../helper/number_to_month';
 import airportToCity from '../helper/airport_to_city';
-import BootStrapModal from './bootstrapModals';
+import BootStrapModal from './dynamicModals';
 
 
 class ActiveDestination extends React.Component {
@@ -19,7 +19,7 @@ class ActiveDestination extends React.Component {
 			}
 		else {
 			return(
-			<BootStrapModal bTitle='IMPORTANT! Country Travel info' popoverLink={''}>
+			<BootStrapModal bTitle='IMPORTANT! Country Travel info' popoverLink={''} bsStyle={'btn-Primary'}>
 
 			<div>Languages: {this.props.lang.map(obj => {
 				return <div>{obj.language}</div>
