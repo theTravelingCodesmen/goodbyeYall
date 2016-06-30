@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react';
-import BootStrapModal from './bootstrapModals.js';
+import BootStrapModal from './dynamicModals.js';
 import {Tooltip, OverlayTrigger, Button} from 'react-bootstrap';
 
 const bioInfo = [

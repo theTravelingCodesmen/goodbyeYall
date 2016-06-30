@@ -6,7 +6,7 @@ import FlightData from './flightData';
 import { connect } from 'react-redux';
 import numberToMonth from '../helper/number_to_month';
 import airportToCity from '../helper/airport_to_city';
-import BootStrapModal from './bootstrapModals';
+import BootStrapModal from './dynamicModals';
 
 
 class ActiveDestination extends React.Component {
