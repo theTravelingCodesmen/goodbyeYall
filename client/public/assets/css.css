@@ -351,3 +351,22 @@ body {
 	position: relative;
 	left:46.7%
 }
+
+.languages {
+	display: inline-flex;
+	margin-left:5px;
+}
+
+.plug-top, .plug-bottom, .plug-type{
+	display: inline-flex;
+	margin-left: 40px;
+}
+
+.plug-block, .electric-plugs-title, .electric-plugs-pictures{
+	display: inline-flex;
+}
+
+.languages-block {
+	display: block;
+	margin-bottom: 20px;
+}

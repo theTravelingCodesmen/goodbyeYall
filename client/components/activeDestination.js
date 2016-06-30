@@ -14,8 +14,8 @@ class ActiveDestination extends React.Component {
 _plugPictureInserter(element) {
 	return( 
 		<div>
-		<img src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
-		<img src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
+		<img className='plug-top' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
+		<img className='plug-bottom' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
 		</div>
 	)
 }
@@ -30,13 +30,15 @@ _plugPictureInserter(element) {
 			return(
 			<BootStrapModal id={'country-information'} bTitle='IMPORTANT! Country Travel info' popoverLink={''} bsStyle={'primary'}>
 
-			<div>Languages: {this.props.lang.map(obj => {
-				return <div>{obj.language}</div>
+			<div className='languages-block'>Languages: {this.props.lang.map(obj => {
+				return <div className='languages'>{obj.language}</div>
 			}) }
 			</div>
-			<div>Electric Plugs: {this.props.plugs.map(element => {
-				return <div>{element} {this._plugPictureInserter(element)}</div> 
+			<div className='plug-block'>
+			<div className='electric-plugs-title'>Electric Plugs: </div> <div className='electric-plugs-pictures'>{this.props.plugs.map(element => {
+				return <div className='plug-type'>{element} {this._plugPictureInserter(element)}</div> 
 			}) }</div>
+			</div>
 			<div>Calling Code: {this.props.callingCode}</div>
 			<div>Vaccinations: {this.props.vaccinations.map(obj => {
 				return <p> {obj.name}</p>
