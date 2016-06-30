@@ -128,8 +128,8 @@ function calculateAveragesWorker() {
   }))
 }
 
-calculateAveragesWorker()
-  .then(knex.closeDb)
+// calculateAveragesWorker()
+//   .then(knex.closeDb)
 //make sure to add to the years array
 
 module.exports = {

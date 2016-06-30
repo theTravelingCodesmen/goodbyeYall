@@ -186,8 +186,8 @@ function secondRoundInsertQuotes (){
       return promiseFromSkyscanner
         .then(Knex.insertQuotesIntoDb)
     })
-    )
-    .then(Knex.closeDb);
+  )
+  .then(Knex.closeDb);
 }
 
 
