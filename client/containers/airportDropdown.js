@@ -9,8 +9,8 @@ class AirportDropdown extends React.Component {
 	render(){
 		return (
 			<NavDropdown className="navbar-button" eventKey={4} title="Set your airport" id="basic-nav-dropdown">
-        <MenuItem eventKey={4.1} onClick={this.props.setAirport.bind(null, "DFWA-sky")}><div className="navbar-button">DFWA-sky</div></MenuItem>
-        <MenuItem eventKey={4.2} onClick={this.props.setAirport.bind(null, "HOUA-sky")}><div className="navbar-button">HOUA-sky</div></MenuItem>
+        <MenuItem eventKey={4.1} onClick={this.props.setAirport.bind(null, "DFWA-sky")}><div className="navbar-button">Dallas/Fort Worth</div></MenuItem>
+        <MenuItem eventKey={4.2} onClick={this.props.setAirport.bind(null, "HOUA-sky")}><div className="navbar-button">Houston</div></MenuItem>
       </NavDropdown>
       )
 	}
