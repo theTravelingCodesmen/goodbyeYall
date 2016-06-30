@@ -71,7 +71,7 @@ const BootStrapModal = React.createClass({
 	      </Button>
         <Modal show={this.state.showModal} onHide={this.close}>
         	<Modal.Header closeButton>
-	        	<Modal.Title>{this.props.item}</Modal.Title>
+	        	<Modal.Title className='modal-header'>{this.props.item}</Modal.Title>
 	        </Modal.Header>
 	        <Modal.Body>
 	          <h4>{this.props.modalTitle}</h4>
