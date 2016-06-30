@@ -11,10 +11,14 @@
   height: 75px;
 }
 
-.logo:hover {
+.logo-text:hover {
 	cursor: pointer;
 	font-weight: bolder;
 	color: black;
+}
+
+.logo:hover {
+	cursor: pointer;
 }
 
 .navbar-button{
