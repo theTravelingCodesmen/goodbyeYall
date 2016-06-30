@@ -28,8 +28,7 @@ _plugPictureInserter(element) {
 			}
 		else {
 			return(
-			<BootStrapModal id={'country-information'} bTitle='Country Travel Info' popoverLink={''} bsStyle={'primary'}>
-
+			<BootStrapModal item='Travel Information' id={'country-information'} bTitle='Country Travel Info' popoverLink={''} bsStyle={'primary'}>
 			<div className='languages-block'>Languages: {this.props.lang.map(obj => {
 				return <div className='languages'>{obj.language}</div>
 			}) }
@@ -46,7 +45,7 @@ _plugPictureInserter(element) {
 			</div>
 			<div className='currency-block'>Currency Name: {this.props.currencyName }</div>
 			<div className='currency-rate-block'>Currency Rate/USD: { Number(this.props.currencyRate).toFixed(2)}</div>
-			<div className='water-safety-block'>Water Safety: {this.props.water}</div>
+			<div className='water-safety-block'>Water Consumption: {this.props.water === 'not safe' ? 'Bottle water': 'Tap water'}</div>
 		</BootStrapModal>
 			)
 		}
