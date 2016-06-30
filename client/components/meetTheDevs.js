@@ -131,12 +131,14 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 							PopoverPTwo={obj.languagesExperienced} 
 							bodyText={obj.personalStatement} 
 							item={obj.person} 
-							popOverTitle='Technical Knowledge' 						>
+							popOverTitle='Technical Knowledge' 						
+							>
 							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
 							<div>Project Three:<a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
 						</BootStrapModal>
-						<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button> Resume</Button></a>
+						<div>{"      "}</div>
+						<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
 					</div>
 
 						<div className='icons'>
