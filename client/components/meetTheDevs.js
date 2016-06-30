@@ -1,13 +1,11 @@
 'use strict'
 
 import React from 'react';
-import BootStrapModal from './dynamicModals.js';
-import {Tooltip, OverlayTrigger, Button} from 'react-bootstrap';
+import BootStrapModal from './bootstrapModals.js';
 
 const bioInfo = [
 		{person: 'Owen',
 		label: 'Bio',
-		tooltiphover: 'hire me!!!',
 		devType: 'Stack',
 		languagesStrong: 'STRONG:  JavaScript | React | AngularJS | Git | Node.js/Express | SQL | Postgres | HTML/CSS | Bootstrap | jQuery',
 		languagesExperienced:	'EXPERIENCED:  MongoDB | Heroku | Backbone.js | Mithril | Python | Photoshop',
@@ -26,7 +24,6 @@ const bioInfo = [
 	},
 		{person: 'Paul',
 		label: 'Bio',
-		tooltiphover: 'hire me!!!',
 		devType: 'Stack',
 		languagesStrong:'STRONG: JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'EXPERIENCED: AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
@@ -45,7 +42,6 @@ const bioInfo = [
 	},
 		{person: 'Vidush',
 		label: 'Bio',
-		tooltiphover: 'hire me!!!',
 		devType: 'Stack',
 		languagesStrong: 'STRONG: JavaScript | React | Redux | ES2015 | Gulp | Html | Node | Babel | Webpack | Passport | GraphAPI | and JQuery',
 		languagesExperienced:	'EXPERIENCED: CSS | Angular | Express | Mithril | Mongoose | Backbone | SQL | websockets | Postgres | Mongo DB | deployment(heroku) | Grunt | bootstrap | mocha/chai',
@@ -64,7 +60,6 @@ const bioInfo = [
 	},
 		{person: 'Sin',
 		label: 'Bio',
-		tooltiphover: 'hire me!!!',
 		devType: 'Stack',
 		languagesStrong: 'STRONG: 	JavaScript | SQL | MongoDB | Node | Express | Gulp | Angular | jQuery | Git',
 		languagesExperienced:	'EXPERIENCED:	React | Python (pandas, matplotlib/seaborn, NumPy) | Data Structure | jwt | socketIO | bootstrap',
@@ -83,7 +78,6 @@ const bioInfo = [
 	},
 		{person:'James',
 		label: 'Bio.',
-		tooltiphover: 'hire me!!!',
 		devType: 'Stack',
 		languagesStrong: 'STRONG: JavaScript | Angular | React | Node | Express | GIT | SQL | Excel | HTML5',
 		languagesExperienced: 'EXPERIENCED: Postgres | Knex | MongoDB | Redux | Heroku | SOCKET.IO | @RISK | CSS | Bootstrap | ES6',
@@ -110,15 +104,9 @@ _getDevInfo() {
 
 	return bioInfo.map(function(obj){
 
-
-let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
-
-
-		return( 
-			<div className='meet-the-devs'>
-				<OverlayTrigger overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
+		return(
+			<div className='meet-the-devs'><img src={obj.gitHubPic} className='dev-pic'></img>
 				<div><h5>{obj.person}</h5>
-				<div className ='buttons'>
 					<div className='bio'>
 						<BootStrapModal
 							bTitle='Bio'
@@ -128,21 +116,20 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 							topBody='Recent GitHub Projects'
 							modalTitle={obj.devType}
 							PopoverPOne={obj.languagesStrong}
-							PopoverPTwo={obj.languagesExperienced} 
-							bodyText={obj.personalStatement} 
-							item={obj.person} 
-							popOverTitle='Technical Knowledge' 						
-							>
+							PopoverPTwo={obj.languagesExperienced}
+							bodyText={obj.personalStatement}
+							item={obj.person}
+							popOverTitle='Technical Knowledge'
+						>
 							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
 							<div>Project Three:<a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
 						</BootStrapModal>
-						<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
 					</div>
-						<div className='icons'>
-							<div className='pull-left'> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
-							<div className='pull-right'> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
-						</div>	
+					<div className='icons'>
+						<div> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
+						<div> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
+						<div> <a href={obj.resumeLink} target='_blank'> ResumeLink</a></div>
 					</div>
 				</div>
 			</div>
