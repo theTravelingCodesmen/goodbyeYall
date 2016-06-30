@@ -84,9 +84,6 @@ Skyscanner Flight API:
 
 Front-end APIs to weather and and travel requirements
 
-Weather API:
-- http://developer.active.com/docs/read/Campsite_Search_API
-
 Travel Requirements API:
 - https://travelbriefing.org/api
 
