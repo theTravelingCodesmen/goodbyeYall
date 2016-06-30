@@ -11,6 +11,15 @@ import BootStrapModal from './dynamicModals';
 
 class ActiveDestination extends React.Component {
 	
+_plugPictureInserter(element) {
+	return( 
+		<div>
+		<img src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
+		<img src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
+		</div>
+	)
+}
+
 
 	_countryButtonOrBust() {
 
@@ -26,7 +35,7 @@ class ActiveDestination extends React.Component {
 			}) }
 			</div>
 			<div>Electric Plugs: {this.props.plugs.map(element => {
-				return <div>{element}</div>
+				return <div>{element} {this._plugPictureInserter(element)}</div> 
 			}) }</div>
 			<div>Calling Code: {this.props.callingCode}</div>
 			<div>Vaccinations: {this.props.vaccinations.map(obj => {
