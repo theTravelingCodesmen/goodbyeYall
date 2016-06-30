@@ -2,6 +2,7 @@
 
 import React from 'react';
 import BootStrapModal from './bootstrapModals.js';
+import {Tooltip, OverlayTrigger, Button} from 'react-bootstrap';
 
 const bioInfo = [
 		{person: 'Owen',
@@ -104,9 +105,15 @@ _getDevInfo() {
 
 	return bioInfo.map(function(obj){
 
+
+let tooltip = <Tooltip>{obj.personalStatement}</Tooltip>;
+
+
 		return( 
-			<div className='meet-the-devs'><img src={obj.gitHubPic} className='dev-pic'></img>
+			<div className='meet-the-devs'>
+				<OverlayTrigger overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
 				<div><h5>{obj.person}</h5>
+				<div className ='buttons'>
 					<div className='bio'>
 						<BootStrapModal 
 							bTitle='Bio' 
@@ -120,16 +127,19 @@ _getDevInfo() {
 							bodyText={obj.personalStatement} 
 							item={obj.person} 
 							popOverTitle='Technical Knowledge' 
+							className='pull-left'
 						>
 							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
 							<div>Project Three:<a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
 						</BootStrapModal>
+						<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button> Resume</Button></a>
 					</div>
-					<div className='icons'>
-						<div> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
-						<div> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
-						<div> <a href={obj.resumeLink} target='_blank'> ResumeLink</a></div>
+
+						<div className='icons'>
+							<div className='pull-left'> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
+							<div className='pull-right'> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
+						</div>	
 					</div>
 				</div>
 			</div>	
