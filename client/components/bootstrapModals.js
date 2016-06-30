@@ -1,24 +1,7 @@
 'use strict'
 
 import React from 'react';
-import {Popover, Tooltip, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
-
-
-const BootStrapModal = React.createClass({
-
-  getInitialState() {
-    return { showModal: false };
-  },
-
-  close() {
-    this.setState({ showModal: false });
-  },
-
-  open() {
-    this.setState({ showModal: true });
-  },
-
-	render() {
+import {Popover, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 
 //============================Instructions===============================
 //Button Label
@@ -59,6 +42,22 @@ const BootStrapModal = React.createClass({
 //Personal Statement
 //{this.props.personalStatement}
 
+
+const BootStrapModal = React.createClass({
+
+  getInitialState() {
+    return { showModal: false };
+  },
+
+  close() {
+    this.setState({ showModal: false });
+  },
+
+  open() {
+    this.setState({ showModal: true });
+  },
+
+	render() {
 
 	  let popover = <Popover title={this.props.popOverTitle}>
 	  								<p>{this.props.PopoverPOne}</p>

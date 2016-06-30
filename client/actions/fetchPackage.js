@@ -5,11 +5,10 @@ export const FETCH_PACKAGE = 'FETCH_PACKAGE';
 
 export function fetchPackage (package_name){
 	axios.defaults.headers.common['originairport'] = localStorage.getItem('originairport');
-	console.log('line 8 fetchPackage.js', axios.defaults.headers.common['originairport']);
 	let destinations = axios.get('/packages/selectpackage/'+package_name)
 										.then(function(obj){
 											console.log('line 11 fetchPackage.js', obj)
-											return {data: obj.data, package_name:package_name}});
+											return {data: obj.data, package_name:package_name, fetching:false}});
   return {
     type: FETCH_PACKAGE,
     payload: destinations

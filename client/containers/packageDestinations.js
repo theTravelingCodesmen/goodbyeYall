@@ -1,7 +1,6 @@
 'use strict'
 import axios from 'axios';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import PassiveDestination from './passiveDestination';
 import ActiveDestination from '../components/activeDestination';
 import { connect } from 'react-redux';
@@ -12,9 +11,6 @@ import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
 // in the initial state, it should render the hard coded data
 
 class PackageDestinations extends React.Component {
-	componentWillMount(){
-		return axios.get(`/packages/selectpackage/${this.props.package_name}`)
-	}
 	render() {
 		return(
 			<div className='package-view'>
@@ -45,6 +41,13 @@ class PackageDestinations extends React.Component {
 								next_image_url={dest.next_image_url}
 								bookingDetails={dest.bookDetails}
 								temperatures={dest.temperature}
+						    lang ={dest.countryData.languages} 
+                plugs = {dest.countryData.electricity.plugs}
+                callingCode={dest.countryData.telephone.callingcode}
+               	vaccinations={dest.countryData.vaccinations}
+                currencyName={dest.countryData.currency.name}
+                currencyRate={dest.countryData.currency.rate}
+               	water={dest.countryData.water}
 							/>
 						})
 					}
