@@ -23,6 +23,8 @@ class NavBar extends React.Component{
   }
 
   render(){
+    let redirect_uri = process.env.NODE_ENV==="production" ? 'http://www.goodbyeyall.com/Preferences' : 'http://localhost:4000/Preferences';
+    let facebookAuthUrl = `http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=${redirect_uri}`;
     return (
     <div className="container">
       <Navbar className="navbar-fixed-top">
@@ -46,7 +48,7 @@ class NavBar extends React.Component{
               <MenuItem eventKey={4.1}><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button"><div>Preferences</div></LinkContainer></MenuItem>
               <MenuItem eventKey={4.2} className="logout-button"><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button" ><div onClick={this.logout.bind(this)}>Logout</div></LinkContainer></MenuItem> 
             </NavDropdown>:null}       
-         { !this.props.isLoggedIn ? <a href='http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences'><img className="fb-login-button" src="/assets/images/facebookLoginBtn.png" /></a> : null}
+         { !this.props.isLoggedIn ? <a href={facebookAuthUrl}><img className="fb-login-button" src="/assets/images/facebookLoginBtn.png" /></a> : null}
         </Nav>
       </Navbar>
       {this.props.children}
