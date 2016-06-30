@@ -10,6 +10,7 @@ export default function (state = INITIAL_STATE, action) {
 	// console.log('line 10 reducers/reducers_airport.js action is',action);
   switch (action.type){
 		case SET_AIRPORT:
+			localStorage.setItem('originairport', action.payload);
     	let newState = {};
     	newState.originairport = action.payload;
     	return newState
