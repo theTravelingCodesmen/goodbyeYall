@@ -22,6 +22,8 @@ router.get('/existing_pref/:fb_id',function(req, res) {
     	'HOUA-sky': data['HOUA-sky'],
     	'Seven Wonders': data['Seven Wonders'],
     	'Seven Natural Wonders': data['Seven Natural Wonders'],
+			'Global Explorer': data['Global Explorer'],
+			'American Cities': data['American Cities'],
     	'profile_name':data['profile_name']
 			})
 		}
@@ -70,6 +72,8 @@ router.post('/',function(req, res) {
 		newPref['HOUA-sky']=req.body['HOUA-sky'];
 		newPref['Seven Wonders']=req.body['Seven Wonders'];
 		newPref['Seven Natural Wonders']=req.body['Seven Natural Wonders'];
+		newPref['Global Explorer']=req.body['Global Explorer'];
+		newPref['American Cities']=req.body['American Cities'];
 		newPref['fb_id']=req.body.fb_id;
 		knex('users').where("fb_id",req.body.fb_id).select()
 			.then((existing_pref)=>{
