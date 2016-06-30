@@ -28,7 +28,7 @@ _plugPictureInserter(element) {
 			}
 		else {
 			return(
-			<BootStrapModal id={'country-information'} bTitle='IMPORTANT! Country Travel info' popoverLink={''} bsStyle={'primary'}>
+			<BootStrapModal id={'country-information'} bTitle='Country Travel Info' popoverLink={''} bsStyle={'primary'}>
 
 			<div className='languages-block'>Languages: {this.props.lang.map(obj => {
 				return <div className='languages'>{obj.language}</div>
@@ -39,14 +39,14 @@ _plugPictureInserter(element) {
 				return <div className='plug-type'>{element} {this._plugPictureInserter(element)}</div> 
 			}) }</div>
 			</div>
-			<div>Calling Code: {this.props.callingCode}</div>
-			<div>Vaccinations: {this.props.vaccinations.map(obj => {
-				return <p> {obj.name}</p>
+			<div className='calling-block'>Calling Code: {this.props.callingCode}</div>
+			<div className='vaccination-block'>Vaccinations: {this.props.vaccinations.map(obj => {
+				return <div className='vaccinations'> {obj.name}</div>
 			})  }
 			</div>
-			<div>Currecny Name: {this.props.currencyName }</div>
-			<div>currencyRate/USD: {this.props.currencyRate}</div>
-			<div>Water Saftey:{this.props.water}</div>
+			<div className='currency-block'>Currency Name: {this.props.currencyName }</div>
+			<div className='currency-rate-block'>Currency Rate/USD: { Number(this.props.currencyRate).toFixed(2)}</div>
+			<div className='water-safety-block'>Water Safety: {this.props.water}</div>
 		</BootStrapModal>
 			)
 		}

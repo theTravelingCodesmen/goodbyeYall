@@ -352,7 +352,10 @@ body {
 	left:46.7%
 }
 
-.languages {
+/*TRAVEL INFO////////////////////////////*/
+/*//////////////////////////////////////////*/
+
+.languages, .vaccinations {
 	display: inline-flex;
 	margin-left:5px;
 }
@@ -366,7 +369,7 @@ body {
 	display: inline-flex;
 }
 
-.languages-block {
+.languages-block, .calling-block, .vaccination-block, .currency-block, .currency-rate-block, .water-safety-block{
 	display: block;
 	margin-bottom: 20px;
 }
