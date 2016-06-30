@@ -1,20 +1,21 @@
-# goodbyeYall
+# :airplane::airplane:goodbyeYall :airplane::airplane:
+###We do the work, you do the travel.
 Helping people achieve their travel goals
 
 ### Development Team
 ######[James Fitzpatrick](https://github.com/Fitzpatrick1)
 ######[Sin Cheung Ko](https://github.com/scko823)
 ######[Paul-Michael Schreiber](https://github.com/pschreibs85)
-######[Owen Temple](https://github.com/owentemp)
+######[Owen Temple](https://github.com/owentemple)
 ######[Vidush Rana](https://github.com/Vidushr)
 
 #GoodbyeYall Cheap Airfare Finder
 http://www.goodbyeyall.com
 (MKS36 Thesis Project)
 
-GoodbyeYall is backend-intensive travel app that analyzes flight quotes to 28 of the most popular global destinations to identify the least expensive time to fly in the next 12 months.
+GoodbyeYall is backend-intensive travel app that analyzes flight quotes to 28 of the most popular global destinations to identify the least expensive time to fly in the next 12 months. :tada::tada:
 
-####We do the work, you do the travel.
+
 
 ###Getting Started
 

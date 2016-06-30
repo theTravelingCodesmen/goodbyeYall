@@ -50,6 +50,10 @@
 	margin: .85em
 }
 
+.prefs-submit-button {
+    margin: 7px 0px 0px 0px;
+}
+
 #profile-photo-li {
 	padding:0 0 0 0;
 }
@@ -203,7 +207,7 @@ body {
 	font-weight:bold;
 }
 /* path for svg graph */
-path {
+.line {
   stroke: steelblue;
   stroke-width: 2;
   fill: none;
@@ -350,3 +354,9 @@ path {
     word-wrap: break-word;
 }
 
+#loader {
+	width:100%;
+	/*margin: 0 auto;*/
+	position: relative;
+	left:46.7%
+}
