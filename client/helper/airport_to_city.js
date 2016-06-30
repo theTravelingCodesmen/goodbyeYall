@@ -12,5 +12,19 @@ module.exports = {
     "ROME-sky": "Rome",
     "SYD-sky": "Sydney",
     "DFWA-sky": "Dallas",
-    "HOUA-sky": "Houston"
+    "HOUA-sky": "Houston",
+    "LOND-sky": "London",
+    "BKKT-sky": "Bangkok",
+    "PARI-sky": "Paris",
+    "DXBA-sky": "Dubai",
+    "ISTA-sky": "Istanbul",
+    "SIN-sky": "Singapore",
+    "SELA-sky": "Seoul",
+    "LAX-sky": "Los Angeles",
+    "CHIA-sky": "Chicago",
+    "DEN-sky": "Denver",
+    "LAS-sky": "Las Vegas",
+    "SFO-sky": "San Francisco",
+    "NYCA-sky": "New York",
+    "MIAA-sky": "Miami"
 };
