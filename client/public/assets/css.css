@@ -329,8 +329,12 @@ body {
 }
 
 .resume-link{
-		margin-left: 10px;
-		padding:0%;
+	margin-left: 10px;
+	padding:0%;
+}
+
+.resume-link:hover {
+	text-decoration: none;
 }
 
 /* USER PREFERENCES FORM */
@@ -343,8 +347,8 @@ body {
 }
 
 .package-uno, .package-dos {
-    min-width: 50%;
-    max-width: 100%;
+  min-width: 50%;
+  max-width: 100%;
 }
 
 .package-uno:hover,
