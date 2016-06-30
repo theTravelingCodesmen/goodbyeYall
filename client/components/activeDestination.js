@@ -17,9 +17,9 @@ class ActiveDestination extends React.Component {
 		if(this.props.country === 'United States'){
 			return ''
 			}
-		else {
+		else { 
 			return(
-			<BootStrapModal bTitle='IMPORTANT! Country Travel info' popoverLink={''}>
+			<BootStrapModal bTitle='IMPORTANT! Country Travel info' popoverLink={''} bsStyle={'Primary'}>
 
 			<div>Languages: {this.props.lang.map(obj => {
 				return <div>{obj.language}</div>
