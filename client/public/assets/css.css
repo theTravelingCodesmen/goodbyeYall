@@ -50,6 +50,10 @@
 	margin: .85em
 }
 
+.prefs-submit-button {
+    margin: 7px 0px 0px 0px;
+}
+
 #profile-photo-li {
 	padding:0 0 0 0;
 }

@@ -112,7 +112,7 @@ let UserForm = React.createClass ({
                       Global Explorer
                     </Checkbox>
 
-                    <Button type="submit">
+                    <Button className="prefs-submit-button btn" type="submit">
                       Submit
                     </Button>
                 </form>
