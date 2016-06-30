@@ -72,17 +72,15 @@ body {
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll {
-	border-style: solid;
-	border-color: black;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	min-height: 10.67em;
 }
 
 .passive-photo {
 	display: flex;
 	flex-grow: 1;
-	padding: 5.1%;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	cursor: pointer;
@@ -105,17 +103,23 @@ body {
 }
 
 .passive-price {
+	position: relative;
+	left: 1.85em;
+	top: 2.05em;
+	text-align: center;
+	line-height: 1;
+	background-color: #777;
+	border-radius: 10px;
+	max-height: 1.15em;
 	margin: 0;
 	padding: 2px;
 	font-size: 2em;
-	width: auto;
-	left: .2em;
+	min-width: 3em;
+	max-width: 3em;
 	color: white;
-	opacity: 0;
 	font-weight: bold;
-	position: relative;
+	opacity: 0;
 }
-
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
 .active-photo-container {
