@@ -6,7 +6,7 @@ Helping people achieve their travel goals
 ######[James Fitzpatrick](https://github.com/Fitzpatrick1)
 ######[Sin Cheung Ko](https://github.com/scko823)
 ######[Paul-Michael Schreiber](https://github.com/pschreibs85)
-######[Owen Temple](https://github.com/owentemp)
+######[Owen Temple](https://github.com/owentemple)
 ######[Vidush Rana](https://github.com/Vidushr)
 
 #GoodbyeYall Cheap Airfare Finder
