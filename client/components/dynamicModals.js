@@ -10,6 +10,9 @@ import {Popover, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 //Modal Title
 //{this.props.modalTitle}
 
+//Header
+//{this.props.item}
+
 //introToPopover
 //{this.props.introToPopover}
 
@@ -22,7 +25,7 @@ import {Popover, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 //Popover second paragraph
 //{this.props.PopoverPTwo}
 
-// Modal Header Top
+// Modal Header Top Section
 //{this.props.modalHeaderOne}
 
 //Body text of the top
@@ -35,9 +38,6 @@ import {Popover, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 
 //Body Text
 //{this.props.bodyText}
-
-//Item
-//{this.props.item}
 
 //Personal Statement
 //{this.props.personalStatement}

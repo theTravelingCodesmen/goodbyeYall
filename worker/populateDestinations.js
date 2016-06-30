@@ -129,7 +129,7 @@ let northernLights = {
 let grandCanyon = {
   title:"The Grand Canyon",
   airport_code:"PHXA-sky",
-  country:"United States of America",
+  country:"United States",
   city_name:"70 miles north of Flagstaff, Arizona",
   package_group: "Seven Natural Wonders",
   intro:"Located in North America is the Grand Canyon, extending 400 kilometres through the Colorado Plateau in northwest Arizona. The canyon is 6 to 30 kilometres wide and 1.6 kilometres deep. The canyon is an erosion formed by water, ice and wind and is considered one of the 7 wonders. The layers of sedimentary rock were formed over millions of years ago and provide significant insight into the earth’s geologic timescale.",
@@ -353,19 +353,19 @@ let miami = {
 let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest, london, bangkok, paris, dubai, istanbul, singapore, seoul, losAngeles, chicago, denver, lasVegas, sanFrancisco, newYork, miami];
 
 //returns an array of unique destination airports
-let destinationAirportArray = destinationsArray
-  .map( (dest) => {
-    return dest.airport_code
-  })
-  .reduce( (prev, curr, ind) => {
-    if(prev.includes(curr)){
-      return prev
-    }
-    else{
-      prev.push(curr);
-      return prev;
-    }
-  }, [])
+// let destinationAirportArray = destinationsArray
+//   .map( (dest) => {
+//     return dest.airport_code
+//   })
+//   .reduce( (prev, curr, ind) => {
+//     if(prev.includes(curr)){
+//       return prev
+//     }
+//     else{
+//       prev.push(curr);
+//       return prev;
+//     }
+//   }, [])
 
 
 // insert destination into destinations database
