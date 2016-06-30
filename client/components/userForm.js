@@ -11,6 +11,7 @@ let UserForm = React.createClass ({
       return {
         'DFWA-sky':false,
         'HOUA-sky':false,
+        'AUS-sky':false,
         'Seven Wonders':false,
         'Seven Natural Wonders':false,
         'American Cities': false,
@@ -23,10 +24,11 @@ let UserForm = React.createClass ({
           .then((userPrefs)=>{
             this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
             this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
-            this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
-            this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
+            this.setState({'AUS-sky' : userPrefs.data['AUS-sky']});
             this.setState({'American Cities' : userPrefs.data['American Cities']});
             this.setState({'Global Explorer' : userPrefs.data['Global Explorer']});
+            this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
+            this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
             this.setState({'profile_name': userPrefs.data['profile_name']});
           })
     },
@@ -88,6 +90,9 @@ let UserForm = React.createClass ({
                         Choose your preferred outbound airports below:
                       </FormControl.Static>
                     </FormGroup>
+                    <Checkbox checked={this.state['AUS-sky']} onChange={()=>{this.setState({'AUS-sky':!this.state['AUS-sky']});}}>
+                      Austin (AUS)
+                    </Checkbox>
                     <Checkbox checked={this.state['DFWA-sky']} onChange={()=>{this.setState({'DFWA-sky':!this.state['DFWA-sky']});}}>
                       Dallas/Fort Worth (DFW & DAL)
                     </Checkbox>
@@ -99,17 +104,17 @@ let UserForm = React.createClass ({
                         Choose your preferred travel packages below:
                       </FormControl.Static>
                     </FormGroup>
-                    <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
-                      Seven Wonders of the World
-                    </Checkbox>
-                    <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
-                      Seven Natural Wonders of the World
-                    </Checkbox>
                     <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
                       American Cities
                     </Checkbox>
                     <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
                       Global Explorer
+                    </Checkbox>
+                    <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
+                      Seven Wonders of the World
+                    </Checkbox>
+                    <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
+                      Seven Natural Wonders of the World
                     </Checkbox>
 
                     <Button className="prefs-submit-button btn" type="submit">
