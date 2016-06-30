@@ -21,14 +21,14 @@ const bioInfo = [
 		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars0.githubusercontent.com/u/11080339',
 		linkedinLink: 'https://www.linkedin.com/in/owentemple',
-		gitHubLink: 'https://github.com/owentemp',
+		gitHubLink: 'https://github.com/owentemple',
 		resumeLink: ''
 	},
 		{person: 'Paul',
 		label: 'Bio',
 		tooltiphover: 'hire me!!!',
 		devType: 'Stack',
-		languagesStrong:'STRONG: JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git', 
+		languagesStrong:'STRONG: JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'EXPERIENCED: AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
 		bio: 'stuff',
 		personalStatement: 'hire me',
@@ -81,7 +81,7 @@ const bioInfo = [
 		gitHubLink: 'https://github.com/scko823',
 		resumeLink: ''
 	},
-		{person:'James', 
+		{person:'James',
 		label: 'Bio.',
 		tooltiphover: 'hire me!!!',
 		devType: 'Stack',
@@ -117,16 +117,18 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 		return( 
 			<div className='meet-the-devs'>
 				<OverlayTrigger overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
+		return(
+			<div className='meet-the-devs'><img src={obj.gitHubPic} className='dev-pic'></img>
 				<div><h5>{obj.person}</h5>
 				<div className ='buttons'>
 					<div className='bio'>
-						<BootStrapModal 
-							bTitle='Bio' 
+						<BootStrapModal
+							bTitle='Bio'
 							popoverLink='Coding Languages'
 							modalHeaderOne='Technical Skills'
 							modalHeaderTwo='This is my story'
 							topBody='Recent GitHub Projects'
-							modalTitle={obj.devType} 
+							modalTitle={obj.devType}
 							PopoverPOne={obj.languagesStrong}
 							PopoverPTwo={obj.languagesExperienced} 
 							bodyText={obj.personalStatement} 
@@ -147,7 +149,7 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 						</div>	
 					</div>
 				</div>
-			</div>	
+			</div>
 		)
 	});
 }
