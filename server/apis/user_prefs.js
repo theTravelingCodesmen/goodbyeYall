@@ -20,6 +20,7 @@ router.get('/existing_pref/:fb_id',function(req, res) {
 			res.send({
 			'DFWA-sky': data['DFWA-sky'],
     	'HOUA-sky': data['HOUA-sky'],
+    	'AUS-sky': data['AUS-sky'],
     	'Seven Wonders': data['Seven Wonders'],
     	'Seven Natural Wonders': data['Seven Natural Wonders'],
 			'Global Explorer': data['Global Explorer'],
@@ -70,6 +71,7 @@ router.post('/',function(req, res) {
 		let newPref ={};
 		newPref['DFWA-sky'] = req.body['DFWA-sky'];
 		newPref['HOUA-sky']=req.body['HOUA-sky'];
+		newPref['AUS-sky']=req.body['AUS-sky'];
 		newPref['Seven Wonders']=req.body['Seven Wonders'];
 		newPref['Seven Natural Wonders']=req.body['Seven Natural Wonders'];
 		newPref['Global Explorer']=req.body['Global Explorer'];

@@ -16,6 +16,8 @@ let passport = require('passport');
 let session = require('express-session');
 let user_prefs = require('./apis/user_prefs');
 
+const SESSION_SECRET = process.env.SESSION_SECRET || require('../APIKEYS').SESSION_SECRET;
+
 let routes = express.Router();
 
 routes.use(express.static(path.join(__dirname, '..', 'client', 'public')));
@@ -51,7 +53,7 @@ else {
 			// res.redirect('/')
 		})
 		app.use(session({
-			secret: "travelingcodesman",
+			secret: SESSION_SECRET,
 			//name: cookie_name,
 	    //store: sessionStore, // connect-mongo session store
 	    //proxy: true,

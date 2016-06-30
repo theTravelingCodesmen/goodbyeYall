@@ -1,4 +1,7 @@
 module.exports = {
+    "AUS-sky": "Austin",
+    "DFWA-sky": "Dallas",
+    "HOUA-sky": "Houston",
     "AMMA-sky": "Amman",
     "BJSA-sky": "Beijing",
     "CUN-sky": "Cancun",
@@ -11,8 +14,6 @@ module.exports = {
     "RIOA-sky": "Rio de Janiero",
     "ROME-sky": "Rome",
     "SYD-sky": "Sydney",
-    "DFWA-sky": "Dallas",
-    "HOUA-sky": "Houston",
     "LOND-sky": "London",
     "BKKT-sky": "Bangkok",
     "PARI-sky": "Paris",

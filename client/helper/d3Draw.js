@@ -117,7 +117,7 @@ function d3LineDraw (targetDOM, endpoint) {
           .attr('x', width/2)
           .attr('y', 0-(margin.top/2))
           .attr('text-anchor','middle')
-          .style('font-size','16px')
+          .attr('class', 'd3-title')
           .text('Average Daily Deal from '+ airportsToCity[airports[0]]+ ' to '+airportsToCity[airports[1]]); // update title here
 
       svg.append("text")
