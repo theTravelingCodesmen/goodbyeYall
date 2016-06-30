@@ -253,9 +253,12 @@ body {
 .main {
   font-size: 4.0em;
   font-family: 'Lalezar', sans-serif;
+  margin-bottom: 0em;
 }
 
 .sub {
+	margin-top: 0em;
+	margin-bottom: .5em;
 }
 
 .call-to-action {
