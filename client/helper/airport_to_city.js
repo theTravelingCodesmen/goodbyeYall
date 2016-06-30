@@ -11,6 +11,7 @@ module.exports = {
     "RIOA-sky": "Rio de Janiero",
     "ROME-sky": "Rome",
     "SYD-sky": "Sydney",
+    "AUS-sky": "Austin",
     "DFWA-sky": "Dallas",
     "HOUA-sky": "Houston",
     "LOND-sky": "London",
