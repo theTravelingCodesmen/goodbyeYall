@@ -79,7 +79,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	min-height: 10.67em;
+	min-height: 10em;
 }
 
 .passive-photo {
@@ -193,10 +193,6 @@ body {
 
 .time-ago {
 	margin: 0;
-}
-
-.btn .btn-primary{
-	color: #00319F;
 }
 
 .powered-by {
