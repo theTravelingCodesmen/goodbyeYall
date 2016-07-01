@@ -127,12 +127,6 @@ body {
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
 .active-photo-container {
-/*  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-size: contain;
-  background: no-repeat;
-  margin-bottom: 3em;*/
 	display: flex;
 	flex-direction: column;
 	background-size: contain;
@@ -168,12 +162,6 @@ body {
 }
 
 .flight-info-container {
-/*	background-color: rgba(255,255,255, 0.55);
-	margin: 0em 3em 3em 3em;
-	min-width: 40%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap-reverse;*/
 	position: relative;
 	background-color: rgba(255,255,255, 0.55);
 	min-width: 40%;
@@ -184,12 +172,6 @@ body {
 }
 
 .flight-details {
-/*	padding-left: 2em;
-	padding-top: 2%;
-	color: blue;
-	text-align: right;
-	border-left-style: solid;
-	border-left-color: black;*/
 	margin: auto;
 	color: blue;
 	text-align: right;
@@ -215,9 +197,6 @@ body {
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
 .flight {
-/*	width: 40%;
-	text-align:center;
-	margin-top: 2em;*/
 	width: 40%;
 	text-align: center;
 	margin-top: 2em;
