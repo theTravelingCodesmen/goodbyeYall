@@ -70,7 +70,7 @@ _plugPictureInserter(element) {
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
 						<div>
-							<a href="https://www.skyscanner.net" target="_blank"><p>Powered By</p><img src="/assets/images/Skyscanner-Logo-Charcoal.png"/></a>
+							<a href="https://www.skyscanner.net" target="_blank"><p>Powered By</p><img className="skyscanner-logo" src="/assets/images/Skyscanner-Logo-Charcoal.png"/></a>
 						</div>
 							{this._countryButtonOrBust()}
 					</div>
