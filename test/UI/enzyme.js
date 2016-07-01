@@ -24,18 +24,18 @@ import AirportDropdown from './airportDropdown';
 
 
 
-describe('',function(){
-	it('message',function(){
+describe('',() =>{
+	it('message',() =>{
 		expect(shallow().contains()).to.equal(true);
 	});
-	it('message',function(){
+	it('message',() =>{
 		expect(shallow().is())to.equal(true);
 	});
-	it('message',function(){
+	it('message',() =>{
 		expect(mount().find().length).to.equal();
 	});
-	it('calls componentDidMount', function() {
-		var wrapper = mount(xxxxx);
+	it('calls componentDidMount', () =>{
+		const wrapper = mount(xxxxx);
 		expect(xxxxx.prototype.componentDidMount.calledOnce).to.equal(true);
 	})
 })
