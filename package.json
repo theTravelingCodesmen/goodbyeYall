@@ -59,7 +59,9 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "enzyme": "^2.3.0",
     "mocha": "^2.5.3",
+    "react-addons-test-utils": "^15.1.0",
     "supertest": "^1.2.0"
   }
 }

@@ -9,6 +9,11 @@ module.exports = {
 		path: path.join(__dirname, 'client','public','dist'),
 		filename:'bundle.js' 
 	},
+	externals: {
+		'react/addons': true,
+		'react/lib/ExecutionEnvironment': true,
+		'react/lib/ReactContext': true
+	},
 	module:{
 		loaders:[
 			{
