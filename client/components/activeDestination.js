@@ -13,8 +13,8 @@ class ActiveDestination extends React.Component {
 	_plugPictureInserter(element) {
 		return(
 			<div>
-			<img className='plug-top' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
-			<img className='plug-bottom' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
+				<img className='plug' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
+				<img className='plug' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
 			</div>
 		)
 	}
@@ -24,25 +24,25 @@ class ActiveDestination extends React.Component {
 		}
 		else {
 			return(
-			<BootStrapModal item='Travel Information' id={'country-information'} bTitle='Country Travel Info' popoverLink={''} bsStyle={'primary'}>
-			<div className='languages-block'><div className='aD-modal-langauge-title'>Languages: </div>{this.props.lang.map(obj => {
-				return <div className='languages'>{obj.language}</div>
-			}) }
-			</div>
-			<div className='plug-block'>
-			<div className='electric-plugs-title'><div className='aD-modal-electric-title'>Electric Plugs: </div></div><div className='electric-plugs-pictures'>{this.props.plugs.map(element => {
-				return <div className='plug-type'>{element} {this._plugPictureInserter(element)}</div> 
-			}) }</div>
-			</div>
-			<div className='calling-block'><div className='aD-modal-calling-code-title'>Calling Code: </div>{this.props.callingCode}</div>
-			<div className='vaccination-block'><div className='aD-modal-vaccinations-title'>Vaccinations: </div>{this.props.vaccinations.map(obj => {
-				return <div className='vaccinations'> {obj.name}</div>
-			})  }
-			</div>
-			<div className='currency-block'><div className='aD-modal-currency-name-title'>Currency Name: </div>{this.props.currencyName }</div>
-			<div className='currency-rate-block'><div className='aD-modal-currency-rate-title'>Currency Rate/USD: </div>{ Number(this.props.currencyRate).toFixed(2)}</div>
-			<div className='water-safety-block'><div className='aD-modal-water-title'>Water Consumption: </div>{this.props.water === 'not safe' ? 'Bottle water': 'Tap water'}</div>
-		</BootStrapModal>
+			<BootStrapModal item='Travel Information' bTitle={this.props.country + ' Info'} popoverLink={''}>
+				<div className='info-block'><div className='aD-modal-title'>Languages: </div>{this.props.lang.map(obj => {
+					return <div className='content'>{obj.language}</div>
+				}) }
+				</div>
+				<div className='info-block'><div className='aD-modal-title'>Currency Name: </div>{this.props.currencyName }</div>
+				<div className='info-block'><div className='aD-modal-title'>Currency Rate/USD: </div>{ Number(this.props.currencyRate).toFixed(2)}</div>
+				<div className='info-block'><div className='aD-modal-title'>Calling Code: </div>{this.props.callingCode}</div>
+				<div className='info-block'><div className='aD-modal-title'>Water Consumption: </div>{this.props.water === 'not safe' ? 'Bottled': 'Tap'}</div>
+				<div className='info-block'><div className='aD-modal-title'>Vaccinations: </div>{this.props.vaccinations.map(obj => {
+					return <div className='content'> {obj.name}</div>
+				})  }
+				</div>
+				<div className='electric-block'>
+				<div><div className='aD-modal-title'>Electric Plugs: </div></div><div className='electric-block'>{this.props.plugs.map(element => {
+					return <div className='plug'>{element} {this._plugPictureInserter(element)}</div> 
+				}) }</div>
+				</div>
+			</BootStrapModal>
 			)
 		}
 	}
@@ -61,10 +61,12 @@ class ActiveDestination extends React.Component {
 						<h3 className='active-price'>{this.props.bookingDetails.price.toFixed(2)}</h3>
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
-						<div>
-							<a href="https://www.skyscanner.net" target="_blank"><p>Powered By</p><img className="skyscanner-logo" src="/assets/images/Skyscanner-Logo-Charcoal.png"/></a>
+						<div className='test'>
+							<a href='https://www.skyscanner.net' target='_blank'><p className='powered-by'>Powered By</p><img className='skyscanner-logo' src='/assets/images/Skyscanner-Logo-Charcoal.png'/></a>
 						</div>
+						<div className='country-info-button'>
 							{this._countryButtonOrBust()}
+						</div>
 					</div>
 				</div>
 			</div>
