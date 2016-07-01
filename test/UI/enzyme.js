@@ -34,4 +34,8 @@ describe('',function(){
 	it('message',function(){
 		expect(mount().find().length).to.equal();
 	});
+	it('calls componentDidMount', function() {
+		var wrapper = mount(xxxxx);
+		expect(xxxxx.prototype.componentDidMount.calledOnce).to.equal(true);
+	})
 })
