@@ -192,7 +192,7 @@ function secondRoundInsertQuotes (){
 
 
 masterDataGenerator()
-setTimeout(secondRoundInsertQuotes, 2400000)
+setTimeout(secondRoundInsertQuotes, 3600000)
 
 // console.log(DestinationAirportArray.destinationAirportArray)
 
