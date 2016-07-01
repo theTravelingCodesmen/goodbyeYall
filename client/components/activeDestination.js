@@ -21,7 +21,7 @@ class ActiveDestination extends React.Component {
 	_countryButtonOrBust() {
 		if(this.props.country === 'United States'){
 			return ''
-			}
+		}
 		else {
 			return(
 			<BootStrapModal item='Travel Information' id={'country-information'} bTitle='Country Travel Info' popoverLink={''} bsStyle={'primary'}>
