@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import D3CacheGraph from './d3CacheGraph';
 import FlightData from './flightData';
 import { connect } from 'react-redux';
 import numberToMonth from '../helper/number_to_month';
@@ -11,18 +10,15 @@ import BootStrapModal from './dynamicModals';
 
 class ActiveDestination extends React.Component {
 	
-_plugPictureInserter(element) {
-	return( 
-		<div>
-		<img className='plug-top' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
-		<img className='plug-bottom' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
-		</div>
-	)
-}
-
-
+	_plugPictureInserter(element) {
+		return(
+			<div>
+			<img className='plug-top' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
+			<img className='plug-bottom' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
+			</div>
+		)
+	}
 	_countryButtonOrBust() {
-
 		if(this.props.country === 'United States'){
 			return ''
 			}
@@ -50,10 +46,6 @@ _plugPictureInserter(element) {
 			)
 		}
 	}
-
-
-
-
 	render() {
 		return(	
 			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
