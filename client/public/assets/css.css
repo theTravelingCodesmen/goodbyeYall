@@ -127,12 +127,23 @@ body {
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
 .active-photo-container {
-  display: flex;
+/*  display: flex;
   flex-direction: column;
   justify-content: center;
   background-size: contain;
   background: no-repeat;
-  margin-bottom: 3em;
+  margin-bottom: 3em;*/
+	display: flex;
+	flex-direction: column;
+	background-size: contain;
+	background: no-repeat;
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	padding-bottom: 2em;
 }
 
 .intro {
@@ -157,21 +168,36 @@ body {
 }
 
 .flight-info-container {
-	background-color: rgba(255,255,255, 0.55);
+/*	background-color: rgba(255,255,255, 0.55);
 	margin: 0em 3em 3em 3em;
 	min-width: 40%;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;*/
+	position: relative;
+	background-color: rgba(255,255,255, 0.55);
+	min-width: 40%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: auto;
 }
 
 .flight-details {
-	padding-left: 2em;
+/*	padding-left: 2em;
 	padding-top: 2%;
 	color: blue;
 	text-align: right;
 	border-left-style: solid;
+	border-left-color: black;*/
+	margin: auto;
+	color: blue;
+	text-align: right;
 	border-left-color: black;
+	position: relative;
+	margin-right: 2em;
+	margin-left: 1em;
+	flex-grow: 1;
 }
 
 .dates {
@@ -189,9 +215,16 @@ body {
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
 .flight {
-	width: 40%;
+/*	width: 40%;
 	text-align:center;
+	margin-top: 2em;*/
+	width: 40%;
+	text-align: center;
 	margin-top: 2em;
+	margin: auto;
+	position: relative;
+	flex-grow: 1;
+	border-right: 2px solid black;
 }
 
 /* info box for d3 graph */
@@ -281,7 +314,9 @@ body {
 }
 
 .seven-view {
-	padding-top:4em;
+	padding-top: 4em;
+	width: 94%;
+	margin-left: 3%;
 }
 /* MISSION STATEMENT */
 
