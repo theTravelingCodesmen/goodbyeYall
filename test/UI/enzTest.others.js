@@ -4,26 +4,24 @@
 let React = require('react');
 let shallow = require('enzyme').shallow;
 let mount = require('enzyme').mount;
+let NavBar = require('../../client/containers/navBar')
 
+// let D3CacheGraph = require( '../../client/components/d3CacheGraph');
+// let FlightData = require( '../../client/components/flightData');
+// let BootStrapModal = require( '../../client/components/dynamicModals');
+// let getd3Cachegraph = require( '../../client/components/d3CacheGraphFetch');
+// let ImageCarousel = require( '../../client/components/imageCarousel');
+// let CardTitle = require( '../../components/cardTitle');
+// let PackageDestinations = require( '../../components/packageDestinations');
+// let PassiveDestination = require( '../../components/passiveDestination');
+// let ActiveDestination = require( '../../components/activeDestination');
 
-// import D3CacheGraph from '../../components/d3CacheGraph';
-// import FlightData from '../../components/flightData';
-// import BootStrapModal from '../../components/dynamicModals';
-// import getd3Cachegraph from '../../components/d3CacheGraphFetch';
-// import ImageCarousel from '../../components/imageCarousel';
-// import CardTitle from '../../components/cardTitle';
-// import PackageDestinations from '../../components/packageDestinations';
-// import PassiveDestination from '../../components/passiveDestination';
-// import ActiveDestination from '../../components/activeDestination';
-
-// import NavBar from '../../containers/navBar';
-// import OuterCardBox from '../../components/outerCardBox';
-// import MissionStatement from '../../components/missionStatement';
-// import MeetTheDevs from '../../components/meetTheDevs';
-// import CardBox from '../../containers/cardBox';
-// import UserForm from '../../components/userForm';
-// import AirportDropdown from '../../containers/airportDropdown';
-// import {expect} from 'chai';
+let OuterCardBox = require( '../../client/components/outerCardBox');
+let MissionStatement = require( '../../client/components/missionStatement');
+let MeetTheDevs = require( '../../client/components/meetTheDevs');
+// let CardBox = require( '../../containers/cardBox');
+// let UserForm = require( '../../components/userForm');
+// let AirportDropdown = require( '../../containers/airportDropdown');
 let expect = require('chai').expect;
 // Shallow Rendering
 // Full Dom Rendering
@@ -47,6 +45,17 @@ let expect = require('chai').expect;
 // 	})
 // })
 
+
+// class NavBar extends React.Component {
+//   render () {
+//     return (
+//       <div>
+//         <input id='checked' defaultChecked />
+//         <input id='not' defaultChecked={false} />
+//       </div>
+//     )
+//   }
+// }
 
 describe('<NavBar />',() =>{
 	it('it should render <OuterCardBox /> component',() =>{
