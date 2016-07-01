@@ -8,7 +8,7 @@
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
     "build": "./node_modules/webpack/bin/webpack.js -w -c",
-    "test_en_others": "mocha -w test/UI/helpers/browser.js test/UI/enzTest.others.js",
+    "test_en_others": "mocha --compilers .:babel-core/register test/UI/helpers/browser.js test/UI/enzTest.others.js",
     "postinstall": "./node_modules/webpack/bin/webpack.js -p"
   },
   "repository": {
