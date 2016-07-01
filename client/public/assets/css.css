@@ -286,9 +286,6 @@ body {
 	margin-bottom: .5em;
 }
 
-.call-to-action {
-}
-
 .center-div {
   display:inline-block;
   width: 80%;
@@ -319,6 +316,14 @@ body {
   position:relative;
   top:2%;
   left:10%;
+}
+
+.how-it-works-gif {
+    position: relative;
+    margin:5%;
+    bottom:70%;
+    border: 1px black solid;
+    width:60%;
 }
 
 /* MEET THE DEVS */
