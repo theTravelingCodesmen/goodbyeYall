@@ -1,7 +1,10 @@
 'use strict'
+//this is for testing 'MeetTheDevs', 'MissionStatement', and 'OuterCardBox'
 
-// import React from 'react';
-// import { shallow, mount} from 'enzyme';
+let React = require('react');
+let shallow = require('enzyme').shallow;
+let mount = require('enzyme').mount;
+
 
 // import D3CacheGraph from '../../components/d3CacheGraph';
 // import FlightData from '../../components/flightData';
