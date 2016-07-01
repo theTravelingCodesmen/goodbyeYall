@@ -1,4 +1,4 @@
-# :airplane::airplane:goodbyeYall :airplane::airplane:
+# :airplane::airplane:GoodbyeYall :airplane::airplane:
 ###We do the work, you do the travel.
 Helping people achieve their travel goals
 
@@ -46,18 +46,17 @@ npm run dev
 Connect to localhost:4000 in your browser
 
 
-Built With
+###Built With
 
-Node JS
-PostgreSQL
-Express
-React JS
-React Bootstrap
-React Router
-React Redux
-Bootstrap
-D3 JS
-Integrated with Facebook Oauth
+- Node JS
+- PostgreSQL
+- Express
+- React JS
+- React Bootstrap
+- React Router
+- React Redux
+- D3 JS
+- Integrated with Facebook Oauth
 
 In the backend, a worker queries Skyscanner.com's Flights API and filter/format/store all the relevant data on our backend using a PostgresSQL database adapter through the Node.js KNEX library.
 
