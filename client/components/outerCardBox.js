@@ -6,6 +6,9 @@ import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class OuterCardBox extends React.Component {
+	
+	compontentDidMount () {}
+
 	render(){
 		return (
 			<div >

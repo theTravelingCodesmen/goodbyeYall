@@ -10,5 +10,5 @@ class CardTitle extends React.Component{
 	}
 }
 
-
+export { CardTitle };
 export default CardTitle;

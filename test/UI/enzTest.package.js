@@ -8,11 +8,11 @@ import sinon from 'sinon';
 // import UserForm from '../../client/components/userForm';
 // import AirportDropdown from '../../client/containers/airportDropdown';
 // import D3CacheGraph from '../../client/components/d3CacheGraph';
-// import FlightData from '../../client/components/flightData';
+import { FlightData } from '../../client/components/flightData';
 // import BootStrapModal from '../../client/components/dynamicModals';
 // import getd3Cachegraph from '../../client/components/d3CacheGraphFetch';
-// import CardTitle from '../../client/components/cardTitle'; 
-// import PassiveDestination from '../../client/components/passiveDestination';
+import { CardTitle } from '../../client/components/cardTitle'; 
+import { PassiveDestination } from '../../client/containers/passiveDestination';
 // import ActiveDestination from '../../client/components/activeDestination';
 
 describe('<CardBox />', () =>{
@@ -23,41 +23,50 @@ describe('<CardBox />', () =>{
 })
 
 
-// describe('<UserForm />', () =>{
-// 	it('', (expect()) =>{})})
+// describe('', () =>{
+// 	it('', () =>{ expect()}
 
 
-// describe('<AirportDropdown />', () =>{
-// 	it('', (expect()) =>{})})
+// describe('', () =>{
+// 	it('', () =>{ expect()}
 
 
-// describe('<D3CacheGraph />', () =>{
-// 	it('', (expect()) =>{})})
+// describe('', () =>{
+// 	it('', () =>{ expect()}
 
 
-// describe('<FlightData />', () =>{
-// 	it('', (expect()) =>{})})
+// describe('', () =>{
+// 	it('', () =>{ expect()}
 
 
-// describe('<BootStrapModal />', () =>{
-// 	it('', (expect()) =>{})})
+describe('<FlightData />', () =>{
+	it('should render a flight div', () =>{ 
+		expect(shallow(<FlightData />).find('.flight')).to.have.length(1)
+	})
+})
 
 
-// describe('<getd3Cachegraph />', () =>{
-// 	it('', (expect()) =>{})})
+// describe('', () =>{
+// 	it('', () =>{ expect()}
 
 
-// describe('<CardTitle />', () =>{
-// 	it('', (expect()) =>{})})
+// describe('', () =>{
+// 	it('', () =>{ expect()}
 
 
-// describe('<PackageDestinations />', () =>{
-// 	it('', (expect()) =>{})})
-
+describe('<CardTitle />', () =>{
+	it('should render a card-title div', () =>{ 
+		expect(shallow(<CardTitle />).find('.card-title')).to.have.length(1)
+	})
+})
 
 // describe('<PassiveDestination />', () =>{
-// 	it('', (expect()) =>{})})
+// 	it('should have ', () =>{ 
+// 		expect(mount('<PassiveDestination />').render().find('.package-view'
+// 		)).to.have.length(1)
+// 	})
+// })
 
 
-// describe('<ActiveDestination />', () =>{
-// 	it('', (expect()) =>{})})
+// describe('', () =>{
+// 	it('', () =>{ expect()}

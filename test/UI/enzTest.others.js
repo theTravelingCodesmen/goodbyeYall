@@ -128,7 +128,15 @@ describe('<OuterCardBox />', () => {
 				<img className='package-dos' src='/assets/images/postcard-package-natural.jpg'></img>
 			</LinkContainer>)).to.equal(true);
 	})
+ 	it('contains 12 <LinkContainer/> components, consisting of 4 components directly in the component, 8 components in child component <ImageCarousel /> ', () => {
+    const wrapper = mount(<OuterCardBox />);
+    expect(wrapper.find(LinkContainer)).to.have.length(12);
+  });
 })
+
+
+
+
 
 describe('<MissionStatement />', () => { 
 	it('should have nav-spacing div', () => {

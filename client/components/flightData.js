@@ -20,4 +20,5 @@ class FlightData extends React.Component {
   }
 }
 
+export { FlightData }
 export default FlightData;
