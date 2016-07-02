@@ -9,7 +9,7 @@ import BootStrapModal from './dynamicModals';
 
 
 class ActiveDestination extends React.Component {
-	
+
 	_plugPictureInserter(element) {
 		return(
 			<div>
@@ -39,7 +39,7 @@ class ActiveDestination extends React.Component {
 				</div>
 				<div className='electric-block'>
 				<div><div className='aD-modal-title'>Electric Plugs: </div></div><div className='electric-block'>{this.props.plugs.map(element => {
-					return <div className='plug'>{element} {this._plugPictureInserter(element)}</div> 
+					return <div className='plug'>{element} {this._plugPictureInserter(element)}</div>
 				}) }</div>
 				</div>
 			</BootStrapModal>
@@ -47,7 +47,7 @@ class ActiveDestination extends React.Component {
 		}
 	}
 	render() {
-		return(	
+		return(
 			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
 				<div className='intro'>
 					<h1 className='destination-name'>{this.props.title}</h1>
@@ -66,6 +66,9 @@ class ActiveDestination extends React.Component {
 						</div>
 						<div >
 							{this._countryButton()}
+						</div>
+						<div className='destination-info-mobile'>
+						<p> {this.props.intro}</p>
 						</div>
 					</div>
 				</div>
