@@ -12,7 +12,7 @@ import {MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } 
 import { spy } from 'sinon';
 import { OuterCardBox, LinkContainer } from '../../client/components/outerCardBox';
 import { MissionStatement } from '../../client/components/missionStatement';
-import {ImageCarousel } from  '../../client/components/imageCarousel';
+import { ImageCarousel } from  '../../client/components/imageCarousel';
 
 // Shallow Rendering
 // Full Dom Rendering
@@ -35,6 +35,18 @@ import {ImageCarousel } from  '../../client/components/imageCarousel';
 // 		expect(xxxxx.prototype.componentDidMount.calledOnce).to.equal(true);
 // 	})
 // })
+
+  // let componentWillMount = function(){
+  //   localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
+  //   this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
+  // }
+
+  // let logout = function(){
+  //   localStorage.removeItem('goodbyeyall.fb_id');
+  //   this.props.changeLogin(false);
+  //   window.location.assign('/');
+  // }
+
 
 describe('<NavBar />', () =>{
 	it('it should render <OuterCardBox /> component', () =>{
@@ -95,12 +107,19 @@ describe('<MeetTheDevs />', () => {
 })
 
 describe('<OuterCardBox />', () => { 
-		it('should have a path to the Seven Wonders', () => {
-		expect(shallow(<OuterCardBox />).contains(
-			<LinkContainer to={{pathname:'/package/Seven Wonders'}}><img className='package-uno' src='/assets/images/postcard-package.jpg'></img></LinkContainer>)).to.equal(true);
+	it('should have nav-spacing div', () => {
+	expect(shallow(<OuterCardBox />).contains(
+			<div className='nav-spacing'></div>
+		)).to.equal(true);
+	})
+	it('should have a path to the Seven Wonders', () => {
+	expect(shallow(<OuterCardBox />).contains(
+		<LinkContainer to={{pathname:'/package/Seven Wonders'}}><img className='package-uno' src='/assets/images/postcard-package.jpg'></img></LinkContainer>
+		)).to.equal(true);
 	})
 		it('should have a path to the Global Explorer', () => {
-		expect(shallow(<OuterCardBox />).contains(<LinkContainer to={{pathname:'/package/Global Explorer'}}><img className='package-uno' src='/assets/images/postcard-package-3.jpg'></img></LinkContainer>	)).to.equal(true);
+		expect(shallow(<OuterCardBox />).contains(<LinkContainer to={{pathname:'/package/Global Explorer'}}><img className='package-uno' src='/assets/images/postcard-package-3.jpg'></img></LinkContainer>	
+			)).to.equal(true);
 	})
 		it('should have a path to the American Cities', () => {
 		expect(shallow(<OuterCardBox />).contains(<LinkContainer to={{pathname:'/package/American Cities'}}><img className='package-dos' src='/assets/images/postcard-package-4.jpg'></img></LinkContainer>)).to.equal(true);
@@ -110,14 +129,14 @@ describe('<OuterCardBox />', () => {
 	})
 })
 
-// describe('<MissionStatement />', () => { 
-// 		it('should have five meet-the-devs divs', () => {
-// 		expect(shallow(<MissionStatement />).contains(<div className='mission-statement'>)).to.equal(true);
-// 	})
-// })
+describe('<MissionStatement />', () => { 
+		it('should have nav-spacing div', () => {
+		expect(shallow(<MissionStatement />).contains(
+				<div className='nav-spacing'></div>
+			)).to.equal(true);
+	})
+})
 
-// describe('<ImageCarousel />', () => { 
-// 		it('should have five meet-the-devs divs', () => {
-// 		expect(shallow(<ImageCarousel />).find('Carousel')).to.have.length(8);
-// 	})
-// })
+describe('<ImageCarousel />', () => { 
+
+})
