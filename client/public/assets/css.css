@@ -456,30 +456,83 @@ footer {
 
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
 
-    .value-prop {
-        margin-top: 100px;
-    }
-    .package-uno, .package-dos {
-        min-width: 100%;
-    }
     .nav{
         position: relative;
+        font-size: 2.3em;
+    }
+    .dropdown-menu{
+        font-size: 0.9em;
+    }
+    .fb-login-button {
+        position: fixed;
+        top:1%;
+        right:10%;
+    }
+
+    .logo > img {
+        position: relative;
+        left: -80px;
+    }
+    .logo-text {
+        position: relative;
+        left:-20%;
+        font-size: 1.2em;
+    }
+    .value-prop {
+        margin-top: 120px;
+        width:95%;
+        margin-left: 0%;
+        font-size: .8em;
+    }
+    .package-uno {
+        min-width: 125%;
+        margin-left: -17%;
+    }
+
+    .package-dos {
+        min-width: 123%;
+        margin-left: -17%;
+    }
+    .carousel {
+        width:95%;
+        margin-left: -1.5%;
+    }
+    .seven-view {
+        width: 120%;
+        margin-left: -10%;
     }
 
     .package-view {
         position: relative;
-        top:50px;
+        top:120px;
     }
     .mission-statement {
         position: relative;
-        top: 90px;
+        width:110%;
+        top: 170px;
+        left: 0%;
+        font-size: 3.0em;
     }
+
+    .mission-statement h2{
+        font-size: 1.7em;
+    }
+    .mission-statement h4 {
+        font-size: 1.2em;
+    }
+    .how-it-works-gif {
+        top:5%;
+        width:120%;
+        left:-12%;
+    }
+
     .meet-the-devs-wrapper {
+        margin-top:200px;
         display: block;
     }
 
     .meet-the-devs {
-        width:600px;
+        width:720px;
     }
 
     .flight-details {
@@ -496,19 +549,12 @@ footer {
     .intro {
 
     }
-    .seven-view {
-        min-height: 10%;
-    }
     .destination-info {
         display:none;
     }
     .active-roll-container {
         background-size: 500px 1000px;
 
-    }
-    .logo > img {
-        position: relative;
-        left: -80px;
     }
 
 }
