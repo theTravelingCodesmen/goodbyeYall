@@ -1,5 +1,5 @@
 'use strict'
-//this is for testing 'MeetTheDevs', 'MissionStatement', and 'OuterCardBox'
+//this is for testing: 'NavBar', 'MeetTheDevs', 'MissionStatement', and 'OuterCardBox';
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
@@ -14,8 +14,6 @@ import { ImageCarousel } from  '../../client/components/imageCarousel';
 // Shallow Rendering
 // Full Dom Rendering
 // Static Rendered Markup
-
-
 
 // describe('',() =>{
 // 	it('message',() =>{
@@ -68,11 +66,18 @@ describe('<NavBar />', () =>{
 let obj= bioInfo;
 let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 describe('<MeetTheDevs />', () => {
-	it('should have five meet-the-devs divs', () => {
-		expect(shallow(<MeetTheDevs />).find('.meet-the-devs')).to.have.length(5);
+	it('should have nav-spacing div', () => {
+		expect(shallow(<MeetTheDevs />).contains(
+			<div className='nav-spacing'></div>
+		)).to.equal(true);
 	})
-		it('should have five dev pictures', () => {
-		expect(shallow(<MeetTheDevs />).find('.dev-pic')).to.have.length(5);
+	it('should have five meet-the-devs divs', () => {
+		expect(shallow(<MeetTheDevs />).find(
+			'.meet-the-devs')).to.have.length(5);
+	})
+	it('should have five dev pictures', () => {
+		expect(shallow(<MeetTheDevs />).find(
+			'.dev-pic')).to.have.length(5);
 	})
 		// it('should have pull left and pull right in icon div', () => {
 		// 	expect(shallow(<MeetTheDevs />).find('.icons').hasClass('pull-left')).to.be(true);
@@ -105,32 +110,48 @@ describe('<MeetTheDevs />', () => {
 
 describe('<OuterCardBox />', () => { 
 	it('should have nav-spacing div', () => {
-	expect(shallow(<OuterCardBox />).contains(
+		expect(shallow(<OuterCardBox />).contains(
 			<div className='nav-spacing'></div>
 		)).to.equal(true);
 	})
 	it('should have a path to the Seven Wonders', () => {
-	expect(shallow(<OuterCardBox />).contains(
-		<LinkContainer to={{pathname:'/package/Seven Wonders'}}><img className='package-uno' src='/assets/images/postcard-package.jpg'></img></LinkContainer>
+		expect(shallow(<OuterCardBox />).contains(
+			<LinkContainer to={{pathname:'/package/Seven Wonders'}}>
+				<img className='package-uno' src='/assets/images/postcard-package.jpg'></img>
+			</LinkContainer>
 		)).to.equal(true);
 	})
-		it('should have a path to the Global Explorer', () => {
-		expect(shallow(<OuterCardBox />).contains(<LinkContainer to={{pathname:'/package/Global Explorer'}}><img className='package-uno' src='/assets/images/postcard-package-3.jpg'></img></LinkContainer>	
+	it('should have a path to the Global Explorer', () => {
+		expect(shallow(<OuterCardBox />).contains(
+			<LinkContainer to={{pathname:'/package/Global Explorer'}}>
+				<img className='package-uno' src='/assets/images/postcard-package-3.jpg'></img>
+			</LinkContainer>	
 			)).to.equal(true);
 	})
-		it('should have a path to the American Cities', () => {
-		expect(shallow(<OuterCardBox />).contains(<LinkContainer to={{pathname:'/package/American Cities'}}><img className='package-dos' src='/assets/images/postcard-package-4.jpg'></img></LinkContainer>)).to.equal(true);
+	it('should have a path to the American Cities', () => {
+		expect(shallow(<OuterCardBox />).contains(
+			<LinkContainer to={{pathname:'/package/American Cities'}}>
+				<img className='package-dos' src='/assets/images/postcard-package-4.jpg'></img>
+			</LinkContainer>)).to.equal(true);
 	})
-		it('should have a path to the Natural Wonders', () => {
-		expect(shallow(<OuterCardBox />).contains(	<LinkContainer to={{pathname:'/package/Seven Natural Wonders'}}><img className='package-dos' src='/assets/images/postcard-package-natural.jpg'></img></LinkContainer>)).to.equal(true);
+	it('should have a path to the Natural Wonders', () => {
+		expect(shallow(<OuterCardBox />).contains(
+			<LinkContainer to={{pathname:'/package/Seven Natural Wonders'}}>
+				<img className='package-dos' src='/assets/images/postcard-package-natural.jpg'></img>
+			</LinkContainer>)).to.equal(true);
 	})
 })
 
 describe('<MissionStatement />', () => { 
-		it('should have nav-spacing div', () => {
+	it('should have nav-spacing div', () => {
+	expect(shallow(<MissionStatement />).contains(
+			<div className='nav-spacing'></div>
+		)).to.equal(true);
+	})
+	it('should have nav-spacing div', () => {
 		expect(shallow(<MissionStatement />).contains(
-				<div className='nav-spacing'></div>
-			)).to.equal(true);
+			<img className='how-it-works-gif' src='/assets/images/how-it-works.gif'></img>
+		)).to.equal(true);
 	})
 })
 
