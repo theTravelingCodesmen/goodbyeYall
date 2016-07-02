@@ -105,7 +105,7 @@ let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 
 
 		return( 
-			<div key='' className='meet-the-devs'>
+			<div  className='meet-the-devs'>
 				<OverlayTrigger className = 'meet-the-devs-overlay-trigger' overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
 				<div><h5>{obj.person}</h5>
 				<div className ='buttons'>
@@ -122,7 +122,6 @@ let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 							bodyText={obj.personalStatement} 
 							item={obj.person} 
 							popOverTitle='Technical Knowledge'
-							key = {obj.person}
 							className='meet-the-devs-dynamic-modal' 						
 							>
 							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>

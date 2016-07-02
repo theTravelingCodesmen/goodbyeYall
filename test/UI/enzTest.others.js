@@ -36,17 +36,6 @@ import {ImageCarousel } from  '../../client/components/imageCarousel';
 // 	})
 // })
 
-class Fixture extends React.Component {
-  render () {
-    return (
-      <div>
-        <input id='checked' defaultChecked />
-        <input id='not' defaultChecked={false} />
-      </div>
-    )
-  }
-}
-
 describe('<NavBar />', () =>{
 	it('it should render <OuterCardBox /> component', () =>{
 		const wrapper = shallow(<NavBar />)
@@ -82,10 +71,10 @@ describe('<MeetTheDevs />', () => {
 	// 	it('should have ten buttons', () => {
 	// expect(mount(<MeetTheDevs />).find('Button')).to.have.length(10);
 	// })
-		it('should have a BootStrapModal', () => {
-			expect(shallow(<MeetTheDevs />).find('meet-the-devs-dynamic-modal'
-				).props()).to.have.length(13);
-		})
+		// it('should have a BootStrapModal', () => {
+		// 	expect(shallow(<MeetTheDevs />).find('meet-the-devs-dynamic-modal'
+		// 		).props()).to.have.length(13);
+		// })
 	// 	it('calls componentDidMount', () =>{
 	// 	const wrapper = mount(<MeetTheDevs />);
 	// 	expect(MeetTheDevs.prototype.componentDidMount.calledOnce).to.equal(true);
