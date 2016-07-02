@@ -156,12 +156,19 @@ knex.ensureSchema = function () {
           table.boolean('Global Explorer').defaultTo(false);
           table.boolean('American Cities').defaultTo(false);
           table.boolean('Party Islands').defaultTo(false);
-          table.boolean('Seven Continents').defaultTo(false);
+          table.boolean('Foodie Cities').defaultTo(false);
           table.boolean('Custom Package').defaultTo(false);
         }).then(function (table) {
           console.log('Created users table.');
         })
-      } 
+      }
+      // else if (exists) {
+      //   knex.schema.table('users', function (table) {      
+      //     table.renameColumn('Seven Continents', 'Foodie Cities');
+      //   }).then(function (table) {
+      //     console.log('Altered users table.');
+      //   })
+      // }
     })     
   ])
 }
@@ -180,5 +187,5 @@ knex.closeDb = function () {
   })
 }
 
-// knex.ensureSchema().then(knex.closeDb);
+//knex.ensureSchema().then(knex.closeDb);
 
