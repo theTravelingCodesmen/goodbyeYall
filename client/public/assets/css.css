@@ -501,8 +501,9 @@ footer {
     }
     .mission-statement {
         position: relative;
+        width:110%;
         top: 170px;
-        left: 5%;
+        left: 0%;
         font-size: 3.0em;
     }
 
