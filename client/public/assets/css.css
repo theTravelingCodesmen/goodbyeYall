@@ -544,8 +544,8 @@ footer {
         display: unset;
         color: black;
     }
-    .flight-details {
-        width: 100%;
+    .flight {
+        border-right:0px;
     }
     .flight-info-container {
         border: none;
