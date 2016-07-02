@@ -343,7 +343,7 @@ body {
 }
 
 .call-to-action a {
-	color: #003399;	
+	color: #003399;
 }
 
 .call-to-action-link {
@@ -412,8 +412,9 @@ body {
 }
 
 .package-uno, .package-dos {
-  min-width: 50%;
+  min-width: 49%;
   max-width: 100%;
+  margin: 0.5% 0.5%;
 }
 
 .package-uno:hover,
@@ -505,7 +506,7 @@ footer {
         font-size: 1.2em;
     }
     .card-title {
-        margin-top: 12%;
+        margin-top: 16%;
         margin-bottom:-13%;
     }
 
@@ -518,13 +519,15 @@ footer {
     .package-uno {
         min-width: 125%;
         margin-left: -17%;
+        margin-bottom:1.0em;
     }
     .package-dos {
         min-width: 123%;
         margin-left: -17%;
+        margin-bottom: 1.0em;
     }
     .carousel {
-        width:95%;
+        width:97%;
         margin-left: -1.5%;
     }
     .mission-statement {
