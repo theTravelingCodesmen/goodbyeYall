@@ -362,7 +362,7 @@ let tokoyo = {
   weather:"",
 };
 
-let paris = {
+let parisFood = {
   title:"Paris",
   airport_code:"PARI-sky",
   country:"France",
@@ -386,7 +386,7 @@ let hongKong = {
   weather:"",
 };
 
-let newYork = {
+let newYorkFood = {
   title:"New York",
   airport_code:"NYCA-sky",
   country:"United States",
