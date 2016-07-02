@@ -53,7 +53,7 @@
 }
 
 .prefs-submit-button {
-    margin: 7px 0px 0px 0px;
+	margin: 7px 0px 0px 0px;
 }
 
 #profile-photo-li {
@@ -79,7 +79,7 @@ body {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	min-height: 10.67em;
+	min-height: 10em;
 }
 
 .passive-photo {
@@ -124,15 +124,21 @@ body {
 	font-weight: bold;
 	opacity: 0;
 }
+
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
 .active-photo-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-size: contain;
-  background: no-repeat;
-  margin-bottom: 3em;
+	display: flex;
+	flex-direction: column;
+	background-size: contain;
+	background: no-repeat;
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	padding-bottom: 2em;
 }
 
 .intro {
@@ -157,21 +163,24 @@ body {
 }
 
 .flight-info-container {
+	position: relative;
 	background-color: rgba(255,255,255, 0.55);
-	margin: 0em 3em 3em 3em;
 	min-width: 40%;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap-reverse;
+	flex-wrap: wrap;
+	margin: auto;
 }
 
 .flight-details {
-	padding-left: 2em;
-	padding-top: 2%;
+	margin: auto;
 	color: blue;
 	text-align: right;
-	border-left-style: solid;
 	border-left-color: black;
+	position: relative;
+	margin-right: 2em;
+	margin-left: 1em;
+	flex-grow: 1;
 }
 
 .dates {
@@ -186,12 +195,28 @@ body {
 	margin: 0;
 }
 
+.powered-by {
+	position: relative;
+	top: 2em;
+	right: 1em;
+	color: #14141f;
+}
+
+.country-info-button {
+	margin-top: 1em;
+	opacity: .7;
+}
+
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
 .flight {
 	width: 40%;
-	text-align:center;
+	text-align: center;
 	margin-top: 2em;
+	margin: auto;
+	position: relative;
+	flex-grow: 1;
+	border-right: 2px solid black;
 }
 
 /* info box for d3 graph */
@@ -261,9 +286,6 @@ body {
 	margin-bottom: .5em;
 }
 
-.call-to-action {
-}
-
 .center-div {
   display:inline-block;
   width: 80%;
@@ -281,7 +303,9 @@ body {
 }
 
 .seven-view {
-	padding-top:4em;
+	padding-top: 4em;
+	width: 94%;
+	margin-left: 3%;
 }
 /* MISSION STATEMENT */
 
@@ -292,6 +316,14 @@ body {
   position:relative;
   top:2%;
   left:10%;
+}
+
+.how-it-works-gif {
+    position: relative;
+    margin:5%;
+    bottom:70%;
+    border: 1px black solid;
+    width:60%;
 }
 
 /* MEET THE DEVS */
@@ -305,7 +337,7 @@ body {
 
 .meet-the-devs-wrapper {
 	display: inline-flex;
-	margin-top: 15%;
+	margin-top: 10%;
 }
 
 .dev-pic {
@@ -374,30 +406,29 @@ body {
 	left:46.7%
 }
 
-/*TRAVEL INFO////////////////////////////*/
+/*TRAVEL INFO////////////////////////////////*/
 /*//////////////////////////////////////////*/
 
-.languages, .vaccinations {
+.content {
 	display: inline-flex;
 	margin-left:5px;
 }
 
-.plug-top, .plug-bottom, .plug-type{
+.plug {
 	display: inline-flex;
 	margin-left: 40px;
 }
 
-.plug-block, .electric-plugs-title, .electric-plugs-pictures{
+.electric-block {
 	display: inline-flex;
 }
 
-.languages-block, .calling-block, .vaccination-block, .currency-block, .currency-rate-block, .water-safety-block{
+.info-block {
 	display: block;
 	margin-bottom: 20px;
 }
 
-
-.aD-modal-langauge-title, .aD-modal-electric-title, .aD-modal-calling-code-title, .aD-modal-currency-name-title, .aD-modal-currency-rate-title, .aD-modal-vaccinations-title, .aD-modal-water-title{
+.aD-modal-title {
 	font-weight: bolder;
 	display: inline-flex;
 	margin-right: 5px;
@@ -407,11 +438,116 @@ body {
 .modal-header{
 	font-weight: bolder;
 	text-align: center;
+}
 
 footer {
-	position: static;
-	bottom:3px;
-	margin-left:3em;
-	margin-top: 1em;
+	position: relative;
+	top:100%;
+            left:70%;
 	/*border-top: solid 2px black;*/
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+
+    .nav{
+        position: relative;
+        font-size: 2.3em;
+    }
+    .dropdown-menu{
+        font-size: 0.9em;
+    }
+    .fb-login-button {
+        position: fixed;
+        top:1%;
+        right:10%;
+    }
+
+    .logo > img {
+        position: relative;
+        left: -80px;
+    }
+    .logo-text {
+        position: relative;
+        left:-20%;
+        font-size: 1.2em;
+    }
+    .value-prop {
+        margin-top: 120px;
+        width:95%;
+        margin-left: 0%;
+        font-size: .8em;
+    }
+    .package-uno {
+        min-width: 125%;
+        margin-left: -17%;
+    }
+
+    .package-dos {
+        min-width: 123%;
+        margin-left: -17%;
+    }
+    .carousel {
+        width:95%;
+        margin-left: -1.5%;
+    }
+    .seven-view {
+        width: 120%;
+        margin-left: -10%;
+    }
+
+    .package-view {
+        position: relative;
+        top:120px;
+    }
+    .mission-statement {
+        position: relative;
+        width:110%;
+        top: 170px;
+        left: 0%;
+        font-size: 3.0em;
+    }
+
+    .mission-statement h2{
+        font-size: 1.7em;
+    }
+    .mission-statement h4 {
+        font-size: 1.2em;
+    }
+    .how-it-works-gif {
+        top:5%;
+        width:120%;
+        left:-12%;
+    }
+
+    .meet-the-devs-wrapper {
+        margin-top:200px;
+        display: block;
+    }
+
+    .meet-the-devs {
+        width:720px;
+    }
+
+    .flight-details {
+        width: 100%;
+    }
+
+    .skyscanner-logo {
+        width:100px;
+    }
+
+    footer {
+        display: none;
+    }
+    .intro {
+
+    }
+    .destination-info {
+        display:none;
+    }
+    .active-roll-container {
+        background-size: 500px 1000px;
+
+    }
+
 }

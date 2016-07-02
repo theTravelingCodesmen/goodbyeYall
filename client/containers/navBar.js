@@ -13,16 +13,16 @@ import { IS_LOGGED_IN, changeLogin } from '../actions/isLoggedIn';
 
 class NavBar extends React.Component{
 
-  // componentWillMount(){
-  //   localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
-  //   this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
-  // }
+  componentWillMount(){
+    localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
+    this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
+  }
 
-  // logout(){
-  //   localStorage.removeItem('goodbyeyall.fb_id');
-  //   this.props.changeLogin(false);
-  //   window.location.assign('/');
-  // }
+  logout(){
+    localStorage.removeItem('goodbyeyall.fb_id');
+    this.props.changeLogin(false);
+    window.location.assign('/');
+  }
 
   render(){
     let redirect_uri = process.env.NODE_ENV==="production" ? 'http://www.goodbyeyall.com/Preferences' : 'http://localhost:4000/Preferences';
@@ -45,11 +45,13 @@ class NavBar extends React.Component{
             <LinkContainer to={{pathname:'/Package/Seven Natural Wonders'}} className="navbar-button"><MenuItem eventKey={3.2}><div>Seven Natural Wonders</div></MenuItem></LinkContainer>
           </NavDropdown>
           <AirportDropdown / >
-          { this.props.isLoggedIn ?
-            <NavDropdown className="navbar-button" eventKey={4} href="#" id="basic-nav-dropdown" title={<img className='avatar' src={this.profilePhoto}></img>}>
-              <MenuItem eventKey={4.1}><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button"><div>Preferences</div></LinkContainer></MenuItem>
-              <MenuItem eventKey={4.2} className="logout-button"><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button" ><div onClick={this.logout.bind(this)}>Logout</div></LinkContainer></MenuItem>
-            </NavDropdown>:null}
+          {
+            this.props.isLoggedIn ?
+              <NavDropdown className="navbar-button" eventKey={4} href="#" id="basic-nav-dropdown" title={<img className='avatar' src={this.profilePhoto}></img>}>
+                <MenuItem eventKey={4.1}><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button"><div>Preferences</div></LinkContainer></MenuItem>
+                <MenuItem eventKey={4.2} className="logout-button"><LinkContainer to={{pathname:'/Preferences'}} className="navbar-button" ><div onClick={this.logout.bind(this)}>Logout</div></LinkContainer></MenuItem>
+              </NavDropdown>:null
+          }
          { !this.props.isLoggedIn ? <a href={facebookAuthUrl}><img className="fb-login-button" src="/assets/images/facebookLoginBtn.png" /></a> : null}
         </Nav>
       </Navbar>

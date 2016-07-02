@@ -6,7 +6,7 @@ import {Tooltip, OverlayTrigger, Button} from 'react-bootstrap';
 
 const bioInfo = [
 		{person: 'Owen',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
 		languagesStrong: 'JavaScript | React | AngularJS | Git | Node.js/Express | SQL | Postgres | HTML/CSS | Bootstrap | jQuery',
 		languagesExperienced:	'MongoDB | Heroku | Backbone.js | Mithril | Python | Photoshop',
@@ -23,7 +23,7 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person: 'Paul',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
 		languagesStrong:'JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
@@ -40,7 +40,7 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person: 'Vidush',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
 		languagesStrong: 'JavaScript | React | Redux | ES2015 | Gulp | Html | Node | Babel | Webpack | Passport | GraphAPI | and JQuery',
 		languagesExperienced:	': CSS | Angular | Express | Mithril | Mongoose | Backbone | SQL | websockets | Postgres | Mongo DB | deployment(heroku) | Grunt | bootstrap | mocha/chai',
@@ -57,7 +57,7 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person: 'Sin',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
 		languagesStrong: 'JavaScript | SQL | MongoDB | Node | Express | Gulp | Angular | jQuery | Git',
 		languagesExperienced:	'React | Python (pandas, matplotlib/seaborn, NumPy) | Data Structure | jwt | socketIO | bootstrap',
@@ -74,7 +74,7 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person:'James',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
 		languagesStrong: 'JavaScript | Angular | React | Node | Express | GIT | SQL | Excel | HTML5',
 		languagesExperienced: 'Postgres | Knex | MongoDB | Redux | Heroku | SOCKET.IO | @RISK | CSS | Bootstrap | ES6',
@@ -122,7 +122,8 @@ let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 							bodyText={obj.personalStatement} 
 							item={obj.person} 
 							popOverTitle='Technical Knowledge'
-							key = {obj.person} 						
+							key = {obj.person}
+							className='meet-the-devs-dynamic-modal' 						
 							>
 							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>

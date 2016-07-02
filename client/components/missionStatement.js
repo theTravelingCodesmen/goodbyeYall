@@ -12,11 +12,14 @@ class MissionStatement extends React.Component {
 					<h4>2. Favorite the Destination Package of your choice</h4>
 					<h4>3. Get Facebook notifications for reduced flight costs</h4>
 					<h4>4. Travel!</h4>
-					<h4>favorite -> fly -> repeat</h4>
+				<div>
+					<img className='how-it-works-gif' src='/assets/images/how-it-works.gif'></img>
+				</div>
 				</div>
 			)
 	}
 }
+
 
 
 export { MissionStatement };
