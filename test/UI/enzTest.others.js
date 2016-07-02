@@ -4,7 +4,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import {expect} from 'chai';
-import { NavBar } from '../../client/containers/navBar';
+import { NavBar, MenuItem } from '../../client/containers/navBar';
 import {MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
 import { spy } from 'sinon';
 import { OuterCardBox, LinkContainer } from '../../client/components/outerCardBox';
@@ -44,12 +44,40 @@ import { ImageCarousel, Carousel } from  '../../client/components/imageCarousel'
 
 
 describe('<NavBar />', () =>{
-	it('it should render <OuterCardBox /> component', () =>{
+	it('should render <OuterCardBox /> component', () =>{
 		const wrapper = shallow(<NavBar />)
-		// const wrapper = mount(<NavBar />)
-		// wrapper.setProps({ bar: 'foo' });
    expect(wrapper.find('#not')).to.have.length(0);
-	});
+	})
+	it('should contain a logo that is a link to /', () => {
+		const wrapper = shallow(<NavBar />)
+		expect(wrapper.contains(
+    	<LinkContainer to={{pathname:'/'}}><div><img src='/assets/images/logo.png'/><div className="logo-text">GoodbyeYall</div></div></LinkContainer>
+		))
+	})
+	it('should contain a link to /Package/American Cities', () => {
+		const wrapper = shallow(<NavBar />)
+		expect(wrapper.contains(
+    	 <LinkContainer to={{pathname:'/Package/American Cities'}} className="navbar-button"><MenuItem eventKey={3.4}><div>American Cities</div></MenuItem></LinkContainer>
+		))
+	})
+	it('should contain a link to /Package/Global Explorer', () => {
+		const wrapper = shallow(<NavBar />)
+		expect(wrapper.contains(
+    	<LinkContainer to={{pathname:'/Package/Global Explorer'}} className="navbar-button"><MenuItem eventKey={3.3}><div>Global Explorer</div></MenuItem></LinkContainer>
+		))
+	})
+	it('should contain a link to /Package/Seven Wonders', () => {
+		const wrapper = shallow(<NavBar />)
+		expect(wrapper.contains(
+      <LinkContainer to={{pathname:'/Package/Seven Wonders'}} className="navbar-button"><MenuItem eventKey={3.1}><div>Seven Wonders</div></MenuItem></LinkContainer>
+		))
+	})
+	it('should contain a link to /Package/Seven Natural Wonders', () => {
+		const wrapper = shallow(<NavBar />)
+		expect(wrapper.contains(
+     <LinkContainer to={{pathname:'/Package/Seven Natural Wonders'}} className="navbar-button"><MenuItem eventKey={3.2}><div>Seven Natural Wonders</div></MenuItem></LinkContainer>
+		))
+	})
 	// it('message',() =>{
 	// 	expect(shallow(<NavBar />).find((<MissionStatement />)to.have.length(1);
 	// });
