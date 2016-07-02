@@ -156,6 +156,6 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 	}
 
 }
-
+export { MeetTheDevs }
 export default MeetTheDevs;
 

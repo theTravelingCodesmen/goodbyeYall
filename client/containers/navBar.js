@@ -10,17 +10,19 @@ import { bindActionCreators } from 'redux';
 import { IS_LOGGED_IN, changeLogin } from '../actions/isLoggedIn';
 
 
-class NavBar extends React.Component{
-  componentWillMount(){
-    localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
-    this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
-  }
 
-  logout(){
-    localStorage.removeItem('goodbyeyall.fb_id');
-    this.props.changeLogin(false);
-    window.location.assign('/');
-  }
+class NavBar extends React.Component{
+
+  // componentWillMount(){
+  //   localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
+  //   this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
+  // }
+
+  // logout(){
+  //   localStorage.removeItem('goodbyeyall.fb_id');
+  //   this.props.changeLogin(false);
+  //   window.location.assign('/');
+  // }
 
   render(){
     let redirect_uri = process.env.NODE_ENV==="production" ? 'http://www.goodbyeyall.com/Preferences' : 'http://localhost:4000/Preferences';
@@ -66,6 +68,5 @@ function mapDispatchToProps( dispatch ){
   return bindActionCreators({ changeLogin: changeLogin }, dispatch)
 }
 
-
-
+export {NavBar}
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

@@ -60,9 +60,11 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "dom-storage": "^2.0.2",
     "enzyme": "^2.3.0",
     "mocha": "^2.5.3",
     "react-addons-test-utils": "^15.1.0",
+    "sinon": "^1.17.4",
     "supertest": "^1.2.0"
   }
 }
