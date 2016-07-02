@@ -246,7 +246,7 @@ body {
 /* info box for d3 graph */
 .infoboxflight {
 	opacity: 0;
-	border:2px solid steelblue;
+	border:2px solid #003399;
 	border-radius:4px;
 	box-shadow:#333333 0px 0px 10px;
 	margin: 0em;
@@ -270,7 +270,7 @@ body {
 
 /* path for svg graph */
 .line {
-  stroke: steelblue;
+  stroke: #003399;
   stroke-width: 2;
   fill: none;
 	background-color: white;
