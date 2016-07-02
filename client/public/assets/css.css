@@ -174,7 +174,7 @@ body {
 
 .flight-details {
 	margin: auto;
-	color: blue;
+	color: #003399;
 	text-align: right;
 	border-left-color: black;
 	position: relative;
@@ -204,7 +204,14 @@ body {
 
 .country-info-button {
 	margin-top: 1em;
-	opacity: .7;
+	opacity: 1;
+	color: black;
+	background-color: #c1baba;
+	border: none;
+}
+
+.country-info-button:hover {
+	background-color: #cec8c8;
 }
 
 /*D3 GRAPH ELEMENTS//////////////////////////*/

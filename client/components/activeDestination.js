@@ -18,7 +18,7 @@ class ActiveDestination extends React.Component {
 			</div>
 		)
 	}
-	_countryButtonOrBust() {
+	_countryButton() {
 		if(this.props.country === 'United States'){
 			return ''
 		}
@@ -64,8 +64,8 @@ class ActiveDestination extends React.Component {
 						<div className='test'>
 							<a href='https://www.skyscanner.net' target='_blank'><p className='powered-by'>Powered By</p><img className='skyscanner-logo' src='/assets/images/Skyscanner-Logo-Charcoal.png'/></a>
 						</div>
-						<div className='country-info-button'>
-							{this._countryButtonOrBust()}
+						<div >
+							{this._countryButton()}
 						</div>
 					</div>
 				</div>
