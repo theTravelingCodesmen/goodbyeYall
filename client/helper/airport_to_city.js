@@ -34,7 +34,7 @@ module.exports = {
     "BERL-sky": "Berlin",
     "LIM-sky": "Lima",
     "OGG-sky": "Maui",
-    "NAN-sky": "Fiji"
+    "NAN-sky": "Fiji",
     "JMK-sky": "Mykonos",
     "BKKT-sky": "Ko Phi Phi",
     "IBZ-sky": "Ibiza",
