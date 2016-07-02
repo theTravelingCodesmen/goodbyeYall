@@ -178,9 +178,8 @@ body {
 
 .flight-details {
 	margin: auto;
-	color: blue;
+	color: #003399;
 	text-align: right;
-	border-left-color: black;
 	position: relative;
 	margin-right: 2em;
 	margin-left: 1em;
@@ -199,6 +198,10 @@ body {
 	margin: 0;
 }
 
+.skyscanner {
+	margin-bottom: 1em;
+}
+
 .powered-by {
 	position: relative;
 	top: 2em;
@@ -207,8 +210,13 @@ body {
 }
 
 .country-info-button {
-	margin-top: 1em;
-	opacity: .7;
+	color: black;
+	background-color: #c1baba;
+	border: none;
+}
+
+.country-info-button:hover {
+	background-color: #cec8c8;
 }
 
 /*D3 GRAPH ELEMENTS//////////////////////////*/

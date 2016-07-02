@@ -66,9 +66,9 @@ const BootStrapModal = React.createClass({
 
 	  return (
 	    <div>
-	    	<Button bsStyle={this.props.bsStyle} onClick={this.open}>
-	        {this.props.bTitle}
-	      </Button>
+				<Button className='country-info-button' bsStyle={this.props.bsStyle} onClick={this.open}>
+					{this.props.bTitle}
+				</Button>
         <Modal show={this.state.showModal} onHide={this.close}>
         	<Modal.Header closeButton>
 	        	<Modal.Title className='modal-header'>{this.props.item}</Modal.Title>
