@@ -9,7 +9,7 @@ import {MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } 
 import { spy } from 'sinon';
 import { OuterCardBox, LinkContainer } from '../../client/components/outerCardBox';
 import { MissionStatement } from '../../client/components/missionStatement';
-import { ImageCarousel } from  '../../client/components/imageCarousel';
+import { ImageCarousel, Carousel } from  '../../client/components/imageCarousel';
 
 // Shallow Rendering
 // Full Dom Rendering
@@ -114,6 +114,9 @@ describe('<OuterCardBox />', () => {
 			<div className='nav-spacing'></div>
 		)).to.equal(true);
 	})
+	it('should have a value-prop div', () => {
+		expect(shallow(<OuterCardBox />).render().find('.value-prop')).to.have.length(1)
+	})
 	it('should have a path to the Seven Wonders', () => {
 		expect(shallow(<OuterCardBox />).contains(
 			<LinkContainer to={{pathname:'/package/Seven Wonders'}}>
@@ -148,7 +151,7 @@ describe('<MissionStatement />', () => {
 			<div className='nav-spacing'></div>
 		)).to.equal(true);
 	})
-	it('should have nav-spacing div', () => {
+	it('should have instructional gif', () => {
 		expect(shallow(<MissionStatement />).contains(
 			<img className='how-it-works-gif' src='/assets/images/how-it-works.gif'></img>
 		)).to.equal(true);
@@ -156,5 +159,62 @@ describe('<MissionStatement />', () => {
 })
 
 describe('<ImageCarousel />', () => { 
-
+	it('should have a path to American Cities via filmstrip-5 ', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/American Cities'}}>
+				<Carousel.Item>
+      		<img width={910} alt="450x250" src="/assets/images/filmstrip-5.jpg"/>
+    		</Carousel.Item>
+    	</LinkContainer>
+		)).to.equal(true);
+	})
+	it('should have a path to American Cities via filmstrip-6', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/American Cities'}}><Carousel.Item>
+	      <img width={910} alt="450x250" src="/assets/images/filmstrip-6.jpg"/>
+	    </Carousel.Item></LinkContainer>
+		)).to.equal(true);
+	})
+	it('should have a path to Global Explorer via filmstrip-7 ', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/Global Explorer'}}><Carousel.Item>
+	      <img width={910} alt="450x250" src="/assets/images/filmstrip-7.jpg"/>
+	    </Carousel.Item></LinkContainer>
+		)).to.equal(true);
+	})
+	it('should have a path to Gloal Explorer via filmstrip-8', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/Global Explorer'}}><Carousel.Item>
+	      <img width={910} alt="450x250" src="/assets/images/filmstrip-8.jpg"/>
+	    </Carousel.Item></LinkContainer>
+		)).to.equal(true);
+	})
+	it('should have a path to Seven Natural Wonders via filmstrip-1', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/Seven Natural Wonders'}}><Carousel.Item>
+	      <img width={910} alt="450x250" src="/assets/images/seven-wonders-filmstrip-1.jpg"/>
+	    </Carousel.Item></LinkContainer>
+		)).to.equal(true);
+	})
+	it('should have a path to Seven Natural Wonders via filmstrip-2', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/Seven Natural Wonders'}}><Carousel.Item>
+	      <img width={910} alt="450x250" src="/assets/images/seven-wonders-filmstrip-2.jpg"/>
+	    </Carousel.Item></LinkContainer>
+		)).to.equal(true);
+	})
+	it('should have a path to Seven Wonders via filmstrip-3', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/Seven Wonders'}}><Carousel.Item>
+	      <img width={910} alt="450x250" src="/assets/images/seven-wonders-filmstrip-3.jpg"/>
+	    </Carousel.Item></LinkContainer>
+		)).to.equal(true);
+	})
+	it('should have a path to Seven Wonders via filmstrip-4', () => {
+		expect(shallow(<ImageCarousel />).contains(
+			<LinkContainer to={{pathname:'/package/Seven Wonders'}}><Carousel.Item>
+	      <img width={910} alt="450x250" src="/assets/images/seven-wonders-filmstrip-4.jpg"/>
+	    </Carousel.Item></LinkContainer>
+		)).to.equal(true);
+	})
 })
