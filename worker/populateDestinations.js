@@ -391,7 +391,7 @@ let newYorkFood = {
   airport_code:"NYCA-sky",
   country:"United States",
   city_name:"New York",
-  package_group: "American Cities",
+  package_group: "Foodie Cities",
   intro:"Home to the Empire State Building, Times Square, Statue of Liberty and other iconic sites, New York City is a fast-paced, globally influential center of art, culture, fashion and finance. The city’s 5 boroughs sit where the Hudson River meets the Atlantic Ocean, with the island borough of Manhattan at the Big Apple's core.",
   main_image_url:"/assets/images/new_york.png",
   next_image_url:"/assets/images/new_york.jpeg",
