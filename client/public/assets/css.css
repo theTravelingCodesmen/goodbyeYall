@@ -202,6 +202,18 @@ body {
 	margin-bottom: 1em;
 }
 
+.btn {
+	margin-top: .5em;
+	color: #fff;
+	background-color: #003399;
+	border: none;
+}
+
+.btn:hover {
+	color: #fff;
+	background-color: #013cb2;
+}
+
 .powered-by {
 	position: relative;
 	top: 2em;
