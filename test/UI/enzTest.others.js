@@ -68,6 +68,7 @@ describe('<NavBar />', () =>{
 
 
 let obj= bioInfo;
+let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 describe('<MeetTheDevs />', () => {
 	it('should have five meet-the-devs divs', () => {
 		expect(shallow(<MeetTheDevs />).find('.meet-the-devs')).to.have.length(5);
@@ -81,27 +82,10 @@ describe('<MeetTheDevs />', () => {
 	// 	it('should have ten buttons', () => {
 	// expect(mount(<MeetTheDevs />).find('Button')).to.have.length(10);
 	// })
-	// 	it('should have a BootStrapModal', () => {
-	// 		expect(shallow(<MeetTheDevs />).contains(
-	// 			<BootStrapModal
-	// 						bTitle='Bio'
-	// 						popoverLink='Coding Languages'
-	// 						modalHeaderOne='Technical Skills'
-	// 						modalHeaderTwo='This is my story'
-	// 						topBody='Recent GitHub Projects'
-	// 						modalTitle={obj.devType}
-	// 						PopoverPOne={'STRONG: ' + obj.languagesStrong}
-	// 						PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced} 
-	// 						bodyText={obj.personalStatement} 
-	// 						item={obj.person} 
-	// 						popOverTitle='Technical Knowledge'
-	// 						key = {obj.person} 						
-	// 						>
-	// 						<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
-	// 						<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
-	// 						<div>Project Three:<a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
-	// 			</BootStrapModal>)).to.equal(true);
-	// 	})
+		it('should have a BootStrapModal', () => {
+			expect(shallow(<MeetTheDevs />).find('meet-the-devs-dynamic-modal'
+				).props()).to.have.length(13);
+		})
 	// 	it('calls componentDidMount', () =>{
 	// 	const wrapper = mount(<MeetTheDevs />);
 	// 	expect(MeetTheDevs.prototype.componentDidMount.calledOnce).to.equal(true);

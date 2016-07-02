@@ -105,7 +105,7 @@ let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 
 
 		return( 
-			<div className='meet-the-devs'>
+			<div key='' className='meet-the-devs'>
 				<OverlayTrigger className = 'meet-the-devs-overlay-trigger' overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
 				<div><h5>{obj.person}</h5>
 				<div className ='buttons'>
@@ -157,6 +157,6 @@ let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 	}
 
 }
-export { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button }
+export { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo }
 export default MeetTheDevs;
 
