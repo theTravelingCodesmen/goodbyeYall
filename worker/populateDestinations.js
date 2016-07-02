@@ -350,15 +350,15 @@ let miami = {
 
 
 // Foodie Cities package
-let tokoyo = {
-  title:"Tokoyo",
+let tokyo = {
+  title:"Tokyo",
   airport_code:"TYOA-sky",
   country:"Japan",
-  city_name:"Tokoyo",
+  city_name:"Tokyo",
   package_group: "Foodie Cities",
   intro:"Tokyo, Japan’s bustling capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers and anime shops to cherry trees and temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding forests. The Imperial Palace sits amid sprawling public gardens. The city is famed for its vibrant food scene, and its Shibuya and Harajuku districts are the heart of its trendy teen fashion scene.",
-  main_image_url:"/assets/images/tokoyo.png",
-  next_image_url:"/assets/images/tokoyo.jpeg",
+  main_image_url:"/assets/images/tokyo.png",
+  next_image_url:"/assets/images/tokyo.jpeg",
   weather:"",
 };
 
@@ -367,7 +367,7 @@ let parisFood = {
   airport_code:"PARI-sky",
   country:"France",
   city_name:"France",
-  package_group: "Global Explorer",
+  package_group: "Foodie Cities",
   intro:"Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its picturesque 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture, and designer boutiques along the Rue du Faubourg Saint-Honoré.",
   main_image_url:"/assets/images/paris.png",
   next_image_url:"/assets/images/paris.jpeg",
@@ -379,7 +379,7 @@ let hongKong = {
   airport_code:"HKG-sky",
   country:"Hong Kong",
   city_name:"Hong Kong",
-  package_group: "American Cities",
+  package_group: "Foodie Cities",
   intro:"Hong Kong is a city, and former British colony, in southeastern China. Vibrant and densely populated, it’s a major port and global financial center famed for its tower-studded skyline. It’s also known for its lively food scene – from Cantonese dim sum to extravagant high tea – and its shopping, with options spanning chaotic Temple Street Night Market to the city’s innumerable bespoke tailors.",
   main_image_url:"/assets/images/hong_kong.png",
   next_image_url:"/assets/images/hong_kong.jpeg",
@@ -479,8 +479,8 @@ let kophiphi = {
   city_name:"Thailand",
   package_group: "Party Islands",
   intro:"The Phi Phi Islands are in Thailand, between the large island of Phuket and the west Strait of Malacca coast of the mainland. The islands are administratively part of Krabi province.",
-  main_image_url:"/assets/images/kophiphi.png",
-  next_image_url:"/assets/images/kophiphi.jpeg",
+  main_image_url:"/assets/images/ko_phi_phi.png",
+  next_image_url:"/assets/images/ko_phi_phi.jpeg",
   weather:"",
 };
 
@@ -525,7 +525,7 @@ let cayman = {
 
 
 
-let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest, london, bangkok, paris, dubai, istanbul, singapore, seoul, losAngeles, chicago, denver, lasVegas, sanFrancisco, newYork, miami, tokoyo, hongKong, florence, berlin, lima, maui, fiji, mykonos, kophiphi, ibiza, aruba, cayman, newYorkFood, parisFood];
+let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest, london, bangkok, paris, dubai, istanbul, singapore, seoul, losAngeles, chicago, denver, lasVegas, sanFrancisco, newYork, miami, tokyo, hongKong, florence, berlin, lima, maui, fiji, mykonos, kophiphi, ibiza, aruba, cayman, newYorkFood, parisFood];
 
 //returns an array of unique destination airports
 // let destinationAirportArray = destinationsArray

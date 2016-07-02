@@ -16,6 +16,8 @@ let UserForm = React.createClass ({
         'Seven Natural Wonders':false,
         'American Cities': false,
         'Global Explorer':false,
+        'Party Islands':false,
+        'Foodie Cities':false,
         'profile_name':null
       }
     },
@@ -29,6 +31,8 @@ let UserForm = React.createClass ({
             this.setState({'Global Explorer' : userPrefs.data['Global Explorer']});
             this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
             this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
+            this.setState({'Party Islands' : userPrefs.data['Party Islands']});
+            this.setState({'Foodie Cities' : userPrefs.data['Foodie Cities']});
             this.setState({'profile_name': userPrefs.data['profile_name']});
           })
     },
@@ -105,15 +109,21 @@ let UserForm = React.createClass ({
                     <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
                       American Cities
                     </Checkbox>
+                    <Checkbox checked={this.state['Foodie Cities']} onChange={()=>{this.setState({'Foodie Cities':!this.state['Foodie Cities']});}}>
+                      Foodie Cities
+                    </Checkbox>
                     <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
                       Global Explorer
                     </Checkbox>
+                    <Checkbox checked={this.state['Party Islands']} onChange={()=>{this.setState({'Party Islands':!this.state['Party Islands']});}}>
+                      Party Islands
+                    </Checkbox> 
                     <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
                       Seven Wonders of the World
                     </Checkbox>
                     <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
                       Seven Natural Wonders of the World
-                    </Checkbox>
+                    </Checkbox> 
                     <Button className="prefs-submit-button btn" type="submit">
                       Submit
                     </Button>
