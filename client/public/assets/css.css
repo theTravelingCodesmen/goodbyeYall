@@ -342,12 +342,20 @@ body {
   left:10%;
 }
 
+.call-to-action a {
+	color: #003399;	
+}
+
+.call-to-action-link {
+	color: #013cb2;
+}
+
 .how-it-works-gif {
-    position: relative;
-    margin:5%;
-    bottom:70%;
-    border: 1px black solid;
-    width:60%;
+  position: relative;
+  margin:5%;
+  bottom:70%;
+  border: 1px black solid;
+  width:60%;
 }
 
 /* MEET THE DEVS */
