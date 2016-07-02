@@ -2,7 +2,7 @@
 
 let knex = require ('../db/db');
 
-
+// 7 wonders package
 let christTheRedeemer = {
   title: "Christ the Redeemer",
   airport_code: "RIOA-sky",
@@ -89,7 +89,7 @@ let petra = {
 
 
 
-
+// 7 Natural Wonders package
 let victoriaFalls = {
   title:"Victoria Falls",
   airport_code:"HRE-sky",
@@ -176,7 +176,7 @@ let mountEverest = {
 
 
 
-
+//Global explorer package
 let london = {
   title:"London",
   airport_code:"LOND-sky",
@@ -263,7 +263,7 @@ let seoul = {
 
 
 
-
+// American Cities Package
 let losAngeles = {
   title:"Los Angeles",
   airport_code:"LAX-sky",
@@ -349,8 +349,183 @@ let miami = {
 };
 
 
+// Foodie Cities package
+let tokoyo = {
+  title:"Tokoyo",
+  airport_code:"TYOA-sky",
+  country:"Japan",
+  city_name:"Tokoyo",
+  package_group: "Foodie Cities",
+  intro:"Tokyo, Japan’s bustling capital, mixes the ultramodern and the traditional, from neon-lit skyscrapers and anime shops to cherry trees and temples. The opulent Meiji Shinto Shrine is known for its towering gate and surrounding forests. The Imperial Palace sits amid sprawling public gardens. The city is famed for its vibrant food scene, and its Shibuya and Harajuku districts are the heart of its trendy teen fashion scene.",
+  main_image_url:"/assets/images/tokoyo.png",
+  next_image_url:"/assets/images/tokoyo.jpeg",
+  weather:"",
+};
 
-let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest, london, bangkok, paris, dubai, istanbul, singapore, seoul, losAngeles, chicago, denver, lasVegas, sanFrancisco, newYork, miami];
+let paris = {
+  title:"Paris",
+  airport_code:"PARI-sky",
+  country:"France",
+  city_name:"France",
+  package_group: "Global Explorer",
+  intro:"Paris, France's capital, is a major European city and a global center for art, fashion, gastronomy and culture. Its picturesque 19th-century cityscape is crisscrossed by wide boulevards and the River Seine. Beyond such landmarks as the Eiffel Tower and the 12th-century, Gothic Notre-Dame cathedral, the city is known for its cafe culture, and designer boutiques along the Rue du Faubourg Saint-Honoré.",
+  main_image_url:"/assets/images/paris.png",
+  next_image_url:"/assets/images/paris.jpeg",
+  weather:"LFPG",
+};
+
+let hongKong = {
+  title:"Hong Kong",
+  airport_code:"HKG-sky",
+  country:"Hong Kong",
+  city_name:"Hong Kong",
+  package_group: "American Cities",
+  intro:"Hong Kong is a city, and former British colony, in southeastern China. Vibrant and densely populated, it’s a major port and global financial center famed for its tower-studded skyline. It’s also known for its lively food scene – from Cantonese dim sum to extravagant high tea – and its shopping, with options spanning chaotic Temple Street Night Market to the city’s innumerable bespoke tailors.",
+  main_image_url:"/assets/images/hong_kong.png",
+  next_image_url:"/assets/images/hong_kong.jpeg",
+  weather:"",
+};
+
+let newYork = {
+  title:"New York",
+  airport_code:"NYCA-sky",
+  country:"United States",
+  city_name:"New York",
+  package_group: "American Cities",
+  intro:"Home to the Empire State Building, Times Square, Statue of Liberty and other iconic sites, New York City is a fast-paced, globally influential center of art, culture, fashion and finance. The city’s 5 boroughs sit where the Hudson River meets the Atlantic Ocean, with the island borough of Manhattan at the Big Apple's core.",
+  main_image_url:"/assets/images/new_york.png",
+  next_image_url:"/assets/images/new_york.jpeg",
+  weather:"KLGA",
+};
+
+let florence= {
+  title:"Florence",
+  airport_code:"FLR-sky",
+  country:"Italy",
+  city_name:"Italy",
+  package_group: "Foodie Cities",
+  intro:"Florence, capital of Italy’s Tuscany region and birthplace of the Renaissance, is home to masterpieces of art and architecture. One of its most iconic sites is the Florence Cathedral, with its terra-cotta-tiled dome engineered by Brunelleschi and bell tower designed by Giotto. The Galleria dell'Accademia displays Michelangelo’s “David,” while the Uffizi Gallery exhibits preeminent works such as Botticelli’s “The Birth of Venus” and da Vinci’s Annunciation.",
+  main_image_url:"/assets/images/florence.png",
+  next_image_url:"/assets/images/florence.jpeg",
+  weather:"",
+};
+
+let berlin = {
+  title:"Berlin",
+  airport_code:"BERL-sky",
+  country:"Germany",
+  city_name:"Germany",
+  package_group: "Foodie Cities",
+  intro:"Berlin, Germany’s capital and cultural center, dates to the 13th century. Divided during the Cold War, today it's known for its art scene, nightlife and modern architecture, such as Mies van der Rohe’s landmark Neue Nationalgalerie. Reminders of the city's turbulent 20th-century history include its Holocaust Memorial and the Berlin Wall's graffitied remains. Its 18th-century Brandenburg Gate has become an iconic symbol of reunification.",
+  main_image_url:"/assets/images/berlin.png",
+  next_image_url:"/assets/images/berlin.jpeg",
+  weather:"",
+};
+
+let lima = {
+  title:"Lima",
+  airport_code:"LIM-sky",
+  country:"Peru",
+  city_name:"Peru",
+  package_group: "Foodie Cities",
+  intro:"Lima, the capital of Peru, sits on the country's arid Pacific coast. Though its colonial center is well preserved, today Lima is a bustling metropolis that's one of South America’s largest cities. It’s known for its vibrant food scene, encompassing specialties from ceviche and traditional coastal cooking to refined global fare. It's also home to the preeminent Museo Larco collection of pre-Columbian art and the Museo de la Nación, tracing the history of Peru’s ancient civilizations.",
+  main_image_url:"/assets/images/lima.png",
+  next_image_url:"/assets/images/lima.jpeg",
+  weather:"KMIA",
+};
+
+
+// Party Islands
+let maui = {
+  title:"Maui",
+  airport_code:"OGG-sky",
+  country:"United States",
+  city_name:"Hawaii",
+  package_group: "Party Islands",
+  intro:"Maui is an island in the mid-Pacific, part of the Hawaiian island chain and known for its beach resorts, diverse geography and outdoor activities ranging from hiking and biking to windsurfing and snorkeling. Sprawling Haleakala National Park encompasses the island’s highest peak, Mt. Haleakala, as well as the pools and waterfalls of Oheo Gulch, accessed via scenic, winding Hana Highway.",
+  main_image_url:"/assets/images/maui.png",
+  next_image_url:"/assets/images/maui.jpeg",
+  weather:"",
+};
+
+let fiji = {
+  title:"Fiji",
+  airport_code:"NAN-sky",
+  country:"Fiji",
+  city_name:"South Pacific",
+  package_group: "Party Islands",
+  intro:"Fiji, a country in the South Pacific, is an archipelago of more than 300 islands. It's famed for its rugged landscape of blue lagoons and palm-lined beaches, and eco-activities from mountain climbing and surfing to soft-coral diving and zip-lining. Its major islands, Viti Levu and Vanua Levu, contain the lion’s share of the population, meaning much of the country is uncrowded.",
+  main_image_url:"/assets/images/fiji.png",
+  next_image_url:"/assets/images/fiji.jpeg",
+  weather:"",
+};
+
+let mykonos = {
+  title:"Mykonos",
+  airport_code:"JMK-sky",
+  country:"Greece",
+  city_name:"Greece",
+  package_group: "Party Islands",
+  intro:"Mykonos, part of the Cyclades island group in the Aegean Sea, is one of the most popular and glamorous Greek isles, known for its nonstop party atmosphere. Beaches such as Paradise and Super Paradise welcome a diverse crowd, with sandside bars that blare thumping music. Massive dance clubs attract world-renowned DJs and typically stay open well past dawn.",
+  main_image_url:"/assets/images/mykonos.png",
+  next_image_url:"/assets/images/mykonos.jpeg",
+  weather:"",
+};
+
+let kophiphi = {
+  title:"Ko Phi Phi",
+  airport_code:"BKKT-sky",
+  country:"Thailand",
+  city_name:"Thailand",
+  package_group: "Party Islands",
+  intro:"The Phi Phi Islands are in Thailand, between the large island of Phuket and the west Strait of Malacca coast of the mainland. The islands are administratively part of Krabi province.",
+  main_image_url:"/assets/images/kophiphi.png",
+  next_image_url:"/assets/images/kophiphi.jpeg",
+  weather:"",
+};
+
+let ibiza = {
+  title:"Ibiza",
+  airport_code:"IBZ-sky",
+  country:"Spain",
+  city_name:"Spain",
+  package_group: "Party Islands",
+  intro:"Ibiza is one of the Balearic islands in the Mediterranean Sea. It's well-known for the lively nightlife scene in Ibiza Town and Sant Antoni, where major European nightclubs have summer outposts. It’s also home to quiet villages, yoga retreats and beaches, from Platja d'en Bossa, lined with hotels, bars and shops, to quieter sandy coves backed by pine-clad hills found all around the coastline.",
+  main_image_url:"/assets/images/ibiza.png",
+  next_image_url:"/assets/images/ibiza.jpeg",
+  weather:"",
+};
+
+let aruba = {
+  title:"Aruba",
+  airport_code:"AUA-sky",
+  country:"Aruba",
+  city_name:"",
+  package_group: "Party Islands",
+  intro:"Aruba, a tiny Dutch Caribbean island off the coast of Venezuela, has dry, sunny weather, blond beaches and gentle surf. Constant trade winds keep things cool and cause the divi-divi trees to slope southwesterly. European influence shows in both its architecture, in which Dutch gables mingle with tropical pastels, and language, with English, Dutch and Spanish spoken alongside the local tongue, Papiamento.",
+  main_image_url:"/assets/images/aruba.png",
+  next_image_url:"/assets/images/aruba.jpeg",
+  weather:"KMIA",
+};
+
+let cayman = {
+  title:"Grand Cayman Island",
+  airport_code:"GCM-sky",
+  country:"Grand Cayman Island",
+  city_name:"Cayman Island",
+  package_group: "Party Islands",
+  intro:"Grand Cayman is the largest of the Cayman Islands, the British Caribbean territory. George Town, its capital, is home to the Cayman Islands National Museum, dedicated to Caymanian heritage, and the ruins of colonial-era Fort George. At the island’s centre is the Mastic Reserve and Trail, a footpath through old-growth forest, sheltering a wide variety of native plants and animals.",
+  main_image_url:"/assets/images/cayman.png",
+  next_image_url:"/assets/images/cayman.jpeg",
+  weather:"",
+};
+
+
+
+
+
+
+let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest, london, bangkok, paris, dubai, istanbul, singapore, seoul, losAngeles, chicago, denver, lasVegas, sanFrancisco, newYork, miami, tokoyo, hongKong, florence, berlin, lima, maui, fiji, mykonos, kophiphi, ibiza, aruba, cayman];
 
 //returns an array of unique destination airports
 // let destinationAirportArray = destinationsArray
