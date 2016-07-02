@@ -355,6 +355,7 @@ body {
 .dev-pic {
 	width:70%;
 	box-shadow: 8px 8px 4px #888888;
+            cursor: default;
 }
 
 .icons {

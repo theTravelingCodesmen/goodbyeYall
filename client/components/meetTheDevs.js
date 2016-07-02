@@ -101,12 +101,9 @@ _getDevInfo() {
 	return bioInfo.map(function(obj){
 
 
-let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
-
-
-		return( 
+		return(
 			<div className='meet-the-devs'>
-				<OverlayTrigger overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
+				<a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a>
 				<div><h5>{obj.person}</h5>
 				<div className ='buttons'>
 					<div className='bio'>
@@ -118,10 +115,10 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 							topBody='Recent GitHub Projects'
 							modalTitle={obj.devType}
 							PopoverPOne={'STRONG: ' + obj.languagesStrong}
-							PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced} 
-							bodyText={obj.personalStatement} 
-							item={obj.person} 
-							popOverTitle='Technical Knowledge' 						
+							PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced}
+							bodyText={obj.personalStatement}
+							item={obj.person}
+							popOverTitle='Technical Knowledge'
 							>
 							<div><a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div><a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
@@ -132,7 +129,7 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 						<div className='icons'>
 							<div className='pull-left'> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
 							<div className='pull-right'> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
-						</div>	
+						</div>
 					</div>
 				</div>
 			</div>
