@@ -176,7 +176,6 @@ body {
 	margin: auto;
 	color: #003399;
 	text-align: right;
-	border-left-color: black;
 	position: relative;
 	margin-right: 2em;
 	margin-left: 1em;
@@ -193,6 +192,10 @@ body {
 
 .time-ago {
 	margin: 0;
+}
+
+.skyscanner {
+	margin-bottom: 1em;
 }
 
 .powered-by {
