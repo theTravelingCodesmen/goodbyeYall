@@ -24,6 +24,10 @@ class OuterCardBox extends React.Component {
 						<LinkContainer to={{pathname:'/package/Seven Wonders'}}><img className='package-uno' src='/assets/images/postcard-package.jpg'></img></LinkContainer>
 						<LinkContainer to={{pathname:'/package/Seven Natural Wonders'}}><img className='package-dos' src='/assets/images/postcard-package-natural.jpg'></img></LinkContainer>
 					</div>
+					<div className='center-div row'>
+						<LinkContainer to={{pathname:'/package/Foodie Cities'}}><img className='package-uno' src='/assets/images/postcard-package-5.jpg'></img></LinkContainer>
+						<LinkContainer to={{pathname:'/package/Party Islands'}}><img className='package-dos' src='/assets/images/postcard-package-6.jpg'></img></LinkContainer>
+					</div>
 				</div>
 				<ImageCarousel />
 			</div>
