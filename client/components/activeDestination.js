@@ -75,9 +75,3 @@ class ActiveDestination extends React.Component {
 }
 
 export default ActiveDestination;
-/*<p className="historical-weather"> Average temperature for this period: hi {this.props.temperatures.high}&deg;F low {this.props.temperatures.low}&deg;F</p>*/
-
-
-
-
-
