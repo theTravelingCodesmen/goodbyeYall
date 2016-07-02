@@ -511,7 +511,7 @@ let aruba = {
 let cayman = {
   title:"Grand Cayman Island",
   airport_code:"GCM-sky",
-  country:"Grand Cayman Island",
+  country:"Cayman Islands",
   city_name:"Cayman Island",
   package_group: "Party Islands",
   intro:"Grand Cayman is the largest of the Cayman Islands, the British Caribbean territory. George Town, its capital, is home to the Cayman Islands National Museum, dedicated to Caymanian heritage, and the ruins of colonial-era Fort George. At the island’s centre is the Mastic Reserve and Trail, a footpath through old-growth forest, sheltering a wide variety of native plants and animals.",
