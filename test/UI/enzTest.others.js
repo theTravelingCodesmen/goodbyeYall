@@ -15,22 +15,6 @@ import { ImageCarousel, Carousel } from  '../../client/components/imageCarousel'
 // Full Dom Rendering
 // Static Rendered Markup
 
-// describe('',() =>{
-// 	it('message',() =>{
-// 		expect(shallow().contains()).to.equal(true);
-// 	});
-// 	it('message',() =>{
-// 		expect(shallow().is())to.equal(true);
-// 	});
-// 	it('message',() =>{
-// 		expect(mount().find().length).to.equal();
-// 	});
-// 	it('calls componentDidMount', () =>{
-// 		const wrapper = mount(xxxxx);
-// 		expect(xxxxx.prototype.componentDidMount.calledOnce).to.equal(true);
-// 	})
-// })
-
   // let componentWillMount = function(){
   //   localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
   //   this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
@@ -78,12 +62,6 @@ describe('<NavBar />', () =>{
      <LinkContainer to={{pathname:'/Package/Seven Natural Wonders'}} className="navbar-button"><MenuItem eventKey={3.2}><div>Seven Natural Wonders</div></MenuItem></LinkContainer>
 		))
 	})
-	// it('message',() =>{
-	// 	expect(shallow(<NavBar />).find((<MissionStatement />)to.have.length(1);
-	// });
-	// it('message',() =>{
-	// 	expect(mount().find().length).to.equal();
-	// });
 	// it('calls componentDidMount', () =>{
 	// 	const wrapper = mount(xxxxx);
 	// 	expect(xxxxx.prototype.componentDidMount.calledOnce).to.equal(true);
@@ -101,39 +79,18 @@ describe('<MeetTheDevs />', () => {
 	})
 	it('should have five meet-the-devs divs', () => {
 		expect(shallow(<MeetTheDevs />).find(
-			'.meet-the-devs')).to.have.length(5);
+			'.meet-the-devs'
+		)).to.have.length(5);
 	})
 	it('should have five dev pictures', () => {
 		expect(shallow(<MeetTheDevs />).find(
-			'.dev-pic')).to.have.length(5);
+			'.dev-pic'
+		)).to.have.length(5);
 	})
-		// it('should have pull left and pull right in icon div', () => {
-		// 	expect(shallow(<MeetTheDevs />).find('.icons').hasClass('pull-left')).to.be(true);
-		// });
-	// 	it('should have ten buttons', () => {
-	// expect(mount(<MeetTheDevs />).find('Button')).to.have.length(10);
-	// })
-		// it('should have a BootStrapModal', () => {
-		// 	expect(shallow(<MeetTheDevs />).find('meet-the-devs-dynamic-modal'
-		// 		).props()).to.have.length(13);
-		// })
-	// 	it('calls componentDidMount', () =>{
-	// 	const wrapper = mount(<MeetTheDevs />);
-	// 	expect(MeetTheDevs.prototype.componentDidMount.calledOnce).to.equal(true);
-	// })
-		// it('calls componentDidMount', () => {
-	 //   spy(MeetTheDevs.prototype, 'componentDidMount');
-	 //   const wrapper = mount(<MeetTheDevs />);
-	 //   expect(MeetTheDevs.componentDidMount().calledOnce()).to.equal(true)
-	 // });
-	 // it('should have a profile picture', () => {
-	 // 	expect(shallow(<MeetTheDevs />).find('meet-the-devs-overlay-trigger').at(0).render().find('dev-pic')).to.have.length(1)
-	 // });
-	 // it('', () => {
-	 // 	expect(shallow(<MeetTheDevs />))
-	 // })
-	 // .props()
-	 // .simulate(event)
+	it('should contain 5 incons', () => {
+		expect(shallow(<MeetTheDevs />).find(
+			'.icons')).to.have.length(5)
+	})
 })
 
 describe('<OuterCardBox />', () => { 

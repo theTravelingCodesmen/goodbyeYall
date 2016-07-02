@@ -59,4 +59,5 @@ function mapDispatchToProps( dispatch ){
 	return bindActionCreators({fetchPackage: fetchPackage}, dispatch)
 }
 
+export { PackageDestinations }
 export default connect(null, mapDispatchToProps)(PackageDestinations);

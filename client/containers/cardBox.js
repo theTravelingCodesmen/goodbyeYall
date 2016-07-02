@@ -76,5 +76,5 @@ function mapDispatchToProps( dispatch ){
 }
 
 
-
+export { CardBox, PackageDestinations }
 export default connect(mapStateToProps, mapDispatchToProps)(CardBox);
