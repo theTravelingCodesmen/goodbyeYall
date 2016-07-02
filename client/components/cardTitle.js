@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import ReactDom from 'react-dom';
 
 class CardTitle extends React.Component{
 	render(){
@@ -10,6 +9,5 @@ class CardTitle extends React.Component{
 		)
 	}
 }
-
 
 export default CardTitle;
