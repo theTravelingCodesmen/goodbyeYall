@@ -1,12 +1,9 @@
 'use strict'
 //this is for testing 'MeetTheDevs', 'MissionStatement', and 'OuterCardBox'
 
-let React = require('react');
-let Component = require('react').component;
-let shallow = require('enzyme').shallow;
-let mount = require('enzyme').mount;
-let expect = require('chai').expect;
-// let function componentDidMount = require('react').componentDidMount();
+import React from 'react';
+import { shallow, mount } from 'enzyme';
+import {expect} from 'chai';
 import { NavBar } from '../../client/containers/navBar';
 import {MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
 import { spy } from 'sinon';
