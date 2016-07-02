@@ -187,5 +187,5 @@ knex.closeDb = function () {
   })
 }
 
-knex.ensureSchema().then(knex.closeDb);
+// knex.ensureSchema().then(knex.closeDb);
 
