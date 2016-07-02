@@ -22,20 +22,20 @@ const bioInfo = [
 		gitHubLink: 'https://github.com/owentemple',
 		resumeLink: ''
 	},
-		{person: 'Paul',
+		{person: 'Paul-Michael',
 		tooltiphover: '',
-		devType: 'Stack',
+		devType: 'Full Stack',
 		languagesStrong:'JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
 		personalStatement: 'hire me',
-		gitProjectOneLink:'',
-		gitProjectOneTitle:'',
+		gitProjectOneLink:'https://offthegridcamping.herokuapp.com/',
+		gitProjectOneTitle:'Off the Grid',
 		gitProjectTwoLink:'',
 		gitProjectTwoTitle:'',
 		gitProjectThreeLink:'',
 		gitProjectThreeTitle:'',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/16947596',
-		linkedinLink: 'https://www.linkedin.com/in/paulmschreibe',
+		linkedinLink: 'https://www.linkedin.com/in/paulmschreiber',
 		gitHubLink: 'https://github.com/pschreibs85',
 		resumeLink: ''
 	},
@@ -112,7 +112,7 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 					<div className='bio'>
 						<BootStrapModal
 							bTitle='Bio'
-							popoverLink='Coding Languages'
+							popoverLink='Programming Languages'
 							modalHeaderOne='Technical Skills'
 							modalHeaderTwo='This is my story'
 							topBody='Recent GitHub Projects'
@@ -123,9 +123,9 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 							item={obj.person} 
 							popOverTitle='Technical Knowledge' 						
 							>
-							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
-							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
-							<div>Project Three:<a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
+							<div><a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
+							<div><a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
+							<div><a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
 						</BootStrapModal>
 						<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
 					</div>
