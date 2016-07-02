@@ -64,7 +64,7 @@ class ActiveDestination extends React.Component {
 						<div className='skyscanner'>
 							<a href='https://www.skyscanner.net' target='_blank'><p className='powered-by'>Powered By</p><img className='skyscanner-logo' src='/assets/images/Skyscanner-Logo-Charcoal.png'/></a>
 						</div>
-						<div >
+						<div className='travel-briefing'>
 							{this._countryButton()}
 						</div>
 						<div className='destination-info-mobile'>
