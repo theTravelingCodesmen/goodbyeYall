@@ -18,7 +18,7 @@ class ActiveDestination extends React.Component {
 			</div>
 		)
 	}
-	_countryButtonOrBust() {
+	_countryButton() {
 		if(this.props.country === 'United States'){
 			return ''
 		}
@@ -58,14 +58,14 @@ class ActiveDestination extends React.Component {
 					<FlightData airport_code={this.props.airport_code}/>
 					<div className='flight-details'>
 						<p className='dates'>{'Leaving ' + airportToCity[localStorage.getItem('originairport')] + ' ' + numberToMonth[this.props.bookingDetails.outboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.outboundDate.slice(8,10) + ' and returning ' + numberToMonth[this.props.bookingDetails.inboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.inboundDate.slice(8,10)}</p>
-						<h3 className='active-price'>{this.props.bookingDetails.price.toFixed(2)}</h3>
+						<h3 className='active-price'>{'$' + this.props.bookingDetails.price.toFixed(2)}</h3>
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
-						<div className='test'>
+						<div className='skyscanner'>
 							<a href='https://www.skyscanner.net' target='_blank'><p className='powered-by'>Powered By</p><img className='skyscanner-logo' src='/assets/images/Skyscanner-Logo-Charcoal.png'/></a>
 						</div>
-						<div className='country-info-button'>
-							{this._countryButtonOrBust()}
+						<div >
+							{this._countryButton()}
 						</div>
 					</div>
 				</div>
