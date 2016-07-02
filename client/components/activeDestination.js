@@ -58,7 +58,7 @@ class ActiveDestination extends React.Component {
 					<FlightData airport_code={this.props.airport_code}/>
 					<div className='flight-details'>
 						<p className='dates'>{'Leaving ' + airportToCity[localStorage.getItem('originairport')] + ' ' + numberToMonth[this.props.bookingDetails.outboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.outboundDate.slice(8,10) + ' and returning ' + numberToMonth[this.props.bookingDetails.inboundDate.slice(5,7)] + ' ' + this.props.bookingDetails.inboundDate.slice(8,10)}</p>
-						<h3 className='active-price'>{this.props.bookingDetails.price.toFixed(2)}</h3>
+						<h3 className='active-price'>{'$' + this.props.bookingDetails.price.toFixed(2)}</h3>
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
 						<div className='test'>
