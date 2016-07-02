@@ -59,7 +59,7 @@ const BootStrapModal = React.createClass({
 
 	render() {
 
-	  let popover = <Popover title={this.props.popOverTitle}>
+	  let popover = <Popover title={this.props.popOverTitle} id=''>
 	  								<p>{this.props.PopoverPOne}</p>
 	  								<p>{this.props.PopoverPTwo}</p>
 	  							</Popover>;

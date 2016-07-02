@@ -39,4 +39,5 @@ class ImageCarousel extends React.Component{
 	)};
 };
 
+export { ImageCarousel };
 export default ImageCarousel;

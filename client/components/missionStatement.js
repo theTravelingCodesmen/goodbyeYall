@@ -19,5 +19,5 @@ class MissionStatement extends React.Component {
 }
 
 
-
-export default MissionStatement
+export { MissionStatement };
+export default MissionStatement;

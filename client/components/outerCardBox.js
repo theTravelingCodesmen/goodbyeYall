@@ -31,5 +31,5 @@ class OuterCardBox extends React.Component {
 	}
 }
 
-
+export { OuterCardBox, LinkContainer };
 export default OuterCardBox;

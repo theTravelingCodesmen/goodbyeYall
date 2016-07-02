@@ -101,12 +101,12 @@ _getDevInfo() {
 	return bioInfo.map(function(obj){
 
 
-let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
+let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
 
 
 		return( 
 			<div className='meet-the-devs'>
-				<OverlayTrigger overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
+				<OverlayTrigger className = 'meet-the-devs-overlay-trigger' overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
 				<div><h5>{obj.person}</h5>
 				<div className ='buttons'>
 					<div className='bio'>
@@ -121,7 +121,8 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 							PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced} 
 							bodyText={obj.personalStatement} 
 							item={obj.person} 
-							popOverTitle='Technical Knowledge' 						
+							popOverTitle='Technical Knowledge'
+							key = {obj.person} 						
 							>
 							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
@@ -156,6 +157,6 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 	}
 
 }
-export { MeetTheDevs }
+export { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button }
 export default MeetTheDevs;
 
