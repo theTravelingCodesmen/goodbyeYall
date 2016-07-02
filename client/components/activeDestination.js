@@ -1,7 +1,6 @@
 'use strict'
 
 import React from 'react';
-import D3CacheGraph from './d3CacheGraph';
 import FlightData from './flightData';
 import { connect } from 'react-redux';
 import numberToMonth from '../helper/number_to_month';
@@ -11,39 +10,42 @@ import BootStrapModal from './dynamicModals';
 
 class ActiveDestination extends React.Component {
 	
-
+	_plugPictureInserter(element) {
+		return(
+			<div>
+				<img className='plug' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-top.png'}></img>
+				<img className='plug' src={'/assets/images/plugs/' + element.toLowerCase() + '-btn-bottom.png'}></img>
+			</div>
+		)
+	}
 	_countryButtonOrBust() {
-
 		if(this.props.country === 'United States'){
 			return ''
-			}
-		else { 
+		}
+		else {
 			return(
-			<BootStrapModal bTitle='IMPORTANT! Country Travel info' popoverLink={''} bsStyle={'Primary'}>
-
-			<div>Languages: {this.props.lang.map(obj => {
-				return <div>{obj.language}</div>
-			}) }
-			</div>
-			<div>Electric Plugs: {this.props.plugs.map(element => {
-				return <div>{element}</div>
-			}) }</div>
-			<div>Calling Code: {this.props.callingCode}</div>
-			<div>Vaccinations: {this.props.vaccinations.map(obj => {
-				return <p> {obj.name}</p>
-			})  }
-			</div>
-			<div>Currecny Name: {this.props.currencyName }</div>
-			<div>currencyRate/USD: {this.props.currencyRate}</div>
-			<div>Water Saftey:{this.props.water}</div>
-		</BootStrapModal>
+			<BootStrapModal item='Travel Information' bTitle={this.props.country + ' Info'} popoverLink={''}>
+				<div className='info-block'><div className='aD-modal-title'>Languages: </div>{this.props.lang.map(obj => {
+					return <div className='content'>{obj.language}</div>
+				}) }
+				</div>
+				<div className='info-block'><div className='aD-modal-title'>Currency Name: </div>{this.props.currencyName }</div>
+				<div className='info-block'><div className='aD-modal-title'>Currency Rate/USD: </div>{ Number(this.props.currencyRate).toFixed(2)}</div>
+				<div className='info-block'><div className='aD-modal-title'>Calling Code: </div>{this.props.callingCode}</div>
+				<div className='info-block'><div className='aD-modal-title'>Water Consumption: </div>{this.props.water === 'not safe' ? 'Bottled': 'Tap'}</div>
+				<div className='info-block'><div className='aD-modal-title'>Vaccinations: </div>{this.props.vaccinations.map(obj => {
+					return <div className='content'> {obj.name}</div>
+				})  }
+				</div>
+				<div className='electric-block'>
+				<div><div className='aD-modal-title'>Electric Plugs: </div></div><div className='electric-block'>{this.props.plugs.map(element => {
+					return <div className='plug'>{element} {this._plugPictureInserter(element)}</div> 
+				}) }</div>
+				</div>
+			</BootStrapModal>
 			)
 		}
 	}
-
-
-
-
 	render() {
 		return(	
 			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
@@ -59,10 +61,12 @@ class ActiveDestination extends React.Component {
 						<h3 className='active-price'>{this.props.bookingDetails.price.toFixed(2)}</h3>
 						<p className='time-ago'>{Math.round((Date.now() - new Date(this.props.bookingDetails.created_at))/(60*60*1000)) + ' hours ago'}</p>
 						<a className='btn btn-primary' href={this.props.bookingDetails.deepLink} target='_blank'>BUY NOW</a>
-						<div>
-							<a href="https://www.skyscanner.net" target="_blank"><p>Powered By</p><img src="/assets/images/Skyscanner-Logo-Charcoal.png"/></a>
+						<div className='test'>
+							<a href='https://www.skyscanner.net' target='_blank'><p className='powered-by'>Powered By</p><img className='skyscanner-logo' src='/assets/images/Skyscanner-Logo-Charcoal.png'/></a>
 						</div>
+						<div className='country-info-button'>
 							{this._countryButtonOrBust()}
+						</div>
 					</div>
 				</div>
 			</div>

@@ -6,12 +6,10 @@ import {Tooltip, OverlayTrigger, Button} from 'react-bootstrap';
 
 const bioInfo = [
 		{person: 'Owen',
-		label: 'Bio',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
-		languagesStrong: 'STRONG:  JavaScript | React | AngularJS | Git | Node.js/Express | SQL | Postgres | HTML/CSS | Bootstrap | jQuery',
-		languagesExperienced:	'EXPERIENCED:  MongoDB | Heroku | Backbone.js | Mithril | Python | Photoshop',
-		bio: 'stuff',
+		languagesStrong: 'JavaScript | React | AngularJS | Git | Node.js/Express | SQL | Postgres | HTML/CSS | Bootstrap | jQuery',
+		languagesExperienced:	'MongoDB | Heroku | Backbone.js | Mithril | Python | Photoshop',
 		personalStatement: 'hire me',
 		gitProjectOneLink:'',
 		gitProjectOneTitle:'',
@@ -25,12 +23,10 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person: 'Paul',
-		label: 'Bio',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
-		languagesStrong:'STRONG: JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
-		languagesExperienced:	'EXPERIENCED: AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
-		bio: 'stuff',
+		languagesStrong:'JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
+		languagesExperienced:	'AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
 		personalStatement: 'hire me',
 		gitProjectOneLink:'',
 		gitProjectOneTitle:'',
@@ -44,12 +40,10 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person: 'Vidush',
-		label: 'Bio',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
-		languagesStrong: 'STRONG: JavaScript | React | Redux | ES2015 | Gulp | Html | Node | Babel | Webpack | Passport | GraphAPI | and JQuery',
-		languagesExperienced:	'EXPERIENCED: CSS | Angular | Express | Mithril | Mongoose | Backbone | SQL | websockets | Postgres | Mongo DB | deployment(heroku) | Grunt | bootstrap | mocha/chai',
-		bio: 'stuff',
+		languagesStrong: 'JavaScript | React | Redux | ES2015 | Gulp | Html | Node | Babel | Webpack | Passport | GraphAPI | and JQuery',
+		languagesExperienced:	': CSS | Angular | Express | Mithril | Mongoose | Backbone | SQL | websockets | Postgres | Mongo DB | deployment(heroku) | Grunt | bootstrap | mocha/chai',
 		personalStatement: 'hire me',
 		gitProjectOneLink:'',
 		gitProjectOneTitle:'',
@@ -63,12 +57,10 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person: 'Sin',
-		label: 'Bio',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
-		languagesStrong: 'STRONG: 	JavaScript | SQL | MongoDB | Node | Express | Gulp | Angular | jQuery | Git',
-		languagesExperienced:	'EXPERIENCED:	React | Python (pandas, matplotlib/seaborn, NumPy) | Data Structure | jwt | socketIO | bootstrap',
-		bio: 'stuff',
+		languagesStrong: 'JavaScript | SQL | MongoDB | Node | Express | Gulp | Angular | jQuery | Git',
+		languagesExperienced:	'React | Python (pandas, matplotlib/seaborn, NumPy) | Data Structure | jwt | socketIO | bootstrap',
 		personalStatement: 'hire me',
 		gitProjectOneLink:'',
 		gitProjectOneTitle:'',
@@ -82,12 +74,10 @@ const bioInfo = [
 		resumeLink: ''
 	},
 		{person:'James',
-		label: 'Bio.',
-		tooltiphover: 'hire me!!!',
+		tooltiphover: '',
 		devType: 'Stack',
-		languagesStrong: 'STRONG: JavaScript | Angular | React | Node | Express | GIT | SQL | Excel | HTML5',
-		languagesExperienced: 'EXPERIENCED: Postgres | Knex | MongoDB | Redux | Heroku | SOCKET.IO | @RISK | CSS | Bootstrap | ES6',
-		bio: 'stuff',
+		languagesStrong: 'JavaScript | Angular | React | Node | Express | GIT | SQL | Excel | HTML5',
+		languagesExperienced: 'Postgres | Knex | MongoDB | Redux | Heroku | SOCKET.IO | @RISK | CSS | Bootstrap | ES6',
 		personalStatement: 	'Building effective teams, strategically aligning companies with market trends, '  +
 												'and product development focused on solution-creation rather than just function creation ' +
 												'--- these are my passions.',
@@ -127,8 +117,8 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 							modalHeaderTwo='This is my story'
 							topBody='Recent GitHub Projects'
 							modalTitle={obj.devType}
-							PopoverPOne={obj.languagesStrong}
-							PopoverPTwo={obj.languagesExperienced} 
+							PopoverPOne={'STRONG: ' + obj.languagesStrong}
+							PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced} 
 							bodyText={obj.personalStatement} 
 							item={obj.person} 
 							popOverTitle='Technical Knowledge' 						
@@ -168,10 +158,4 @@ let tooltip = <Tooltip>{obj.tooltiphover}</Tooltip>;
 }
 
 export default MeetTheDevs;
-
-
-
-
-
-
 

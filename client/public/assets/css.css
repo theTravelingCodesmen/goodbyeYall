@@ -11,10 +11,14 @@
   height: 75px;
 }
 
-.logo:hover {
+.logo-text:hover {
 	cursor: pointer;
 	font-weight: bolder;
 	color: black;
+}
+
+.logo:hover {
+	cursor: pointer;
 }
 
 .navbar-button{
@@ -48,10 +52,9 @@
 	margin: .85em
 }
 
-.prefs-submit-button {		
-       margin: 7px 0px 0px 0px;		
-}		
- 
+.prefs-submit-button {
+	margin: 7px 0px 0px 0px;
+}
 
 #profile-photo-li {
 	padding:0 0 0 0;
@@ -73,17 +76,15 @@ body {
 /*PHOTO ROLL ELEMENTS////////////////////////*/
 /*//////////////////////////////////////////*/
 .photo-roll {
-	border-style: solid;
-	border-color: black;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	min-height: 10em;
 }
 
 .passive-photo {
 	display: flex;
 	flex-grow: 1;
-	padding: 5.1%;
 	background-size: 100%;
 	background-repeat: no-repeat;
 	cursor: pointer;
@@ -106,26 +107,38 @@ body {
 }
 
 .passive-price {
+	position: relative;
+	left: 1.85em;
+	top: 2.05em;
+	text-align: center;
+	line-height: 1;
+	background-color: #777;
+	border-radius: 10px;
+	max-height: 1.15em;
 	margin: 0;
 	padding: 2px;
 	font-size: 2em;
-	width: auto;
-	left: .2em;
+	min-width: 3em;
+	max-width: 3em;
 	color: white;
-	opacity: 0;
 	font-weight: bold;
-	position: relative;
+	opacity: 0;
 }
 
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
 .active-photo-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-size: contain;
-  background: no-repeat;
-  margin-bottom: 3em;
+	display: flex;
+	flex-direction: column;
+	background-size: contain;
+	background: no-repeat;
+	position: relative;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	padding-bottom: 2em;
 }
 
 .intro {
@@ -150,21 +163,24 @@ body {
 }
 
 .flight-info-container {
+	position: relative;
 	background-color: rgba(255,255,255, 0.55);
-	margin: 0em 3em 3em 3em;
 	min-width: 40%;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap-reverse;
+	flex-wrap: wrap;
+	margin: auto;
 }
 
 .flight-details {
-	padding-left: 2em;
-	padding-top: 2%;
+	margin: auto;
 	color: blue;
 	text-align: right;
-	border-left-style: solid;
 	border-left-color: black;
+	position: relative;
+	margin-right: 2em;
+	margin-left: 1em;
+	flex-grow: 1;
 }
 
 .dates {
@@ -179,12 +195,28 @@ body {
 	margin: 0;
 }
 
+.powered-by {
+	position: relative;
+	top: 2em;
+	right: 1em;
+	color: #14141f;
+}
+
+.country-info-button {
+	margin-top: 1em;
+	opacity: .7;
+}
+
 /*D3 GRAPH ELEMENTS//////////////////////////*/
 /*//////////////////////////////////////////*/
 .flight {
 	width: 40%;
-	text-align:center;
-	backface-visibility:
+	text-align: center;
+	margin-top: 2em;
+	margin: auto;
+	position: relative;
+	flex-grow: 1;
+	border-right: 2px solid black;
 }
 
 /* info box for d3 graph */
@@ -205,6 +237,13 @@ body {
 	z-index:10;
 	font-weight:bold;
 }
+
+.d3-title {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0;
+}
+
 /* path for svg graph */
 .line {
   stroke: steelblue;
@@ -239,12 +278,12 @@ body {
 .main {
   font-size: 4.0em;
   font-family: 'Lalezar', sans-serif;
+  margin-bottom: 0em;
 }
 
 .sub {
-}
-
-.call-to-action {
+	margin-top: 0em;
+	margin-bottom: .5em;
 }
 
 .center-div {
@@ -264,7 +303,9 @@ body {
 }
 
 .seven-view {
-	padding-top:4em;
+	padding-top: 4em;
+	width: 94%;
+	margin-left: 3%;
 }
 /* MISSION STATEMENT */
 
@@ -277,26 +318,35 @@ body {
   left:10%;
 }
 
+.how-it-works-gif {
+    position: relative;
+    margin:5%;
+    bottom:70%;
+    border: 1px black solid;
+    width:60%;
+}
+
 /* MEET THE DEVS */
 
-.meet-the-devs {
-  margin-top: 20px;
-  width: 20%;
-  text-align: center;
+.meet-the-devs{
+	margin-top: 20px;
+	width: 20%;
+	text-align: center;
 }
+
 
 .meet-the-devs-wrapper {
 	display: inline-flex;
-	margin-top: 15%;
+	margin-top: 10%;
 }
 
 .dev-pic {
-	box-shadow: 8px 8px 4px #888888;
 	width:70%;
+	box-shadow: 8px 8px 4px #888888;
 }
 
 .icons {
- 	display: inline-flex;	
+  display:inline-flex;
 }
 
 .linkedin,
@@ -306,17 +356,17 @@ body {
 	margin: 1em;
 }
 
-.bio{
+.bio {
 	display: inline-flex;
 }
-
 
 .resume-link{
 	margin-left: 10px;
 	padding:0%;
 }
 
-.meet-the-devs img {
+.resume-link:hover {
+	text-decoration: none;
 }
 
 /* USER PREFERENCES FORM */
@@ -329,8 +379,8 @@ body {
 }
 
 .package-uno, .package-dos {
-    min-width: 50%;
-    max-width: 100%;
+  min-width: 50%;
+  max-width: 100%;
 }
 
 .package-uno:hover,
@@ -349,3 +399,155 @@ body {
     word-wrap: break-word;
 }
 
+#loader {
+	width:100%;
+	/*margin: 0 auto;*/
+	position: relative;
+	left:46.7%
+}
+
+/*TRAVEL INFO////////////////////////////////*/
+/*//////////////////////////////////////////*/
+
+.content {
+	display: inline-flex;
+	margin-left:5px;
+}
+
+.plug {
+	display: inline-flex;
+	margin-left: 40px;
+}
+
+.electric-block {
+	display: inline-flex;
+}
+
+.info-block {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.aD-modal-title {
+	font-weight: bolder;
+	display: inline-flex;
+	margin-right: 5px;
+}
+
+/*Dynamic Modal*/
+.modal-header{
+	font-weight: bolder;
+	text-align: center;
+}
+
+footer {
+	position: relative;
+	top:100%;
+            left:70%;
+	/*border-top: solid 2px black;*/
+}
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+
+    .nav{
+        position: relative;
+        font-size: 2.3em;
+    }
+    .dropdown-menu{
+        font-size: 0.9em;
+    }
+    .fb-login-button {
+        position: fixed;
+        top:1%;
+        right:10%;
+    }
+
+    .logo > img {
+        position: relative;
+        left: -80px;
+    }
+    .logo-text {
+        position: relative;
+        left:-20%;
+        font-size: 1.2em;
+    }
+    .value-prop {
+        margin-top: 120px;
+        width:95%;
+        margin-left: 0%;
+        font-size: .8em;
+    }
+    .package-uno {
+        min-width: 125%;
+        margin-left: -17%;
+    }
+
+    .package-dos {
+        min-width: 123%;
+        margin-left: -17%;
+    }
+    .carousel {
+        width:95%;
+        margin-left: -1.5%;
+    }
+    .seven-view {
+        width: 120%;
+        margin-left: -10%;
+    }
+
+    .package-view {
+        position: relative;
+        top:120px;
+    }
+    .mission-statement {
+        position: relative;
+        width:110%;
+        top: 170px;
+        left: 0%;
+        font-size: 3.0em;
+    }
+
+    .mission-statement h2{
+        font-size: 1.7em;
+    }
+    .mission-statement h4 {
+        font-size: 1.2em;
+    }
+    .how-it-works-gif {
+        top:5%;
+        width:120%;
+        left:-12%;
+    }
+
+    .meet-the-devs-wrapper {
+        margin-top:200px;
+        display: block;
+    }
+
+    .meet-the-devs {
+        width:720px;
+    }
+
+    .flight-details {
+        width: 100%;
+    }
+
+    .skyscanner-logo {
+        width:100px;
+    }
+
+    footer {
+        display: none;
+    }
+    .intro {
+
+    }
+    .destination-info {
+        display:none;
+    }
+    .active-roll-container {
+        background-size: 500px 1000px;
+
+    }
+
+}

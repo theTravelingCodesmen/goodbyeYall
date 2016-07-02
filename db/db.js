@@ -1,8 +1,8 @@
 'use strict'
-//
-// KNEX database library
-// plus additional database helper functions
-//
+
+/**
+ * knex database connection and its helper function
+ */
 let path = require('path');
 
 let config = require('./knexfile');
@@ -112,6 +112,32 @@ knex.ensureSchema = function () {
         });
       }
     }),
+
+// knex.schema.hasTable('bios').then(function(exists){
+//   if(!exists){
+//     knex.schema.createTable('bios',function(table){
+//       table.increments('id').primary();
+//       table.string('person', 50);
+//       table.string('tooltiphover', 100);
+//       table.string('devType', 50);
+//       table.string('languagesStrong', 255);
+//       table.string('languagesExperienced', 512);
+//       table.string('personalStatement', 512);
+//       table.string('gitProjectOneLink', 100);
+//       table.string('gitProjectOneTitle', 100);
+//       table.string('gitProjectTwoLink', 100);
+//       table.string('gitProjectTwoTitle', 100);
+//       table.string('gitProjectThreeLink', 100);
+//       table.string('gitProjectThreeTitle', 100);
+//       table.string('gitHubPic', 100);
+//       table.string('linkedinLink', 100);
+//       table.string('gitHubLink', 100);
+//       table.string('resumeLink', 100);
+//     }).then(function(table){
+//       console.log('Created bios table');
+//     })
+//   }
+// }),
     
     knex.schema.hasTable('users').then(function (exists) {
       if (!exists) {

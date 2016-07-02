@@ -97,7 +97,7 @@ router.use('/selectpackage/:packagename', function(req, res){
                     destination.countryData.telephone.callingcode = countryData.telephone.calling_code
                     destination.countryData.vaccinations = countryData.vaccinations
                     destination.countryData.currency.name = countryData.currency.name
-                    destination.countryData.currency.rate = countryData.rate
+                    destination.countryData.currency.rate = countryData.currency.rate
                     destination.countryData.water = countryData.water.short
                     return destination
                 })
