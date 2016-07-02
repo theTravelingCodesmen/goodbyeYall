@@ -34,8 +34,15 @@ npm install
 Then run webpack and have webpack watch for file changes
 
 ```
-npm run build;          for Windows: webpack -g
+npm run build;          
 ```
+
+for Windows: 
+
+```
+webpack -g
+```
+
 In a separate tab in the terminal, start the development server
 ```
 npm run dev
