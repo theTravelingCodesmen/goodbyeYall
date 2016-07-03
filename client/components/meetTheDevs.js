@@ -94,6 +94,7 @@ const bioInfo = [
 	}
 ]
 
+//renders meet the devs component
 class MeetTheDevs extends React.Component {
 
 	_getDevInfo() {

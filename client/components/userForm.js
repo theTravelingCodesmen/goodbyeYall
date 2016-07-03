@@ -6,6 +6,8 @@ import {Button, FormGroup, FormControl, ControlLabel, Checkbox} from 'react-boot
 import axios from 'axios';
 import queryString from 'query-string';
 
+
+//renders user preferences form, adjusts state based on user selection and sends state to db
 let UserForm = React.createClass ({
   getInitialState:function(){
     return {
@@ -23,18 +25,18 @@ let UserForm = React.createClass ({
   },
   fetchPrefsByFB_ID:function(fb_id){
     return axios.get(`/user_prefs/existing_pref/${fb_id}`)
-        .then((userPrefs)=>{
-          this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
-          this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
-          this.setState({'AUS-sky' : userPrefs.data['AUS-sky']});
-          this.setState({'American Cities' : userPrefs.data['American Cities']});
-          this.setState({'Global Explorer' : userPrefs.data['Global Explorer']});
-          this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
-          this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
-          this.setState({'Party Islands' : userPrefs.data['Party Islands']});
-          this.setState({'Foodie Cities' : userPrefs.data['Foodie Cities']});
-          this.setState({'profile_name': userPrefs.data['profile_name']});
-        })
+      .then((userPrefs)=>{
+        this.setState({'DFWA-sky' : userPrefs.data['DFWA-sky']});
+        this.setState({'HOUA-sky' : userPrefs.data['HOUA-sky']});
+        this.setState({'AUS-sky' : userPrefs.data['AUS-sky']});
+        this.setState({'American Cities' : userPrefs.data['American Cities']});
+        this.setState({'Global Explorer' : userPrefs.data['Global Explorer']});
+        this.setState({'Seven Wonders' : userPrefs.data['Seven Wonders']});
+        this.setState({'Seven Natural Wonders' : userPrefs.data['Seven Natural Wonders']});
+        this.setState({'Party Islands' : userPrefs.data['Party Islands']});
+        this.setState({'Foodie Cities' : userPrefs.data['Foodie Cities']});
+        this.setState({'profile_name': userPrefs.data['profile_name']});
+      })
   },
   componentWillMount:function(){
     let fb_id = localStorage.getItem("goodbyeyall.fb_id");
