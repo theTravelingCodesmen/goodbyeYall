@@ -42,7 +42,7 @@ import {Popover, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 //Personal Statement
 //{this.props.personalStatement}
 
-
+//modal used for meet the devs bio and country info
 const BootStrapModal = React.createClass({
 
   getInitialState() {
@@ -58,7 +58,6 @@ const BootStrapModal = React.createClass({
   },
 
 	render() {
-
 	  let popover = <Popover title={this.props.popOverTitle}>
 	  								<p>{this.props.PopoverPOne}</p>
 	  								<p>{this.props.PopoverPTwo}</p>
@@ -90,12 +89,11 @@ const BootStrapModal = React.createClass({
 	        <Modal.Footer>
 	          <Button onClick={this.close}>Close</Button>
 	        </Modal.Footer>
-
 	      </Modal>
 	    </div>
 	  );
+
 	}
+})
 
-
-	})
-	export default BootStrapModal
+export default BootStrapModal
