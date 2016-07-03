@@ -21,4 +21,5 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ setActiveDestination: setActiveDestination }, dispatch);
 }
 
+export { PassiveDestination }
 export default connect(null, mapDispatchToProps)(PassiveDestination);

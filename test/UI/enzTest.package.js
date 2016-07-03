@@ -60,12 +60,12 @@ describe('<CardTitle />', () =>{
 	})
 })
 
-// describe('<PassiveDestination />', () =>{
-// 	it('should have ', () =>{ 
-// 		expect(mount('<PassiveDestination />').render().find('.package-view'
-// 		)).to.have.length(1)
-// 	})
-// })
+describe('<PassiveDestination />', () =>{
+	it('should have ', () =>{ 
+		expect(mount(<PassiveDestination />).find('.passive-photo'
+		)).to.have.length(1)
+	})
+})
 
 
 // describe('', () =>{

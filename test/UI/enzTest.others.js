@@ -3,9 +3,10 @@
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import {expect} from 'chai';
-import { NavBar, MenuItem } from '../../client/containers/navBar';
-import {MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
+import { expect } from 'chai';
+import { Provider } from 'react-redux';
+import { NavBar, MenuItem, NavDropdown, AirportDropdown } from '../../client/containers/navBar';
+import { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
 import { spy } from 'sinon';
 import { OuterCardBox, LinkContainer } from '../../client/components/outerCardBox';
 import { MissionStatement } from '../../client/components/missionStatement';
@@ -15,17 +16,7 @@ import { ImageCarousel, Carousel } from  '../../client/components/imageCarousel'
 // Full Dom Rendering
 // Static Rendered Markup
 
-  // let componentWillMount = function(){
-  //   localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
-  //   this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
-  // }
-
-  // let logout = function(){
-  //   localStorage.removeItem('goodbyeyall.fb_id');
-  //   this.props.changeLogin(false);
-  //   window.location.assign('/');
-  // }
-
+Window.localStorage = {}
 
 describe('<NavBar />', () =>{
 	it('should render <OuterCardBox /> component', () =>{
