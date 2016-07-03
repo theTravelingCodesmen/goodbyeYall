@@ -12,7 +12,7 @@ Helping people achieve their travel goals
 #GoodbyeYall Cheap Airfare Finder
 http://www.goodbyeyall.com (Hosted on Heroku)
 
-GoodbyeYall is backend-intensive travel app that analyzes flight quotes out of Texas to 42 of the most popular global destinations to identify the least expensive time to fly in the next 12 months. :tada::tada:
+GoodbyeYall is backend-intensive travel app that analyzes flight prices from Texas to 42 of the most popular global destinations with the goals of identifing the least expensive time to fly in the next 12 months and sending Facebook notifications to users based on their individual preferences. :tada::tada:
 
 
 
