@@ -3,6 +3,7 @@
 let router = require('express').Router();
 let knex = require('../../db/db');
 let requestPromise = require('request-promise');
+
 module.exports = router
 
 knex.insertUserPrefs = function(prefsObj) {
