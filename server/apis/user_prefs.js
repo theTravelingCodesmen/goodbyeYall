@@ -8,12 +8,12 @@ module.exports = router
 knex.insertUserPrefs = function(prefsObj) {
 	return knex('users').insert(prefsObj);
 }
+
 knex.fetchExistingPrefs = function(fb_id){
 	return knex('users').where("fb_id",fb_id).select()
 }
 
 router.get('/existing_pref/:fb_id',function(req, res) {
-	console.log(req.params.fb_id);
 	knex.fetchExistingPrefs(req.params.fb_id)
 		.then((data)=>{
 			data = data[0];
@@ -29,8 +29,7 @@ router.get('/existing_pref/:fb_id',function(req, res) {
 			'Party Islands': data['Party Islands'],
     	'profile_name':data['profile_name']
 			})
-		}
-		)
+		})
 })
 
 router.get('/is_exist/:token', function(req, res){
@@ -38,20 +37,19 @@ router.get('/is_exist/:token', function(req, res){
 	requestPromise(`https://graph.facebook.com/me?fields=id&access_token=${req.params.token}`)
 		.then((data)=>{
 			data = JSON.parse(data);
-			// console.log('line 36 data get back from fb graph with token', data)
-			if (data.id){fb_id = data.id}
+			if(data.id){
+				fb_id = data.id
+			}
 		})
 		.then(()=>{
 			return knex('users').where('fb_id',fb_id)
 		})
 		.then((data)=>{
-			console.log('line 43 on user_prefs', data)
 			data.length>0 ? res.json({found:true, fb_id:data[0].fb_id, profile_photo:data[0].profile_photo}) : res.json({found:false})
 		})
 })
 
 router.post('/',function(req, res) {
-	console.log(req.body);
 	let prefsObj=Object.assign({}, req.body);
 	if (req.body.token && !req.body.fb_id){
 		requestPromise(`https://graph.facebook.com/me?fields=id,name,email,picture&access_token=${req.body.token}`)

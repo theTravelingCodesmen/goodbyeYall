@@ -3,8 +3,6 @@
 let router = require('express').Router();
 let knex = require('../../db/db');
 
-module.exports = router;
-
 
 knex.getAvgByRoute = function(originCity, destCity){
 	return knex('averages')
@@ -28,3 +26,5 @@ router.get('/:originCity/:destCity', function(req, res){
 		.then( (array) => res.send(array) )
 });
 
+
+module.exports = router;
