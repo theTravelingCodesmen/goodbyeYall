@@ -37,7 +37,7 @@ const bioInfo = [
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/16947596',
 		linkedinLink: 'https://www.linkedin.com/in/paulmschreiber',
 		gitHubLink: 'https://github.com/pschreibs85',
-		resumeLink: ''
+		resumeLink: 'https://drive.google.com/file/d/0B3r8y6b_n6icNElxRkVXQkE0N00/view?usp=sharing'
 	},
 		{person: 'Vidush',
 		tooltiphover: '',
