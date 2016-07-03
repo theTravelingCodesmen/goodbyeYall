@@ -161,7 +161,27 @@ knex.ensureSchema = function () {
           console.log('Created users table.');
         })
       }
-    })     
+    }),
+
+    knex.schema.hasTable('custom_quotes').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('quotes', function (table) {
+          table.increments('id').primary();
+          table.float('price');
+          table.string('originCity', 255);
+          table.string('destinationCity', 255);
+          table.date('outboundDate');
+          table.date('inboundDate');
+          table.string('outboundMonth', 2);
+          table.string('outboundYear', 4);
+          table.string('deepLink', 2000);
+          table.timestamp('created_at').defaultTo(knex.fn.now());
+        }).then(function (table) {
+          console.log('Created custom_quotes table.');
+        });
+      }
+    })
+
   ])
 }
 
