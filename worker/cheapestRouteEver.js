@@ -37,17 +37,18 @@ knex.insertCheapestRoute = function(obj){
 				return;
 			}
 		}else{
-			throw new Error('line 37 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
+			throw new Error('line 40 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
 		}
   })
   .catch(function(err){
-		console.log('line 37 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
+		console.log('line 44 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
   })
 }
 
 //
 //updates cheapest_route_ever table in db
 function cheapestRouteEverWorker() {
+	console.log('calculating cheapest_route_ever')
 	return knex.getCheapestRouteInQuotes().then(function(data){
 		data = data.sort(function(x, y){
 			if (x.originCity < y.originCity)return 1
