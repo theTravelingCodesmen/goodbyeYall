@@ -27,7 +27,7 @@ const bioInfo = [
 		devType: 'Full Stack',
 		languagesStrong:'JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
-		personalStatement: 'hire me',
+		personalStatement: 'Former Equity Options Trader, living in Austin doing full stack development',
 		gitProjectOneLink:'https://offthegridcamping.herokuapp.com/',
 		gitProjectOneTitle:'Off the Grid',
 		gitProjectTwoLink:'',
@@ -99,8 +99,6 @@ class MeetTheDevs extends React.Component {
 _getDevInfo() {
 
 	return bioInfo.map(function(obj){
-
-
 		return(
 			<div className='meet-the-devs'>
 				<a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a>
@@ -111,7 +109,7 @@ _getDevInfo() {
 							bTitle='Bio'
 							popoverLink='Programming Languages'
 							modalHeaderOne='Technical Skills'
-							modalHeaderTwo='This is my story'
+							modalHeaderTwo='About'
 							topBody='Recent GitHub Projects'
 							modalTitle={obj.devType}
 							PopoverPOne={'STRONG: ' + obj.languagesStrong}
@@ -119,7 +117,7 @@ _getDevInfo() {
 							bodyText={obj.personalStatement}
 							item={obj.person}
 							popOverTitle='Technical Knowledge'
-							>
+						>
 							<div><a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 							<div><a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
 							<div><a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
@@ -138,18 +136,16 @@ _getDevInfo() {
 }
 
 	render(){
-
 		const bios = this._getDevInfo();
 		return (
-				<div>
-					<div className='nav-spacing'>
-					</div>
-					<div className='meet-the-devs-wrapper'>
-						{bios}
-					</div>
+			<div>
+				<div className='nav-spacing'>
 				</div>
-			)
-
+				<div className='meet-the-devs-wrapper'>
+					{bios}
+				</div>
+			</div>
+		)
 	}
 
 }
