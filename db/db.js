@@ -4,7 +4,6 @@
  * knex database connection and its helper function
  */
 let path = require('path');
-
 let config = require('./knexfile');
 let env = process.env.NODE_ENV || 'development';
 let knex = require('knex')(config[env]);
@@ -162,16 +161,10 @@ knex.ensureSchema = function () {
           console.log('Created users table.');
         })
       }
-      // else if (exists) {
-      //   knex.schema.table('users', function (table) {      
-      //     table.renameColumn('Seven Continents', 'Foodie Cities');
-      //   }).then(function (table) {
-      //     console.log('Altered users table.');
-      //   })
-      // }
     })     
   ])
 }
+
 
 knex.truncateTable = function (tableName) {
   return knex(tableName).truncate()
