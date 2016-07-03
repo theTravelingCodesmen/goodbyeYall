@@ -507,7 +507,7 @@ footer {
         font-size: 1.2em;
     }
     .card-title {
-        margin-top: 18%;
+        margin-top: 19%;
         margin-bottom:-13%;
         font-size: 4.5em;
     }
@@ -529,8 +529,8 @@ footer {
         margin-bottom: 1.0em;
     }
     .carousel {
-        width:97%;
-        margin-left: -1.5%;
+        width:98.5%;
+        margin-left:-1.8em;
     }
     .mission-statement {
         position: relative;
@@ -581,7 +581,7 @@ footer {
     .destination-info-mobile {
         display: unset;
         color: black;
-        font-size: 2.0em;
+        font-size: 2.5em;
     }
     .flight {
         border-right:0px;
