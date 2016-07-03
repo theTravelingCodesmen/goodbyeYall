@@ -1,17 +1,39 @@
 'use strict'
 
+//////////////////////////////////////////////
+//////INSTRUCTIONS///////////////////////////
+////////////////////////////////////////////
+
+
+// 1. Insert origin into originCities array
+//   e.g. let originCities = ["AUS-sky"];
+let originCities = ["AUS-sky"];
+// 2. Insert destination into destinationCities array
+//   e.g let destinationCities = ["MKE-sky"];
+let destinationCities = [];
+// 3. Insert date into departureDates array 
+//   e.g. let departureDates = ["2016-08-10"];
+// NOTE: you can put in multiple dates
+let departureDates = [];
+// 4. Insert date into returnDates array
+//   e.g. let returnDates = ["2016-08-16"];
+// NOTE: you can put in multiple dates
+let returnDates = [];
+// 5. In terminal run the file.
+//   e.g. node worker/customWorker/theTravelingCodesmenCustomFlightTracker.js
+
+
+
 let RequestPromise = require("request-promise");
 let PromiseThrottle = require("promise-throttle");
-let Knex = require('../db/db');
+let Knex = require('../../db/db');
 if (process.env.NODE_ENV!=='production'){
-  var SkyscannerKeys = require("../APIKEYS.js");
+  var SkyscannerKeys = require("../../APIKEYS.js");
 }
 
-let today = new Date;
-let originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
-let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky', 'TYOA-sky', 'HKG-sky', 'FLR-sky', 'BERL-sky', 'LIM-sky', 'OGG-sky', 'NAN-sky', 'JMK-sky', 'IBZ-sky', 'AUA-sky', 'GCM-sky'];
+
 let promiseThrottle = new PromiseThrottle({
-  requestsPerSecond: 1.5,          // up to 10 requests per second 
+  requestsPerSecond: 1,          // up to 10 requests per second 
   promiseImplementation: Promise  // the Promise library you are using 
 });
 
@@ -45,8 +67,8 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
       locale: "en-US",
       originplace: originplace,
       destinationplace: destinationplace,
-      outbounddate: outbounddate.toISOString().slice(0,10),
-      inbounddate: inbounddate.toISOString().slice(0,10)
+      outbounddate: outbounddate,
+      inbounddate: inbounddate
     }
   }
   return RequestPromise(options)
@@ -70,9 +92,9 @@ function pollSession(sessionKey) {
 
 //
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
-function searchSkyscannerByDate(departureDate, originCity, destinationCity){
+function searchSkyscannerByDate(departureDate, returnDate, originCity, destinationCity) {
   let outboundDate = departureDate;
-  let inboundDate = new Date(departureDate.getTime()).addDays(10);
+  let inboundDate = returnDate;
 
   return getSessionKey(originCity, destinationCity, outboundDate, inboundDate)
     .then( (sessionKey) => {
@@ -113,24 +135,9 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
 
 
 //
-//generates an array of flight dates for the next year
-function generateFlightDates(daysOut){
-  let dates = [];
-  let daysAdded = daysOut;
-  let count = 0;
-  while(count < 48){
-    dates.push(today.addDays(daysAdded));
-    daysAdded += 7;
-    count++;
-  }
-  return dates;
-}
-
-
-//
 // Insert flight object into quotes table
 Knex.insertQuotesIntoDb = function(flightObj) {
-  return flightObj !== [] ? Knex('quotes').insert(flightObj) : undefined
+  return flightObj !== [] ? Knex('custom_quotes').insert(flightObj) : undefined
 }
 
 
@@ -152,7 +159,7 @@ function generateArgumentsArray() {
 
 //
 //starts the chain that handles all of the functions which gets skyscanner to cache data
-function masterDataGenerator(){
+function masterDataGenerator() {
   let theMasterArray = generateArgumentsArray()
     .map( (infoArray) => {
       return promiseThrottle.add(searchSkyscannerByDate.bind(this, ...infoArray))
@@ -162,7 +169,7 @@ function masterDataGenerator(){
 
 //
 //reruns all api calls to skyscanner and inserts results into db
-function secondRoundInsertQuotes (){
+function theTravelingCodesmenCustomFlightTracker() {
   let theMasterArray = generateArgumentsArray()
     .map( (infoArray) => {
       return promiseThrottle
@@ -179,7 +186,6 @@ function secondRoundInsertQuotes (){
 
 
 masterDataGenerator()
-setTimeout(secondRoundInsertQuotes, 3600000)
-
+setTimeout(theTravelingCodesmenCustomFlightTracker, 60000)
 
 
