@@ -100,18 +100,19 @@ function updateOrCalculateAverage (outboundMonth, outboundYear, originCity, dest
 }
 
 let originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
-let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky', 'TYOA-sky', 'HKG-sky', 'FLR-sky', 'BERL-sky', 'LIM-sky', 'OGG-sky', 'NAN-sky', 'JMK-sky', 'IBZ-sky', 'AUA-sky', 'GCM-sky'];
+let destinationCities1 = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky'];
+let destinationCities2 = ['SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky', 'TYOA-sky', 'HKG-sky', 'FLR-sky', 'BERL-sky', 'LIM-sky', 'OGG-sky', 'NAN-sky', 'JMK-sky', 'IBZ-sky', 'AUA-sky', 'GCM-sky'];
 let months = ["01","02","03","04","05","06","07","08","09","10","11","12"];
 let years = ["2016", "2017"];
 
 //create array of all permutations of month, year, origin and destination
-function generateAveragesArgumentsArray() {
+function generateAveragesArgumentsArray(destinationCities) {
   let results = [];
   originCities.forEach( (origin) => {
     destinationCities.forEach( (dest) => {
       months.forEach( (month) => {
         years.forEach( (year) => {
-            results.push([month, year, origin, dest])
+          results.push([month, year, origin, dest])
         })
       })
     })
@@ -122,10 +123,16 @@ function generateAveragesArgumentsArray() {
 //
 //updates 'averages' table by averaging in new quotes from 'quotes' table
 function calculateAveragesWorker() {
-  console.log('calculating averages')
-  return Promise.all(generateAveragesArgumentsArray().map(function(array) {
+  console.log('calculating averages 1')
+  return Promise.all(generateAveragesArgumentsArray(destinationCities1).map(function(array) {
     return updateOrCalculateAverage.apply(null, array);
   }))
+  .then( () => {
+    console.log('calculating averages 2')
+    return Promise.all(generateAveragesArgumentsArray(destinationCities2).map(function(array) {
+      return updateOrCalculateAverage.apply(null, array);
+    }))
+  })
 }
 
 // calculateAveragesWorker()
