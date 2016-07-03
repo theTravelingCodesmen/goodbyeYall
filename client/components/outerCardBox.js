@@ -5,6 +5,7 @@ import ImageCarousel from './imageCarousel';
 import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 
+//renders outer card box i.e. landing page
 class OuterCardBox extends React.Component {
 	render(){
 		return (
@@ -34,6 +35,5 @@ class OuterCardBox extends React.Component {
 		)
 	}
 }
-
 
 export default OuterCardBox;

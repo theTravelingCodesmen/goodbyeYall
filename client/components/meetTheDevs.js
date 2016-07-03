@@ -27,7 +27,7 @@ const bioInfo = [
 		devType: 'Full Stack',
 		languagesStrong:'JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
-		personalStatement: 'hire me',
+		personalStatement: 'Former Equity Options Trader, living in Austin doing full stack development',
 		gitProjectOneLink:'https://offthegridcamping.herokuapp.com/',
 		gitProjectOneTitle:'Off the Grid',
 		gitProjectTwoLink:'',
@@ -94,62 +94,58 @@ const bioInfo = [
 	}
 ]
 
+//renders meet the devs component
 class MeetTheDevs extends React.Component {
 
-_getDevInfo() {
-
-	return bioInfo.map(function(obj){
-
-
-		return(
-			<div className='meet-the-devs'>
-				<a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a>
-				<div><h5>{obj.person}</h5>
-				<div className ='buttons'>
-					<div className='bio'>
-						<BootStrapModal
-							bTitle='Bio'
-							popoverLink='Programming Languages'
-							modalHeaderOne='Technical Skills'
-							modalHeaderTwo='This is my story'
-							topBody='Recent GitHub Projects'
-							modalTitle={obj.devType}
-							PopoverPOne={'STRONG: ' + obj.languagesStrong}
-							PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced}
-							bodyText={obj.personalStatement}
-							item={obj.person}
-							popOverTitle='Technical Knowledge'
+	_getDevInfo() {
+		return bioInfo.map(function(obj){
+			return(
+				<div className='meet-the-devs'>
+					<a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a>
+					<div><h5>{obj.person}</h5>
+					<div className ='buttons'>
+						<div className='bio'>
+							<BootStrapModal
+								bTitle='Bio'
+								popoverLink='Programming Languages'
+								modalHeaderOne='Technical Skills'
+								modalHeaderTwo='About'
+								topBody='Recent GitHub Projects'
+								modalTitle={obj.devType}
+								PopoverPOne={'STRONG: ' + obj.languagesStrong}
+								PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced}
+								bodyText={obj.personalStatement}
+								item={obj.person}
+								popOverTitle='Technical Knowledge'
 							>
-							<div><a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
-							<div><a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
-							<div><a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
-						</BootStrapModal>
-						<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
-					</div>
-						<div className='icons'>
-							<div className='pull-left'> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
-							<div className='pull-right'> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
+								<div><a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
+								<div><a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
+								<div><a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
+							</BootStrapModal>
+							<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
+						</div>
+							<div className='icons'>
+								<div className='pull-left'> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
+								<div className='pull-right'> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		)
-	});
-}
+			)
+		});
+	}
 
 	render(){
-
 		const bios = this._getDevInfo();
 		return (
-				<div>
-					<div className='nav-spacing'>
-					</div>
-					<div className='meet-the-devs-wrapper'>
-						{bios}
-					</div>
+			<div>
+				<div className='nav-spacing'>
 				</div>
-			)
-
+				<div className='meet-the-devs-wrapper'>
+					{bios}
+				</div>
+			</div>
+		)
 	}
 
 }

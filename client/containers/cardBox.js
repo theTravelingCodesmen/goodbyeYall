@@ -14,21 +14,18 @@ import {IS_FETCHING, changeFetching} from '../actions/isFetching';
 import Loading from 'react-loading';
 
 
+const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
-const createStoreWithMiddleware = applyMiddleware(
-	promise
-	)(createStore);
 
 class CardBox extends React.Component {
+	
 	componentWillMount(){
 		this.setState({'cachedAirport': localStorage.getItem('originairport')});
-		// console.log('line 26 this.props', this.props);
 		this.props.changeFetching(true);
 		this.props.fetchPackage(`${this.props.params.package_name}`)
 	}
+
 	componentDidUpdate(){
-		// console.log('lin 26 containers/cardBox.js this.state.cachedAirport',this.state.cachedAirport);
-		// console.log('lin 33 containers/cardBox.js this.props',this.props);
 		if (this.props.params.package_name !== this.props.package_name){
 			this.props.changeFetching(true);
 			this.props.fetchPackage(`${this.props.params.package_name}`)
@@ -40,8 +37,9 @@ class CardBox extends React.Component {
 			this.props.fetchPackage(`${this.props.params.package_name}`)
 		}
 	}
+
 	render() {
-		let loadingTexts = ['wheels up', 'pushing back','getting you there','buckle up','taking off']
+		let loadingTexts = ['wheels up','getting you there','buckle up','taking off']
 		if (this.props.fetching){
 			return (
 				<div className='seven-view'>
@@ -53,11 +51,11 @@ class CardBox extends React.Component {
 		}
 		else{
 			return(
-			<div className='seven-view'>
-				<CardTitle title={this.props.package_name} />
-				<PackageDestinations  active={this.props.active} passive={this.props.passive} package_name={this.props.params.package_name} className='row' />
-			</div>
-		)
+				<div className='seven-view'>
+					<CardTitle title={this.props.package_name} />
+					<PackageDestinations  active={this.props.active} passive={this.props.passive} package_name={this.props.params.package_name} className='row' />
+				</div>
+			)
 		}
 	}
 }
@@ -75,7 +73,5 @@ function mapStateToProps ( state ){
 function mapDispatchToProps( dispatch ){
 	return bindActionCreators({changeFetching:changeFetching, fetchPackage: fetchPackage}, dispatch)
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardBox);

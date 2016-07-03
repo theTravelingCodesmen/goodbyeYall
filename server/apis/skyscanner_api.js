@@ -16,7 +16,8 @@ router.get('/d3_cache/:location/:currency/:ISO/:dest/:arrival/:depart_time/:arri
 	skyscanner_endpoint+= '/' + req.params.depart_time;
 	skyscanner_endpoint+= '/' + req.params.arrival_time;
 	skyscanner_endpoint+= '?apiKey=' + req.query.apiKey;
-	requestpromise(skyscanner_endpoint).then(JSON.parse).then(function(resp){
-		res.json(resp)
-	})
+	requestpromise(skyscanner_endpoint).then(JSON.parse)
+		.then(function(resp){
+			res.json(resp)
+		})
 });

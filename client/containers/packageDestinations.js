@@ -1,4 +1,5 @@
 'use strict'
+
 import axios from 'axios';
 import React from 'react';
 import PassiveDestination from './passiveDestination';
@@ -6,6 +7,7 @@ import ActiveDestination from '../components/activeDestination';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {FETCH_PACKAGE, fetchPackage} from '../actions/fetchPackage';
+
 
 class PackageDestinations extends React.Component {
 	render() {
@@ -23,7 +25,6 @@ class PackageDestinations extends React.Component {
 					})
 				}
 				</div>
-
 					{
 						this.props.active.map( (dest, i) => {
 							return <ActiveDestination 
@@ -48,7 +49,6 @@ class PackageDestinations extends React.Component {
 							/>
 						})
 					}
-
 			</div>
 		)
 	}

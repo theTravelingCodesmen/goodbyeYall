@@ -10,6 +10,7 @@ import BootStrapModal from './dynamicModals';
 
 class ActiveDestination extends React.Component {
 
+	//inserts corresponding plug photo into country info modal
 	_plugPictureInserter(element) {
 		return(
 			<div>
@@ -18,11 +19,10 @@ class ActiveDestination extends React.Component {
 			</div>
 		)
 	}
+
+	//renders country info button/modal
 	_countryButton() {
-		if(this.props.country === 'United States'){
-			return ''
-		}
-		else {
+		if(this.props.country !== 'United States'){
 			return(
 			<BootStrapModal item='Travel Information' bTitle={this.props.country + ' Info'} popoverLink={''}>
 				<div className='info-block'><div className='aD-modal-title'>Languages: </div>{this.props.lang.map(obj => {
@@ -46,6 +46,8 @@ class ActiveDestination extends React.Component {
 			)
 		}
 	}
+
+	//renders active photo div
 	render() {
 		return(
 			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
@@ -68,7 +70,7 @@ class ActiveDestination extends React.Component {
 							{this._countryButton()}
 						</div>
 						<div className='destination-info-mobile'>
-						<p> {this.props.intro}</p>
+							<p> {this.props.intro}</p>
 						</div>
 					</div>
 				</div>

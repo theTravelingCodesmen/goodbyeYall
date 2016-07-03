@@ -1,3 +1,4 @@
+//helper object for city name in d3 chart
 module.exports = {
     "AUS-sky": "Austin",
     "DFWA-sky": "Dallas",

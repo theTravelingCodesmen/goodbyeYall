@@ -522,9 +522,6 @@ let cayman = {
 
 
 
-
-
-
 let destinationsArray = [petra, christTheRedeemer, colosseum, tajMahal, chichenItza, theGreatWall, machuPicchu, victoriaFalls, rioHarbor, northernLights, grandCanyon, greatBarrierReef, paricutin, mountEverest, london, bangkok, paris, dubai, istanbul, singapore, seoul, losAngeles, chicago, denver, lasVegas, sanFrancisco, newYork, miami, tokyo, hongKong, florence, berlin, lima, maui, fiji, mykonos, kophiphi, ibiza, aruba, cayman, newYorkFood, parisFood];
 
 //returns an array of unique destination airports
@@ -564,8 +561,6 @@ function populateDestinations() {
 
 knex.truncateTable('destinations');
 populateDestinations()
-
-
 
 
 
