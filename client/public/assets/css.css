@@ -492,8 +492,9 @@ footer {
     }
     .fb-login-button {
         position: fixed;
-        top:1%;
-        right:10%;
+        width: 4.0em;
+        top:0.4em;
+        right:2.0em;
     }
 
     .logo > img {
@@ -508,6 +509,7 @@ footer {
     .card-title {
         margin-top: 18%;
         margin-bottom:-13%;
+        font-size: 4.5em;
     }
 
     .value-prop {
@@ -579,6 +581,7 @@ footer {
     .destination-info-mobile {
         display: unset;
         color: black;
+        font-size: 2.0em;
     }
     .flight {
         border-right:0px;
@@ -586,14 +589,17 @@ footer {
     .flight-info-container {
         border: none;
     }
+    .flight-details {
+        text-align:right;
+    }
     .active-price {
-        position: relative;
-        right:5%;
-        font-size: 2.1em;
+        font-size: 5.5em;
     }
     .dates {
-        position: relative;
-        text-align:right;
+        font-size: 3.0em;
+    }
+    .time-ago {
+        font-size: 1.8em;
     }
     .buy-now {
         width:500px;
