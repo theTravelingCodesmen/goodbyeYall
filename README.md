@@ -18,19 +18,19 @@ GoodbyeYall is backend-intensive travel app that analyzes flight prices from Tex
 
 ###Getting Started
 
-###### prerequisites
-nodemon has to be installed globally in order for the development server start correctly.
+###### Prerequisites
+Install nodemon globally
 
 ```
 npm install -g nodemon
 ```
 
 ###### Development server
-Install the dependencies if you have not done it already
+Install dependencies if you have not already done so
 ```
 npm install
 ```
-Then run webpack and have webpack watch for file changes
+Run webpack and have it watch for file changes
 
 ```
 npm run build;          
@@ -65,15 +65,13 @@ In the backend, a worker queries Skyscanner.com's Flights API and filters/format
 
 The front-end accepts user input (travel package selection), and then sends the destination cities as well as preferred Texas airport to the backend.
 
-The backend web server then queries the database for all saved flight quotes and average prices for that route by month retrieved by the worker.
+The backend web server then queries the database for all saved flight quotes retrieved by the worker and average prices for that route by month.
 
-Using this response info, the frontend displays the desirable data in a D3 line chart view, and also generates a 'Buy Now' button offering the cheapest flight available for that route in the next 12 months. Users can toggle between views of each destination within a given travel package and can toggle by preferred origin airport.
+Using the collected data, the frontend uses React to display the desirable data in a D3 line chart view, and also generates a 'Buy Now' button offering the cheapest flight available for that route in the next 12 months. Users can toggle between destinations within a given travel package and can toggle by preferred origin airport.
 
-Login using Facebook will immiediately redirect to preferances to setup notifications of cheapest routes to the user, notifications are sent via Facebook. Preferances are saved to the database so user may log out when leaving the site.
+Login using Facebook will immiediately redirect to preferances to setup notifications of cheapest routes to the user. Notifications are sent via Facebook Graph API. Preferances are saved to the database so user may log out when leaving the site.
 
-Travel requirements is rendered in active destination on photo roll view and brings in relevant information for user to prepare for their trip.
-
-D3 data rendering is done by calling data stored from skyscanner API to show user average cost of flights per month.
+Destination specific travel information is rendered for each destination via button click.
 
 API Reference:
 
