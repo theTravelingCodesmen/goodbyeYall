@@ -5,9 +5,7 @@ let knex = require('../db/db.js');
 let RequestPromise = require("request-promise");
 let ApiKeys = require('../APIKEYS');
 
-
 let testNotification = "You have been !randomly selected as Paul's test subject";
-
 
 //
 //returns all fb user ids from users table
