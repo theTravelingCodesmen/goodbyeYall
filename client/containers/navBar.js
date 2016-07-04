@@ -74,9 +74,7 @@ function mapDispatchToProps( dispatch ){
   return bindActionCreators({ changeLogin: changeLogin }, dispatch)
 }
 
-<<<<<<< HEAD
-export { NavBar, MenuItem, NavDropdown, AirportDropdown }
-=======
 
->>>>>>> ae7089e9e643e521ee27ed193ae53df82e3e9236
+export { NavBar, MenuItem, NavDropdown, AirportDropdown }
+
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
