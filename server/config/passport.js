@@ -21,7 +21,6 @@ if(process.env.NODE_ENV==='production'){
 }
 
 
-
 module.exports = function(passport) {
  passport.serializeUser(function(user, done) {
   //console.log ("line 12 ", user)
@@ -29,18 +28,17 @@ module.exports = function(passport) {
  });
   passport.deserializeUser(function(user, done) {
     //console.log('line 16 deserializeUser ', user)
-    pg.connect(conString, function(err, client, pg_done){
-      
+    pg.connect(conString, function(err, client, pg_done){ 
+     if (err) {
+       return console.error('could not connect to postgres', err);
+     }
+     client.query('SELECT * FROM users WHERE fb_id =' + user.id.toString(), function(err, result) {
        if (err) {
-         return console.error('could not connect to postgres', err);
+         return console.error('line 24 error running query', err);
        }
-       client.query('SELECT * FROM users WHERE fb_id =' + user.id.toString(), function(err, result) {
-         if (err) {
-           return console.error('line 24 error running query', err);
-         }
-         //console.log(result + ' result passport.js')
-         return done(err, result.rows[0])
-       });
+       //console.log(result + ' result passport.js')
+       return done(err, result.rows[0])
+     });
     })
    });
   passport.use(new FacebookStrategy(facebookApi.facebookAuth, function(token, refreshToken, profile, done) {

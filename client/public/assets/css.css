@@ -162,6 +162,10 @@ body {
 	margin-bottom: 0.2em;
 }
 
+.destination-info-mobile {
+    display: none;
+}
+
 .flight-info-container {
 	position: relative;
 	background-color: rgba(255,255,255, 0.55);
@@ -174,9 +178,8 @@ body {
 
 .flight-details {
 	margin: auto;
-	color: blue;
+	color: #003399;
 	text-align: right;
-	border-left-color: black;
 	position: relative;
 	margin-right: 2em;
 	margin-left: 1em;
@@ -195,6 +198,22 @@ body {
 	margin: 0;
 }
 
+.skyscanner {
+	margin-bottom: 1em;
+}
+
+.btn {
+	margin-top: .5em;
+	color: #fff;
+	background-color: #003399;
+	border: none;
+}
+
+.btn:hover {
+	color: #fff;
+	background-color: #013cb2;
+}
+
 .powered-by {
 	position: relative;
 	top: 2em;
@@ -203,8 +222,13 @@ body {
 }
 
 .country-info-button {
-	margin-top: 1em;
-	opacity: .7;
+	color: black;
+	background-color: #c1baba;
+	border: none;
+}
+
+.country-info-button:hover {
+	background-color: #cec8c8;
 }
 
 /*D3 GRAPH ELEMENTS//////////////////////////*/
@@ -222,7 +246,7 @@ body {
 /* info box for d3 graph */
 .infoboxflight {
 	opacity: 0;
-	border:2px solid steelblue;
+	border:2px solid #003399;
 	border-radius:4px;
 	box-shadow:#333333 0px 0px 10px;
 	margin: 0em;
@@ -246,7 +270,7 @@ body {
 
 /* path for svg graph */
 .line {
-  stroke: steelblue;
+  stroke: #003399;
   stroke-width: 2;
   fill: none;
 	background-color: white;
@@ -318,12 +342,20 @@ body {
   left:10%;
 }
 
+.call-to-action a {
+	color: #003399;
+}
+
+.call-to-action-link {
+	color: #013cb2;
+}
+
 .how-it-works-gif {
-    position: relative;
-    margin:5%;
-    bottom:70%;
-    border: 1px black solid;
-    width:60%;
+  position: relative;
+  margin:5%;
+  bottom:70%;
+  border: 1px black solid;
+  width:60%;
 }
 
 /* MEET THE DEVS */
@@ -343,6 +375,7 @@ body {
 .dev-pic {
 	width:70%;
 	box-shadow: 8px 8px 4px #888888;
+            cursor: default;
 }
 
 .icons {
@@ -379,8 +412,9 @@ body {
 }
 
 .package-uno, .package-dos {
-  min-width: 50%;
+  min-width: 49%;
   max-width: 100%;
+  margin: 0.5% 0.5%;
 }
 
 .package-uno:hover,
@@ -458,8 +492,9 @@ footer {
     }
     .fb-login-button {
         position: fixed;
-        top:1%;
-        right:10%;
+        width: 4.0em;
+        top:0.4em;
+        right:2.0em;
     }
 
     .logo > img {
@@ -471,8 +506,14 @@ footer {
         left:-20%;
         font-size: 1.2em;
     }
+    .card-title {
+        margin-top: 19%;
+        margin-bottom:-13%;
+        font-size: 4.5em;
+    }
+
     .value-prop {
-        margin-top: 120px;
+        margin-top: 155px;
         width:95%;
         margin-left: 0%;
         font-size: .8em;
@@ -480,24 +521,16 @@ footer {
     .package-uno {
         min-width: 125%;
         margin-left: -17%;
+        margin-bottom:1.0em;
     }
-
     .package-dos {
         min-width: 123%;
         margin-left: -17%;
+        margin-bottom: 1.0em;
     }
     .carousel {
-        width:95%;
-        margin-left: -1.5%;
-    }
-    .seven-view {
-        width: 120%;
-        margin-left: -10%;
-    }
-
-    .package-view {
-        position: relative;
-        top:120px;
+        width:98.5%;
+        margin-left:-1.8em;
     }
     .mission-statement {
         position: relative;
@@ -506,48 +539,94 @@ footer {
         left: 0%;
         font-size: 3.0em;
     }
-
     .mission-statement h2{
         font-size: 1.7em;
     }
     .mission-statement h4 {
         font-size: 1.2em;
+        margin-top:5%;
     }
     .how-it-works-gif {
         top:5%;
         width:120%;
         left:-12%;
     }
-
     .meet-the-devs-wrapper {
         margin-top:200px;
         display: block;
     }
-
     .meet-the-devs {
         width:720px;
     }
-
+    .seven-view {
+        width: 120%;
+        margin-left: -10%;
+    }
+    .package-view {
+        position: relative;
+        top:120px;
+    }
+    .intro {
+        height: 600px;
+    }
+    .destination-name {
+        font-size: 3.7em;
+    }
+    .destination-location {
+        font-size: 2.5em;
+    }
+    .destination-info {
+        display: none;
+    }
+    .destination-info-mobile {
+        display: unset;
+        color: black;
+        font-size: 2.5em;
+    }
+    .flight {
+        border-right:0px;
+    }
+    .flight-info-container {
+        border: none;
+    }
     .flight-details {
-        width: 100%;
+        text-align:right;
     }
-
+    .active-price {
+        font-size: 5.5em;
+    }
+    .dates {
+        font-size: 3.0em;
+    }
+    .time-ago {
+        font-size: 1.8em;
+    }
+    .buy-now {
+        width:500px;
+        height:100px;
+        font-size: 3em;
+        padding-top: 2%;
+    }
+    .powered-by {
+        position: relative;
+        right:275px;
+        top: 60px;
+        font-size: 0.7em;
+    }
     .skyscanner-logo {
-        width:100px;
+        width:250px;
     }
-
+    .travel-briefing button {
+        width:500px;
+        height:100px;
+        font-size: 3em;
+        color: white;
+        padding-top: 1%;
+        background-color: gray;
+    }
     footer {
         display: none;
     }
-    .intro {
-
-    }
-    .destination-info {
-        display:none;
-    }
-    .active-roll-container {
-        background-size: 500px 1000px;
-
-    }
 
 }
+

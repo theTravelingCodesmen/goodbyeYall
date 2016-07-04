@@ -22,22 +22,22 @@ const bioInfo = [
 		gitHubLink: 'https://github.com/owentemple',
 		resumeLink: ''
 	},
-		{person: 'Paul',
+		{person: 'Paul-Michael',
 		tooltiphover: '',
-		devType: 'Stack',
+		devType: 'Full Stack',
 		languagesStrong:'JavaScript | ReactJS | Redux | NodeJS | ExpressJS | SQL | HTML | Git',
 		languagesExperienced:	'AngularJS | Gulp | Grunt | MongoDB | BackboneJS | CSS | Bootstrap | MithrilJS | JQuery | Mocha | Chai',
-		personalStatement: 'hire me',
-		gitProjectOneLink:'',
-		gitProjectOneTitle:'',
-		gitProjectTwoLink:'',
-		gitProjectTwoTitle:'',
-		gitProjectThreeLink:'',
-		gitProjectThreeTitle:'',
+		personalStatement: 'Former equity options trader, living in Austin, doing full stack development',
+		gitProjectOneLink:'https://offthegridcamping.herokuapp.com/',
+		gitProjectOneTitle:'Off the Grid',
+		gitProjectTwoLink:'https://github.com/FoodFor4/Forked',
+		gitProjectTwoTitle:'Forked',
+		gitProjectThreeLink:'https://github.com/pschreibs85/MVP',
+		gitProjectThreeTitle:'Pauls Podcast Database',
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/16947596',
-		linkedinLink: 'https://www.linkedin.com/in/paulmschreibe',
+		linkedinLink: 'https://www.linkedin.com/in/paulmschreiber',
 		gitHubLink: 'https://github.com/pschreibs85',
-		resumeLink: ''
+		resumeLink: 'https://drive.google.com/file/d/0B3r8y6b_n6icNkRUME1iajJmMG8/view?usp=sharing'
 	},
 		{person: 'Vidush',
 		tooltiphover: '',
@@ -94,66 +94,58 @@ const bioInfo = [
 	}
 ]
 
+//renders meet the devs component
 class MeetTheDevs extends React.Component {
 
-_getDevInfo() {
-
-	return bioInfo.map(function(obj){
-
-
-let tooltip = <Tooltip id='' >{obj.tooltiphover}</Tooltip>;
-
-
-		return( 
-			<div  className='meet-the-devs'>
-				<OverlayTrigger className = 'meet-the-devs-overlay-trigger' overlay={tooltip} placement='right'><a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a></OverlayTrigger>
-				<div><h5>{obj.person}</h5>
-				<div className ='buttons'>
-					<div className='bio'>
-						<BootStrapModal
-							bTitle='Bio'
-							popoverLink='Coding Languages'
-							modalHeaderOne='Technical Skills'
-							modalHeaderTwo='This is my story'
-							topBody='Recent GitHub Projects'
-							modalTitle={obj.devType}
-							PopoverPOne={'STRONG: ' + obj.languagesStrong}
-							PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced} 
-							bodyText={obj.personalStatement} 
-							item={obj.person} 
-							popOverTitle='Technical Knowledge'
-							className='meet-the-devs-dynamic-modal' 						
+	_getDevInfo() {
+		return bioInfo.map(function(obj){
+			return(
+				<div className='meet-the-devs'>
+					<a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a>
+					<div><h5>{obj.person}</h5>
+					<div className ='buttons'>
+						<div className='bio'>
+							<BootStrapModal
+								bTitle='Bio'
+								popoverLink='Programming Languages'
+								modalHeaderOne='Technical Skills'
+								modalHeaderTwo='About'
+								topBody='Recent GitHub Projects'
+								modalTitle={obj.devType}
+								PopoverPOne={'STRONG: ' + obj.languagesStrong}
+								PopoverPTwo={'EXPERIENCED: ' + obj.languagesExperienced}
+								bodyText={obj.personalStatement}
+								item={obj.person}
+								popOverTitle='Technical Knowledge'
 							>
-							<div>Project One:<a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
-							<div>Project Two:<a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
-							<div>Project Three:<a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
-						</BootStrapModal>
-						<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
-					</div>
-						<div className='icons'>
-							<div className='pull-left'> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
-							<div className='pull-right'> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
-						</div>	
-					</div>
-				</div>
-			</div>
-		)
-	});
-}
-
-	render(){
-
-		const bios = this._getDevInfo();
-		return (
-				<div>
-					<div className='nav-spacing'>
-					</div>
-					<div className='meet-the-devs-wrapper'>
-						{bios}
+								<div><a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
+								<div><a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
+								<div><a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
+							</BootStrapModal>
+							<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
+						</div>
+							<div className='icons'>
+								<div className='pull-left'> <a href={obj.linkedinLink} target='_blank'><img className='linkedin' src='/assets/images/linkedin.jpg'/></a></div>
+								<div className='pull-right'> <a href={obj.gitHubLink} target='_blank'><img className='github' src='/assets/images/GitHub.png'/></a></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			)
+		});
+	}
 
+	render(){
+		const bios = this._getDevInfo();
+		return (
+			<div>
+				<div className='nav-spacing'>
+				</div>
+				<div className='meet-the-devs-wrapper'>
+					{bios}
+				</div>
+			</div>
+		)
 	}
 
 }

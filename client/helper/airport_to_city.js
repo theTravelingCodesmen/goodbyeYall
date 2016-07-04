@@ -1,3 +1,4 @@
+//helper object for city name in d3 chart
 module.exports = {
     "AUS-sky": "Austin",
     "DFWA-sky": "Dallas",
@@ -27,6 +28,18 @@ module.exports = {
     "LAS-sky": "Las Vegas",
     "SFO-sky": "San Francisco",
     "NYCA-sky": "New York",
-    "MIAA-sky": "Miami"
+    "MIAA-sky": "Miami",
+    "TYOA-sky": "Tokyo",
+    "HKG-sky": "Hong Kong",
+    "FLR-sky": "Florence",
+    "BERL-sky": "Berlin",
+    "LIM-sky": "Lima",
+    "OGG-sky": "Maui",
+    "NAN-sky": "Fiji",
+    "JMK-sky": "Mykonos",
+    "BKKT-sky": "Ko Phi Phi",
+    "IBZ-sky": "Ibiza",
+    "AUA-sky": "Aruba",
+    "GCM-sky": "Grand Cayman"
 };
 

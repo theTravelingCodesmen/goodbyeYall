@@ -1,3 +1,4 @@
+//helper object for displaying month in active photo div
 module.exports = {
 	'01': 'January',
 	'02': 'February',

@@ -1,14 +1,14 @@
-// calculate the cheapest ever price by route 
-
-// first go thru the quotes dt, and grab the cheapest price by route, ignore outbound and inbound date
-
-// in the array got back, do a .map (function(route))
-	// get the origin and dest city from the dt (cheapest_route_ever)
-	// compare the two obj
-	// if the new price is cheaper, update the cheapest_route_ever row (by id)
 'use strict'
 
 let knex = require('../db/db.js');
+// calculate the cheapest ever price by route 
+
+// first go thru the quotes table and grab the cheapest price by route, ignore outbound and inbound date
+
+// in the returned array, do a .map (function(route))
+	// get the origin and dest city from the dt (cheapest_route_ever)
+	// compare the two obj
+	// if the new price is cheaper, update the cheapest_route_ever row (by id)
 
 knex.getCheapestRouteInQuotes = function(){
 	// look into the quotes datatable and grab the cheapest routes by origin/dest
@@ -37,17 +37,18 @@ knex.insertCheapestRoute = function(obj){
 				return;
 			}
 		}else{
-			throw new Error('line 37 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
+			throw new Error('line 40 worker/cheapestRouteEver.js There is more than one row of current cheapest route, current cheapest route object ', currentCheapest);
 		}
   })
   .catch(function(err){
-		console.log('line 37 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
+		console.log('line 44 worker/cheapestRouteEver.js there is an error inserting or updating cheapest_route_ever table, ', err);
   })
 }
 
 //
 //updates cheapest_route_ever table in db
 function cheapestRouteEverWorker() {
+	console.log('calculating cheapest_route_ever')
 	return knex.getCheapestRouteInQuotes().then(function(data){
 		data = data.sort(function(x, y){
 			if (x.originCity < y.originCity)return 1
