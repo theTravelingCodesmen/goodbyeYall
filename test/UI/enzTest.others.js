@@ -1,6 +1,8 @@
 'use strict'
 //this is for testing: 'NavBar', 'MeetTheDevs', 'MissionStatement', 'ImageCarousel', and 'OuterCardBox';
 
+//Note, currently mount() will work for non-containers. 
+
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
