@@ -13,6 +13,7 @@ import { IS_LOGGED_IN, changeLogin } from '../actions/isLoggedIn';
 
 class NavBar extends React.Component{
 
+
   // componentWillMount(){
   //   localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
   //   this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));

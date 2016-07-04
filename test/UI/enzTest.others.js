@@ -120,7 +120,6 @@ describe('<OuterCardBox />', () => {
     expect(wrapper.find(LinkContainer)).to.have.length(12); 
   });
 })
-
  
 
 describe('<MissionStatement />', () => { 
