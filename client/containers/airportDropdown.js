@@ -21,5 +21,5 @@ function mapDispatchToProps( dispatch ){
   return bindActionCreators({setAirport: setAirport}, dispatch)
 }
 
-
+export { AirportDropdown }
 export default connect(null, mapDispatchToProps)(AirportDropdown);

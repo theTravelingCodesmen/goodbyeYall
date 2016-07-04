@@ -1,9 +1,10 @@
 'use strict'
-//this is for testing: 'NavBar', 'MeetTheDevs', 'MissionStatement', and 'OuterCardBox';
+//this is for testing: 'NavBar', 'MeetTheDevs', 'MissionStatement', 'ImageCarousel', and 'OuterCardBox';
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { NavBar, MenuItem, NavDropdown, AirportDropdown } from '../../client/containers/navBar';
 import { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
@@ -20,43 +21,36 @@ Window.localStorage = {}
 
 describe('<NavBar />', () =>{
 	it('should render <OuterCardBox /> component', () =>{
-		const wrapper = shallow(<NavBar />)
-   expect(wrapper.find('#not')).to.have.length(0);
+   expect(shallow(<NavBar />).find('#not')).to.have.length(0);
 	})
 	it('should contain a logo that is a link to /', () => {
-		const wrapper = shallow(<NavBar />)
-		expect(wrapper.contains(
+		expect(shallow(<NavBar />).contains(
     	<LinkContainer to={{pathname:'/'}}><div><img src='/assets/images/logo.png'/><div className="logo-text">GoodbyeYall</div></div></LinkContainer>
 		))
 	})
 	it('should contain a link to /Package/American Cities', () => {
-		const wrapper = shallow(<NavBar />)
-		expect(wrapper.contains(
+		expect(shallow(<NavBar />).contains(
     	 <LinkContainer to={{pathname:'/Package/American Cities'}} className="navbar-button"><MenuItem eventKey={3.4}><div>American Cities</div></MenuItem></LinkContainer>
 		))
 	})
 	it('should contain a link to /Package/Global Explorer', () => {
-		const wrapper = shallow(<NavBar />)
-		expect(wrapper.contains(
+		expect(shallow(<NavBar />).contains(
     	<LinkContainer to={{pathname:'/Package/Global Explorer'}} className="navbar-button"><MenuItem eventKey={3.3}><div>Global Explorer</div></MenuItem></LinkContainer>
 		))
 	})
 	it('should contain a link to /Package/Seven Wonders', () => {
-		const wrapper = shallow(<NavBar />)
-		expect(wrapper.contains(
+		expect(shallow(<NavBar />).contains(
       <LinkContainer to={{pathname:'/Package/Seven Wonders'}} className="navbar-button"><MenuItem eventKey={3.1}><div>Seven Wonders</div></MenuItem></LinkContainer>
 		))
 	})
 	it('should contain a link to /Package/Seven Natural Wonders', () => {
-		const wrapper = shallow(<NavBar />)
-		expect(wrapper.contains(
+		expect(shallow(<NavBar />).contains(
      <LinkContainer to={{pathname:'/Package/Seven Natural Wonders'}} className="navbar-button"><MenuItem eventKey={3.2}><div>Seven Natural Wonders</div></MenuItem></LinkContainer>
 		))
 	})
-	// it('calls componentDidMount', () =>{
-	// 	const wrapper = mount(xxxxx);
-	// 	expect(xxxxx.prototype.componentDidMount.calledOnce).to.equal(true);
-	// })
+	it('contains a logo class using mount', function () {
+    expect(shallow(<NavBar />).find('.logo')).to.have.length(1);
+  });
 })
 
 
@@ -121,13 +115,11 @@ describe('<OuterCardBox />', () => {
 	})
  	it('contains 12 <LinkContainer/> components, consisting of 4 components directly in the component, 8 components in child component <ImageCarousel /> ', () => {
     const wrapper = mount(<OuterCardBox />);
-    expect(wrapper.find(LinkContainer)).to.have.length(12);
+    expect(wrapper.find(LinkContainer)).to.have.length(12); 
   });
 })
 
-
-
-
+ 
 
 describe('<MissionStatement />', () => { 
 	it('should have nav-spacing div', () => {
