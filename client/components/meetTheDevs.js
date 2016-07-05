@@ -75,7 +75,7 @@ const bioInfo = [
 	},
 		{person:'James',
 		tooltiphover: '',
-		devType: 'Stack',
+		devType: 'FullStack',
 		languagesStrong: 'JavaScript | Angular | React | Node | Express | GIT | SQL | Excel | HTML5',
 		languagesExperienced: 'Postgres | Knex | MongoDB | Redux | Heroku | SOCKET.IO | @RISK | CSS | Bootstrap | ES6',
 		personalStatement: 	'Building effective teams, strategically aligning companies with market trends, '  +
@@ -96,7 +96,7 @@ const bioInfo = [
 
 //renders meet the devs component
 class MeetTheDevs extends React.Component {
-
+ 
 	_getDevInfo() {
 		return bioInfo.map(function(obj){
 			return(

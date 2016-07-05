@@ -131,4 +131,5 @@ let UserForm = React.createClass ({
   }
 })
 
+export { UserForm } 
 export default UserForm;

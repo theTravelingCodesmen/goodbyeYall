@@ -79,4 +79,7 @@ class ActiveDestination extends React.Component {
 	}
 }
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { ActiveDestination	}
+
 export default ActiveDestination;

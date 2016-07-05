@@ -1,25 +1,35 @@
 'use strict'
 //this is for testing: 'NavBar', 'MeetTheDevs', 'MissionStatement', 'ImageCarousel', and 'OuterCardBox';
 
-//Note, client	urrently mount() will work for non-containers. 
+//Note, currently mount() will work for non-containers
+//		 does not work with all containers because the redux state uses localStorage in some instances;
 
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider, connect } from 'react-redux';
+// import configureMockStore from 'redux-mock-store';
+// import promise from 'redux-promise';
 import { NavBar, MenuItem, NavDropdown, AirportDropdown } from '../../client/containers/navBar';
 import { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
 import { spy } from 'sinon';
 import { OuterCardBox, LinkContainer } from '../../client/components/outerCardBox';
 import { MissionStatement } from '../../client/components/missionStatement';
 import { ImageCarousel, Carousel } from  '../../client/components/imageCarousel';
+// import reducers from '../../client/reducers';
 
-// Shallow Rendering
-// Full Dom Rendering
-// Static Rendered Markup
 
-Window.localStorage = {}
+// Window.localStorage = {}
+// const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
+// const mockStore = configureMockStore(createStoreWithMiddleware(reducers))
+// const mockStoreInitialized = mockStore({
+// 		passive: state.destinations.passive,
+// 		active: state.destinations.active,
+// 		package_name:state.destinations.package_name,
+// 		originairport:state.airport.originairport,
+// 		fetching: state.destinations.fetching
+// })
 
 describe('<NavBar />', () =>{
 	it('should render <OuterCardBox /> component', () =>{
@@ -77,10 +87,10 @@ describe('<NavBar />', () =>{
 	 it('should contain 9 <LinkContainer/> components, 6 fro the Packages, 1 for the Logo, 1 for "How it Works", and 1 for "Meet The Devs"',	 () => {
     expect(shallow(<NavBar />).find(LinkContainer)).to.have.length(9); 
   });
-	// work in progress, not passing <Provider stor={} />
-	// it('contains a logo class using mount()', function () {
- //    expect(mount(<NavBar />).find('.logo')).to.have.length(1);
- //  });
+	// work in progress, not passing, issues with localStorage is reducers
+	 // it('contains a logo class using mount()', function () {
+  //    expect(mount(<Provider	 store={store}> <NavBar /></Provider>, store={store}).find('.logo')).to.have.length(1);
+  //  });
 })
 
 
@@ -107,6 +117,7 @@ describe('<MeetTheDevs />', () => {
 			'.icons')).to.have.length(5)
 	})
 })
+
 
 describe('<OuterCardBox />', () => { 
 	it('should have nav-spacing div', () => {
@@ -173,6 +184,7 @@ describe('<MissionStatement />', () => {
 		)).to.equal(true);
 	})
 })
+
 
 describe('<ImageCarousel />', () => { 
 	it('should have a path to Seven Natural Wonders via filmstrip-1', () => {
