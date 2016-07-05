@@ -13,7 +13,7 @@ import { Provider, connect } from 'react-redux';
 // import configureMockStore from 'redux-mock-store';
 // import promise from 'redux-promise';
 import { NavBar, MenuItem, NavDropdown, AirportDropdown } from '../../client/containers/navBar';
-import { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
+import { MeetTheDevs, DynamicModal, Tooltip, OverlayTrigger, Button, bioInfo } from '../../client/components/meetTheDevs';
 import { spy } from 'sinon';
 import { OuterCardBox, LinkContainer } from '../../client/components/outerCardBox';
 import { MissionStatement } from '../../client/components/missionStatement';

@@ -11,7 +11,7 @@ import { spy } from 'sinon';
 import { UserForm } from '../../client/components/userForm';
 // import AirportDropdown from '../../client/containers/airportDropdown';
 import { FlightData } from '../../client/components/flightData';
-import BootStrapModal from '../../client/components/dynamicModals';
+import DynamicModal from '../../client/components/dynamicModals';
 import { CardTitle } from '../../client/components/cardTitle'; 
 import { PassiveDestination, setActiveDestination } from '../../client/containers/passiveDestination';
 import ActiveDestination from '../../client/components/activeDestination';

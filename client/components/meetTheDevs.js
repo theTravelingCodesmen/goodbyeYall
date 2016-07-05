@@ -1,7 +1,7 @@
 'use strict'
 
 import React from 'react';
-import BootStrapModal from './dynamicModals.js';
+import DynamicModal from './dynamicModals.js';
 import {Tooltip, OverlayTrigger, Button} from 'react-bootstrap';
 
 const bioInfo = [
@@ -126,7 +126,7 @@ class MeetTheDevs extends React.Component {
 					<div><h5>{obj.person}</h5>
 					<div className ='buttons'>
 						<div className='bio'>
-							<BootStrapModal
+							<DynamicModal
 								bTitle='Bio'
 								popoverLink='Programming Languages, Libraries & Frameworks'
 								modalHeaderOne='Technical Projects and Experience'
@@ -142,7 +142,7 @@ class MeetTheDevs extends React.Component {
 								<div className='meet-the-devs-modal-line'><a href={obj.gitProjectOneLink} target='_blank'> {' ' + obj.gitProjectOneTitle}</a></div>
 								<div className='meet-the-devs-modal-line'><a href={obj.gitProjectTwoLink} target='_blank'> {' ' + obj.gitProjectTwoTitle}</a></div>
 								<div className='meet-the-devs-modal-line'><a href={obj.gitProjectThreeLink} target='_blank'> {' ' + obj.gitProjectThreeTitle}</a></div>
-							</BootStrapModal>
+							</DynamicModal>
 							<a href={obj.resumeLink} target='_blank' className='resume-link pull-right'><Button  bsStyle='info' block> Resume</Button></a>
 						</div>
 							<div className='icons'>
@@ -171,7 +171,7 @@ class MeetTheDevs extends React.Component {
 }
 
 // 'export' is for enzyme testing, 'export default' is for regular react functionality
-export { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo }
+export { MeetTheDevs, DynamicModal, Tooltip, OverlayTrigger, Button, bioInfo }
 
 export default MeetTheDevs;
 
