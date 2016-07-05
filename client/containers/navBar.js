@@ -74,7 +74,7 @@ function mapDispatchToProps( dispatch ){
   return bindActionCreators({ changeLogin: changeLogin }, dispatch)
 }
 
-
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
 export { NavBar, MenuItem, NavDropdown, AirportDropdown }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

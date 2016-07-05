@@ -149,6 +149,9 @@ class MeetTheDevs extends React.Component {
 	}
 
 }
+
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
 export { MeetTheDevs, BootStrapModal, Tooltip, OverlayTrigger, Button, bioInfo }
+
 export default MeetTheDevs;
 

@@ -39,6 +39,7 @@ class OuterCardBox extends React.Component {
 	}
 }
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
 export { OuterCardBox, LinkContainer };
 
 export default OuterCardBox;

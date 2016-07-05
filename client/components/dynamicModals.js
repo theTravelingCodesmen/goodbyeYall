@@ -97,4 +97,7 @@ const BootStrapModal = React.createClass({
 	}
 })
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { BootStrapModal	}
+
 export default BootStrapModal

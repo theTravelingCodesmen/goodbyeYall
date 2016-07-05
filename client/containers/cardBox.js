@@ -75,6 +75,7 @@ function mapDispatchToProps( dispatch ){
 }
 
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
 export { CardBox, PackageDestinations }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CardBox);
