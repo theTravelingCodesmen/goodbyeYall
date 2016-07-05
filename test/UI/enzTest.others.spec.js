@@ -1,6 +1,7 @@
 'use strict'
 //this is for testing: 'NavBar', 'MeetTheDevs', 'MissionStatement', 'ImageCarousel', and 'OuterCardBox';
 
+// Instruction: comment out componentWillMount and logout in <NavBar /> for the tests to pass correctly (issue with localStorage)
 //Note, currently mount() will work for non-containers
 //		 does not work with all containers because the redux state uses localStorage in some instances;
 
