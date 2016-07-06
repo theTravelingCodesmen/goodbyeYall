@@ -121,7 +121,7 @@ class MeetTheDevs extends React.Component {
 
 		return bioInfo.map(function(obj){
 			return(
-				<div className='meet-the-devs'>
+				<div className='meet-the-devs' key={obj.person}>
 					<a href="#"><img src={obj.gitHubPic} className='dev-pic'></img></a>
 					<div><h5>{obj.person}</h5>
 					<div className ='buttons'>
