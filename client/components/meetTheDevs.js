@@ -10,7 +10,7 @@ const bioInfo = [
 		devType: 'Stack',
 		languagesStrong: 'JavaScript | React | AngularJS | Git | Node.js/Express | SQL | Postgres | HTML/CSS | Bootstrap | jQuery',
 		languagesExperienced:	'MongoDB | Heroku | Backbone.js | Mithril | Python | Photoshop',
-		personalStatement: [[],[],['I build software to help people solve problems and be more creative. I have written code, apps, songs, and books to bring attention and solutions to important challenges.'],
+		personalStatement: [[],[],['I build software to help people solve problems and be more creative. I have written code, apps, songs, and books to bring attention and solutions to important challenges.']],
 		gitProjectOneLink:'https://offthegridcamping.herokuapp.com/',
 		gitProjectOneTitle:'Off the Grid',
 		gitProjectTwoLink:'https://github.com/FoodFor4/Forked',
