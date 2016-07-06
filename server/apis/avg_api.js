@@ -23,6 +23,12 @@ router.get('/:originCity/:destCity', function(req, res){
 				date: date
 			}
 		}))
+		.then( (array) => {
+			let date = JSON.stringify(new Date());
+			let month = date.slice(6,8);
+			let year = date.slice(1,5)
+			return array.filter((price)=> price.date >= (year+'-'+month))
+		})
 		.then( (array) => res.send(array) )
 });
 
