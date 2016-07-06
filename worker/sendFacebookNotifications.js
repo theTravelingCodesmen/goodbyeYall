@@ -120,5 +120,5 @@ function notifyRelevantUsers(notification, preferredOutboundAirport, preferredPa
 
 // notifyAllUsers("You are being spammed by GoodbyeYall.com")
 
-notifyRelevantUsers(testNotification, 'DFWA-sky', 'American Cities')
+notifyRelevantUsers(testNotification, 'AUS-sky', 'American Cities')
 
