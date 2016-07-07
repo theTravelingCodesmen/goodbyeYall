@@ -71,7 +71,7 @@ const bioInfo = [
 		gitHubPic: 'https://avatars3.githubusercontent.com/u/12867107',
 		linkedinLink: 'https://www.linkedin.com/in/scko823',
 		gitHubLink: 'https://github.com/scko823',
-		resumeLink: ''
+		resumeLink: 'http://goo.gl/1a3Orz'
 	},
 		{person:'James',
 		tooltiphover: '',
