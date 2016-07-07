@@ -7,11 +7,14 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 //renders outer card box i.e. landing page
 class OuterCardBox extends React.Component {
+	
+	compontentDidMount () {}
+
 	render(){
 		return (
 			<div >
 				<div className='nav-spacing'></div>
-				<div className='value-prop'>
+				<div className='value-prop'>	
 					<h1 className='main'>We do the work, you do the travel</h1>
 					<h2 className='sub'>Thousands of flights. One low price.</h2>
 					<h5 className='call-to-action'>Choose a travel theme or <a className="call-to-action-link" href="http://www.facebook.com/dialog/oauth?client_id=1071311906250508&scope=email&response_type=token&redirect_uri=http://localhost:4000/Preferences">log in</a> to get started</h5>
@@ -35,5 +38,8 @@ class OuterCardBox extends React.Component {
 		)
 	}
 }
+
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { OuterCardBox, LinkContainer };
 
 export default OuterCardBox;

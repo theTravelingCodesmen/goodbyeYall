@@ -1,4 +1,4 @@
-'use strict'
+ 'use strict'
 
 import axios from 'axios';
 import React from 'react';
@@ -58,5 +58,8 @@ class PackageDestinations extends React.Component {
 function mapDispatchToProps( dispatch ){
 	return bindActionCreators({fetchPackage: fetchPackage}, dispatch)
 }
+
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { PackageDestinations }
 
 export default connect(null, mapDispatchToProps)(PackageDestinations);

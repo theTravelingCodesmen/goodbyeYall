@@ -402,6 +402,10 @@ body {
 	text-decoration: none;
 }
 
+ .meet-the-devs-modal-line {
+  margin-left: 25px;
+ }
+
 /* USER PREFERENCES FORM */
 
 .user-form {

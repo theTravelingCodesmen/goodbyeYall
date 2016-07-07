@@ -131,4 +131,7 @@ let UserForm = React.createClass ({
   }
 })
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { UserForm } 
+
 export default UserForm;

@@ -21,4 +21,8 @@ class MissionStatement extends React.Component {
 	}
 }
 
-export default MissionStatement
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { MissionStatement };
+
+export default MissionStatement;
+
