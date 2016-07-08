@@ -1,8 +1,8 @@
 'use strict'
 
 import React from 'react';
-import ReactDom from 'react-dom';
 
+//renders the package destination
 class CardTitle extends React.Component{
 	render(){
 		return (
@@ -11,5 +11,7 @@ class CardTitle extends React.Component{
 	}
 }
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { CardTitle };
 
 export default CardTitle;

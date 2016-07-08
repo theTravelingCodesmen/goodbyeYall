@@ -42,8 +42,8 @@ import {Popover, Modal, OverlayTrigger, Button, } from 'react-bootstrap';
 //Personal Statement
 //{this.props.personalStatement}
 
-
-const BootStrapModal = React.createClass({
+//modal used for meet the devs bio and country info
+const DynamicModal = React.createClass({
 
   getInitialState() {
     return { showModal: false };
@@ -66,9 +66,9 @@ const BootStrapModal = React.createClass({
 
 	  return (
 	    <div>
-	    	<Button bsStyle={this.props.bsStyle} onClick={this.open}>
-	        {this.props.bTitle}
-	      </Button>
+				<Button className='country-info-button' bsStyle={this.props.bsStyle} onClick={this.open}>
+					{this.props.bTitle}
+				</Button>
         <Modal show={this.state.showModal} onHide={this.close}>
         	<Modal.Header closeButton>
 	        	<Modal.Title className='modal-header'>{this.props.item}</Modal.Title>
@@ -90,12 +90,14 @@ const BootStrapModal = React.createClass({
 	        <Modal.Footer>
 	          <Button onClick={this.close}>Close</Button>
 	        </Modal.Footer>
-
 	      </Modal>
 	    </div>
 	  );
+
 	}
+})
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { DynamicModal	}
 
-	})
-	export default BootStrapModal
+export default DynamicModal

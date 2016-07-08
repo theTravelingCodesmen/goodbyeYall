@@ -2,26 +2,22 @@
 
 let RequestPromise = require("request-promise");
 let PromiseThrottle = require("promise-throttle");
+let Knex = require('../db/db');
 if (process.env.NODE_ENV!=='production'){
   var SkyscannerKeys = require("../APIKEYS.js");
 }
 
-let Knex = require('../db/db');
-
-let originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
-let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky'];
-
-
 let today = new Date;
+let originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
+let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky', 'TYOA-sky', 'HKG-sky', 'FLR-sky', 'BERL-sky', 'LIM-sky', 'OGG-sky', 'NAN-sky', 'JMK-sky', 'IBZ-sky', 'AUA-sky', 'GCM-sky'];
 let promiseThrottle = new PromiseThrottle({
-  requestsPerSecond: 1,          // up to 10 requests per second 
+  requestsPerSecond: 1.5,          // up to 10 requests per second 
   promiseImplementation: Promise  // the Promise library you are using 
 });
 
 
 //
 //adds a given number of days to a date
-
 Date.prototype.addDays = function(days) {
   let flightDate = new Date(this.getTime())
   flightDate.setDate(flightDate.getDate() + days);
@@ -31,7 +27,6 @@ Date.prototype.addDays = function(days) {
 
 //
 //POST request to skyscanner to get session key
-
 function getSessionKey(originplace, destinationplace, outbounddate, inbounddate) {
   let options = {
     method: 'POST',
@@ -60,7 +55,6 @@ function getSessionKey(originplace, destinationplace, outbounddate, inbounddate)
 
 //
 //GET request to skyscanner to get flight info
-
 function pollSession(sessionKey) {
   console.log("pollSession called");
   let options = {
@@ -76,7 +70,6 @@ function pollSession(sessionKey) {
 
 //
 //returs an object with the lowest price for a 10-day round-trip with a given departure date, and a deep link to book
-
 function searchSkyscannerByDate(departureDate, originCity, destinationCity){
   let outboundDate = departureDate;
   let inboundDate = new Date(departureDate.getTime()).addDays(10);
@@ -121,7 +114,6 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
 
 //
 //generates an array of flight dates for the next year
-
 function generateFlightDates(daysOut){
   let dates = [];
   let daysAdded = daysOut;
@@ -137,16 +129,13 @@ function generateFlightDates(daysOut){
 
 //
 // Insert flight object into quotes table
-
 Knex.insertQuotesIntoDb = function(flightObj) {
   return flightObj !== [] ? Knex('quotes').insert(flightObj) : undefined
-  // return Knex('quotes').insert(flightObj);
 }
 
 
 //
 //generates argments array for searchSkyscannerByDate function
-
 function generateArgumentsArray() {  
   let departureDates = generateFlightDates(11);
   let results = [];
@@ -163,7 +152,6 @@ function generateArgumentsArray() {
 
 //
 //starts the chain that handles all of the functions which gets skyscanner to cache data
-
 function masterDataGenerator(){
   let theMasterArray = generateArgumentsArray()
     .map( (infoArray) => {
@@ -174,7 +162,6 @@ function masterDataGenerator(){
 
 //
 //reruns all api calls to skyscanner and inserts results into db
-
 function secondRoundInsertQuotes (){
   let theMasterArray = generateArgumentsArray()
     .map( (infoArray) => {
@@ -193,14 +180,6 @@ function secondRoundInsertQuotes (){
 
 masterDataGenerator()
 setTimeout(secondRoundInsertQuotes, 3600000)
-
-// console.log(DestinationAirportArray.destinationAirportArray)
-
-
-
-
-
-
 
 
 

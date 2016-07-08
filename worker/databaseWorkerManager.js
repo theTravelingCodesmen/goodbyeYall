@@ -13,10 +13,10 @@ function databaseWorkerManager(){
 			return CheapestRouteEver.cheapestRouteEverWorker()
 		})
 		.then( () => {
-			return CalculateAverages.calculateAveragesWorker()
+			return DeleteOldQuotes.deleteOldQuotesWorker()
 		})
 		.then( () => {
-			return DeleteOldQuotes.deleteOldQuotesWorker()
+			return CalculateAverages.calculateAveragesWorker()
 		})
 		.then(knex.closeDb)
 }

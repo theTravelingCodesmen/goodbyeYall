@@ -4,7 +4,6 @@
  * knex database connection and its helper function
  */
 let path = require('path');
-
 let config = require('./knexfile');
 let env = process.env.NODE_ENV || 'development';
 let knex = require('knex')(config[env]);
@@ -156,15 +155,36 @@ knex.ensureSchema = function () {
           table.boolean('Global Explorer').defaultTo(false);
           table.boolean('American Cities').defaultTo(false);
           table.boolean('Party Islands').defaultTo(false);
-          table.boolean('Seven Continents').defaultTo(false);
+          table.boolean('Foodie Cities').defaultTo(false);
           table.boolean('Custom Package').defaultTo(false);
         }).then(function (table) {
           console.log('Created users table.');
         })
-      } 
-    })     
+      }
+    }),
+
+    knex.schema.hasTable('custom_quotes').then(function (exists) {
+      if (!exists) {
+        knex.schema.createTable('quotes', function (table) {
+          table.increments('id').primary();
+          table.float('price');
+          table.string('originCity', 255);
+          table.string('destinationCity', 255);
+          table.date('outboundDate');
+          table.date('inboundDate');
+          table.string('outboundMonth', 2);
+          table.string('outboundYear', 4);
+          table.string('deepLink', 2000);
+          table.timestamp('created_at').defaultTo(knex.fn.now());
+        }).then(function (table) {
+          console.log('Created custom_quotes table.');
+        });
+      }
+    })
+
   ])
 }
+
 
 knex.truncateTable = function (tableName) {
   return knex(tableName).truncate()
@@ -180,5 +200,7 @@ knex.closeDb = function () {
   })
 }
 
+
 // knex.ensureSchema().then(knex.closeDb);
+
 

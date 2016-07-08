@@ -21,5 +21,7 @@ function mapDispatchToProps( dispatch ){
   return bindActionCreators({setAirport: setAirport}, dispatch)
 }
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { AirportDropdown }
 
 export default connect(null, mapDispatchToProps)(AirportDropdown);

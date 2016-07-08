@@ -9,6 +9,11 @@ module.exports = {
 		path: path.join(__dirname, 'client','public','dist'),
 		filename:'bundle.js' 
 	},
+	externals: {
+		'react/addons': true,
+		'react/lib/ExecutionEnvironment': true,
+		'react/lib/ReactContext': true
+	},
 	module:{
 		loaders:[
 			{
@@ -26,6 +31,7 @@ module.exports = {
 		]
 	},
 	plugins:[
+    new webpack.optimize.OccurenceOrderPlugin(true),
 		new webpack.DefinePlugin({
 	    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
 		})
