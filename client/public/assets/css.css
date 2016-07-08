@@ -34,6 +34,7 @@
 .card-title {
 	/*comment out the font choices*/
 /*	font-family: 'Alegreya Sans', sans-serif;*/
+      margin-top: 4%;
 	font-family: 'Chau Philomene One', sans-serif;
 	text-align: center;
 	font-size: 3em;
@@ -324,6 +325,7 @@ body {
 
 .nav-spacing {
 	min-height: 60px;
+      height: 90px;
 }
 
 .seven-view {
@@ -536,6 +538,14 @@ footer {
         width:98.5%;
         margin-left:-1.8em;
     }
+    .user-form {
+      margin-top: 47%;
+      font-size: 2.0em;
+    }
+    .prefs-submit-button {
+      font-size: 1.4em;
+    }
+
     .mission-statement {
         position: relative;
         width:110%;
