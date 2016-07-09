@@ -11,7 +11,7 @@ let today = new Date;
 let originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
 let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky', 'TYOA-sky', 'HKG-sky', 'FLR-sky', 'BERL-sky', 'LIM-sky', 'OGG-sky', 'NAN-sky', 'JMK-sky', 'IBZ-sky', 'AUA-sky', 'GCM-sky'];
 let promiseThrottle = new PromiseThrottle({
-  requestsPerSecond: 1.5,          // up to 10 requests per second 
+  requestsPerSecond: 2,          // up to 10 requests per second 
   promiseImplementation: Promise  // the Promise library you are using 
 });
 
@@ -179,7 +179,8 @@ function secondRoundInsertQuotes (){
 
 
 masterDataGenerator()
-setTimeout(secondRoundInsertQuotes, 3600000)
+setTimeout(secondRoundInsertQuotes, 2600000)
+
 
 
 
