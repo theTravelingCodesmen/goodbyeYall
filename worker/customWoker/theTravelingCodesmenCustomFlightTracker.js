@@ -10,15 +10,15 @@
 let originCities = ["AUS-sky"];
 // 2. Insert destination into destinationCities array
 //   e.g let destinationCities = ["MKE-sky"];
-let destinationCities = [];
+let destinationCities = ["DEN-sky"];
 // 3. Insert date into departureDates array 
 //   e.g. let departureDates = ["2016-08-10"];
 // NOTE: you can put in multiple dates
-let departureDates = [];
+let departureDates = ["2016-08-1o"];
 // 4. Insert date into returnDates array
 //   e.g. let returnDates = ["2016-08-16"];
 // NOTE: you can put in multiple dates
-let returnDates = [];
+let returnDates = ["2016-08-16"];
 // 5. In terminal run the file.
 //   e.g. node worker/customWorker/theTravelingCodesmenCustomFlightTracker.js
 
@@ -39,17 +39,9 @@ let promiseThrottle = new PromiseThrottle({
 
 
 //
-//adds a given number of days to a date
-Date.prototype.addDays = function(days) {
-  let flightDate = new Date(this.getTime())
-  flightDate.setDate(flightDate.getDate() + days);
-  return flightDate;
-}
-
-
-//
 //POST request to skyscanner to get session key
 function getSessionKey(originplace, destinationplace, outbounddate, inbounddate) {
+  console.log("getting session key");
   let options = {
     method: 'POST',
     uri: 'http://partners.api.skyscanner.net/apiservices/pricing/v1.0',
@@ -144,12 +136,13 @@ Knex.insertQuotesIntoDb = function(flightObj) {
 //
 //generates argments array for searchSkyscannerByDate function
 function generateArgumentsArray() {  
-  let departureDates = generateFlightDates(11);
   let results = [];
   originCities.forEach( (city) => {
     destinationCities.forEach( (dest) => {
       departureDates.forEach( (date) => {
-        results.push([date, city, dest])
+        returnDates.forEach( (rDate) => {
+          results.push([date, rDate, city, dest])
+        })
       })
     })
   })
@@ -186,6 +179,6 @@ function theTravelingCodesmenCustomFlightTracker() {
 
 
 masterDataGenerator()
-setTimeout(theTravelingCodesmenCustomFlightTracker, 60000)
+setTimeout(theTravelingCodesmenCustomFlightTracker, 6000)
 
 
