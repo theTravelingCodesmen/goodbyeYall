@@ -9,8 +9,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { IS_LOGGED_IN, changeLogin } from '../actions/isLoggedIn';
 
+
 //renders navBar component
+
 class NavBar extends React.Component{
+
+
   componentWillMount(){
     localStorage.setItem('originairport', (localStorage.getItem('originairport')|| "AUS-sky"));
     this.profilePhoto = (localStorage.getItem('goodbyeyall.profile_photo'));
@@ -70,5 +74,7 @@ function mapDispatchToProps( dispatch ){
   return bindActionCreators({ changeLogin: changeLogin }, dispatch)
 }
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { NavBar, MenuItem, NavDropdown, AirportDropdown }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

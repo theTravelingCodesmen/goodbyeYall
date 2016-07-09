@@ -5,7 +5,7 @@ import FlightData from './flightData';
 import { connect } from 'react-redux';
 import numberToMonth from '../helper/number_to_month';
 import airportToCity from '../helper/airport_to_city';
-import BootStrapModal from './dynamicModals';
+import DynamicModal from './dynamicModals';
 
 
 class ActiveDestination extends React.Component {
@@ -24,7 +24,7 @@ class ActiveDestination extends React.Component {
 	_countryButton() {
 		if(this.props.country !== 'United States'){
 			return(
-			<BootStrapModal item='Travel Information' bTitle={this.props.country + ' Info'} popoverLink={''}>
+			<DynamicModal item='Travel Information' bTitle={this.props.country + ' Info'} popoverLink={''}>
 				<div className='info-block'><div className='aD-modal-title'>Languages: </div>{this.props.lang.map(obj => {
 					return <div className='content'>{obj.language}</div>
 				}) }
@@ -42,7 +42,7 @@ class ActiveDestination extends React.Component {
 					return <div className='plug'>{element} {this._plugPictureInserter(element)}</div>
 				}) }</div>
 				</div>
-			</BootStrapModal>
+			</DynamicModal>
 			)
 		}
 	}
@@ -78,5 +78,8 @@ class ActiveDestination extends React.Component {
 		)
 	}
 }
+
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { ActiveDestination	}
 
 export default ActiveDestination;

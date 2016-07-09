@@ -21,4 +21,7 @@ function mapDispatchToProps(dispatch) {
 	return bindActionCreators({ setActiveDestination: setActiveDestination }, dispatch);
 }
 
+// 'export' is for enzyme testing, 'export default' is for regular react functionality
+export { PassiveDestination, setActiveDestination }
+
 export default connect(null, mapDispatchToProps)(PassiveDestination);

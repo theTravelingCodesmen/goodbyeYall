@@ -8,6 +8,9 @@
     "start": "node server/app.js",
     "dev": "nodemon server/app.js",
     "build": "./node_modules/webpack/bin/webpack.js -w -c",
+    "test_en_others": "mocha --compilers .:babel-core/register test/UI/helpers/browser.js test/UI/enzTest.others.spec.js",
+    "test_en_package": "mocha --compilers .:babel-core/register test/UI/helpers/browser.js test/UI/enzTest.package.spec.js",
+    "test_frontend" : "mocha --compilers .:babel-core/register test/UI/helpers/browser.js test/UI/*.spec.js",
     "postinstall": "./node_modules/webpack/bin/webpack.js -p"
   },
   "repository": {
@@ -59,7 +62,19 @@
     "webpack": "^1.13.1"
   },
   "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-preset-airbnb": "^2.0.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.9.0",
+    "bell-on-bundler-error-plugin": "^1.0.8",
+    "dom-storage": "^2.0.2",
+    "enzyme": "^2.3.0",
+    "jsdom": "^9.3.0",
     "mocha": "^2.5.3",
-    "supertest": "^1.2.0"
+    "react-addons-test-utils": "^15.1.0",
+    "redux-mock-store": "^1.1.2",
+    "sinon": "^1.17.4",
+    "supertest": "^1.2.0",
+    "webpack-dev-server": "^1.14.1"
   }
 }
