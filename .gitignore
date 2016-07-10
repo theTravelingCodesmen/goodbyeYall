@@ -5,6 +5,7 @@ client/public/dist/bundle.js
 client/.DS_Store
 server/.DS_Store
 client/public/.DS_Store
+client/public/assets/images/.BridgeSort
 /**/*.DS_Store
 things to rename
 test.js
