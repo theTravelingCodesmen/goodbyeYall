@@ -14,7 +14,7 @@ let promiseThrottle = new PromiseThrottle({
   requestsPerSecond: 2,          // up to 10 requests per second 
   promiseImplementation: Promise  // the Promise library you are using 
 });
-
+let flightCount = 0;
 
 //
 //adds a given number of days to a date
@@ -102,6 +102,7 @@ function searchSkyscannerByDate(departureDate, originCity, destinationCity){
           return prev.concat(current)
         }, [])
         .reduce( (prev, current) => {
+          flightCount++;
           return prev.price < current.price ? prev : current
         }, [])
     })
@@ -130,6 +131,7 @@ function generateFlightDates(daysOut){
 //
 // Insert flight object into quotes table
 Knex.insertQuotesIntoDb = function(flightObj) {
+  console.log("flightCount:",flightCount);
   return flightObj !== [] ? Knex('quotes').insert(flightObj) : undefined
 }
 
@@ -163,6 +165,7 @@ function masterDataGenerator(){
 //
 //reruns all api calls to skyscanner and inserts results into db
 function secondRoundInsertQuotes (){
+  flightCount = 0;
   let theMasterArray = generateArgumentsArray()
     .map( (infoArray) => {
       return promiseThrottle
@@ -174,7 +177,7 @@ function secondRoundInsertQuotes (){
         .then(Knex.insertQuotesIntoDb)
     })
   )
-  .then(Knex.closeDb);
+  .then(Knex.closeDb)
 }
 
 
