@@ -105,23 +105,23 @@ let UserForm = React.createClass ({
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
-            American Cities
+            American Cities (includes Los Angeles, San Francisco, Las Vegas, Denver, Chicago, New York, Miami)
           </Checkbox>
           <Checkbox checked={this.state['Foodie Cities']} onChange={()=>{this.setState({'Foodie Cities':!this.state['Foodie Cities']});}}>
-            Foodie Cities
+            Foodie Cities (includes Lima, Tokyo, Berlin, Florence, New York, Hong Kong, Paris)
           </Checkbox>
           <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
-            Global Explorer
+            Global Explorer (includes Seoul, London, Paris, Dubai, Istanbul, Singapore, Bangkok)
           </Checkbox>
           <Checkbox checked={this.state['Party Islands']} onChange={()=>{this.setState({'Party Islands':!this.state['Party Islands']});}}>
-            Party Islands
-          </Checkbox> 
+            Party Islands (includes Grand Cayman, Maui, Mykonos, Fiji, Ibiza, Aruba, Ko Phi Phi)
+          </Checkbox>
           <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
-            Seven Wonders of the World
+            Seven Wonders of the World (includes Beijing, Cuzco, New Delhi, Rome, Amman, Cancun, Rio de Janiero)
           </Checkbox>
           <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
-            Seven Natural Wonders of the World
-          </Checkbox> 
+            Seven Natural Wonders of the World (includes Harare, Rio de Janiero, Phoenix, Reykjavik, New Delhi, Sydney, Mexico City)
+          </Checkbox>
           <Button className="prefs-submit-button btn" type="submit">
             Submit
           </Button>
@@ -132,6 +132,6 @@ let UserForm = React.createClass ({
 })
 
 // 'export' is for enzyme testing, 'export default' is for regular react functionality
-export { UserForm } 
+export { UserForm }
 
 export default UserForm;
