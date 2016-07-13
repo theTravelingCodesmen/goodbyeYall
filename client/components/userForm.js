@@ -105,13 +105,13 @@ let UserForm = React.createClass ({
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
-            American Cities - Chicago, Denver, Las Vegas, Los Angeles, Miami, New York, San Francisco
+            American Cities - Chicago, Denver, Las Vegas, Los Angeles, Miami, New York & San Francisco
           </Checkbox>
           <Checkbox checked={this.state['Foodie Cities']} onChange={()=>{this.setState({'Foodie Cities':!this.state['Foodie Cities']});}}>
-            Foodie Cities
+            Foodie Cities - Berlin, Florence Hong Kong, Lima, New York, Paris & Tokyo
           </Checkbox>
           <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
-            Global Explorer
+            Global Explorer - Bangkok, Dubai, Istanbul, London, Paris, Singapore & Seoul
           </Checkbox>
           <Checkbox checked={this.state['Party Islands']} onChange={()=>{this.setState({'Party Islands':!this.state['Party Islands']});}}>
             Party Islands
