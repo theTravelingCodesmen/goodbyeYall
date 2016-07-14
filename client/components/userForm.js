@@ -82,7 +82,7 @@ let UserForm = React.createClass ({
       <div>
         <form className="user-form" onSubmit={this.submitForm}>
           <FormGroup>
-            <h3>{this.state.profile_name ? "Welcome back, " + this.state.profile_name + "! Here are your Facebook Notification Preferences:": "Thanks for signing up! Let us know your notification preferences!" }</h3>
+            <h3>{this.state.profile_name ? "Welcome back, " + this.state.profile_name + "! Here are your Facebook Notification Preferences:": "Thanks for signing up! Select your notification preferences below!" }</h3>
             <FormControl.Static>
               <h4 className="choosePrefs">Choose your preferred outbound airports:</h4>
             </FormControl.Static>
@@ -120,8 +120,7 @@ let UserForm = React.createClass ({
             <strong className="cityPackage">Seven Natural Wonders</strong>  -  Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
           </Checkbox>
           <br/>
-          <p>Click submit to save your preferences and continue your adventure.</p>
-          <br/>
+          <p className="submitMsg">Click submit to save your preferences</p>
           <Button className="prefs-submit-button btn" type="submit">
             Submit
           </Button>
