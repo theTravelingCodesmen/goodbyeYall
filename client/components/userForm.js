@@ -88,13 +88,13 @@ let UserForm = React.createClass ({
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['AUS-sky']} onChange={()=>{this.setState({'AUS-sky':!this.state['AUS-sky']});}}>
-            <strong>Austin</strong> Austin–Bergstrom International(AUS)
+            <strong className="cityPackage">Austin</strong>  -  Austin–Bergstrom International(AUS)
           </Checkbox>
           <Checkbox checked={this.state['DFWA-sky']} onChange={()=>{this.setState({'DFWA-sky':!this.state['DFWA-sky']});}}>
-            <strong>Dallas/Fort Worth</strong> Dallas/Fort Worth International(DFW) & Dallas Love Field(DAL)
+            <strong className="cityPackage">Dallas/Fort Worth</strong>  -  Dallas/Fort Worth International(DFW) & Dallas Love Field(DAL)
           </Checkbox>
           <Checkbox checked={this.state['HOUA-sky']} onChange={()=>{this.setState({'HOUA-sky':!this.state['HOUA-sky']});}}>
-            <strong>Houston</strong> George Bush Intercontinental(IAH) & William P. Hobby(HOU)
+            <strong className="cityPackage">Houston</strong>  -  George Bush Intercontinental(IAH) & William P. Hobby(HOU)
           </Checkbox>
          <FormGroup>
             <FormControl.Static>
@@ -102,23 +102,24 @@ let UserForm = React.createClass ({
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
-            <strong>American Cities</strong>  -  Chicago, Denver, Las Vegas, Los Angeles, Miami, New York & San Francisco
+            <strong className="cityPackage">American Cities</strong>  -  Chicago, Denver, Las Vegas, Los Angeles, Miami, New York & San Francisco
           </Checkbox>
           <Checkbox checked={this.state['Foodie Cities']} onChange={()=>{this.setState({'Foodie Cities':!this.state['Foodie Cities']});}}>
-            <strong>Foodie Cities</strong>  -  Berlin, Florence Hong Kong, Lima, New York, Paris & Tokyo
+            <strong className="cityPackage">Foodie Cities</strong>  -  Berlin, Florence Hong Kong, Lima, New York, Paris & Tokyo
           </Checkbox>
           <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
-            <strong>Global Explorer</strong>  -  Bangkok, Dubai, Istanbul, London, Paris, Singapore & Seoul
+            <strong className="cityPackage">Global Explorer</strong>  -  Bangkok, Dubai, Istanbul, London, Paris, Singapore & Seoul
           </Checkbox>
           <Checkbox checked={this.state['Party Islands']} onChange={()=>{this.setState({'Party Islands':!this.state['Party Islands']});}}>
-            <strong>Party Islands</strong>  -  Aruba, Fiji, Grand Cayman Island, Ibiza, Ko Phi Phi, Maui & Mykonos
+            <strong className="cityPackage">Party Islands</strong>  -  Aruba, Fiji, Grand Cayman Island, Ibiza, Ko Phi Phi, Maui & Mykonos
           </Checkbox> 
           <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
-            <strong>Seven Wonders of the World</strong>  -  Chichén Itzá, Christ the Redeemer, Colosseum, Machu Picchu, Petra, Taj Mahal & The Great Wall
+            <strong className="cityPackage">Seven Wonders of the World</strong>  -  Chichén Itzá, Christ the Redeemer, Colosseum, Machu Picchu, Petra, Taj Mahal & The Great Wall
           </Checkbox>
           <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
-            <strong>Seven Natural Wonders of the World</strong>  -  Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
-          </Checkbox> 
+            <strong className="cityPackage">Seven Natural Wonders of the World</strong>  -  Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
+          </Checkbox>
+          <br/>
           <b>Click submit to save your preferences and continue your adventure.</b>
           <br/>
           <Button className="prefs-submit-button btn" type="submit">
