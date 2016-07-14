@@ -82,7 +82,7 @@ let UserForm = React.createClass ({
       <div>
         <form className="user-form" onSubmit={this.submitForm}>
           <FormGroup>
-            <h3>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+"!" : "Thank you for signing up! Let us know your preferences!" }</h3>
+            <h3>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences." : "Thank you for signing up! Let us know your preferences!" }</h3>
             <br/>
             <ControlLabel>Alert Preferences</ControlLabel>
             <FormControl.Static>
@@ -104,22 +104,22 @@ let UserForm = React.createClass ({
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
-            <b>American Cities</b> - Chicago, Denver, Las Vegas, Los Angeles, Miami, New York & San Francisco
+            American Cities - Chicago, Denver, Las Vegas, Los Angeles, Miami, New York & San Francisco
           </Checkbox>
           <Checkbox checked={this.state['Foodie Cities']} onChange={()=>{this.setState({'Foodie Cities':!this.state['Foodie Cities']});}}>
-            <b>Foodie Cities</b> - Berlin, Florence Hong Kong, Lima, New York, Paris & Tokyo
+            Foodie Cities - Berlin, Florence Hong Kong, Lima, New York, Paris & Tokyo
           </Checkbox>
           <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
-            <b>Global Explorer</b> - Bangkok, Dubai, Istanbul, London, Paris, Singapore & Seoul
+            Global Explorer - Bangkok, Dubai, Istanbul, London, Paris, Singapore & Seoul
           </Checkbox>
           <Checkbox checked={this.state['Party Islands']} onChange={()=>{this.setState({'Party Islands':!this.state['Party Islands']});}}>
-            <b>Party Islands</b> - Aruba, Fiji, Grand Cayman Island, Ibiza, Ko Phi Phi, Maui & Mykonos
+            Party Islands - Aruba, Fiji, Grand Cayman Island, Ibiza, Ko Phi Phi, Maui & Mykonos
           </Checkbox> 
           <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
-            <b>Seven Wonders of the World</b> - Chichén Itzá, Christ the Redeemer, Colosseum, Machu Picchu, Petra, Taj Mahal & The Great Wall
+            Seven Wonders of the World - Chichén Itzá, Christ the Redeemer, Colosseum, Machu Picchu, Petra, Taj Mahal & The Great Wall
           </Checkbox>
           <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
-            <b>Seven Natural Wonders of the World</b></b> - Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
+            Seven Natural Wonders of the World - Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
           </Checkbox> 
           <b>Click submit to save your preferences and continue your adventure.</b>
           <br/>
