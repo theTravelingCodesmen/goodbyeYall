@@ -419,6 +419,7 @@ body {
 
 .choosePrefs {
   margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .package-uno, .package-dos {
