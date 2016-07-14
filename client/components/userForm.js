@@ -117,10 +117,10 @@ let UserForm = React.createClass ({
             <strong className="cityPackage">Seven Wonders of the World</strong>  -  Chichén Itzá, Christ the Redeemer, Colosseum, Machu Picchu, Petra, Taj Mahal & The Great Wall
           </Checkbox>
           <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
-            <strong className="cityPackage">Seven Natural Wonders of the World</strong>  -  Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
+            <strong className="cityPackage">Seven Natural Wonders</strong>  -  Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
           </Checkbox>
           <br/>
-          <b>Click submit to save your preferences and continue your adventure.</b>
+          <p>Click submit to save your preferences and continue your adventure.</p>
           <br/>
           <Button className="prefs-submit-button btn" type="submit">
             Submit
