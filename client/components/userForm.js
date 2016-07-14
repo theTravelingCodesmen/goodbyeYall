@@ -82,8 +82,7 @@ let UserForm = React.createClass ({
       <div>
         <form className="user-form" onSubmit={this.submitForm}>
           <FormGroup>
-            <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences." : "Thank you for signing up. Let us know your preferences" }</p>
-            <b>Click submit to save your preferences and continue your adventure. </b>
+            <h3>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences." : "Thank you for signing up! Let us know your preferences!" }</h3>
             <br/>
             <ControlLabel>Alert Preferences</ControlLabel>
             <FormControl.Static>
