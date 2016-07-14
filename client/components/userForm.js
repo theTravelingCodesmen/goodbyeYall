@@ -86,7 +86,7 @@ let UserForm = React.createClass ({
             <br/>
             <ControlLabel>Alert Preferences</ControlLabel>
             <FormControl.Static>
-              <h4>Choose your preferred outbound airports:</h4>
+              Choose your preferred outbound airports:
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['AUS-sky']} onChange={()=>{this.setState({'AUS-sky':!this.state['AUS-sky']});}}>
@@ -100,7 +100,7 @@ let UserForm = React.createClass ({
           </Checkbox>
          <FormGroup>
             <FormControl.Static>
-              <h4>Choose your preferred travel packages:</h4>
+              Choose your preferred travel packages:
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
