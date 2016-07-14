@@ -84,7 +84,7 @@ let UserForm = React.createClass ({
           <FormGroup>
             <h3>{this.state.profile_name ? "Welcome back, " + this.state.profile_name + "! Here are your Facebook Notification Preferences": "Thanks for signing up! Let us know your preferences!" }</h3>
             <FormControl.Static>
-              <h4>Choose your preferred outbound airports:</h4>
+              <h4 className="choosePrefs">Choose your preferred outbound airports:</h4>
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['AUS-sky']} onChange={()=>{this.setState({'AUS-sky':!this.state['AUS-sky']});}}>
@@ -98,7 +98,7 @@ let UserForm = React.createClass ({
           </Checkbox>
          <FormGroup>
             <FormControl.Static>
-              <h4>Choose your preferred travel packages:</h4>
+              <h4 className="choosePrefs">Choose your preferred travel packages:</h4>
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>

@@ -417,6 +417,10 @@ body {
   background: white;
 }
 
+.choosePrefs {
+  margin-bottom: 0;
+}
+
 .package-uno, .package-dos {
   min-width: 49%;
   max-width: 100%;
