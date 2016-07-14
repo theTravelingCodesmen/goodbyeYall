@@ -417,6 +417,15 @@ body {
   background: white;
 }
 
+.choosePrefs {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.cityPackage {
+  font-size: 1.1em;
+}
+
 .package-uno, .package-dos {
   min-width: 49%;
   max-width: 100%;

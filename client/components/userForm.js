@@ -82,46 +82,45 @@ let UserForm = React.createClass ({
       <div>
         <form className="user-form" onSubmit={this.submitForm}>
           <FormGroup>
-            <p>{this.state.profile_name ? "Welcome back, "+ this.state.profile_name+". Here are your preferences." : "Thank you for signing up. Let us know your preferences" }</p>
-            <b>Click submit to save your preferences and continue your adventure. </b>
-            <br/>
-            <ControlLabel>Alert Preferences</ControlLabel>
+            <h3>{this.state.profile_name ? "Welcome back, " + this.state.profile_name + "! Here are your Facebook Notification Preferences:": "Thanks for signing up! Select your notification preferences below!" }</h3>
             <FormControl.Static>
-              Choose your preferred outbound airports below:
+              <h4 className="choosePrefs">Choose your preferred outbound airports:</h4>
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['AUS-sky']} onChange={()=>{this.setState({'AUS-sky':!this.state['AUS-sky']});}}>
-            Austin (AUS)
+            <strong className="cityPackage">Austin</strong>  -  Austin–Bergstrom International(AUS)
           </Checkbox>
           <Checkbox checked={this.state['DFWA-sky']} onChange={()=>{this.setState({'DFWA-sky':!this.state['DFWA-sky']});}}>
-            Dallas/Fort Worth (DFW & DAL)
+            <strong className="cityPackage">Dallas/Fort Worth</strong>  -  Dallas/Fort Worth International(DFW) & Dallas Love Field(DAL)
           </Checkbox>
           <Checkbox checked={this.state['HOUA-sky']} onChange={()=>{this.setState({'HOUA-sky':!this.state['HOUA-sky']});}}>
-            Houston (IAH & HOU)
+            <strong className="cityPackage">Houston</strong>  -  George Bush Intercontinental(IAH) & William P. Hobby(HOU)
           </Checkbox>
          <FormGroup>
             <FormControl.Static>
-              Choose your preferred travel packages below:
+              <h4 className="choosePrefs">Choose your preferred travel packages:</h4>
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
-            American Cities
+            <strong className="cityPackage">American Cities</strong>  -  Chicago, Denver, Las Vegas, Los Angeles, Miami, New York & San Francisco
           </Checkbox>
           <Checkbox checked={this.state['Foodie Cities']} onChange={()=>{this.setState({'Foodie Cities':!this.state['Foodie Cities']});}}>
-            Foodie Cities
+            <strong className="cityPackage">Foodie Cities</strong>  -  Berlin, Florence Hong Kong, Lima, New York, Paris & Tokyo
           </Checkbox>
           <Checkbox checked={this.state['Global Explorer']} onChange={()=>{this.setState({'Global Explorer':!this.state['Global Explorer']});}}>
-            Global Explorer
+            <strong className="cityPackage">Global Explorer</strong>  -  Bangkok, Dubai, Istanbul, London, Paris, Singapore & Seoul
           </Checkbox>
           <Checkbox checked={this.state['Party Islands']} onChange={()=>{this.setState({'Party Islands':!this.state['Party Islands']});}}>
-            Party Islands
+            <strong className="cityPackage">Party Islands</strong>  -  Aruba, Fiji, Grand Cayman Island, Ibiza, Ko Phi Phi, Maui & Mykonos
           </Checkbox> 
           <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
-            Seven Wonders of the World
+            <strong className="cityPackage">Seven Wonders of the World</strong>  -  Chichén Itzá, Christ the Redeemer, Colosseum, Machu Picchu, Petra, Taj Mahal & The Great Wall
           </Checkbox>
           <Checkbox checked={this.state['Seven Natural Wonders']} onChange={()=>{this.setState({'Seven Natural Wonders':!this.state['Seven Natural Wonders']});}}>
-            Seven Natural Wonders of the World
-          </Checkbox> 
+            <strong className="cityPackage">Seven Natural Wonders</strong>  -  Aurora Borealis, Great Barrier Reef, Harbor of Rio de Janeiro, Mount Everest, Parícutin Volcano, The Grand Canyon & Victoria Falls
+          </Checkbox>
+          <br/>
+          <p className="submitMsg">Click submit to save your preferences</p>
           <Button className="prefs-submit-button btn" type="submit">
             Submit
           </Button>
