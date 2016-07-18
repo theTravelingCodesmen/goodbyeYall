@@ -40,7 +40,7 @@ class NavBar extends React.Component{
         <Nav>
           <LinkContainer className="navbar-button" to={{pathname:'/HowItWorks'}}><NavItem eventKey={2} href="#">How it Works</NavItem></LinkContainer>
           <LinkContainer className="navbar-button" to={{pathname:'/MeetTheDevs'}}><NavItem eventKey={3} href="#">Meet the Devs</NavItem></LinkContainer>
-          <NavDropdown className="navbar-button" eventKey={3} title="Travel Packages" id="basic-nav-dropdown">
+          <NavDropdown className="navbar-button" eventKey={3} title="Travel Themes" id="basic-nav-dropdown">
             <LinkContainer to={{pathname:'/Package/American Cities'}} className="navbar-button"><MenuItem eventKey={3.1}><div>American Cities</div></MenuItem></LinkContainer>
             <LinkContainer to={{pathname:'/Package/Foodie Cities'}} className="navbar-button"><MenuItem eventKey={3.2}><div>Foodie Cities</div></MenuItem></LinkContainer>
             <LinkContainer to={{pathname:'/Package/Global Explorer'}} className="navbar-button"><MenuItem eventKey={3.3}><div>Global Explorer</div></MenuItem></LinkContainer>
