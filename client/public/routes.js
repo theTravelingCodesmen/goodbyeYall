@@ -9,13 +9,6 @@ import { Route, IndexRoute } from 'react-router';
 import CardBox from '../containers/cardBox';
 import UserForm from '../components/userForm';
 
-class Test extends React.Component {
-	render(){
-		return (<div>test</div>)
-	}
-
-}
-
 export default(
 				<Route path="/" component={NavBar}>
 					<IndexRoute component={OuterCardBox} />
