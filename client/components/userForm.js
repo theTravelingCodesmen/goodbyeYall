@@ -98,7 +98,7 @@ let UserForm = React.createClass ({
           </Checkbox>
          <FormGroup>
             <FormControl.Static>
-              <h4 className="choosePrefs">Choose your preferred travel theme:</h4>
+              <h4 className="choosePrefs">Choose your preferred travel themes:</h4>
             </FormControl.Static>
           </FormGroup>
           <Checkbox checked={this.state['American Cities']} onChange={()=>{this.setState({'American Cities':!this.state['American Cities']});}}>
