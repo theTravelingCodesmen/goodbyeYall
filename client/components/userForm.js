@@ -112,7 +112,7 @@ let UserForm = React.createClass ({
           </Checkbox>
           <Checkbox checked={this.state['Party Islands']} onChange={()=>{this.setState({'Party Islands':!this.state['Party Islands']});}}>
             <strong className="cityPackage">Party Islands</strong>  -  Aruba, Fiji, Grand Cayman Island, Ibiza, Ko Phi Phi, Maui & Mykonos
-          </Checkbox> 
+          </Checkbox>
           <Checkbox checked={this.state['Seven Wonders']} onChange={()=>{this.setState({'Seven Wonders':!this.state['Seven Wonders']});}}>
             <strong className="cityPackage">Seven Wonders of the World</strong>  -  Chichén Itzá, Christ the Redeemer, Colosseum, Machu Picchu, Petra, Taj Mahal & The Great Wall
           </Checkbox>
@@ -131,6 +131,6 @@ let UserForm = React.createClass ({
 })
 
 // 'export' is for enzyme testing, 'export default' is for regular react functionality
-export { UserForm } 
+export { UserForm }
 
 export default UserForm;
