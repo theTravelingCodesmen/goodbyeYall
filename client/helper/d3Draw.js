@@ -95,7 +95,7 @@ function d3LineDraw (targetDOM, endpoint) {
           .attr('fill','red')
           .attr("cx", function(d) { return x(d.date); })
           .attr("cy", function(d) { return y(d.price); })
-          .on("mouseover", function(d) { showData(this, d3.time.format("%b %Y")(d.date) + ': $' + d.price);})
+          .on("mouseover", function(d) { showData(this, d3.time.format("%b %Y")(d.date) + ': $' + d.price.toFixed(2));})
           .on("mouseout", function(){ hideData();});
 
       // Add the X Axis
