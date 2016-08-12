@@ -29,7 +29,8 @@ knex.insertCheapestRoute = function(obj){
 			return knex('cheapest_route_ever').insert(obj)
 		}
 		else if (currentCheapest.length===1){
-			if(obj.cheapest_price <= currentCheapest[0].cheapest_price){
+			if(obj.cheapest_price < currentCheapest[0].cheapest_price){
+				obj.created_at = knex.fn.now();
 				return knex('cheapest_route_ever').where('id','=',currentCheapest[0].id).update(obj)
 			}
 			else{
