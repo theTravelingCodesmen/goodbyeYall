@@ -59,7 +59,6 @@ class ActiveDestination extends React.Component {
 		}
 	}
 	loaded(){
-		console.log("Loaded")
 		this.setState({style:Object.assign({},this.state.style, {"visibility":"visible"})})
 	}
 
