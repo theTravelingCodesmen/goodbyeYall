@@ -9,6 +9,18 @@ import DynamicModal from './dynamicModals';
 
 
 class ActiveDestination extends React.Component {
+	constructor(props){
+		super(props)
+		this.state = {
+			style:{'backgroundImage': 'url(' + this.props.next_image_url + ')', 'visibility':'hidden'}
+		}
+	}
+
+	componentWillReceiveProps(nextProps) {
+	  this.setState({
+	    style: Object.assign({}, this.state.style,{'backgroundImage': 'url(' + nextProps.next_image_url + ')'})
+	  });
+	}
 
 	//inserts corresponding plug photo into country info modal
 	_plugPictureInserter(element) {
@@ -46,11 +58,15 @@ class ActiveDestination extends React.Component {
 			)
 		}
 	}
+	loaded(){
+		console.log("Loaded")
+		this.setState({style:Object.assign({},this.state.style, {"visibility":"visible"})})
+	}
 
 	//renders active photo div
 	render() {
 		return(
-			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
+			<div className='active-photo-container' onLoad={this.loaded.bind(this)} ref="active" style={this.state.style}>
 				<div className='intro'>
 					<h1 className='destination-name'>{this.props.title}</h1>
 					<h3 className='destination-location'>{this.props.city_name}</h3>
