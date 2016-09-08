@@ -18,7 +18,7 @@ class ActiveDestination extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 	  this.setState({
-	    style: Object.assign({}, this.state.style,{'visibility':'hidden', 'backgroundImage': 'url(' + nextProps.next_image_url + ')'})
+			style: Object.assign({}, this.state.style,{'backgroundImage': 'url(' + nextProps.next_image_url + ')'})
 	  });
 	}
 
@@ -59,15 +59,13 @@ class ActiveDestination extends React.Component {
 		}
 	}
 	loaded(){
-
 		this.setState({style:Object.assign({},this.state.style, {"visibility":"visible"})})
 	}
 
 	//renders active photo div
 	render() {
 		return(
-			<div className='active-photo-container' style={this.state.style}>
-				<img onLoad={this.loaded.bind(this)} src={this.props.next_image_url} style={{"width":"0px", "height":"0px"}}></img>
+			<div className='active-photo-container' onLoad={this.loaded.bind(this)} ref="active" style={this.state.style}>
 				<div className='intro'>
 					<h1 className='destination-name'>{this.props.title}</h1>
 					<h3 className='destination-location'>{this.props.city_name}</h3>
