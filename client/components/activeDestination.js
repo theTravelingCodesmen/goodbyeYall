@@ -7,7 +7,7 @@ import numberToMonth from '../helper/number_to_month';
 import airportToCity from '../helper/airport_to_city';
 import DynamicModal from './dynamicModals';
 
-
+class ActiveDestination extends React.Component {
 	//inserts corresponding plug photo into country info modal
 	_plugPictureInserter(element) {
 		return(
