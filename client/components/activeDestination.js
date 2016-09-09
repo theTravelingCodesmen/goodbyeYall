@@ -7,21 +7,7 @@ import numberToMonth from '../helper/number_to_month';
 import airportToCity from '../helper/airport_to_city';
 import DynamicModal from './dynamicModals';
 
-
 class ActiveDestination extends React.Component {
-	constructor(props){
-		super(props)
-		this.state = {
-			style:{'backgroundImage': 'url(' + this.props.next_image_url + ')', 'visibility':'hidden'}
-		}
-	}
-
-	componentWillReceiveProps(nextProps) {
-	  this.setState({
-	    style: Object.assign({}, this.state.style,{'visibility':'hidden', 'backgroundImage': 'url(' + nextProps.next_image_url + ')'})
-	  });
-	}
-
 	//inserts corresponding plug photo into country info modal
 	_plugPictureInserter(element) {
 		return(
@@ -58,16 +44,12 @@ class ActiveDestination extends React.Component {
 			)
 		}
 	}
-	loaded(){
 
-		this.setState({style:Object.assign({},this.state.style, {"visibility":"visible"})})
-	}
 
 	//renders active photo div
 	render() {
 		return(
-			<div className='active-photo-container' style={this.state.style}>
-				<img onLoad={this.loaded.bind(this)} src={this.props.next_image_url} style={{"width":"0px", "height":"0px"}}></img>
+			<div className='active-photo-container' style={{'backgroundImage': 'url(' + this.props.next_image_url + ')'}}>
 				<div className='intro'>
 					<h1 className='destination-name'>{this.props.title}</h1>
 					<h3 className='destination-location'>{this.props.city_name}</h3>
