@@ -1,13 +1,13 @@
 'use strict'
 
-let router = require('express').Router();
-let knex = require('../db/db.js');
-let RequestPromise = require("request-promise");
-let ApiKeys = require('../APIKEYS');
+const router = require('express').Router();
+const knex = require('../db/db.js');
+const RequestPromise = require("request-promise");
+const ApiKeys = require('../APIKEYS');
 
-let testNotification = "Time to say ciao y'all because flights to Rome and Florence are the cheapest we've seen";
+const testNotification = "Austin to Mexico City, Cancun, LA & SF for $204 or less! Cheapest ever on GoodybyeYall.com!";
 //length cutoff
-// let testNotification = "Wow! We just found round trip tickets from Dallas to Denver, LA, New York, Chicago, Mia"
+// const testNotification = "Wow! We just found round trip tickets from Dallas to Denver, LA, New York, Chicago, Mia"
 
 //
 //returns all fb user ids from users table
@@ -122,5 +122,5 @@ function notifyRelevantUsers(notification, preferredOutboundAirport, preferredPa
 
 // notifyAllUsers("Time to say ciao y'all because flights to Rome and Florence are the cheapest we've seen at GoodybyeYall.com")
 
-// notifyRelevantUsers(testNotification, 'DFWA-sky', 'Foodie Cities')
+notifyRelevantUsers(testNotification, 'AUS-sky', 'American Cities')
 
