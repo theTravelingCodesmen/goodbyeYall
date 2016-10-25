@@ -115,7 +115,7 @@ let rioHarbor = {
 };
 
 let northernLights = {
-  title:"The Aurora Borealis (Northern Lights)",
+  title:"The Aurora Borealis",
   airport_code:"REYK-sky",
   country:"Iceland",
   city_name:"Reykjavik, Iceland",

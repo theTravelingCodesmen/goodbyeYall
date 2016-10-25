@@ -1,16 +1,16 @@
 'use strict'
 
-let RequestPromise = require("request-promise");
-let PromiseThrottle = require("promise-throttle");
-let Knex = require('../db/db');
+const RequestPromise = require("request-promise");
+const PromiseThrottle = require("promise-throttle");
+const Knex = require('../db/db');
 if (process.env.NODE_ENV!=='production'){
   var SkyscannerKeys = require("../APIKEYS.js");
 }
 
-let today = new Date;
-let originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
-let destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky', 'TYOA-sky', 'HKG-sky', 'FLR-sky', 'BERL-sky', 'LIM-sky', 'OGG-sky', 'NAN-sky', 'JMK-sky', 'IBZ-sky', 'AUA-sky', 'GCM-sky'];
-let promiseThrottle = new PromiseThrottle({
+const today = new Date;
+const originCities = ["DFWA-sky", "HOUA-sky", "AUS-sky"];
+const destinationCities = ['AMMA-sky', 'RIOA-sky', 'ROME-sky', 'DEL-sky', 'CUN-sky', 'BJSA-sky', 'CUZ-sky', 'HRE-sky', 'REYK-sky', 'PHXA-sky', 'SYD-sky', 'MEX-sky', 'LOND-sky', 'BKKT-sky', 'PARI-sky', 'DXBA-sky', 'ISTA-sky', 'SIN-sky', 'SELA-sky', 'LAX-sky', 'CHIA-sky', 'DEN-sky', 'LAS-sky', 'SFO-sky', 'NYCA-sky', 'MIAA-sky', 'TYOA-sky', 'HKG-sky', 'FLR-sky', 'BERL-sky', 'LIM-sky', 'OGG-sky', 'NAN-sky', 'JMK-sky', 'IBZ-sky', 'AUA-sky', 'GCM-sky'];
+const promiseThrottle = new PromiseThrottle({
   requestsPerSecond: 1.75,          // up to 10 requests per second 
   promiseImplementation: Promise  // the Promise library you are using 
 });

@@ -1,19 +1,23 @@
 'use strict'
 
-let knex = require('../db/db.js');
+const knex = require('../db/db.js');
 
 knex.delOldQuotes = function(){
 	//get any quotes in the quote tables
-	return knex('quotes')
-				.where('created_at','<', new Date(Date.now()-30*60*60*1000))
-				.where('calculated', true)
-				.del()
+	return (
+		knex('quotes')
+		.where('created_at','<', new Date(Date.now()-30*60*60*1000))
+		.where('calculated', true)
+		.del()
+		)
 }
 
 knex.delOldThirtyDayQuote = function(){
-	return knex('last_thirty_days')
-				.where('created_at','<', new Date(Date.now()-30*24*60*60*1000))
-				.del()
+	return (
+		knex('last_thirty_days')
+		.where('created_at','<', new Date(Date.now()-30*24*60*60*1000))
+		.del()
+		)
 }
 
 

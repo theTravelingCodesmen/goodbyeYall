@@ -1,6 +1,6 @@
 'use strict'
 
-let knex = require('../db/db.js');
+const knex = require('../db/db.js');
 // calculate the cheapest ever price by route 
 
 // first go thru the quotes dt, and grab the cheapest price by route, ignore outbound and inbound date

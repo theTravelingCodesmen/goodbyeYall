@@ -1,10 +1,10 @@
 'use strict'
 
-let knex = require('../db/db');
-let CheapestRouteLastThirtyDays = require('./cheapestRouteLastThirtyDays');
-let CheapestRouteEver = require('./cheapestRouteEver');
-let CalculateAverages = require('./calculateAverages');
-let DeleteOldQuotes = require('./deleteOldQuotes');
+const knex = require('../db/db');
+const CheapestRouteLastThirtyDays = require('./cheapestRouteLastThirtyDays');
+const CheapestRouteEver = require('./cheapestRouteEver');
+const CalculateAverages = require('./calculateAverages');
+const DeleteOldQuotes = require('./deleteOldQuotes');
 
 
 function databaseWorkerManager(){

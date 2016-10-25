@@ -21,6 +21,7 @@ class PackageDestinations extends React.Component {
 							_id = {dest.id}
 							main_image_url = {dest.main_image_url}
 							price = {dest.bookDetails.price}
+							destination = {dest.title}
 						/>
 					})
 				}
