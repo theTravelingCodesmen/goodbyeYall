@@ -126,6 +126,16 @@ body {
 	opacity: 0;
 }
 
+.passive-title {
+  position: relative;
+  left: -1em;
+  font-size: .55em;
+  min-width: 7em;
+  max-width: 7em;
+  color: white;
+  font-weight: bold;
+}
+
 /*ACTIVE PHOTO CONTAINER ELEMENTS/////////////*/
 /*///////////////////////////////////////////*/
 .active-photo-container {
